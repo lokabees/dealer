@@ -1,0 +1,22 @@
+/**
+ * Global form settings have to be set in the "tailwind.config.js".
+ * Here a plugin from Tailwind called "Tailwind Custom Forms" is used (https://tailwindcss-custom-forms.netlify.app/)
+ */
+
+.form {
+  &-input,
+  &-select {
+    @apply block w-full;
+    :focus {
+      @apply outline-none;
+    }
+  }
+}
+
+label {
+  @apply text-grey-dark leading-loose mt-3;
+}
+
+.error {
+  @apply text-xs text-primary inline-block;
+}

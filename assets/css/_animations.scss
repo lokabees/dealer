@@ -1,0 +1,26 @@
+/**
+ * Transition and Animation
+ */
+
+// Transitions using the page hook
+
+.page-enter-active, .page-leave-active {
+    @apply transition duration-150 ease-in-out;
+}
+
+.page-enter, .page-leave-active {
+    @apply opacity-0;
+}
+
+/* Enter and leave animations can use different */
+.toast-fade-enter-active {
+  transition: all .3s ease-in-out;
+}
+.toast-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.toast-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateY(-2em);
+  opacity: 0;
+}

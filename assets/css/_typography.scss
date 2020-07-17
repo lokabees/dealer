@@ -1,0 +1,30 @@
+h1,
+h2,
+h3 {
+  @apply font-serif antialiased select-none;
+}
+
+h1 {
+  @apply text-5xl;
+}
+
+h2 {
+  @apply text-4xl;
+}
+
+h3 {
+  @apply text-3xl;
+}
+
+// Typography
+a {
+  @apply text-warning transition ease-in-out duration-150;
+
+  &:hover {
+    @apply text-primary no-underline;
+  }
+
+  &:focus {
+    @apply text-primary outline-none no-underline;
+  }
+}

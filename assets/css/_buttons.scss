@@ -1,0 +1,38 @@
+button,
+.button {
+  @apply font-bold py-2 px-5 rounded font-normal;
+
+  &:focus {
+    @apply outline-none;
+  }
+
+  &.primary {
+    @apply bg-primary;
+    &:hover {
+      @apply bg-secondary;
+    }
+    &:focus {
+      @apply outline-none;
+    }
+  }
+
+  &.secondary {
+    @apply bg-grey-light font-bold text-black transition ease-in duration-100;
+    &:hover {
+      @apply bg-white border-none;
+    }
+    &:focus {
+      @apply outline-none;
+    }
+  }
+
+  &.light {
+    @apply bg-warning-light text-black;
+    &:hover {
+      @apply bg-warning text-black;
+    }
+    &:focus {
+      @apply outline-none;
+    }
+  }
+}
