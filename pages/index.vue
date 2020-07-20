@@ -3,7 +3,6 @@
     <div class="mt-5">
       <h1 class="title">
         dealer
-        <icon name="comments" />
       </h1>
       <button @click="logout">logout</button>
     </div>
