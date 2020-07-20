@@ -53,12 +53,24 @@ export default {
           ...this.guest,
           master: process.env.VUE_APP_MASTER_KEY,
         })
-      } catch (e) {
-        console.error(e)
+      } catch ({
+        response: {
+          status,
+          data: { message },
+        },
+      }) {
+        let errorMessage
 
+        switch (status) {
+          case 409:
+            errorMessage = this.$t('signup.error_messages.conflict')
+            break
+          default:
+            errorMessage = this.$t('signup.error_messages.other')
+        }
         // user already exists
         this.showModal({
-          message: this.$t('error_messages.conflict'),
+          message: errorMessage,
           confirmText: this.$t('general.ok'),
         })
       }

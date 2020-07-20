@@ -13,7 +13,11 @@
     "password": "Password",
     "confirm_password": "Confirm password",
     "email": "Email",
-    "signup": "Sign up"
+    "signup": "Sign up",
+    "error_messages": {
+      "conflict": "Email already exists!",
+      "other": "An unknown error occured. Try reloading the page and login again."
+    }
   },
   "navbar": {
     "home": "Home",
@@ -32,8 +36,5 @@
   },
   "general": {
     "ok": "Ok"
-  },
-  "error_messages": {
-    "conflict": "Email already exists!"
   }
 }
