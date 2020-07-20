@@ -119,12 +119,13 @@ export default {
           login: {
             url: '/api/auth',
             method: 'post',
+            propertyName: 'token',
           },
           logout: { url: '/api/auth/logout', method: 'post' },
           user: {
             url: '/api/users/me',
             method: 'get',
-            propertyName: 'user',
+            propertyName: '',
           },
         },
       },

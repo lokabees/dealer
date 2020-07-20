@@ -5,13 +5,22 @@
         dealer
         <icon name="comments" />
       </h1>
-      <div class="">
-        asdasd
-      </div>
+      <button @click="logout">logout</button>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    async logout() {
+      try {
+        await this.$auth.logout()
+        this.$router.push('/login')
+      } catch (e) {
+        console.error(e)
+      }
+    },
+  },
+}
 </script>

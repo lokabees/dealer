@@ -1,8 +1,6 @@
 <template>
   <div class="">
-    <h1>Login</h1>
-    {{ guest }}
-    {{ $auth.loggedIn }}
+    <h1 class="py-10">Login</h1>
     <FormulateForm v-model="guest" @submit="localLogin">
       <FormulateInput
         name="email"
@@ -20,7 +18,6 @@
       />
       <FormulateInput type="submit" :label="$t('login.login')" />
     </FormulateForm>
-    <button @click="logout">logout</button>
 
     <n-link to="/signup">signup</n-link>
   </div>
@@ -29,6 +26,12 @@
 <script>
 export default {
   auth: false,
+  middleware({ $auth, redirect }) {
+    if ($auth.loggedIn) {
+      console.log('hrtrd')
+      return redirect('/')
+    }
+  },
   data() {
     return {
       guest: {},
@@ -37,13 +40,10 @@ export default {
   methods: {
     async localLogin() {
       try {
-        const { data } = await this.$auth.loginWith('local', {
+        await this.$auth.loginWith('local', {
           data: { ...this.guest, master: process.env.VUE_APP_MASTER_KEY },
         })
-        console.log(data)
-        // TODO: should be done automatically
-        // this.$auth.setUser({ token: '123', _id: '123', role: 'user' })
-        // this.$router.push('/')
+        this.$router.push('/')
       } catch (e) {
         console.error(e)
       }

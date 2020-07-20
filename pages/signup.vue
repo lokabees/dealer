@@ -48,7 +48,6 @@ export default {
   methods: {
     ...mapMutations('modal', { showModal: 'showModal' }),
     async localSignUp() {
-      console.log(this.guest)
       try {
         await this.$axios.post(`/api/users`, {
           ...this.guest,

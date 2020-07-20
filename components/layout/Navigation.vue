@@ -30,7 +30,7 @@
           <div class="ml-auto">
             <ul>
               <li>
-                <n-link to="/account/login">
+                <n-link to="/login">
                   {{ $t('navbar.login') }}
                 </n-link>
               </li>
