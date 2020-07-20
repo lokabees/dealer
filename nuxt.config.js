@@ -1,3 +1,4 @@
+require('dotenv').config()
 export default {
   /*
    ** Nuxt rendering mode
@@ -30,6 +31,14 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
+   ** Environment variables
+   ** https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config/
+   */
+  publicRuntimeConfig: {},
+  privateRuntimeConfig: {
+    appMasterKey: process.env.VUE_APP_MASTER_KEY,
+  },
+  /*
    ** Global CSS
    */
   css: ['~/assets/css/main'],
@@ -37,7 +46,7 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['~/plugins/vue-formulate'],
+  plugins: ['~/plugins/modules/i18n', '~/plugins/vue-formulate'],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -93,11 +102,46 @@ export default {
       clientsClaim: false,
     },
   },
+  /**
+   ** nuxt/auth configuration
+   ** See https://auth.nuxtjs.org/
+   */
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: '/api/auth',
+            method: 'post',
+          },
+          logout: { url: '/api/auth/logout', method: 'post' },
+          user: {
+            url: '/api/users/me',
+            method: 'get',
+            propertyName: 'user',
+          },
+        },
+      },
+    },
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    proxy: true,
+  },
+
+  proxy: {
+    '/api': { target: 'http://localhost:9000' },
+  },
+  /**
+   ** router configuration
+   */
+  router: {
+    middleware: ['auth'],
+  },
+
   /*
    ** Content module configuration
    ** See https://content.nuxtjs.org/configuration
