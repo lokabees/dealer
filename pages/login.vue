@@ -24,36 +24,45 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
-  auth: false,
-  middleware({ $auth, redirect }) {
-    if ($auth.loggedIn) {
-      console.log('hrtrd')
-      return redirect('/')
-    }
-  },
+  auth: 'guest',
   data() {
     return {
       guest: {},
     }
   },
   methods: {
+    ...mapMutations('modal', { showModal: 'showModal' }),
     async localLogin() {
       try {
         await this.$auth.loginWith('local', {
           data: { ...this.guest, master: process.env.VUE_APP_MASTER_KEY },
         })
         this.$router.push('/')
-      } catch (e) {
-        console.error(e)
-      }
-    },
-    async logout() {
-      try {
-        const response = await this.$auth.logout()
-        console.log(response)
-      } catch (e) {
-        console.error(e)
+      } catch ({
+        response: {
+          status,
+          data: { message },
+        },
+      }) {
+        let errorMessage
+
+        switch (status) {
+          case 401:
+            if (message.trim() === 'Deine E-Mail ist nicht verifiziert')
+              errorMessage = this.$t('login.error_messages.not_verified')
+            else
+              errorMessage = this.$t('login.error_messages.invalid_credentials')
+            break
+          default:
+            errorMessage = this.$t('login.error_messages.other')
+        }
+
+        this.showModal({
+          message: errorMessage,
+          confirmText: this.$t('general.ok'),
+        })
       }
     },
   },

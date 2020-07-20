@@ -2,7 +2,12 @@
   "login": {
     "login": "Login",
     "password": "Password",
-    "email": "Email"
+    "email": "Email",
+    "error_messages": {
+      "not_verified": "Your email has not yet been verified. Please check your inbox. If you did not receive our verification email tell us via hello@lokabees.com",
+      "invalid_credentials": "Invalid credentials. Please enter a correct username and password.",
+      "other": "An unknown error occured. Try reloading the page and login again."
+    }
   },
   "signup": {
     "password": "Password",
@@ -13,7 +18,8 @@
   "navbar": {
     "home": "Home",
     "contact": "contact",
-    "login": "Login"
+    "login": "Login",
+    "logout": "Logout"
   },
   "footer": {
     "imprint": "Imprint",

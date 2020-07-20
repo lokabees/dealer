@@ -30,9 +30,12 @@
           <div class="ml-auto">
             <ul>
               <li>
-                <n-link to="/login">
+                <n-link v-if="!$auth.loggedIn" to="/login">
                   {{ $t('navbar.login') }}
                 </n-link>
+                <button v-else @click="logout">
+                  {{ $t('navbar.logout') }}
+                </button>
               </li>
             </ul>
           </div>
@@ -59,6 +62,14 @@ export default {
     handleScroll() {
       // Your scroll handling here
       this.scroll = !!window.scrollY
+    },
+    async logout() {
+      try {
+        await this.$auth.logout()
+        this.$router.push('/login')
+      } catch (e) {
+        console.error(e)
+      }
     },
   },
 }
