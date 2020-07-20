@@ -33,7 +33,6 @@
       <FormulateInput type="submit" :label="$t('signup.signup')" />
     </FormulateForm>
     <n-link to="/login">login</n-link>
-    <button @click="triggerModal">triggerModal</button>
   </div>
 </template>
 
@@ -57,13 +56,13 @@ export default {
         })
       } catch (e) {
         console.error(e)
+
+        // user already exists
+        this.showModal({
+          message: this.$t('error_messages.conflict'),
+          confirmText: this.$t('general.ok'),
+        })
       }
-    },
-    triggerModal() {
-      this.showModal({
-        message: 'signup.successful_registration',
-        confirmText: 'enter_login',
-      })
     },
   },
 }

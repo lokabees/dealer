@@ -17,7 +17,7 @@
               <slot name="header"></slot>
             </div>
             <div class="mb-6 mt-3">
-              {{ $t(message) }}
+              {{ message }}
               <slot />
             </div>
             <div
@@ -29,10 +29,10 @@
                 class="cta bg-tertiary w-auto mr-4"
                 @click="modalConfirmation"
               >
-                {{ $t(confirmText) }}
+                {{ confirmText }}
               </button>
               <button v-if="dismissText" class="cta w-auto" @click="dismiss">
-                {{ $t(dismissText) }}
+                {{ dismissText }}
               </button>
             </div>
           </div>

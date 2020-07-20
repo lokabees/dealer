@@ -8,11 +8,9 @@ export default ({ app: { i18n } }, inject) => {
     locales: {
       en: {
         password() {
-          console.log('here')
           return i18n.t('validation_errors.password')
         },
         required() {
-          console.log('there')
           return i18n.t('validation_errors.required')
         },
       },
