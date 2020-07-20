@@ -9,7 +9,7 @@
             to="/imprint"
             class="text-base leading-6 text-white hover:text-grey"
           >
-            Impressum
+            {{ $t('footer.imprint') }}
           </n-link>
         </div>
         <div class="px-5 py-2">
@@ -17,7 +17,7 @@
             to="/privacy"
             class="text-base leading-6 text-white hover:text-grey"
           >
-            Datenschutz
+            {{ $t('footer.privacy') }}
           </n-link>
         </div>
       </nav>

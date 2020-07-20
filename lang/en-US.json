@@ -3,5 +3,14 @@
     "login": "Login",
     "password": "Password",
     "email": "Email"
+  },
+  "navbar": {
+    "home": "Home",
+    "contact": "contact",
+    "login": "Login"
+  },
+  "footer": {
+    "imprint": "Imprint",
+    "privacy": "Privacy"
   }
 }

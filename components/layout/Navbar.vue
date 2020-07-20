@@ -3,10 +3,14 @@
     <nav class="navbar">
       <ul>
         <li>
-          <n-link to="/" exact><span class="ml-1">Home</span></n-link>
+          <n-link to="/" exact
+            ><span class="ml-1"> {{ $t('navbar.home') }}</span></n-link
+          >
         </li>
         <li>
-          <n-link to="/contact"><span class="ml-1">Kontakt</span> </n-link>
+          <n-link to="/contact"
+            ><span class="ml-1">{{ $t('navbar.contact') }}</span>
+          </n-link>
         </li>
       </ul>
     </nav>

@@ -31,7 +31,7 @@
             <ul>
               <li>
                 <n-link to="/account/login">
-                  Login
+                  {{ $t('navbar.login') }}
                 </n-link>
               </li>
             </ul>
