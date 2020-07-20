@@ -4,6 +4,12 @@
     "password": "Password",
     "email": "Email"
   },
+  "signup": {
+    "password": "Password",
+    "confirm_password": "Confirm password",
+    "email": "Email",
+    "signup": "Sign up"
+  },
   "navbar": {
     "home": "Home",
     "contact": "contact",
@@ -12,5 +18,10 @@
   "footer": {
     "imprint": "Imprint",
     "privacy": "Privacy"
+  },
+  "validation_errors": {
+    "password": "The password must contain at least: 1 uppercase letter, 1 lowercase letter, 1 number, and one special character (E.g. , . _ & ? etc)",
+    "required": "This field is required",
+    "confirm_password": "The passwords do not match"
   }
 }

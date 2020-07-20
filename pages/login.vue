@@ -1,10 +1,9 @@
-<template lang="html">
+<template>
   <div class="">
     <h1>Login</h1>
     {{ guest }}
     {{ $auth.loggedIn }}
     <FormulateForm v-model="guest" @submit="localLogin">
-      <!--TODO label with i18n-->
       <FormulateInput
         name="email"
         type="email"
@@ -12,7 +11,6 @@
         validation="bail|required|email"
         placeholder="lothar@mustermail.com"
       />
-      <!--TODO password validation-->
       <FormulateInput
         name="password"
         type="password"
@@ -42,7 +40,8 @@ export default {
         })
         console.log(data)
         // TODO: should be done automatically
-        // this.$auth.setUser(data)
+        this.$auth.setUser({ token: '123', _id: '123', role: 'user' })
+        this.$router.push('/')
       } catch (e) {
         console.error(e)
       }
