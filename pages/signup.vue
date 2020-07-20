@@ -1,6 +1,7 @@
 <template>
   <div class="">
     <h1>Sign up</h1>
+
     <FormulateForm v-model="guest" @submit="localSignUp">
       <FormulateInput
         name="email"
@@ -31,10 +32,13 @@
       />
       <FormulateInput type="submit" :label="$t('signup.signup')" />
     </FormulateForm>
+    <n-link to="/login">login</n-link>
+    <button @click="triggerModal">triggerModal</button>
   </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
   auth: false,
   data() {
@@ -43,8 +47,23 @@ export default {
     }
   },
   methods: {
-    localSignUp() {
+    ...mapMutations('modal', { showModal: 'showModal' }),
+    async localSignUp() {
       console.log(this.guest)
+      try {
+        await this.$axios.post(`/api/users`, {
+          ...this.guest,
+          master: process.env.VUE_APP_MASTER_KEY,
+        })
+      } catch (e) {
+        console.error(e)
+      }
+    },
+    triggerModal() {
+      this.showModal({
+        message: 'signup.successful_registration',
+        confirmText: 'enter_login',
+      })
     },
   },
 }

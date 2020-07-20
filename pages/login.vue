@@ -21,6 +21,8 @@
       <FormulateInput type="submit" :label="$t('login.login')" />
     </FormulateForm>
     <button @click="logout">logout</button>
+
+    <n-link to="/signup">signup</n-link>
   </div>
 </template>
 
@@ -36,12 +38,12 @@ export default {
     async localLogin() {
       try {
         const { data } = await this.$auth.loginWith('local', {
-          data: this.guest,
+          data: { ...this.guest, master: process.env.VUE_APP_MASTER_KEY },
         })
         console.log(data)
         // TODO: should be done automatically
-        this.$auth.setUser({ token: '123', _id: '123', role: 'user' })
-        this.$router.push('/')
+        // this.$auth.setUser({ token: '123', _id: '123', role: 'user' })
+        // this.$router.push('/')
       } catch (e) {
         console.error(e)
       }

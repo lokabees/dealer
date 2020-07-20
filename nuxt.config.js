@@ -31,12 +31,18 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
-   ** Environment variables
+   ** Environment variables at runtime
    ** https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config/
    */
   publicRuntimeConfig: {},
   privateRuntimeConfig: {
     appMasterKey: process.env.VUE_APP_MASTER_KEY,
+  },
+  /*
+   ** Environment variables at build
+   */
+  env: {
+    VUE_APP_MASTER_KEY: process.env.VUE_APP_MASTER_KEY,
   },
   /*
    ** Global CSS
