@@ -86,6 +86,8 @@ export default {
     'nuxt-webfontloader',
     // Doc: https://auth.nuxtjs.org/
     '@nuxtjs/auth',
+    // https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt#readme
+    'cookie-universal-nuxt',
   ],
 
   /*

@@ -1,0 +1,12 @@
+{
+  "login": {
+    "login": "Einloggen",
+    "password": "Passwort"
+  },
+  "general": {
+    "error_messages": {
+      "ok": "Oki",
+      "network": "Server nicht erreichbar. Überprüfe deine Internetverbindung"
+    }
+  }
+}

@@ -3,6 +3,21 @@
     <div
       class="max-w-screen-xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8"
     >
+      <ul class="flex flex-col md:flex-row content-end sm:ml-auto opacity-75">
+        <li
+          v-for="el in locales"
+          :key="el.code"
+          class="ml-2 mt-2"
+          :class="{ active: el.code === locale }"
+        >
+          <button
+            class="text-white hover:text-tertiary"
+            @click="switchLanguage(el.code)"
+          >
+            {{ el.name }}
+          </button>
+        </li>
+      </ul>
       <nav class="-mx-5 -my-2 flex flex-wrap justify-center">
         <div class="px-5 py-2">
           <n-link
@@ -87,3 +102,18 @@
     </div>
   </div>
 </template>
+
+<script>
+import { mapGetters } from 'vuex'
+export default {
+  computed: {
+    ...mapGetters(['locale', 'locales']),
+  },
+  methods: {
+    switchLanguage(locale) {
+      this.$cookies.set('locale', locale)
+      location.reload()
+    },
+  },
+}
+</script>

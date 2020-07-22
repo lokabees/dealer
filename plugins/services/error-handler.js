@@ -3,7 +3,7 @@ function getErrorMessage(error, type) {
   let status = error?.response?.status || 500
   const message = error?.response?.data?.message || ''
 
-  if (status === 500 && error.request) {
+  if ((status === 500 && error.request) || status === 504) {
     prefix = 'general'
     status = 'network'
   }
@@ -12,7 +12,7 @@ function getErrorMessage(error, type) {
     status === 401 &&
     message === 'Deine E-Mail ist nicht verifiziert'
   )
-    status += '_1'
+    status = '401_1'
 
   return `${prefix}.error_messages.${status}`
 }
