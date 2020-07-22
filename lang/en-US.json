@@ -37,6 +37,7 @@
   "general": {
     "ok": "Ok",
     "error_messages": {
+      "400": "Something went wrong. Please contact support.",
       "401": "Unauthorized",
       "500": "An unknown error occured. Try reloading the page and login again.",
       "network": "We can not reach the server. Please check your internet connection."

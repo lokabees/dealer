@@ -44,7 +44,7 @@ export default {
       try {
         await this.$auth.loginWith(`local`, {
           data: { ...this.guest },
-          params: { master: process.env.VUE_APP_MASTER_KEY },
+          params: { master: this.$config.appMasterKey },
         })
         this.$router.push('/')
       } catch (error) {
