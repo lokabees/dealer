@@ -31,7 +31,6 @@ export const state = () => ({
 export const actions = {
   /**
    * nuxtServerInit start on initial loading
-   * token and user validation
    */
   nuxtServerInit({ commit }, { app }) {
     const locale = app.$cookies.get('locale')

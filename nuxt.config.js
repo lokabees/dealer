@@ -38,14 +38,7 @@ export default {
     appMasterKey: process.env.VUE_APP_MASTER_KEY,
   },
   privateRuntimeConfig: {},
-  /*
-   ** Environment variables at build
-   */
-  /*
-  env: {
-    VUE_APP_MASTER_KEY: process.env.VUE_APP_MASTER_KEY,
-  },
-  */
+
   /*
    ** Global CSS
    */
@@ -141,12 +134,12 @@ export default {
         client_id: process.env.VUE_APP_FACEBOOK_ID,
         userinfo_endpoint: false,
         scope: ['public_profile', 'email'],
-        redirect_uri: 'http://localhost:3000/callback',
+        redirect_uri: `${process.env.APP_URL}/callback`,
       },
       google: {
         client_id: process.env.VUE_APP_GOOGLE_ID,
         user: false,
-        redirect_uri: 'http://localhost:3000/callback',
+        redirect_uri: `${process.env.APP_URL}/callback`,
         tokenType: '',
       },
     },
@@ -160,7 +153,7 @@ export default {
   },
 
   proxy: {
-    '/api': { target: 'http://localhost:9000' },
+    '/api': { target: process.env.API_URL },
   },
   /**
    ** router configuration
