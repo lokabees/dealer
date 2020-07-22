@@ -38,7 +38,8 @@
     "ok": "Ok",
     "error_messages": {
       "401": "Unauthorized",
-      "500": "An unknown error occured. Try reloading the page and login again."
+      "500": "An unknown error occured. Try reloading the page and login again.",
+      "network": "We can not reach the server. Please check your internet connection."
     }
   }
 }
