@@ -52,7 +52,6 @@ export default {
       }
     },
     async socialLogin(provider) {
-      console.log(provider)
       try {
         await this.$auth.loginWith(provider)
       } catch (error) {

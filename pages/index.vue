@@ -4,8 +4,8 @@
       <h1 class="title">
         dealer
       </h1>
-      {{ $auth.loggedIn }}<br />
-      {{ $auth.user }}
+      <div class="mt-5">Logged in: {{ $auth.loggedIn }}</div>
+      <div>Hello, {{ $auth.user.name }}</div>
       <button @click="showToast">showToast</button>
       <button @click="fetchShops">fetch shops</button>
     </div>
