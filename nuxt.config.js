@@ -52,7 +52,11 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['~/plugins/modules/i18n', '~/plugins/vue-formulate'],
+  plugins: [
+    '~/plugins/modules/i18n',
+    '~/plugins/modules/vue-formulate',
+    '~/plugins/services/error-handler',
+  ],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components
@@ -128,6 +132,17 @@ export default {
             propertyName: '',
           },
         },
+      },
+      facebook: {
+        client_id: process.env.VUE_APP_FACEBOOK_ID,
+        userinfo_endpoint: false,
+        scope: ['public_profile', 'email'],
+        redirect_uri: 'http://localhost:3000/callback',
+      },
+      google: {
+        client_id: process.env.VUE_APP_GOOGLE_ID,
+        user: false,
+        redirect_uri: 'http://localhost:3000/callback',
       },
     },
   },

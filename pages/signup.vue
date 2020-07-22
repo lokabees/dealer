@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <h1>Sign up</h1>
+    <h1 class="py-10">Sign up</h1>
 
     <FormulateForm v-model="guest" @submit="localSignUp">
       <FormulateInput
@@ -37,7 +37,6 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
 export default {
   auth: false,
   data() {
@@ -46,33 +45,15 @@ export default {
     }
   },
   methods: {
-    ...mapMutations('modal', { showModal: 'showModal' }),
     async localSignUp() {
       try {
         await this.$axios.post(`/api/users`, {
           ...this.guest,
           master: process.env.VUE_APP_MASTER_KEY,
         })
-      } catch ({
-        response: {
-          status,
-          data: { message },
-        },
-      }) {
-        let errorMessage
-
-        switch (status) {
-          case 409:
-            errorMessage = this.$t('signup.error_messages.conflict')
-            break
-          default:
-            errorMessage = this.$t('signup.error_messages.other')
-        }
-        // user already exists
-        this.showModal({
-          message: errorMessage,
-          confirmText: this.$t('general.ok'),
-        })
+        this.$router.push('/login')
+      } catch (error) {
+        this.$errorHandler({ error, type: 'signup' })
       }
     },
   },
