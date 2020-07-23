@@ -13,6 +13,11 @@
       "500": "An unknown error occured. Try reloading the page and login again."
     }
   },
+  "error": {
+    "error_occured": "Ups. An error occured.",
+    "continue_home": "You can continue on our homepage or try reloading the page again.",
+    "go_home": "Go to Homepage"
+  },
   "signup": {
     "password": "Password",
     "login": "Login",

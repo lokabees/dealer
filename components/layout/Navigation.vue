@@ -30,10 +30,7 @@
           <div class="ml-auto">
             <ul>
               <li>
-                <n-link v-if="!$auth.loggedIn" to="/login">
-                  {{ $t('navbar.login') }}
-                </n-link>
-                <button v-else @click="logout">
+                <button v-if="$auth.loggedIn" @click="logout">
                   {{ $t('navbar.logout') }}
                 </button>
               </li>
