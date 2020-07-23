@@ -60,14 +60,12 @@ export default {
     }
   },
   methods: {
-    localSignUp() {
+    async localSignUp() {
       try {
-        /*
         await this.$axios.post(`/api/users`, {
           ...this.guest,
           master: this.$config.appMasterKey,
         })
-        */
         this.$router.push('signup/success')
       } catch (error) {
         this.$errorHandler({ error, type: 'signup' })
