@@ -5,7 +5,6 @@
       <p class="py-5">
         Our plattform will soon be available for you.
       </p>
-      <p>deploy test</p>
     </div>
   </div>
 </template>
