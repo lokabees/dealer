@@ -41,7 +41,11 @@
         :label="$t('signup.accept_terms')"
         validation="required"
       />
-      <FormulateInput type="submit" :label="$t('signup.signup')" />
+      <FormulateInput
+        type="submit"
+        input-class="primary w-full"
+        :label="$t('signup.signup')"
+      />
     </FormulateForm>
 
     <div class="text-center">

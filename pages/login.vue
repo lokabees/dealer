@@ -16,14 +16,18 @@
         validation="bail|required"
         placeholder="******************"
       />
-      <FormulateInput type="submit" :label="$t('login.login')" />
+      <FormulateInput
+        type="submit"
+        input-class="primary w-full"
+        :label="$t('login.login')"
+      />
     </FormulateForm>
 
-    <n-link class="my-5" to="/signup"
-      ><button>{{ $t('login.signup') }}</button></n-link
-    >
+    <button class="secondary w-full" @click="$router.push('/signup')">
+      {{ $t('login.signup') }}
+    </button>
 
-    <div class="text-center">
+    <div class="my-5 text-center">
       <hr />
       {{ $t('login.sign_up_with') }}
     </div>

@@ -1,13 +1,13 @@
 button,
 .button {
-  @apply font-bold py-2 px-5 font-normal;
+  @apply font-bold py-2 px-5 rounded font-normal;
 
   &:focus {
     @apply outline-none;
   }
 
   &.primary {
-    @apply bg-primary;
+    @apply bg-grey-dark py-4 text-white;
     &:hover {
       @apply bg-secondary;
     }
@@ -17,9 +17,9 @@ button,
   }
 
   &.secondary {
-    @apply bg-grey-light font-bold text-black transition ease-in duration-100;
+    @apply border border-secondary py-4 bg-white text-black transition ease-in duration-100;
     &:hover {
-      @apply bg-white border-none;
+      @apply bg-secondary text-white;
     }
     &:focus {
       @apply outline-none;
