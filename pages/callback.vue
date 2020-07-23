@@ -1,9 +1,8 @@
 <template>
   <div class="mt-5">
     <h1 class="title">
-      Callback
+      logging in...
     </h1>
-    <p>logging in...</p>
   </div>
 </template>
 

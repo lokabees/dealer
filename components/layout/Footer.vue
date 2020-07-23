@@ -1,8 +1,10 @@
 <template>
-  <div class="bg-black pb-5 md:pb-0">
+  <div class="bg-primary-lightest pb-5 md:pb-0">
     <div
       class="max-w-screen-xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8"
     >
+      <!-- Languages
+
       <ul class="flex flex-col md:flex-row content-end sm:ml-auto opacity-75">
         <li
           v-for="el in locales"
@@ -11,18 +13,20 @@
           :class="{ active: el.code === locale }"
         >
           <button
-            class="text-white hover:text-tertiary"
+            class="text-grey hover:text-secondary"
             @click="switchLanguage(el.code)"
           >
             {{ el.name }}
           </button>
         </li>
       </ul>
+-->
+
       <nav class="-mx-5 -my-2 flex flex-wrap justify-center">
         <div class="px-5 py-2">
           <n-link
             to="/imprint"
-            class="text-base leading-6 text-white hover:text-grey"
+            class="text-base leading-6 text-grey hover:text-secondary"
           >
             {{ $t('footer.imprint') }}
           </n-link>
@@ -30,7 +34,7 @@
         <div class="px-5 py-2">
           <n-link
             to="/privacy"
-            class="text-base leading-6 text-white hover:text-grey"
+            class="text-base leading-6 text-grey hover:text-secondary"
           >
             {{ $t('footer.privacy') }}
           </n-link>
@@ -41,7 +45,7 @@
           href="https://www.facebook.com/kopfundgeist"
           target="_blank"
           rel="noreferrer"
-          class="text-white hover:text-grey"
+          class="text-primary hover:text-secondary"
         >
           <span class="sr-only">Facebook </span>
           <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -56,9 +60,9 @@
           href="https://www.instagram.com/kopfundgeist/"
           target="_blank"
           rel="noreferrer"
-          class="ml-6 text-white hover:text-grey"
+          class="ml-6 text-primary hover:text-secondary"
         >
-          <span class="sr-only">Instagram </span>
+          <span class="sr-only">Instagram</span>
           <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
             <path
               fill-rule="evenodd"
@@ -69,7 +73,7 @@
         </a>
         <!--
 
-        <a href="#" class="ml-6 text-white hover:text-grey">
+        <a href="#" class="ml-6 text-white hover:text-primary">
           <span class="sr-only">Twitter </span>
           <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
             <path
@@ -82,7 +86,7 @@
           href="https://do.linkedin.com/company/kopfundgeist"
           target="_blank"
           rel="noreferrer"
-          class="ml-6 text-white hover:text-grey"
+          class="ml-6 text-primary hover:text-secondary"
         >
           <span class="sr-only">LinkedIn </span>
           <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">

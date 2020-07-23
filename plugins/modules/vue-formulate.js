@@ -26,8 +26,8 @@ export default ({ app: { i18n } }, inject) => {
     classes: {
       outer: 'mb-6',
       input:
-        'border border-light shadow-xs rounded px-3 py-2 leading-none focus:border-black outline-none border-box w-full resize-none',
-      label: 'font-medium text-sm',
+        'border border-light shadow-xs bg-transparent px-3 py-4 leading-none focus:border-black outline-none border-box w-full resize-none',
+      label: 'font-semibold text-xs',
       help: 'text-xs text-dark',
       error: 'text-warning text-xs',
     },

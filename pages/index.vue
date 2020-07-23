@@ -1,13 +1,10 @@
 <template>
-  <div class="container">
-    <div class="mt-5">
-      <h1 class="title">
-        dealer
-      </h1>
-      <div class="mt-5">Logged in: {{ $auth.loggedIn }}</div>
-      <div>Hello, {{ $auth.user.name }}</div>
-      <button @click="showToast">showToast</button>
-      <button @click="fetchShops">fetch shops</button>
+  <div class="container align-text-middle">
+    <div class="mt-5 text-center">
+      <h1 v-if="$auth.user" class="title">Welcome {{ $auth.user.name }}</h1>
+      <p class="py-5">
+        Our plattform will soon be available for you.
+      </p>
     </div>
   </div>
 </template>

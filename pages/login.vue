@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="container">
     <h1 class="py-10">Login</h1>
     <FormulateForm v-model="guest" @submit="localLogin">
       <FormulateInput
@@ -19,14 +19,22 @@
       <FormulateInput type="submit" :label="$t('login.login')" />
     </FormulateForm>
 
+    <n-link class="my-5" to="/signup"
+      ><button>{{ $t('login.signup') }}</button></n-link
+    >
+
+    <div class="text-center">
+      <hr />
+      {{ $t('login.sign_up_with') }}
+    </div>
+
     <div>
-      <button @click="socialLogin('facebook')">login with facebook</button>
+      <button @click="socialLogin('facebook')">
+        {{ $t('login.facebook') }}
+      </button>
     </div>
     <div>
-      <button @click="socialLogin('google')">login with google</button>
-    </div>
-    <div>
-      <n-link to="/signup">signup</n-link>
+      <button @click="socialLogin('google')">{{ $t('login.google') }}</button>
     </div>
   </div>
 </template>

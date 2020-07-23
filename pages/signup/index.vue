@@ -1,14 +1,20 @@
 <template>
-  <div class="">
+  <div class="container">
     <h1 class="py-10">Sign up</h1>
-
     <FormulateForm v-model="guest" @submit="localSignUp">
+      <FormulateInput
+        type="text"
+        name="name"
+        :label="$t('signup.name')"
+        placeholder="Max Mustermann"
+        validation="required"
+      />
       <FormulateInput
         name="email"
         type="email"
         :label="$t('signup.email')"
         validation="bail|required|email"
-        placeholder="lothar@mustermail.com"
+        placeholder="max@mustermail.com"
       />
       <FormulateInput
         name="password"
@@ -30,9 +36,18 @@
         validation="bail|required|passwordMatch"
         placeholder="******************"
       />
+      <FormulateInput
+        type="checkbox"
+        :label="$t('signup.accept_terms')"
+        validation="required"
+      />
       <FormulateInput type="submit" :label="$t('signup.signup')" />
     </FormulateForm>
-    <n-link to="/login">login</n-link>
+
+    <div class="text-center">
+      {{ $t('signup.account_exists') }}<br />
+      <n-link to="/login">{{ $t('signup.login') }}</n-link>
+    </div>
   </div>
 </template>
 
@@ -45,13 +60,15 @@ export default {
     }
   },
   methods: {
-    async localSignUp() {
+    localSignUp() {
       try {
+        /*
         await this.$axios.post(`/api/users`, {
           ...this.guest,
-          master: process.env.VUE_APP_MASTER_KEY,
+          master: this.$config.appMasterKey,
         })
-        this.$router.push('/login')
+        */
+        this.$router.push('signup/success')
       } catch (error) {
         this.$errorHandler({ error, type: 'signup' })
       }
