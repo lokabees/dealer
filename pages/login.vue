@@ -27,18 +27,28 @@
       {{ $t('login.signup') }}
     </button>
 
-    <div class="my-5 text-center">
-      <hr />
-      {{ $t('login.sign_up_with') }}
+    <div class="relative my-4">
+      <div class="absolute inset-0 flex items-center">
+        <div class="w-full border-t"></div>
+      </div>
+      <div class="relative flex justify-center text-sm leading-5">
+        <span class="px-2 bg-primary-lightest">
+          {{ $t('login.sign_up_with') }}
+        </span>
+      </div>
     </div>
 
-    <div>
-      <button @click="socialLogin('facebook')">
-        {{ $t('login.facebook') }}
-      </button>
-    </div>
-    <div>
-      <button @click="socialLogin('google')">{{ $t('login.google') }}</button>
+    <div class="flex">
+      <div>
+        <button class="secondary my-5" @click="socialLogin('facebook')">
+          {{ $t('login.facebook') }}
+        </button>
+      </div>
+      <div>
+        <button class="secondary my-5" @click="socialLogin('google')">
+          {{ $t('login.google') }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
