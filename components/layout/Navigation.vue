@@ -7,8 +7,10 @@
       >
         <div class="container navigation">
           <div>
-            <unicon name="bars" fill="primary"></unicon>
-            {{ $t('navigation.menu') }}
+            <unicon class="align-middle" name="bars" fill="primary"></unicon>
+            <span class="inline-block align-middle">
+              {{ $t('navigation.menu') }}
+            </span>
           </div>
           <div class="brand mx-auto">
             <n-link to="/" class="text-black" exact>

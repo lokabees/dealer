@@ -39,16 +39,16 @@
     </div>
 
     <div class="flex">
-      <div class="mx-auto">
-        <button class="secondary my-5" @click="socialLogin('facebook')">
-          <unicon name="facebook-f" class="primary"></unicon>
-          {{ $t('login.facebook') }}
+      <div class="w-1/2 pr-2">
+        <button class="secondary my-5 w-full" @click="socialLogin('facebook')">
+          <unicon class="align-middle" name="facebook-f"></unicon>
+          <span class="align-middle">{{ $t('login.facebook') }}</span>
         </button>
       </div>
-      <div class="mx-auto">
-        <button class="secondary my-5" @click="socialLogin('google')">
-          <unicon name="google" fill="primary"></unicon>
-          {{ $t('login.google') }}
+      <div class="w-1/2 pl-2">
+        <button class="secondary my-5 w-full" @click="socialLogin('google')">
+          <unicon class="align-middle" name="google"></unicon>
+          <span class="align-middle">{{ $t('login.google') }}</span>
         </button>
       </div>
     </div>
