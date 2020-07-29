@@ -25,9 +25,36 @@ export default ({ app: { i18n } }, inject) => {
     },
     classes: {
       outer: 'mb-6',
-      input:
-        'border border-light rounded-sm shadow-xs bg-transparent px-3 py-4 leading-none focus:border-black outline-none border-box w-full resize-none',
-      label: 'font-semibold text-xs',
+      element(context) {
+        switch (context.classification) {
+          case 'file':
+            return ''
+          case 'box':
+            return 'content-center mr-5 my-auto'
+          default:
+            return ''
+        }
+      },
+      input(context) {
+        switch (context.classification) {
+          case 'file':
+            return 'dropbox'
+          case 'button':
+            return 'cta bg-tertiary'
+          case 'box':
+            return 'bg-transparent'
+          default:
+            return 'border border-light rounded-sm shadow-xs bg-transparent px-3 py-4 leading-none focus:border-black outline-none border-box w-full resize-none'
+        }
+      },
+      label(context) {
+        switch (context.classification) {
+          case 'box':
+            return 'font-semibold text-xs flex-initial my-auto'
+          default:
+            return 'font-semibold text-xs'
+        }
+      },
       help: 'text-xs text-dark',
       error: 'text-warning text-xs',
     },

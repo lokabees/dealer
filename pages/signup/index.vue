@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container max-w-md">
     <h1 class="py-10">Sign up</h1>
     <FormulateForm v-model="guest" @submit="localSignUp">
       <FormulateInput
@@ -49,8 +49,8 @@
     </FormulateForm>
 
     <div class="text-center">
-      {{ $t('signup.account_exists') }}<br />
-      <n-link to="/login">{{ $t('signup.login') }}</n-link>
+      {{ $t('signup.account_exists') }}
+      <n-link class="text-primary" to="/login">{{ $t('signup.login') }}</n-link>
     </div>
   </div>
 </template>
