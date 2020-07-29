@@ -41,6 +41,9 @@
     "login": "Login",
     "logout": "Logout"
   },
+  "navigation": {
+    "menu": "Menu"
+  },
   "footer": {
     "imprint": "Imprint",
     "privacy": "Privacy"

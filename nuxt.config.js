@@ -51,6 +51,7 @@ export default {
     '~/plugins/modules/i18n',
     '~/plugins/modules/vue-formulate',
     '~/plugins/services/error-handler',
+    { src: '~/plugins/modules/vue-unicons', mode: 'client' },
   ],
   /*
    ** Auto import components

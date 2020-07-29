@@ -6,31 +6,19 @@
         :class="{ 'shadow-lg': scroll }"
       >
         <div class="container navigation">
-          <div class="brand">
+          <div>
+            <unicon name="bars" fill="primary"></unicon>
+            {{ $t('navigation.menu') }}
+          </div>
+          <div class="brand mx-auto">
             <n-link to="/" class="text-black" exact>
               lokabees
             </n-link>
           </div>
-          <!--
-          <div class="ml-3">
+          <div v-if="$auth.loggedIn" class="ml-auto">
             <ul>
               <li>
-                <n-link to="/" exact>
-                  Home
-                </n-link>
-              </li>
-              <li>
-                <n-link to="/#1" exact>
-                  Agentur
-                </n-link>
-              </li>
-            </ul>
-          </div>
-        -->
-          <div class="ml-auto">
-            <ul>
-              <li>
-                <button v-if="$auth.loggedIn" @click="logout">
+                <button @click="logout">
                   {{ $t('navbar.logout') }}
                 </button>
               </li>
@@ -73,7 +61,7 @@ export default {
 </script>
 <style lang="scss">
 .navigation {
-  @apply relative flex items-center text-black antialiased px-2 py-5;
+  @apply relative grid grid-cols-3 items-center text-black antialiased px-2 py-4;
 
   @screen sm {
     @apply px-3;

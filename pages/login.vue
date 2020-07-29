@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container max-w-md p-3">
     <h1 class="py-10">Login</h1>
     <FormulateForm v-model="guest" @submit="localLogin">
       <FormulateInput
@@ -39,13 +39,15 @@
     </div>
 
     <div class="flex">
-      <div>
+      <div class="mx-auto">
         <button class="secondary my-5" @click="socialLogin('facebook')">
+          <unicon name="facebook-f" class="primary"></unicon>
           {{ $t('login.facebook') }}
         </button>
       </div>
-      <div>
+      <div class="mx-auto">
         <button class="secondary my-5" @click="socialLogin('google')">
+          <unicon name="google" fill="primary"></unicon>
           {{ $t('login.google') }}
         </button>
       </div>

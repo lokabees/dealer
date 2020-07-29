@@ -100,7 +100,7 @@
       </div>
       <div class="mt-8">
         <p class="text-center text-xs leading-6 text-dark">
-          &copy; 2020 Kopfundgeist. All rights reserved.
+          &copy; 2020 Lokabees. All rights reserved.
         </p>
       </div>
     </div>
