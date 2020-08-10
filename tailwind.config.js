@@ -4,6 +4,7 @@
  ** Docs: https://tailwindcss.com/docs/configuration
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
+import typography from '@tailwindcss/typography'
 import { fontFamily } from 'tailwindcss/defaultTheme'
 
 module.exports = {
@@ -17,7 +18,55 @@ module.exports = {
     container: {
       center: true,
     },
+    /*
+     ** Typography settings
+     ** See https://github.com/tailwindlabs/tailwindcss-typography
+     */
+    typography: (theme) => ({
+      default: {
+        css: {
+          color: '#333',
+          'h1, h2, h3, h4': {
+            fontFamily: theme('fontFamily.serif').join(', '),
+          },
+        },
+      },
+    }),
+    /*
+     ** Main Color settings
+     ** See https://tailwindcss.com/docs/customizing-colors/#app
+     */
+    colors: {
+      transparent: 'transparent',
+      black: '#000000',
+      white: '#ffffff',
+      grey: {
+        lighter: '#DADBDD',
+        light: '#BBBBBB',
+        default: '#575757',
+        dark: '#2B2B2B',
+      },
+      danger: {
+        default: '#FE6347',
+        lighter: '#FFE1E9',
+      },
+      primary: {
+        lightest: '#F5F7F6',
+        lighter: '#E4F4E9',
+        default: '#19AE9D',
+      },
+      secondary: '#006174',
+      tertiary: '#02587B',
+      warning: {
+        lighter: '#FAF3E3',
+        light: '#FFD662',
+        default: '#FFB100',
+      },
+    },
   },
-  variants: {},
-  plugins: [require('@tailwindcss/typography')],
+  /*
+   ** TailwindCSS Plugins
+   ** See https://tailwindcss.com/docs/configuration/#app
+   */
+  plugins: [typography],
 }

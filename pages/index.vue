@@ -1,22 +1,103 @@
 <template>
   <div class="container">
-    <article class="prose lg:prose-xl">
-      <h1>Garlic bread with cheese: What the science tells us</h1>
+    <!-- Typography -->
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Typography</h1>
+        <p>Typography is better defined within the styles of the document.</p>
+      </div>
+    </div>
+    <article class="prose lg:prose-xl mb-8">
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
       <p>
-        For years parents have espoused the health benefits of eating garlic
-        bread with cheese to their children, with the food earning such an
-        iconic status in our culture that kids will often dress up as warm,
+        Bodytext for years parents have espoused the health benefits of eating
+        garlic bread with cheese to their children, with the food earning such
+        an iconic status in our culture that kids will often dress up as warm,
         cheesy loaf for Halloween.
       </p>
       <p>
         But a recent study shows that the celebrated appetizer may be linked to
         a series of rabies cases springing up around the country.
       </p>
+      <a href="#">Hallo Link</a>
       <!-- ... -->
     </article>
+    <!-- Forms -->
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Forms</h1>
+        <p>Placeholders</p>
+      </div>
+    </div>
+    <FormulateForm v-model="formValues" class="max-w-xl mx-auto">
+      <p>
+        You can place any elements you want inside a form. The inputs themselves
+        can even be deeply nested.
+      </p>
+      <FormulateInput
+        name="name"
+        type="text"
+        label="Your name"
+        placeholder="Your name"
+        validation="required"
+      />
+      <FormulateInput
+        name="email"
+        type="email"
+        label="Email address"
+        placeholder="Email address"
+        validation="required|email"
+      />
+      <div class="double-wide">
+        <FormulateInput
+          name="password"
+          type="password"
+          label="Password"
+          placeholder="Your password"
+          validation="required"
+        />
+        <FormulateInput
+          name="password_confirm"
+          type="password"
+          label="Confirm your password"
+          placeholder="Confirm password"
+          validation="required|confirm"
+          validation-name="Confirmation"
+        />
+      </div>
+      <FormulateInput type="submit" label="Register" />
+    </FormulateForm>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data: () => ({
+    formValues: {},
+  }),
+}
 </script>
+<style lang="scss">
+.hero {
+  @apply flex bg-primary items-center text-white h-40 mb-8;
+  h1 {
+    @apply font-serif text-3xl mb-2;
+  }
+  &-content {
+    @apply p-5;
+  }
+
+  @screen md {
+    @apply h-56;
+    h1 {
+      @apply text-4xl;
+    }
+    &-content {
+      @apply p-20;
+    }
+  }
+}
+</style>
