@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container mb-10">
     <!-- Typography -->
     <div class="hero">
       <div class="hero-content">
@@ -33,10 +33,12 @@
       </div>
     </div>
     <FormulateForm v-model="formValues" class="max-w-xl mx-auto">
-      <p>
-        You can place any elements you want inside a form. The inputs themselves
-        can even be deeply nested.
-      </p>
+      <div class="prose my-3">
+        <p>
+          You can place any elements you want inside a form. The inputs
+          themselves can even be deeply nested.
+        </p>
+      </div>
       <FormulateInput
         name="name"
         type="text"
@@ -70,6 +72,21 @@
       </div>
       <FormulateInput type="submit" label="Register" />
     </FormulateForm>
+    <!-- Buttons -->
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Buttons</h1>
+        <p>
+          For Desktop, buttons follow the grid and should have enough space to
+          each side of the CTA. For mobile views, Buttons are full width
+          following the grid.
+        </p>
+      </div>
+    </div>
+    <div class="max-w-xl mx-auto">
+      <button type="button" name="button" class="primary">Primary</button>
+      <button type="button" name="button" class="secondary">Secondary</button>
+    </div>
   </div>
 </template>
 

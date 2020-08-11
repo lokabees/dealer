@@ -89,6 +89,10 @@ export default {
   axios: {
     proxy: true,
   },
+  proxy: {
+    // TODO: Uncomment this
+    // '/api': { target: process.env.API_URL },
+  },
   /*
    ** Content module configuration
    ** See https://content.nuxtjs.org/configuration

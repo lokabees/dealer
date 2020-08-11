@@ -25,9 +25,15 @@ module.exports = {
     typography: (theme) => ({
       default: {
         css: {
-          color: '#333',
           'h1, h2, h3, h4': {
             fontFamily: theme('fontFamily.serif').join(', '),
+          },
+          a: {
+            color: theme('colors.primary.default'),
+            'text-decoration': 'none',
+            '&:hover': {
+              color: theme('colors.tertiary'),
+            },
           },
         },
       },

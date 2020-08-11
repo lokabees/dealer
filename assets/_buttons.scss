@@ -1,0 +1,10 @@
+button, .button {
+  @apply p-4 rounded-sm uppercase text-sm;
+
+  &.primary {
+    @apply bg-grey-dark text-white;
+    &:hover {
+      @apply text-grey-lighter;
+    }
+  }
+}
