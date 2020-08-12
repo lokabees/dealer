@@ -1,0 +1,63 @@
+
+{
+  "login": {
+    "login": "Login",
+    "signup": "Sign Up",
+    "password": "Password",
+    "google": "Google",
+    "facebook": "Facebook",
+    "sign_up_with": "or sign up with",
+    "email": "Email",
+    "error_messages": {
+      "401_1": "Your email has not yet been verified. Please check your inbox. If you did not receive our verification email tell us via hello@lokabees.com",
+      "401": "Invalid credentials. Please enter a correct username and password.",
+      "500": "An unknown error occured. Try reloading the page and login again."
+    }
+  },
+  "error": {
+    "error_occured": "Ups. An error occured.",
+    "continue_home": "You can continue on our homepage or try reloading the page again.",
+    "go_home": "Go to Homepage"
+  },
+  "signup": {
+    "password": "Password",
+    "login": "Login",
+    "to_login": "Go to login",
+    "confirm_password": "Confirm password",
+    "email": "What's your E-mail address?",
+    "account_exists": "Already have an account?",
+    "name": "What's your name?",
+    "signup": "Sign up",
+    "signup_successful": "Your registration has been successful!",
+    "check_inbox": "Check your Email inbox and confirm your Email to login",
+    "accept_terms": "By clicking 'Sign Up' you agree to our privacy policy an accept our terms of use.",
+    "error_messages": {
+      "409": "Email already exists!",
+      "500": "An unknown error occured. Try reloading the page and login again."
+    }
+  },
+  "navbar": {
+    "home": "Home",
+    "contact": "contact",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "footer": {
+    "imprint": "Imprint",
+    "privacy": "Privacy"
+  },
+  "validation_errors": {
+    "password": "The password must contain at least: 1 uppercase letter, 1 lowercase letter, 1 number, and one special character (E.g. , . _ & ? etc)",
+    "required": "This field is required",
+    "confirm_password": "The passwords do not match"
+  },
+  "general": {
+    "ok": "Ok",
+    "error_messages": {
+      "400": "Something went wrong. Please contact support.",
+      "401": "Unauthorized",
+      "500": "An unknown error occured. Try reloading the page and login again.",
+      "network": "We can not reach the server. Please check your internet connection."
+    }
+  }
+}

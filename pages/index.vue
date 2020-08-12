@@ -83,9 +83,60 @@
         </p>
       </div>
     </div>
-    <div class="max-w-xl mx-auto">
-      <button type="button" name="button" class="primary">Primary</button>
-      <button type="button" name="button" class="secondary">Secondary</button>
+    <div class="flex flex-col max-w-xl mx-auto mb-8">
+      <div class="mb-4">
+        <button type="button" name="button" class="primary">Primary</button>
+        <button type="button" name="button" class="secondary">Secondary</button>
+        <button type="button" name="button" class="tertiary">Tertiary</button>
+      </div>
+      <div>
+        <button type="button" name="button" class="secondary icon">
+          Label <icon name="upload" />
+        </button>
+        <button type="button" name="button" class="secondary icon">
+          Label <icon name="camera-outline" />
+        </button>
+        <button type="button" name="button" class="primary icon">
+          <icon name="home-outline" /> Label
+        </button>
+      </div>
+    </div>
+    <!-- Tooltips -->
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Tooltips</h1>
+        <p>
+          This was designed for short amounts of information. See map component
+          to see the example.
+        </p>
+      </div>
+    </div>
+    <div class="max-w-xl mx-auto mb-8">
+      <div class="tooltip">
+        Tooltip
+      </div>
+    </div>
+    <!-- Tooltips -->
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Swiches</h1>
+        <p>
+          Have you tried turning it off and on again? This element has not yet
+          been used and can be updated if needed.
+        </p>
+      </div>
+    </div>
+    <div class="max-w-xl mx-auto mb-8">
+      <div class="toggle">
+        <input
+          id="toggle"
+          type="checkbox"
+          name="toggle"
+          class="toggle-checkbox"
+        />
+        <label for="toggle"></label>
+      </div>
+      <label for="toggle" class="select-none">Toggle me.</label>
     </div>
   </div>
 </template>
@@ -103,6 +154,7 @@ export default {
   h1 {
     @apply font-serif text-3xl mb-2;
   }
+
   &-content {
     @apply p-5;
   }
@@ -112,6 +164,7 @@ export default {
     h1 {
       @apply text-4xl;
     }
+
     &-content {
       @apply p-20;
     }

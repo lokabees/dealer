@@ -1,10 +1,41 @@
+/*
+ ** Button styling
+ ** For Desktop, buttons follow the grid and should have enough space to each side of the CTA.
+ ** For mobile views, Buttons are full width following the grid.
+ */
 button, .button {
-  @apply p-4 rounded-sm uppercase text-sm;
+  // General
+  @apply p-4 rounded-sm uppercase text-sm select-none;
+  &:focus {
+    @apply outline-none;
+  }
 
+  // Primary
   &.primary {
     @apply bg-grey-dark text-white;
-    &:hover {
+    &:hover, &:focus {
       @apply text-grey-lighter;
     }
   }
+
+  // Secondary
+  &.secondary {
+    @apply text-grey-dark bg-white border border-secondary;
+    &:hover, &:focus {
+      @apply bg-primary-lightest;
+    }
+  }
+
+  // Tertiary
+  &.tertiary {
+    @apply text-white bg-primary;
+    &:hover, &:focus {
+      @apply bg-secondary;
+    }
+  }
+
+  &[class*="icon"] {
+    @apply inline-flex;
+  }
+
 }

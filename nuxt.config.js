@@ -47,9 +47,10 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-    '~/plugins/axios',
-    '~/plugins/vue-formulate',
-    { src: '~/plugins/auth', mode: 'client' },
+    '~/plugins/modules/axios',
+    '~/plugins/modules/vue-formulate',
+    '~/plugins/modules/i18n',
+    { src: '~/plugins/modules/auth', mode: 'client' },
   ],
   /*
    ** Auto import components
