@@ -1,33 +1,41 @@
 <template>
   <div class="container prose max-w-xl mx-auto">
-    <h1 class="py-10">Login</h1>
-    <FormulateForm v-model="guest" @submit="localLogin">
+    <h1 class="py-10">{{ $t('signup.title') }}</h1>
+    <p>{{ $t('signup.text') }}</p>
+    <FormulateForm v-model="guest" @submit="localSignUp">
       <FormulateInput
         name="email"
         type="email"
-        :label="$t('login.email')"
+        :label="$t('signup.email')"
         validation="bail|required|email"
-        placeholder="lothar@mustermail.com"
+        placeholder="max@mustermail.com"
       />
       <FormulateInput
         name="password"
         type="password"
-        :label="$t('login.password')"
+        :label="$t('signup.password')"
         validation="bail|required"
         placeholder="******************"
       />
-
-      <a href="#">{{ $t('login.help_with_registration') }}</a>
-
+      <FormulateInput
+        type="checkbox"
+        :label="$t('signup.accept_terms')"
+        validation="required"
+      />
+      <FormulateInput
+        type="checkbox"
+        :label="$t('signup.updates_offers_consent')"
+        validation="required"
+      />
       <FormulateInput
         type="submit"
         input-class="primary w-full"
-        :label="$t('login.login')"
+        :label="$t('signup.signup')"
       />
     </FormulateForm>
 
-    <button class="secondary w-full" @click="$router.push('/signup')">
-      {{ $t('login.new_registration') }}
+    <button class="secondary w-full" @click="$router.push('/auth/login')">
+      {{ $t('signup.account_exists') }}
     </button>
 
     <div class="relative my-4">
@@ -36,7 +44,7 @@
       </div>
       <div class="relative flex justify-center text-sm leading-5">
         <span class="px-2 bg-primary-lightest">
-          {{ $t('login.sign_up_with') }}
+          {{ $t('signup.register_with') }}
         </span>
       </div>
     </div>
@@ -44,12 +52,12 @@
     <div class="flex">
       <div>
         <button class="secondary my-5" @click="socialLogin('facebook')">
-          {{ $t('login.facebook') }}
+          {{ $t('signup.facebook') }}
         </button>
       </div>
       <div>
         <button class="secondary my-5" @click="socialLogin('google')">
-          {{ $t('login.google') }}
+          {{ $t('signup.google') }}
         </button>
       </div>
     </div>
@@ -58,22 +66,23 @@
 
 <script>
 export default {
-  auth: 'guest',
+  auth: false,
   data() {
     return {
       guest: {},
     }
   },
   methods: {
-    async localLogin() {
+    async localSignUp() {
       try {
-        await this.$router.push('/')
-      } catch (error) {}
-    },
-    socialLogin(provider) {
-      try {
-        this.$router.push('/')
-      } catch (error) {}
+        await this.$axios.post(`/api/users`, {
+          ...this.guest,
+          master: this.$config.appMasterKey,
+        })
+        this.$router.push('signup/success')
+      } catch (error) {
+        this.$errorHandler({ error, type: 'signup' })
+      }
     },
   },
 }

@@ -12,7 +12,8 @@
       "401_1": "Your email has not yet been verified. Please check your inbox. If you did not receive our verification email tell us via hello@lokabees.com",
       "401": "Invalid credentials. Please enter a correct username and password.",
       "500": "An unknown error occured. Try reloading the page and login again."
-    }
+    },
+    "help_with_registration": "Help with registration?"
   },
   "error": {
     "error_occured": "Ups. An error occured.",
@@ -20,17 +21,20 @@
     "go_home": "Go to Homepage"
   },
   "signup": {
+    "title": "Register your shop",
+    "text": "Register your shop easily with lokabees!",
     "password": "Password",
     "login": "Login",
     "to_login": "Go to login",
     "confirm_password": "Confirm password",
     "email": "What's your E-mail address?",
-    "account_exists": "Already have an account?",
+    "account_exists": "I already have an account",
     "name": "What's your name?",
-    "signup": "Sign up",
+    "signup": "Create account",
     "signup_successful": "Your registration has been successful!",
     "check_inbox": "Check your Email inbox and confirm your Email to login",
     "accept_terms": "By clicking 'Sign Up' you agree to our privacy policy an accept our terms of use.",
+    "updates_offers_consent": "I want to be informed about new updates and offers. I can withdraw my consent at any time in the future on www.lokabees.de/abmelden or on the end of each e-mail.",
     "error_messages": {
       "409": "Email already exists!",
       "500": "An unknown error occured. Try reloading the page and login again."
