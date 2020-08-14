@@ -50,6 +50,7 @@ export default {
     '~/plugins/modules/axios',
     '~/plugins/modules/vue-formulate',
     '~/plugins/modules/i18n',
+    '~/plugins/modules/vue-form-wizard',
     { src: '~/plugins/modules/auth', mode: 'client' },
   ],
   /*

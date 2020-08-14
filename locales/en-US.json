@@ -8,6 +8,7 @@
     "facebook": "Facebook",
     "sign_up_with": "or sign up with",
     "email": "Email",
+    "new_registration": "New Registration",
     "error_messages": {
       "401_1": "Your email has not yet been verified. Please check your inbox. If you did not receive our verification email tell us via hello@lokabees.com",
       "401": "Invalid credentials. Please enter a correct username and password.",
@@ -23,11 +24,14 @@
   "signup": {
     "title": "Register your shop",
     "text": "Register your shop easily with lokabees!",
-    "password": "Password",
+    "password": "Your Password",
+    "google": "Google",
+    "facebook": "Facebook",
+    "register_with": "or register with",
     "login": "Login",
     "to_login": "Go to login",
     "confirm_password": "Confirm password",
-    "email": "What's your E-mail address?",
+    "email": "What is your e-mail address?",
     "account_exists": "I already have an account",
     "name": "What's your name?",
     "signup": "Create account",
@@ -39,6 +43,25 @@
       "409": "Email already exists!",
       "500": "An unknown error occured. Try reloading the page and login again."
     }
+  },
+  "shop_registration_wizard": {
+    "step1_title": "Complete your store profile now",
+    "step1_text": "With an informative profile page, your store will be easier to find and will attract more buyers",
+    "step2_title": "Opening hours",
+    "step2_text": "Enter your opening hours so that customers know when they can visit your shop",
+    "step3_title": "Pick up and delivery",
+    "step3_text": "Can your customers pick up their products at the store or have it delivered to their home?",
+    "step4_title": "Customer contact",
+    "step4_text": "How can customers and prospective buyers get in touch with you?",
+    "step5_title": "Congratulations, your store is now online!",
+    "step5_text1": "Together we have taken the first big step towards digitalizing your shop. You should be proud of that!",
+    "step5_text2": "But this is only the beginning. Set up your new shop and add some products.",
+    "step5_text3": "Then use our lokabees-academy to learn step by step how to be successful online without any previous knowledge!",
+    "step5_text4": "You can change the settings you have made at any time under `My profile`.",
+    "prevous": "Previous",
+    "next": "Next",
+    "done": "Go to my store",
+    "cancel": "Cancel"
   },
   "navbar": {
     "home": "Home",
