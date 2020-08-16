@@ -1,8 +1,16 @@
 <template>
-  <div class="container prose max-w-xl mx-auto">
-    <h1 class="py-10">{{ $t('signup.title') }}</h1>
-    <p>{{ $t('signup.text') }}</p>
+  <div class="container max-w-md p-3 md:p-0">
+    <div class="prose lg:prose-lg text-center">
+      <h1 class="py-10">SignUp</h1>
+    </div>
     <FormulateForm v-model="guest" @submit="localSignUp">
+      <FormulateInput
+        type="text"
+        name="name"
+        :label="$t('signup.name')"
+        placeholder="Max Mustermann"
+        validation="required"
+      />
       <FormulateInput
         name="email"
         type="email"
@@ -14,7 +22,20 @@
         name="password"
         type="password"
         :label="$t('signup.password')"
-        validation="bail|required"
+        validation="bail|required|password"
+        placeholder="******************"
+      />
+      <FormulateInput
+        name="confirm password"
+        type="password"
+        :label="$t('signup.confirm_password')"
+        :validation-rules="{
+          passwordMatch: ({ value }) => value === guest.password,
+        }"
+        :validation-messages="{
+          passwordMatch: $t('validation_errors.confirm_password'),
+        }"
+        validation="bail|required|passwordMatch"
         placeholder="******************"
       />
       <FormulateInput
@@ -22,44 +43,14 @@
         :label="$t('signup.accept_terms')"
         validation="required"
       />
-      <FormulateInput
-        type="checkbox"
-        :label="$t('signup.updates_offers_consent')"
-        validation="required"
-      />
-      <FormulateInput
-        type="submit"
-        input-class="primary w-full"
-        :label="$t('signup.signup')"
-      />
+      <FormulateInput type="submit" :label="$t('signup.signup')" />
     </FormulateForm>
 
-    <button class="secondary w-full" @click="$router.push('/auth/login')">
-      {{ $t('signup.account_exists') }}
-    </button>
-
-    <div class="relative my-4">
-      <div class="absolute inset-0 flex items-center">
-        <div class="w-full border-t"></div>
-      </div>
-      <div class="relative flex justify-center text-sm leading-5">
-        <span class="px-2 bg-primary-lightest">
-          {{ $t('signup.register_with') }}
-        </span>
-      </div>
-    </div>
-
-    <div class="flex">
-      <div>
-        <button class="secondary my-5" @click="socialLogin('facebook')">
-          {{ $t('signup.facebook') }}
-        </button>
-      </div>
-      <div>
-        <button class="secondary my-5" @click="socialLogin('google')">
-          {{ $t('signup.google') }}
-        </button>
-      </div>
+    <div class="flex flex-col">
+      <div>{{ $t('signup.account_exists') }}</div>
+      <button class="secondary w-full" @click="$router.push('/auth/login')">
+        {{ $t('signup.login') }}
+      </button>
     </div>
   </div>
 </template>
@@ -81,7 +72,7 @@ export default {
         })
         this.$router.push('signup/success')
       } catch (error) {
-        this.$errorHandler({ error, type: 'signup' })
+        // this.$errorHandler({ error, type: 'signup' })
       }
     },
   },

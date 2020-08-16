@@ -5,6 +5,7 @@
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
 import typography from '@tailwindcss/typography'
+import tailwindui from '@tailwindcss/ui'
 import { fontFamily } from 'tailwindcss/defaultTheme'
 
 module.exports = {
@@ -27,6 +28,7 @@ module.exports = {
         css: {
           'h1, h2, h3, h4': {
             fontFamily: theme('fontFamily.serif').join(', '),
+            fontWeight: 'bold',
           },
           a: {
             color: theme('colors.primary.default'),
@@ -74,5 +76,5 @@ module.exports = {
    ** TailwindCSS Plugins
    ** See https://tailwindcss.com/docs/configuration/#app
    */
-  plugins: [typography],
+  plugins: [typography, tailwindui],
 }

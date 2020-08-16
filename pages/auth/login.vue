@@ -1,6 +1,8 @@
 <template>
-  <div class="container prose max-w-xl mx-auto">
-    <h1 class="py-10">Login</h1>
+  <div class="container max-w-md p-3 md:p-0">
+    <div class="prose lg:prose-lg text-center">
+      <h1 class="py-10">Login with your credentials</h1>
+    </div>
     <FormulateForm v-model="guest" @submit="localLogin">
       <FormulateInput
         name="email"
@@ -17,20 +19,14 @@
         placeholder="******************"
       />
 
-      <a href="#">{{ $t('login.help_with_registration') }}</a>
-
-      <FormulateInput
-        type="submit"
-        input-class="primary w-full"
-        :label="$t('login.login')"
-      />
+      <FormulateInput type="submit" :label="$t('login.login')" />
     </FormulateForm>
 
-    <button class="secondary w-full" @click="$router.push('/signup')">
-      {{ $t('login.new_registration') }}
+    <button class="secondary w-full" @click="$router.push('/auth/signup')">
+      {{ $t('login.signup') }}
     </button>
 
-    <div class="relative my-4">
+    <div class="relative my-8">
       <div class="absolute inset-0 flex items-center">
         <div class="w-full border-t"></div>
       </div>
@@ -41,29 +37,23 @@
       </div>
     </div>
 
-    <div class="flex">
-      <div>
-        <button class="secondary my-5" @click="socialLogin('facebook')">
-          {{ $t('login.facebook') }}
-        </button>
-      </div>
-      <div>
-        <button class="secondary my-5" @click="socialLogin('google')">
-          {{ $t('login.google') }}
-        </button>
-      </div>
+    <div class="flex flex-col md:flex-row">
+      <button
+        class="secondary icon-l w-full text-center"
+        @click="socialLogin('facebook')"
+      >
+        <icon name="facebook" /> {{ $t('login.facebook') }}
+      </button>
+      <div class="m-2"></div>
+      <button class="secondary icon-l w-full" @click="socialLogin('google')">
+        <icon name="google" /> {{ $t('login.google') }}
+      </button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  auth: 'guest',
-  data() {
-    return {
-      guest: {},
-    }
-  },
   methods: {
     async localLogin() {
       try {

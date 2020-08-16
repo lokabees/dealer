@@ -54,25 +54,25 @@
       <div class="wizard-footer-left">
         <wizard-button
           v-if="props.activeTabIndex > 0 && !props.isLastStep"
-          @click.native="props.prevTab()"
           :style="props.fillButtonStyle"
+          @click.native="props.prevTab()"
           >{{ $t('shop_registration_wizard.prevous') }}</wizard-button
         >
       </div>
       <div class="wizard-footer-right">
         <wizard-button
           v-if="!props.isLastStep"
-          @click.native="props.nextTab()"
           class="wizard-footer-right"
           :style="props.fillButtonStyle"
+          @click.native="props.nextTab()"
           >{{ $t('shop_registration_wizard.next') }}</wizard-button
         >
 
         <wizard-button
           v-else
-          @click.native="alert('Done')"
           class="wizard-footer-right finish-button"
           :style="props.fillButtonStyle"
+          @click.native="alert('Done')"
           >{{
             props.isLastStep
               ? $t('shop_registration_wizard.done')

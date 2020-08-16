@@ -35,7 +35,15 @@ button, .button {
   }
 
   &[class*="icon"] {
-    @apply inline-flex;
+    @apply inline-flex items-center justify-center;
   }
 
+}
+
+.icon-l i {
+  @apply mr-2;
+}
+
+.icon-r i {
+  @apply ml-2;
 }
