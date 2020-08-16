@@ -172,6 +172,12 @@
           type="image"
           :label="$t('shop_registration_wizard.step_5.you_photo')"
         />
+        <h2>{{ $t('shop_registration_wizard.step_5.extra_points') }}</h2>
+        <p>{{ $t('shop_registration_wizard.step_5.text_extra_points') }}</p>
+        <FormulateInput
+          type="text"
+          :label="$t('shop_registration_wizard.step_5.link')"
+        />
       </div>
     </tab-content>
     <template slot="footer" slot-scope="props">

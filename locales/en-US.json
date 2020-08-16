@@ -88,7 +88,10 @@
       "store_photo": "Picture of your shop front",
       "you": "... and you",
       "text_you": "You and your team are what makes your store unique. Show the world who you are so your customers know who they are dealing with. If you don't want that, you can also show the interior of your shop here.",
-      "you_photo": "Picture of your, your team or inside of your store"
+      "you_photo": "Picture of your, your team or inside of your store",
+      "extra_points": "Extra points for a video",
+      "text_extra_points": "A video is worth a thousand pictures. If you already have one from your shop, just paste the link here.",
+      "link": "Youtube link to a short video from your store"
     },
 
     "success": {
