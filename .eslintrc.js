@@ -19,7 +19,8 @@ module.exports = {
   // add your custom rules here
   rules: {
     'no-console': 'off',
-    // 'vue/no-v-html': 'off',
+    // Todo: Create workaround
+    'vue/no-v-html': 'off',
     // 'vue/no-template-shadow': 'off'
   },
 }

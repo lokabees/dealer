@@ -32,8 +32,12 @@ export default {
   /*
    ** The env Property
    ** See https://nuxtjs.org/api/configuration-env/
+   ** also https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config/
    */
-  env: {
+  publicRuntimeConfig: {
+    dev: process.env.NODE_ENV !== 'production',
+  },
+  privateRuntimeConfig: {
     VUE_APP_GOOGLE_ID: process.env.VUE_APP_GOOGLE_ID,
     VUE_APP_FACEBOOK_ID: process.env.VUE_APP_FACEBOOK_ID,
     VUE_APP_MASTER_KEY: process.env.VUE_APP_MASTER_KEY,
