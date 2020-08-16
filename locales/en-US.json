@@ -1,4 +1,3 @@
-
 {
   "login": {
     "login": "Login",
@@ -45,22 +44,63 @@
     }
   },
   "shop_registration_wizard": {
-    "step1_title": "Complete your store profile now",
-    "step1_text": "With an informative profile page, your store will be easier to find and will attract more buyers",
-    "step2_title": "Opening hours",
-    "step2_text": "Enter your opening hours so that customers know when they can visit your shop",
-    "step3_title": "Pick up and delivery",
-    "step3_text": "Can your customers pick up their products at the store or have it delivered to their home?",
-    "step4_title": "Customer contact",
-    "step4_text": "How can customers and prospective buyers get in touch with you?",
-    "step5_title": "Congratulations, your store is now online!",
-    "step5_text1": "Together we have taken the first big step towards digitalizing your shop. You should be proud of that!",
-    "step5_text2": "But this is only the beginning. Set up your new shop and add some products.",
-    "step5_text3": "Then use our lokabees-academy to learn step by step how to be successful online without any previous knowledge!",
-    "step5_text4": "You can change the settings you have made at any time under `My profile`.",
+    "next": "Next",
+    "step_1": {
+      "title": "Complete your store profile now",
+      "text": "With an informative profile page, your store will be easier to find and will attract more buyers",
+      "name": "What's the name of the store?",
+      "name_placeholder": "Cookie Store 24",
+      "shop_owner": "Who is the shop owner?",
+      "shop_owner_placeholder": "Jim Henson",
+      "location": "Where is your store?",
+      "location_placeholder": "Sesame Street 24",
+      "description": "Short description of your store",
+      "description_placeholder": "Best Cookies in Town",
+      "categories": "Which keywords best describe your store?"
+    },
+    "step_2": {
+      "title": "Opening hours",
+      "text": "Enter your opening hours so that customers know when they can visit your shop",
+      "opening_hours": "Opening Hours",
+      "from": "from",
+      "to": "to"
+    },
+    "step_3": {
+      "title": "Pick up and delivery",
+      "text": "Can your customers pick up their products at the store or have it delivered to their home?",
+      "pickup": "Pickup",
+      "delivery": "Delivery",
+      "ship": "Shipping"
+    },
+    "step_4": {
+      "title": "Customer contact",
+      "text": "How can customers and prospective buyers get in touch with you?",
+      "phone": "Phone",
+      "whatsapp": "Whatsapp",
+      "email": "Email",
+      "website": "Website"
+    },
+    "step_5": {
+      "title": "Photos and Videos",
+      "text": "Help potential customers to get an idea of ​​you and your shop.",
+      "your_store": "Your shop ...",
+      "text_store": "The people in your neighborhood will recognize your store - especially from the outside. Upload a photo of your shop front here to increase the recognition value.",
+      "store_photo": "Picture of your shop front",
+      "you": "... and you",
+      "text_you": "You and your team are what makes your store unique. Show the world who you are so your customers know who they are dealing with. If you don't want that, you can also show the interior of your shop here.",
+      "you_photo": "Picture of your, your team or inside of your store"
+    },
+
+    "success": {
+      "title": "Congratulations, your store is now online!",
+      "text1": "Together we have taken the first big step towards digitalizing your shop. You should be proud of that!",
+      "text2": "But this is only the beginning. Set up your new shop and add some products.",
+      "text3": "Then use our lokabees-academy to learn step by step how to be successful online without any previous knowledge!",
+      "text4": "You can change the settings you have made at any time under `My profile`."
+    },
     "prevous": "Previous",
     "next": "Next",
-    "done": "Go to my store",
+    "done": "Create shop",
     "cancel": "Cancel"
   },
   "navbar": {
