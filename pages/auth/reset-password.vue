@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container prose">
     <h1>{{ $t('reset_password.title') }}</h1>
     <p>{{ $t('reset_password.text') }}</p>
     <FormulateForm @submit="resetPassword">

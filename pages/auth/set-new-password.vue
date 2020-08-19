@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container prose">
     <h1>{{ $t('new_password.title') }}</h1>
     <FormulateForm @submit="setNewPassword">
       <!--TODO validation password-->

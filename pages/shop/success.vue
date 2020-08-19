@@ -13,7 +13,7 @@
     <p>
       {{ $t('shop_registration_wizard.success.text4') }}
     </p>
-    <button @click="$router.push('/')" class="primary">
+    <button class="primary" @click="$router.push('/')">
       {{ $t('shop_registration_wizard.success.view_store') }}
     </button>
   </div>

@@ -40,6 +40,28 @@
     "continue_home": "You can continue on our homepage or try reloading the page again.",
     "go_home": "Go to Homepage"
   },
+  "dashboard": {
+    "store": {
+      "title": "My store",
+      "text": "Here you can enter and edit information about your shop.",
+      "manage": "Manage store",
+      "manage_store": "Manage my store",
+      "view_store": "View my store"
+    },
+    "products": {
+      "title": "My products",
+      "text": "Here you can manage the products in your range",
+      "manage": "Manage products"
+    },
+    "academy": {
+      "title": "Lokabees academy",
+      "text": "Here you will learn the basics of digitizing your shop step by step - no previous knowledge required!"
+    },
+    "analysis": {
+      "title": "Analysis of your store",
+      "text": "Here you will soon find interesting options for analyzing your shop and optimizing your range."
+    }
+  },
   "signup": {
     "title": "Register your shop",
     "text": "Register your shop easily with lokabees!",
@@ -130,6 +152,9 @@
     "next": "Next",
     "done": "Create shop",
     "cancel": "Cancel"
+  },
+  "edit_shop": {
+    "title": "My Store"
   },
   "navbar": {
     "home": "Home",

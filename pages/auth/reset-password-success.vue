@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="container prose">
     <h1>{{ $t('reset_password_success.title') }}</h1>
     <p>{{ $t('reset_password_success.text') }}</p>
-    <button @click="$router.push('/auth/login')" class="primary">
+    <button class="primary" @click="$router.push('/auth/login')">
       {{ $t('reset_password_success.button') }}
     </button>
   </div>
