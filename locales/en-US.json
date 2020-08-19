@@ -85,6 +85,16 @@
       "500": "An unknown error occured. Try reloading the page and login again."
     }
   },
+  "products": {
+    "title": "My products",
+    "add": "Add new product",
+    "add_button": "Add product",
+    "delete": "Delete",
+    "edit": "Edit"
+  },
+  "add_product": {
+    "title": "Add product"
+  },
   "shop_registration_wizard": {
     "next": "Next",
     "step_1": {
