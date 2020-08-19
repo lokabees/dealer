@@ -15,6 +15,14 @@
     },
     "help_with_registration": "Help with registration?"
   },
+  "reset_password": {
+    "title": "Reset password",
+    "text": "No problem, it happens to the best! Just enter your email and we'll send you a reset link.",
+    "submit": "Reset password",
+    "email": "Email address",
+    "email_placeholder": "max@mustermann.com",
+    "back": "Back to login"
+  },
   "error": {
     "error_occured": "Ups. An error occured.",
     "continue_home": "You can continue on our homepage or try reloading the page again.",
