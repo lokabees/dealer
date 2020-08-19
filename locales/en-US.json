@@ -102,6 +102,23 @@
     "category": "Choose a product category",
     "submit": "Add Product"
   },
+  "user": {
+    "title": "Your Profile",
+    "image": "Upload a profile picture of yourself here.",
+    "role": "What is your Role in the store?",
+    "role_placeholder": "Owner",
+    "name": "Change your name",
+    "name_placeholder": "Max Mustermann",
+    "email": "Change your Email",
+    "email_placeholder": "max@mustermail.de",
+    "text": "Here you can enter changes, that concern you as a person.",
+    "contact": "Contact Lokabees",
+    "newsletter_info": "This is just the beginning of lokabees! Stay up to date on new features, further partners and new promotions.",
+    "newsletter": "I would like to be informed about new developments and offers. I can revoke my consent at any time with effect for the future at www.lokabees.de/abmelden or at the end of every email.",
+    "delete_info": "Here you can delete your entire Lokabees account. Warning: This process cannot be reversed!",
+    "delete_button": "Delete my account",
+    "need_help": "Need help?"
+  },
   "edit_product": {
     "title": "Edit product",
     "image": "Product image",
