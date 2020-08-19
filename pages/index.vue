@@ -1,6 +1,6 @@
 <template>
   <div class="container prose">
-    Dashboard
+    <h1>Store name</h1>
     <button class="primary" @click="$router.push('/shop/edit')">
       {{ $t('dashboard.store.manage_store') }}
     </button>
