@@ -1,6 +1,10 @@
 <template>
   <div class="container prose">
     <h1>Store name</h1>
+    store img outside
+    <img src="icon.png" width="150px" />
+    store img inside
+    <img src="icon.png" width="150px" />
     <button class="primary" @click="$router.push('/shop/edit')">
       {{ $t('dashboard.store.manage_store') }}
     </button>
