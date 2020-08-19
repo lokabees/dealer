@@ -69,8 +69,11 @@
       "title": "Pick up and delivery",
       "text": "Can your customers pick up their products at the store or have it delivered to their home?",
       "pickup": "Pickup",
+      "pickup_text": "Customers can reserve products and collect them from your store.",
       "delivery": "Delivery",
-      "ship": "Shipping"
+      "delivery_text": "Customers can have your products delivered to their home.",
+      "ship": "Shipping",
+      "ship_text": "You send your products by post or a logistics service provider"
     },
     "step_4": {
       "title": "Customer contact",
@@ -91,7 +94,8 @@
       "you_photo": "Picture of your, your team or inside of your store",
       "extra_points": "Extra points for a video",
       "text_extra_points": "A video is worth a thousand pictures. If you already have one from your shop, just paste the link here.",
-      "link": "Youtube link to a short video from your store"
+      "yt_link": "Youtube link to a short video from your store",
+      "yt_link_placeholder": "https://youtube.com/..."
     },
 
     "success": {

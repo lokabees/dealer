@@ -165,18 +165,24 @@
         <FormulateInput
           type="image"
           :label="$t('shop_registration_wizard.step_5.store_photo')"
+          validation="mime:image/jpeg,image/png"
         />
         <h2>{{ $t('shop_registration_wizard.step_5.you') }}</h2>
         <p>{{ $t('shop_registration_wizard.step_5.text_you') }}</p>
         <FormulateInput
           type="image"
           :label="$t('shop_registration_wizard.step_5.you_photo')"
+          validation="mime:image/jpeg,image/png"
         />
         <h2>{{ $t('shop_registration_wizard.step_5.extra_points') }}</h2>
         <p>{{ $t('shop_registration_wizard.step_5.text_extra_points') }}</p>
         <FormulateInput
+          v-model="shop.videoLink"
           type="text"
-          :label="$t('shop_registration_wizard.step_5.link')"
+          :placeholder="
+            $t('shop_registration_wizard.step_5.yt_link_placeholder')
+          "
+          :label="$t('shop_registration_wizard.step_5.yt_link')"
         />
       </div>
     </tab-content>
