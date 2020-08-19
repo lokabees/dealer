@@ -2,7 +2,9 @@
   <div class="container prose">
     <h1>{{ $t('products.title') }}</h1>
     <h2>{{ $t('products.add') }}</h2>
-    <button class="tertiary">{{ $t('products.add_button') }}</button>
+    <button class="tertiary" @click="$router.push('/products/add')">
+      {{ $t('products.add_button') }}
+    </button>
 
     <div v-for="product in products" :key="product.id">
       <img :src="product.img" width="50px" />
