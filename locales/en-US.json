@@ -154,7 +154,18 @@
     "cancel": "Cancel"
   },
   "edit_shop": {
-    "title": "My Store"
+    "title": "My Store",
+    "shop_name": "Name of your store",
+    "shop_name_placeholder": "Cookie Store 24",
+    "visibility": "Visibility",
+    "visibility_hint": "Your store is currently visible for customers.",
+    "categories": "Store categories",
+    "address": "Address",
+    "location": "Where is your store?",
+    "location_placeholder": "Sesame Street 24",
+    "description": "Short description of your store",
+    "description_placeholder": "Best Cookies in Town",
+    "submit": "Save"
   },
   "navbar": {
     "home": "Home",

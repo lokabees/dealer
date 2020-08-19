@@ -52,10 +52,15 @@
             validation="bail|required"
           />
           <FormulateInput
-            type="textarea"
             name="categories"
+            type="checkbox"
+            :options="{
+              first: 'First',
+              second: 'Second',
+              third: 'Third',
+              fourth: 'Fourth',
+            }"
             :label="$t('shop_registration_wizard.step_1.categories')"
-            validation="bail|required"
           />
           <FormulateInput
             type="submit"
