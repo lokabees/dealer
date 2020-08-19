@@ -27,6 +27,8 @@ export default {
   methods: {
     resetPassword() {
       console.log('reset password ' + this.email)
+      // TODO:
+      this.$router.push('/auth/reset-password-success')
     },
   },
 }

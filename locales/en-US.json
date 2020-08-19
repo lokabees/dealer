@@ -23,6 +23,18 @@
     "email_placeholder": "max@mustermann.com",
     "back": "Back to login"
   },
+  "reset_password_success": {
+    "title": "Your password has been reset!",
+    "text": "Now look into your inbox and click the link to reset your password.",
+    "button": "To login"
+  },
+  "new_password": {
+    "title": "Set your new password",
+    "new_password": "New password",
+    "repeat_new_password": "Repeat new password",
+    "submit": "Save and go to login",
+    "password_placeholder": "********"
+  },
   "error": {
     "error_occured": "Ups. An error occured.",
     "continue_home": "You can continue on our homepage or try reloading the page again.",
