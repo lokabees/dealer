@@ -99,7 +99,18 @@
     "name_placeholder": "Japanese vase",
     "description": "Product description",
     "description_placeholder": "Handmade japanese vase in white",
-    "category": "Choose a product category"
+    "category": "Choose a product category",
+    "submit": "Add Product"
+  },
+  "edit_product": {
+    "title": "Edit product",
+    "image": "Product image",
+    "name": "What is the name of this product?",
+    "name_placeholder": "Japanese vase",
+    "description": "Product description",
+    "description_placeholder": "Handmade japanese vase in white",
+    "category": "Choose a product category",
+    "submit": "Save"
   },
   "shop_registration_wizard": {
     "next": "Next",

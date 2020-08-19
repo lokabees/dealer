@@ -34,7 +34,7 @@
         :label="$t('add_product.category')"
         validation="required"
       />
-      <FormulateInput type="submit" />
+      <FormulateInput type="submit" :label="$t('add_product.submit')" />
     </FormulateForm>
   </div>
 </template>
