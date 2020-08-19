@@ -7,6 +7,7 @@
         type="text"
         :label="$t('edit_shop.shop_name')"
         :placeholder="$t('edit_shop.shop_name_placeholder')"
+        validation="required"
       />
       <FormulateInput
         name="visible"
@@ -30,6 +31,7 @@
         type="text"
         :label="$t('edit_shop.location')"
         :placeholder="$t('edit_shop.location_placeholder')"
+        validation="required"
       />
       <FormulateInput
         type="textarea"

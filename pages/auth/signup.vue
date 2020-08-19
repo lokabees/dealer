@@ -1,7 +1,7 @@
 <template>
   <div class="container max-w-md p-3 md:p-0">
     <div class="prose lg:prose-lg text-center">
-      <h1 class="py-10">SignUp</h1>
+      <h1 class="py-10">{{ $t('signup.title') }}</h1>
     </div>
     <FormulateForm v-model="guest" @submit="localSignUp">
       <FormulateInput
@@ -15,14 +15,14 @@
         name="email"
         type="email"
         :label="$t('signup.email')"
-        validation="bail|required|email"
+        validation="required|email"
         placeholder="max@mustermail.com"
       />
       <FormulateInput
         name="password"
         type="password"
         :label="$t('signup.password')"
-        validation="bail|required|password"
+        validation="required|password"
         placeholder="******************"
       />
       <FormulateInput
