@@ -63,6 +63,7 @@
     }
   },
   "signup": {
+    "ok": "Ok",
     "title": "Register your shop",
     "text": "Register your shop easily with lokabees!",
     "password": "Your Password",

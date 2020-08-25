@@ -1,5 +1,12 @@
 <template>
   <div class="container max-w-md p-3 md:p-0">
+    <Modal>
+      <template v-slot:message>hallo </template>
+      <template v-slot:buttons>
+        <button @click="hideModal">{{ $t('signup.ok') }}</button>
+      </template>
+    </Modal>
+    <button @click="showModal">show modal</button>
     <div class="prose lg:prose-lg text-center">
       <h1 class="py-10">{{ $t('signup.title') }}</h1>
     </div>
@@ -56,6 +63,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
   auth: false,
   asyncData({ $config }) {
@@ -70,6 +78,10 @@ export default {
     }
   },
   methods: {
+    ...mapMutations('modal', {
+      showModal: 'showModal',
+      hideModal: 'hideModal',
+    }),
     async localSignUp() {
       try {
         await this.$axios.post(`/api/users`, {
