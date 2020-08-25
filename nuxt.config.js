@@ -97,7 +97,7 @@ export default {
   },
   proxy: {
     // TODO: Uncomment this
-    // '/api': { target: process.env.API_URL },
+    '/api': { target: process.env.API_URL },
   },
   /*
    ** Content module configuration
