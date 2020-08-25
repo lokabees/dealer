@@ -65,12 +65,6 @@
 import { mapMutations } from 'vuex'
 export default {
   auth: false,
-  asyncData({ $config }) {
-    if (process.server) {
-      const master = $config.VUE_APP_MASTER_KEY
-      return { master }
-    }
-  },
   data() {
     return {
       guest: {},
@@ -86,7 +80,7 @@ export default {
       try {
         await this.$axios.post(`/api/users`, {
           ...this.guest,
-          master: this.master,
+          master: this.$config.appMasterKey,
         })
         this.$router.push('signup/success')
       } catch (error) {

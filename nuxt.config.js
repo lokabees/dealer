@@ -36,11 +36,11 @@ export default {
    */
   publicRuntimeConfig: {
     dev: process.env.NODE_ENV !== 'production',
+    appMasterKey: process.env.VUE_APP_MASTER_KEY,
   },
   privateRuntimeConfig: {
     VUE_APP_GOOGLE_ID: process.env.VUE_APP_GOOGLE_ID,
     VUE_APP_FACEBOOK_ID: process.env.VUE_APP_FACEBOOK_ID,
-    VUE_APP_MASTER_KEY: process.env.VUE_APP_MASTER_KEY,
   },
   /*
    ** Global CSS
