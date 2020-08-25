@@ -10,9 +10,7 @@ export const getters = {
 
 export const mutations = {
   showModal(state) {
-    console.log(state.visible)
     state.visible = true
-    console.log(state.visible)
   },
   hideModal(state) {
     state.visible = false

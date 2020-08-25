@@ -1,12 +1,11 @@
 <template>
   <div class="container max-w-md p-3 md:p-0">
     <Modal>
-      <template v-slot:message>hallo </template>
       <template v-slot:buttons>
         <button @click="hideModal">{{ $t('signup.ok') }}</button>
       </template>
+      {{ errorMessage }}
     </Modal>
-    <button @click="showModal">show modal</button>
     <div class="prose lg:prose-lg text-center">
       <h1 class="py-10">{{ $t('signup.title') }}</h1>
     </div>
@@ -75,6 +74,7 @@ export default {
   data() {
     return {
       guest: {},
+      errorMessage: '',
     }
   },
   methods: {
@@ -92,6 +92,8 @@ export default {
       } catch (error) {
         // this.$errorHandler({ error, type: 'signup' })
         console.error(error)
+        this.errorMessage = error
+        this.showModal()
       }
     },
   },

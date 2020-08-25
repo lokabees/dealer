@@ -1,10 +1,7 @@
 <template>
   <div v-if="modalVisible">
     <div>
-      Modal
-    </div>
-    <div>
-      <slot name="message"></slot>
+      <slot></slot>
     </div>
     <div>
       <slot name="buttons"></slot>
