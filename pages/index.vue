@@ -5,6 +5,11 @@
     <img src="icon.png" width="150px" />
     store img inside
     <img src="icon.png" width="150px" />
+
+    <button @click="$router.push('/shop/create')">
+      create store (delete this button)
+    </button>
+
     <button class="primary" @click="$router.push('/shop/edit')">
       {{ $t('dashboard.store.manage_store') }}
     </button>

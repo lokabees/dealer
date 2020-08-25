@@ -32,10 +32,8 @@ export const actions = {
    * nuxtServerInit start on initial loading
    * token and user validation
    */
-  async nuxtServerInit({ commit, dispatch, state }, { app, req }) {
+  async nuxtServerInit({ commit, dispatch, state }, { app }) {
     try {
-      console.log(req)
-
       // Try to get token from Browser
       const accessToken = app.$cookies.get('Authorization')
 

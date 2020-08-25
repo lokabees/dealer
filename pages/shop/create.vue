@@ -5,6 +5,11 @@
     :start-index="4"
     @on-complete="$router.push('/shop/success')"
   >
+    <Modal>
+      <template v-slot:buttons>
+        <button @click="hideModal">{{ $t('login.ok') }}</button>
+      </template>
+    </Modal>
     <span slot="title">Titel</span>
     {{ shop }}
     <!-- STEP 1-->
@@ -14,7 +19,7 @@
         <p>
           {{ $t('shop_registration_wizard.step_1.text') }}
         </p>
-        <FormulateForm v-model="shop" @submit="$refs.wizard.nextTab()">
+        <FormulateForm v-model="shop" @submit="submitStep1">
           <FormulateInput
             type="text"
             name="name"
@@ -22,7 +27,7 @@
               $t('shop_registration_wizard.step_1.name_placeholder')
             "
             :label="$t('shop_registration_wizard.step_1.name')"
-            validation="bail|required"
+            validation="required"
           />
           <FormulateInput
             type="text"
@@ -31,17 +36,46 @@
               $t('shop_registration_wizard.step_1.shop_owner_placeholder')
             "
             :label="$t('shop_registration_wizard.step_1.shop_owner')"
-            validation="bail|required"
+            validation="required"
           />
-          <FormulateInput
-            type="text"
-            name="location"
-            :placeholder="
-              $t('shop_registration_wizard.step_1.location_placeholder')
-            "
-            :label="$t('shop_registration_wizard.step_1.location')"
-            validation="bail|required"
-          />
+          <FormulateInput type="group" name="address">
+            <FormulateInput
+              type="text"
+              name="street"
+              :placeholder="
+                $t('shop_registration_wizard.step_1.street_placeholder')
+              "
+              :label="$t('shop_registration_wizard.step_1.street')"
+              validation="required"
+            />
+            <FormulateInput
+              type="text"
+              name="number"
+              :placeholder="
+                $t('shop_registration_wizard.step_1.number_placeholder')
+              "
+              :label="$t('shop_registration_wizard.step_1.number')"
+              validation="required"
+            />
+            <FormulateInput
+              type="text"
+              name="postcode"
+              :placeholder="
+                $t('shop_registration_wizard.step_1.postal_code_placeholder')
+              "
+              :label="$t('shop_registration_wizard.step_1.postal_code')"
+              validation="required"
+            />
+            <FormulateInput
+              type="text"
+              name="city"
+              :placeholder="
+                $t('shop_registration_wizard.step_1.city_placeholder')
+              "
+              :label="$t('shop_registration_wizard.step_1.city')"
+              validation="required"
+            />
+          </FormulateInput>
           <FormulateInput
             type="textarea"
             name="description"
@@ -49,7 +83,7 @@
               $t('shop_registration_wizard.step_1.description_placeholder')
             "
             :label="$t('shop_registration_wizard.step_1.description')"
-            validation="bail|required"
+            validation="required"
           />
           <FormulateInput
             name="categories"
@@ -82,7 +116,7 @@
             type="text"
             name="openingHours"
             :label="$t('shop_registration_wizard.step_2.opening_hours')"
-            validation="bail|required"
+            validation="required"
           />
           <FormulateInput
             type="submit"
@@ -205,7 +239,7 @@
           v-if="props.isLastStep"
           class="wizard-footer-right finish-button"
           :style="props.fillButtonStyle"
-          @click.native="$router.push('/shop/success')"
+          @click.native="createShop"
           >{{
             props.isLastStep
               ? $t('shop_registration_wizard.done')
@@ -218,15 +252,44 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
+  middleware: 'authenticated',
   data() {
     return {
-      shop: {},
+      shop: { address: [{}] },
     }
   },
   methods: {
-    onComplete() {
-      alert('Yay. Done!')
+    ...mapMutations('modal', {
+      showModal: 'showModal',
+      hideModal: 'hideModal',
+    }),
+    async createShop() {
+      console.log(this.shop)
+      try {
+        await this.$axios.$post('/api/shops', this.shop)
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async submitStep1() {
+      try {
+        const q = this.getAddressString()
+        const address = await this.$axios.$get('/api/maps/suggest', {
+          params: { q },
+        })
+        this.shop.address[0] = address
+        this.$refs.wizard.nextTab()
+      } catch (error) {
+        console.error(error)
+        // error 404: address not found
+        this.showModal(error)
+      }
+    },
+    getAddressString() {
+      const { street, number, postcode, city } = this.shop.address[0]
+      return `${street} ${number}, ${postcode} ${city}`
     },
   },
 }
