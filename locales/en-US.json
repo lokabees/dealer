@@ -1,5 +1,6 @@
 {
   "login": {
+    "ok": "Ok",
     "login": "Login",
     "signup": "Sign Up",
     "password": "Password",

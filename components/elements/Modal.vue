@@ -1,7 +1,7 @@
 <template>
-  <div v-if="modalVisible">
+  <div v-if="visible">
     <div>
-      <slot></slot>
+      {{ message }}
     </div>
     <div>
       <slot name="buttons"></slot>
@@ -10,11 +10,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   computed: {
-    modalVisible() {
-      return this.$store.getters['modal/visible']
-    },
+    ...mapGetters('modal', {
+      visible: 'visible',
+      message: 'message',
+    }),
   },
 }
 </script>

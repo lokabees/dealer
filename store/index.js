@@ -52,10 +52,10 @@ export const actions = {
       await dispatch('resetUser')
     }
   },
-  async setLocalUser({ commit }, token) {
+  setLocalUser({ commit }, token) {
     // Set CSR Token
-    await this.$axios.setToken(token, 'Bearer')
-    await this.$cookies.set('sobmit', token, {
+    this.$axios.setToken(token, 'Bearer')
+    this.$cookies.set('sobmit', token, {
       path: '/',
       maxAge: 60 * 60 * 24 * 7,
     })
