@@ -32,10 +32,12 @@ export const actions = {
    * nuxtServerInit start on initial loading
    * token and user validation
    */
-  async nuxtServerInit({ commit, dispatch, state }, { app }) {
+  async nuxtServerInit({ commit, dispatch, state }, { app, req }) {
     try {
+      console.log(req)
+
       // Try to get token from Browser
-      const accessToken = await this.$cookies.get('sobmit')
+      const accessToken = app.$cookies.get('Authorization')
 
       // Set token to $axios module config
       app.$axios.setToken(accessToken, 'Bearer')
@@ -55,7 +57,7 @@ export const actions = {
   setLocalUser({ commit }, token) {
     // Set CSR Token
     this.$axios.setToken(token, 'Bearer')
-    this.$cookies.set('sobmit', token, {
+    this.$cookies.set('Authorization', `Bearer ${token}`, {
       path: '/',
       maxAge: 60 * 60 * 24 * 7,
     })
@@ -66,9 +68,9 @@ export const actions = {
    * resetUser Action
    * resetUser the user clean the state, remove cookie and reset axios config
    */
-  async resetUser({ commit }) {
-    await this.$axios.setToken(false)
-    await this.$cookies.remove('sobmit')
+  resetUser({ commit }) {
+    this.$axios.setToken(false)
+    this.$cookies.remove('Authorization')
     commit('setToken', null)
     commit('setUser', null)
   },

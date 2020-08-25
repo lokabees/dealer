@@ -66,6 +66,9 @@ export default {
       pending: null,
     }
   },
+  mounted() {
+    console.log(this.$cookies.getAll())
+  },
   methods: {
     ...mapActions(['setLocalUser', 'getMe']),
     ...mapMutations('modal', {

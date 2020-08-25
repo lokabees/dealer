@@ -96,7 +96,6 @@ export default {
     proxy: true,
   },
   proxy: {
-    // TODO: Uncomment this
     '/api': { target: process.env.API_URL },
   },
   /*
