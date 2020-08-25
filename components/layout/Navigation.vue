@@ -24,6 +24,7 @@ export default {
         // Send toast
         // this.$store.dispatch('toast/add', { message: `toast.logout` })
       } catch (error) {
+        // TODO what if logout does not work?
         this.resetUser()
         this.$router.push('/auth/login')
         console.error(error)
