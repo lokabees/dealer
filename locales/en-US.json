@@ -159,7 +159,15 @@
       "text": "Enter your opening hours so that customers know when they can visit your shop",
       "opening_hours": "Opening Hours",
       "from": "from",
-      "to": "to"
+      "to": "to",
+      "mo": "Mo",
+      "tu": "Tu",
+      "we": "We",
+      "th": "Th",
+      "fr": "Fr",
+      "sa": "Sa",
+      "su": "Su",
+      "closed": "Closed"
     },
     "step_3": {
       "title": "Pick up and delivery",

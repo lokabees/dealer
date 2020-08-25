@@ -2,7 +2,7 @@
   <form-wizard
     ref="wizard"
     color="#19ae9d"
-    :start-index="4"
+    :start-index="0"
     @on-complete="$router.push('/shop/success')"
   >
     <Modal>
@@ -14,94 +14,7 @@
     {{ shop }}
     <!-- STEP 1-->
     <tab-content>
-      <div class="container prose max-w-xl mx-auto">
-        <h1>{{ $t('shop_registration_wizard.step_1.title') }}</h1>
-        <p>
-          {{ $t('shop_registration_wizard.step_1.text') }}
-        </p>
-        <FormulateForm v-model="shop" @submit="submitStep1">
-          <FormulateInput
-            type="text"
-            name="name"
-            :placeholder="
-              $t('shop_registration_wizard.step_1.name_placeholder')
-            "
-            :label="$t('shop_registration_wizard.step_1.name')"
-            validation="required"
-          />
-          <FormulateInput
-            type="text"
-            name="owner"
-            :placeholder="
-              $t('shop_registration_wizard.step_1.shop_owner_placeholder')
-            "
-            :label="$t('shop_registration_wizard.step_1.shop_owner')"
-            validation="required"
-          />
-          <FormulateInput type="group" name="address">
-            <FormulateInput
-              type="text"
-              name="street"
-              :placeholder="
-                $t('shop_registration_wizard.step_1.street_placeholder')
-              "
-              :label="$t('shop_registration_wizard.step_1.street')"
-              validation="required"
-            />
-            <FormulateInput
-              type="text"
-              name="number"
-              :placeholder="
-                $t('shop_registration_wizard.step_1.number_placeholder')
-              "
-              :label="$t('shop_registration_wizard.step_1.number')"
-              validation="required"
-            />
-            <FormulateInput
-              type="text"
-              name="postcode"
-              :placeholder="
-                $t('shop_registration_wizard.step_1.postal_code_placeholder')
-              "
-              :label="$t('shop_registration_wizard.step_1.postal_code')"
-              validation="required"
-            />
-            <FormulateInput
-              type="text"
-              name="city"
-              :placeholder="
-                $t('shop_registration_wizard.step_1.city_placeholder')
-              "
-              :label="$t('shop_registration_wizard.step_1.city')"
-              validation="required"
-            />
-          </FormulateInput>
-          <FormulateInput
-            type="textarea"
-            name="description"
-            :placeholder="
-              $t('shop_registration_wizard.step_1.description_placeholder')
-            "
-            :label="$t('shop_registration_wizard.step_1.description')"
-            validation="required"
-          />
-          <FormulateInput
-            name="categories"
-            type="checkbox"
-            :options="{
-              first: 'First',
-              second: 'Second',
-              third: 'Third',
-              fourth: 'Fourth',
-            }"
-            :label="$t('shop_registration_wizard.step_1.categories')"
-          />
-          <FormulateInput
-            type="submit"
-            :label="$t('shop_registration_wizard.next')"
-          />
-        </FormulateForm>
-      </div>
+      <ShopInfo v-on:submit="submitStep1" />
     </tab-content>
 
     <!-- STEP 2-->
@@ -273,23 +186,9 @@ export default {
         console.error(error)
       }
     },
-    async submitStep1() {
-      try {
-        const q = this.getAddressString()
-        const address = await this.$axios.$get('/api/maps/suggest', {
-          params: { q },
-        })
-        this.shop.address[0] = address
-        this.$refs.wizard.nextTab()
-      } catch (error) {
-        console.error(error)
-        // error 404: address not found
-        this.showModal(error)
-      }
-    },
-    getAddressString() {
-      const { street, number, postcode, city } = this.shop.address[0]
-      return `${street} ${number}, ${postcode} ${city}`
+    submitStep1(args) {
+      this.shop = { ...args }
+      this.$refs.wizard.nextTab()
     },
   },
 }
