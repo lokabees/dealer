@@ -88,6 +88,9 @@
 
 <script>
 export default {
+  props: {
+    shopCategories: {},
+  },
   data() {
     return {
       shop: { address: [{}] },

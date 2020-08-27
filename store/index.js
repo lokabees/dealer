@@ -32,11 +32,10 @@ export const actions = {
    * nuxtServerInit start on initial loading
    * token and user validation
    */
-  async nuxtServerInit({ commit, dispatch, state }, { app }) {
+  async nuxtServerInit({ commit, dispatch, state }, { app, req }) {
     try {
       // Try to get token from Browser
-      const accessToken = app.$cookies.get('Authorization')
-
+      const accessToken = this.$cookies.get('Authorization')
       // Set token to $axios module config
       app.$axios.setToken(accessToken, 'Bearer')
 
@@ -44,11 +43,13 @@ export const actions = {
       commit('setToken', accessToken)
 
       // If token exist, try to get user information with getMe action
+
       if (accessToken) {
         await dispatch('getMe')
       }
     } catch (e) {
       // Clean store if user not exist with logout action
+      console.error(e)
       await dispatch('resetUser')
     }
   },

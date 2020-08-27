@@ -2,7 +2,7 @@
   <form-wizard
     ref="wizard"
     color="#19ae9d"
-    :start-index="0"
+    :start-index="4"
     @on-complete="$router.push('/shop/success')"
   >
     <Modal>
@@ -14,29 +14,12 @@
     {{ shop }}
     <!-- STEP 1-->
     <tab-content>
-      <ShopInfo v-on:submit="submitStep1" />
+      <ShopInfo :shopCategories="shopCategories" @submit="submitStep1" />
     </tab-content>
 
     <!-- STEP 2-->
     <tab-content>
-      <div class="container prose max-w-xl mx-auto">
-        <h1>{{ $t('shop_registration_wizard.step_2.title') }}</h1>
-        <p>
-          {{ $t('shop_registration_wizard.step_2.text') }}
-        </p>
-        <FormulateForm v-model="shop" @submit="$refs.wizard.nextTab()">
-          <FormulateInput
-            type="text"
-            name="openingHours"
-            :label="$t('shop_registration_wizard.step_2.opening_hours')"
-            validation="required"
-          />
-          <FormulateInput
-            type="submit"
-            :label="$t('shop_registration_wizard.next')"
-          />
-        </FormulateForm>
-      </div>
+      <OpeningHours @submit="submitStep2" />
     </tab-content>
 
     <!-- STEP 3-->
@@ -168,6 +151,10 @@
 import { mapMutations } from 'vuex'
 export default {
   middleware: 'authenticated',
+  async asyncData({ $axios }) {
+    const shopCategories = await $axios.$get('/api/shops/categories')
+    return { shopCategories }
+  },
   data() {
     return {
       shop: { address: [{}] },
@@ -188,6 +175,12 @@ export default {
     },
     submitStep1(args) {
       this.shop = { ...args }
+      this.$refs.wizard.nextTab()
+    },
+    submitStep2(args) {
+      console.log('2')
+      this.shop.openingHours = args
+      console.log(this.shop)
       this.$refs.wizard.nextTab()
     },
   },
