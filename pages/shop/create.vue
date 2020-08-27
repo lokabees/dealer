@@ -97,8 +97,12 @@ import { mapMutations } from 'vuex'
 export default {
   middleware: 'authenticated',
   async asyncData({ $axios }) {
-    const shopCategories = await $axios.$get('/api/shops/categories')
-    return { shopCategories }
+    try {
+      const shopCategories = await $axios.$get('/api/shops/categories')
+      return { shopCategories }
+    } catch (e) {
+      return { shopCategories: [] }
+    }
   },
   data() {
     return {
@@ -128,11 +132,14 @@ export default {
     },
     submitStep3(delivery) {
       console.log('3')
-      this.shop = { ...delivery }
+      this.shop.delivery = { ...delivery }
       console.log(this.shop)
       this.$refs.wizard.nextTab()
     },
-    submitStep4(contact) {},
+    submitStep4(contact) {
+      this.shop.contact = { ...contact }
+      this.$refs.wizard.nextTab()
+    },
   },
 }
 </script>

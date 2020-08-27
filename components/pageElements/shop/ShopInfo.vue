@@ -101,7 +101,8 @@ export default {
         const address = await this.$axios.$get('/api/maps/suggest', {
           params: { q },
         })
-        this.shop.address[0] = address
+        console.log(address)
+        this.shop.address = address
         this.$emit('submit', this.shop)
       } catch (error) {
         console.error(error)
