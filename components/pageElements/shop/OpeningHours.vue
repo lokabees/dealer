@@ -89,14 +89,9 @@ export default {
   },
   methods: {
     submit() {
-      console.log(this.openingHours)
-      // this.$emit('submit', this.openingHours)
+      this.$emit('submit', this.openingHours)
     },
     getBreak(day) {
-      console.log(day)
-      console.log(this.openingHours[day])
-
-      console.log(this.openingHours[day]?.breaks[0])
       return this.openingHours[day]?.breaks[0] || {}
     },
   },

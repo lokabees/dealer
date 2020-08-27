@@ -24,67 +24,12 @@
 
     <!-- STEP 3-->
     <tab-content>
-      <div class="container prose max-w-xl mx-auto">
-        <h1>{{ $t('shop_registration_wizard.step_3.title') }}</h1>
-        <p>
-          {{ $t('shop_registration_wizard.step_3.text') }}
-        </p>
-        <FormulateForm v-model="shop" @submit="$refs.wizard.nextTab()">
-          <FormulateInput
-            name="delivery"
-            :options="{
-              pickup: $t('shop_registration_wizard.step_3.pickup'),
-              delivery: $t('shop_registration_wizard.step_3.delivery'),
-              ship: $t('shop_registration_wizard.step_3.ship'),
-            }"
-            type="checkbox"
-            label="This is a label for all the options"
-          />
-          <FormulateInput
-            type="submit"
-            :label="$t('shop_registration_wizard.next')"
-          />
-        </FormulateForm>
-      </div>
+      <DeliveryOptions @submit="submitStep3" />
     </tab-content>
 
     <!-- STEP 4-->
     <tab-content>
-      <div class="container prose max-w-xl mx-auto">
-        <h1>{{ $t('shop_registration_wizard.step_4.title') }}</h1>
-        <p>
-          {{ $t('shop_registration_wizard.step_4.text') }}
-        </p>
-        <FormulateForm
-          v-model="shop.customerContact"
-          @submit="$refs.wizard.nextTab()"
-        >
-          <FormulateInput
-            type="text"
-            name="phone"
-            :label="$t('shop_registration_wizard.step_4.phone')"
-          />
-          <FormulateInput
-            type="text"
-            name="whatsapp"
-            :label="$t('shop_registration_wizard.step_4.whatsapp')"
-          />
-          <FormulateInput
-            type="text"
-            name="email"
-            :label="$t('shop_registration_wizard.step_4.email')"
-          />
-          <FormulateInput
-            type="text"
-            name="website"
-            :label="$t('shop_registration_wizard.step_4.website')"
-          />
-          <FormulateInput
-            type="submit"
-            :label="$t('shop_registration_wizard.next')"
-          />
-        </FormulateForm>
-      </div>
+      <CustomerContact @submit="submitStep4" />
     </tab-content>
 
     <!-- STEP 5-->
@@ -173,16 +118,21 @@ export default {
         console.error(error)
       }
     },
-    submitStep1(args) {
-      this.shop = { ...args }
+    submitStep1(shopInfo) {
+      this.shop = { ...shopInfo }
       this.$refs.wizard.nextTab()
     },
-    submitStep2(args) {
-      console.log('2')
-      this.shop.openingHours = args
+    submitStep2(openingHours) {
+      this.shop.openingHours = openingHours
+      this.$refs.wizard.nextTab()
+    },
+    submitStep3(delivery) {
+      console.log('3')
+      this.shop = { ...delivery }
       console.log(this.shop)
       this.$refs.wizard.nextTab()
     },
+    submitStep4(contact) {},
   },
 }
 </script>
