@@ -14,7 +14,7 @@
     {{ shop }}
     <!-- STEP 1-->
     <tab-content>
-      <ShopInfo :shopCategories="shopCategories" @submit="submitStep1" />
+      <ShopInfo :shop-categories="shopCategories" @submit="submitStep1" />
     </tab-content>
 
     <!-- STEP 2-->

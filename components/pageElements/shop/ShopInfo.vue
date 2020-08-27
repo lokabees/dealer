@@ -70,12 +70,7 @@
       <FormulateInput
         name="categories"
         type="checkbox"
-        :options="{
-          first: 'First',
-          second: 'Second',
-          third: 'Third',
-          fourth: 'Fourth',
-        }"
+        :options="{ Auto: 'Auto/ Motorrad' }"
         :label="$t('shop_registration_wizard.step_1.categories')"
       />
       <FormulateInput
@@ -89,7 +84,10 @@
 <script>
 export default {
   props: {
-    shopCategories: {},
+    shopCategories: {
+      type: Array,
+      default: () => [],
+    },
   },
   data() {
     return {

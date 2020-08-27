@@ -4,7 +4,6 @@
     <p>
       {{ $t('shop_registration_wizard.step_2.text') }}
     </p>
-    {{ openingHours }}
     <!-- TODO opening times validation
     * close time > open time
     * close time required when open time
@@ -18,13 +17,13 @@
         <FormulateInput
           v-model="openingHours[day].open"
           type="time"
-          name="mo"
+          :name="`${day} open`"
           :label="$t('shop_registration_wizard.step_2.from')"
         />
         <FormulateInput
           v-model="openingHours[day].close"
           type="time"
-          name="mo"
+          :name="`${day} close`"
           :label="$t('shop_registration_wizard.step_2.until')"
         />
       </div>
@@ -34,17 +33,18 @@
         <div>{{ $t(`shop_registration_wizard.step_2.${day}`) }} break</div>
         <div v-if="openingHours[day].open && openingHours[day].close">
           <FormulateInput
-            v-model="openingHours[day].breaks[0].from"
+            :value="getBreak(day).from"
             type="time"
-            name="mo"
+            :name="`${day} break from`"
             :label="$t('shop_registration_wizard.step_2.from')"
+            @input="openingHours[day].breaks[0].from = $event"
           />
           <FormulateInput
-            v-model="openingHours[day].breaks[0].to"
+            :value="getBreak(day).to"
             type="time"
-            name="mo"
+            :name="`${day} break until`"
             :label="$t('shop_registration_wizard.step_2.until')"
-            @blur="addBreakTo(day)"
+            @input="openingHours[day].breaks[0].to = $event"
           />
         </div>
       </div>
@@ -61,6 +61,7 @@
 export default {
   data() {
     return {
+      temporaryBreak: {},
       openingHours: {
         monday: {
           breaks: [{}],
@@ -89,10 +90,14 @@ export default {
   methods: {
     submit() {
       console.log(this.openingHours)
-      this.$emit('submit', this.openingHours)
+      // this.$emit('submit', this.openingHours)
     },
-    addBreakTo(day) {
-      this.openingHours[day].breaks[0] = this.temporaryBreak
+    getBreak(day) {
+      console.log(day)
+      console.log(this.openingHours[day])
+
+      console.log(this.openingHours[day]?.breaks[0])
+      return this.openingHours[day]?.breaks[0] || {}
     },
   },
 }
