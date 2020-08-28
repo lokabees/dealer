@@ -91,18 +91,24 @@ export default {
     submitStep1(shopInfo) {
       this.shop = { ...shopInfo }
       this.$refs.wizard.nextTab()
+      console.log(this.shop)
     },
     submitStep2(openingHours) {
       this.shop.openingHours = openingHours
       this.$refs.wizard.nextTab()
+      console.log(this.shop)
     },
     submitStep3(delivery) {
+      console.log(3)
+      console.log(delivery)
       this.shop.delivery = { ...delivery }
       this.$refs.wizard.nextTab()
+      console.log(this.shop)
     },
     submitStep4(contact) {
       this.shop.contact = { ...contact }
       this.$refs.wizard.nextTab()
+      console.log(this.shop)
     },
     async submitStep5(creatives) {
       this.shop.images = { ...creatives }

@@ -4,8 +4,9 @@
     <p>
       {{ $t('shop_registration_wizard.step_3.text') }}
     </p>
-    <FormulateForm v-model="delivery" @submit="submit">
+    <FormulateForm @submit="submit">
       <FormulateInput
+        v-model="delivery"
         name="delivery"
         :options="{
           pickUp: $t('shop_registration_wizard.step_3.pickup'),
