@@ -48,7 +48,6 @@ export default {
   },
   methods: {
     submit() {
-      console.log('sub')
       this.$emit('submit', this.contact)
     },
   },

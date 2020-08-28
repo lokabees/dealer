@@ -104,7 +104,8 @@ export default {
       this.shop.contact = { ...contact }
       this.$refs.wizard.nextTab()
     },
-    async submitStep5() {
+    async submitStep5(creatives) {
+      this.shop.images = { ...creatives }
       console.log(this.shop)
       try {
         await this.$axios.$post('/api/shops', this.shop)
