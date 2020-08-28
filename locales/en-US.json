@@ -185,9 +185,13 @@
       "title": "Customer contact",
       "text": "How can customers and prospective buyers get in touch with you?",
       "phone": "Phone",
+      "phone_placeholder": "+49 123 456789",
       "whatsapp": "Whatsapp",
+      "whatsapp_placeholder": "+49 123 456789",
       "email": "Email",
-      "website": "Website"
+      "email_placeholder": "max@mustermann.com",
+      "website": "Website",
+      "website_placeholder": "myawesomecookiestore24.com"
     },
     "step_5": {
       "title": "Photos and Videos",

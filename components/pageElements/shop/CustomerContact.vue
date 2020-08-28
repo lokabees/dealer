@@ -8,21 +8,27 @@
       <FormulateInput
         type="text"
         name="phone"
+        :placeholder="$t('shop_registration_wizard.step_4.phone_placeholder')"
         :label="$t('shop_registration_wizard.step_4.phone')"
       />
       <FormulateInput
         type="text"
         name="whatsapp"
+        :placeholder="
+          $t('shop_registration_wizard.step_4.whatsapp_placeholder')
+        "
         :label="$t('shop_registration_wizard.step_4.whatsapp')"
       />
       <FormulateInput
         type="text"
         name="email"
+        :placeholder="$t('shop_registration_wizard.step_4.email_placeholder')"
         :label="$t('shop_registration_wizard.step_4.email')"
       />
       <FormulateInput
         type="text"
         name="website"
+        :placeholder="$t('shop_registration_wizard.step_4.website_placeholder')"
         :label="$t('shop_registration_wizard.step_4.website')"
       />
       <FormulateInput
