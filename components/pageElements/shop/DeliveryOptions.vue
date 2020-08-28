@@ -9,9 +9,9 @@
         v-model="delivery"
         name="delivery"
         :options="{
-          pickUp: $t('shop_registration_wizard.step_3.pickup'),
-          localDelivery: $t('shop_registration_wizard.step_3.delivery'),
-          mail: $t('shop_registration_wizard.step_3.ship'),
+          LD: $t('shop_registration_wizard.step_3.delivery'),
+          PU: $t('shop_registration_wizard.step_3.pickup'),
+          MD: $t('shop_registration_wizard.step_3.ship'),
         }"
         type="checkbox"
         label="This is a label for all the options"

@@ -74,7 +74,7 @@ export default {
     },
     submit() {
       console.log(this.creatives)
-      // this.$emit('submit', this.creatives)
+      this.$emit('submit', this.creatives)
     },
   },
 }

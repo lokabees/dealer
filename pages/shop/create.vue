@@ -74,7 +74,8 @@ export default {
       const shopCategories = await $axios.$get('/api/shops/categories')
       return { shopCategories }
     } catch (e) {
-      return { shopCategories: [] }
+      console.error(e)
+      return { shopCategories: {} }
     }
   },
   data() {
@@ -99,9 +100,7 @@ export default {
       console.log(this.shop)
     },
     submitStep3(delivery) {
-      console.log(3)
-      console.log(delivery)
-      this.shop.delivery = { ...delivery }
+      this.shop.delivery = delivery
       this.$refs.wizard.nextTab()
       console.log(this.shop)
     },
