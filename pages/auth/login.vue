@@ -31,6 +31,8 @@
       {{ $t('login.signup') }}
     </button>
 
+    <n-link to="/auth/reset-password">{{ $t('login.forgot_password') }}</n-link>
+
     <div class="relative my-8">
       <div class="absolute inset-0 flex items-center">
         <div class="w-full border-t"></div>
