@@ -116,6 +116,7 @@ export default {
         await this.$axios.$post('/api/shops', this.shop)
       } catch (error) {
         console.error(error)
+        this.showModal(error)
       }
     },
   },

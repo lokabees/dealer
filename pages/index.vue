@@ -1,6 +1,7 @@
 <template>
   <div class="container prose">
-    <h1>Store name</h1>
+    <h1>{{ shop.name }}</h1>
+    {{ shop }}
     store img outside
     <img src="icon.png" width="150px" />
     store img inside
@@ -47,7 +48,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   middleware: ['authenticated'],
+  computed: {
+    ...mapGetters('shops', {
+      shop: 'activeShop',
+    }),
+  },
 }
 </script>

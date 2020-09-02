@@ -87,7 +87,7 @@ export default {
         // Set local access token to store and cookie
         this.setLocalUser(token)
 
-        // Get user informations
+        // Get user information
         await this.getMe()
 
         // Unset Loading
