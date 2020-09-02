@@ -100,7 +100,11 @@ export default {
           params: { q },
         })
         this.shop.address = address
-        await this.$axios.$put(`/api/shops/${this.shop._id}`, this.shop)
+        const updatedShop = await this.$axios.$put(
+          `/api/shops/${this.shop._id}`,
+          this.shop
+        )
+        this.$store.commit('shops/setActiveShop', updatedShop)
         this.$router.push('/')
       } catch (e) {
         console.error(e)

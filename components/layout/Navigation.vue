@@ -1,16 +1,21 @@
 <template>
   <div class="container prose">
     <n-link to="/"><img src="/img/logo.svg" width="150px" /></n-link>
-    <button @click="$router.push('/user')">Profile</button>
-    <button v-if="$store.state.accessToken" @click="logoutUser">
+    <button v-if="user" @click="$router.push('/user')">
+      {{ user.name }}
+    </button>
+    <button v-if="user" @click="logoutUser">
       Sign out
     </button>
   </div>
 </template>
 
 <script>
-import { mapActions, mapMutations } from 'vuex'
+import { mapActions, mapMutations, mapGetters } from 'vuex'
 export default {
+  computed: {
+    ...mapGetters(['user']),
+  },
   methods: {
     ...mapActions(['resetUser']),
     ...mapMutations('modal', {
