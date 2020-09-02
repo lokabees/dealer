@@ -1,7 +1,7 @@
 <template>
   <div class="container prose">
     <h1>{{ shop ? shop.name : '' }}</h1>
-    {{ shop }}
+
     store img outside
     <img src="icon.png" width="150px" />
     store img inside
