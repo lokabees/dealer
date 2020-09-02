@@ -1,7 +1,6 @@
 <template>
   <div class="container prose">
     <h1>{{ $t('edit_shop.title') }}</h1>
-    {{ activeShop }}
     <FormulateForm @submit="save">
       <FormulateInput
         v-model="shop.name"
@@ -73,7 +72,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import { clone } from 'lodash'
 export default {
   middleware: ['authenticated'],
@@ -93,11 +91,6 @@ export default {
         address: clone(this.$store.getters['shops/activeShop']?.address) || {},
       },
     }
-  },
-  computed: {
-    ...mapGetters('shops', {
-      activeShop: 'activeShop',
-    }),
   },
   methods: {
     async save() {
