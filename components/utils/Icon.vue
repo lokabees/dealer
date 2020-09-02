@@ -1,23 +1,20 @@
 <template>
-  <div class="icon">
+  <i>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       :width="width"
       :height="height"
+      viewBox="0 0 24 24"
       :fill="fill"
+      @click="$emit('click')"
       v-html="icon"
     />
-  </div>
+  </i>
 </template>
 
 <script>
-// import VLazy from 'vue-lazy-hydration'
-
 export default {
   name: 'Icon',
-  components: {
-    // ,
-  },
   props: {
     // Name of the icon
     name: {
@@ -44,18 +41,17 @@ export default {
     icon() {
       // Computed icon name
       // @arg The argument is a string value representing the name of the icon
-      return this.getIcon(this.name)
+      return this.getEvaIcon(this.name)
     },
   },
   methods: {
     // @vuese
     // Get name of the icon
-    getIcon(name) {
+    getEvaIcon(name) {
       if (name) {
         try {
-          return require('vue-unicons/src/icons')[name].path
+          return require('eva-icons/eva').icons[name].contents
         } catch (e) {
-          console.log(e)
           // Todo: Bind error handler
         }
       }

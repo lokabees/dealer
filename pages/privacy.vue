@@ -1,11 +1,9 @@
 <template>
   <div>
-    <h1>Datenschutzerklärung</h1>
+    <h1>privacy</h1>
   </div>
 </template>
 
 <script>
-export default {
-  auth: false,
-}
+export default {}
 </script>

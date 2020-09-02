@@ -4,21 +4,46 @@
  ** Docs: https://tailwindcss.com/docs/configuration
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
-const { fontFamily } = require('tailwindcss/defaultTheme')
+import typography from '@tailwindcss/typography'
+import tailwindui from '@tailwindcss/ui'
+import { fontFamily } from 'tailwindcss/defaultTheme'
+
 module.exports = {
   theme: {
     extend: {
-      margin: {
-        36: '9rem',
+      fontFamily: {
+        serif: ['Merriweather', ...fontFamily.serif],
+        sans: ['Montserrat', ...fontFamily.sans],
       },
-      borderColor: (theme) => ({
-        default: theme('colors.dark', 'currentColor'),
-      }),
     },
-    fontFamily: {
-      sans: ['Montserrat', ...fontFamily.sans],
-      serif: ['Merriweather', ...fontFamily.serif],
+    container: {
+      center: true,
     },
+    /*
+     ** Typography settings
+     ** See https://github.com/tailwindlabs/tailwindcss-typography
+     */
+    typography: (theme) => ({
+      default: {
+        css: {
+          'h1, h2, h3, h4': {
+            fontFamily: theme('fontFamily.serif').join(', '),
+            fontWeight: 'bold',
+          },
+          a: {
+            color: theme('colors.primary.default'),
+            'text-decoration': 'none',
+            '&:hover': {
+              color: theme('colors.tertiary'),
+            },
+          },
+        },
+      },
+    }),
+    /*
+     ** Main Color settings
+     ** See https://tailwindcss.com/docs/customizing-colors/#app
+     */
     colors: {
       transparent: 'transparent',
       black: '#000000',
@@ -46,37 +71,10 @@ module.exports = {
         default: '#FFB100',
       },
     },
-    container: {
-      center: true,
-    },
-    variants: {
-      spinner: ['responsive'],
-    },
-    spinner: (theme) => ({
-      dark: {
-        color: theme('colors.dark', 'currentColor'), // color you want to make the spinner
-        size: '1em', // size of the spinner (used for both width and height)
-        border: '2px', // border-width of the spinner (shouldn't be bigger than half the spinner's size)
-        speed: '500ms', // the speed at which the spinner should rotate
-      },
-      light: {
-        color: theme('colors.light', 'currentColor'), // color you want to make the spinner
-        size: '1em', // size of the spinner (used for both width and height)
-        border: '2px', // border-width of the spinner (shouldn't be bigger than half the spinner's size)
-        speed: '500ms', // the speed at which the spinner should rotate
-      },
-    }),
   },
-  plugins: [require('tailwindcss-spinner')()],
-  purge: {
-    // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
-    enabled: process.env.NODE_ENV === 'production',
-    content: [
-      'components/**/*.vue',
-      'layouts/**/*.vue',
-      'pages/**/*.vue',
-      'plugins/**/*.js',
-      'nuxt.config.js',
-    ],
-  },
+  /*
+   ** TailwindCSS Plugins
+   ** See https://tailwindcss.com/docs/configuration/#app
+   */
+  plugins: [typography, tailwindui],
 }

@@ -1,0 +1,24 @@
+.toggle {
+  label {
+    @apply block overflow-hidden h-6 rounded-full bg-grey-dark cursor-pointer border;
+    @apply transition duration-300 ease-in-out;
+  }
+  @apply relative inline-block w-10 mr-2 align-middle select-none;
+  &-checkbox {
+    @apply absolute block w-6 h-6 rounded-full bg-white border-4 border-grey-dark appearance-none cursor-pointer;
+    @apply transition duration-300 ease-in-out;
+
+    // Make border smaller then outer border
+    transform: scale(0.95);
+
+    &:focus {
+      @apply outline-none;
+    }
+    &:checked {
+      @apply right-0 border-white bg-secondary right-0;
+      +label {
+        @apply bg-white;
+      }
+    }
+  }
+}

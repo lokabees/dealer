@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 
-import en from '~/lang/en-US.json'
-import de from '~/lang/de-DE.json'
+import en from '~/locales/en-US.json'
+import de from '~/locales/de-DE.json'
 
 /*
 import es from '~/lang/es-ES.json'

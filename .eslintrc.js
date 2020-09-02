@@ -18,9 +18,9 @@ module.exports = {
   plugins: ['prettier', 'wdio'],
   // add your custom rules here
   rules: {
-    'prettier/prettier': 'error',
     'no-console': 'off',
+    // Todo: Create workaround
     'vue/no-v-html': 'off',
-    'vue/no-template-shadow': 'off',
+    // 'vue/no-template-shadow': 'off'
   },
 }

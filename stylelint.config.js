@@ -6,17 +6,8 @@ module.exports = {
     'at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: [
-          'extends',
-          'apply',
-          'tailwind',
-          'components',
-          'utilities',
-          'screen',
-        ],
+        ignoreAtRules: ['screen'],
       },
     ],
-    'block-no-empty': null,
-    'unit-whitelist': ['em', 'rem', 's', 'px'],
   },
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    imprint
+    <h1>shop</h1>
   </div>
 </template>
 

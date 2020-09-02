@@ -1,4 +1,5 @@
-require('dotenv').config()
+import redirectSSL from 'redirect-ssl'
+
 export default {
   /*
    ** Nuxt rendering mode
@@ -8,6 +9,7 @@ export default {
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
+   ** Test it with 'static' and 'server'
    */
   target: 'server',
   /*
@@ -15,43 +17,45 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: 'Lokabees Dealer',
+    title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
-      {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1, maximum-scale=5',
-      },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: 'Shopverwaltung',
+        content: process.env.npm_package_description || '',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
-   ** Environment variables at runtime
-   ** https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config/
+   ** The env Property
+   ** See https://nuxtjs.org/api/configuration-env/
+   ** also https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config/
    */
   publicRuntimeConfig: {
+    dev: process.env.NODE_ENV !== 'production',
     appMasterKey: process.env.VUE_APP_MASTER_KEY,
   },
-  privateRuntimeConfig: {},
-
+  privateRuntimeConfig: {
+    VUE_APP_GOOGLE_ID: process.env.VUE_APP_GOOGLE_ID,
+    VUE_APP_FACEBOOK_ID: process.env.VUE_APP_FACEBOOK_ID,
+  },
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/main'],
+  css: ['@/assets/main.scss'],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-    '~/plugins/modules/i18n',
+    '~/plugins/modules/axios',
     '~/plugins/modules/vue-formulate',
-    '~/plugins/services/error-handler',
-    { src: '~/plugins/modules/vue-unicons', mode: 'client' },
+    '~/plugins/modules/i18n',
+    '~/plugins/modules/vue-form-wizard',
+    { src: '~/plugins/modules/auth', mode: 'client' },
   ],
   /*
    ** Auto import components
@@ -68,6 +72,8 @@ export default {
     '@nuxtjs/stylelint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
     '@nuxtjs/tailwindcss',
+    // https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt#readme
+    'cookie-universal-nuxt',
   ],
   /*
    ** Nuxt.js modules
@@ -75,76 +81,13 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    // Doc: https://pwa.nuxtjs.org/
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
-    // Doc: https://github.com/Developmint/nuxt-webfontloader#readme
-    'nuxt-webfontloader',
-    // Doc: https://auth.nuxtjs.org/
-    '@nuxtjs/auth',
-    // https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt#readme
-    'cookie-universal-nuxt',
+    // Doc: https://github.com/nuxt-community/google-fonts-module
+    '@nuxtjs/google-fonts',
   ],
-
-  /*
-   ** Webfontloader
-   ** See https://www.npmjs.com/package/webfontloader
-   */
-  webfontloader: {
-    custom: {
-      families: ['Montserrat:n4,n6,n7', ' :n4,n7'],
-      urls: [
-        // for each Google Fonts add url + options you want
-        // here add font-display option
-        'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap',
-        'https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap',
-      ],
-    },
-  },
-  /*
-   ** Pwa module configuration
-   ** See https://pwa.nuxtjs.org/modules/workbox.html#config
-   */
-  pwa: {
-    workbox: {
-      clientsClaim: false,
-    },
-  },
-  /**
-   ** nuxt/auth configuration
-   ** See https://auth.nuxtjs.org/
-   */
-  auth: {
-    strategies: {
-      local: {
-        endpoints: {
-          login: {
-            url: '/api/auth',
-            method: 'post',
-            propertyName: 'token',
-          },
-          logout: { url: '/api/auth/logout', method: 'post' },
-          user: {
-            url: '/api/users/me',
-            method: 'get',
-            propertyName: '',
-          },
-        },
-      },
-      facebook: {
-        client_id: process.env.VUE_APP_FACEBOOK_ID,
-        userinfo_endpoint: false,
-        scope: ['public_profile', 'email'],
-        redirect_uri: `${process.env.APP_URL}/callback`,
-      },
-      google: {
-        client_id: process.env.VUE_APP_GOOGLE_ID,
-        user: false,
-        redirect_uri: `${process.env.APP_URL}/callback`,
-        tokenType: '',
-      },
-    },
-  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
@@ -152,42 +95,38 @@ export default {
   axios: {
     proxy: true,
   },
-
   proxy: {
     '/api': { target: process.env.API_URL },
   },
-  /**
-   ** router configuration
-   */
-  router: {
-    middleware: ['auth'],
-  },
-
   /*
    ** Content module configuration
    ** See https://content.nuxtjs.org/configuration
    */
   content: {},
-  /**
-   ** PurgeCSS configuration
-   */
-  purgeCSS: {
-    whitelistPatterns: [
-      /-(leave|enter|appear)(|-(to|from|active))$/,
-      /^(?!(|.*?:)cursor-move).+-move$/,
-      /^nuxt-link(|-exact)-active$/,
-    ],
-  },
   /*
-   ** Tailtind configuration
-   ** See https://github.com/nuxt-community/tailwindcss-module
+   ** google fonts module configuration
+   ** See https://github.com/nuxt-community/google-fonts-module#options
+   ** Todo: @lukas - Set specific font weights if purgecss not active - test it
+   ** also specific subset
    */
-  tailwindcss: {
-    // purgeCSSInDev: true,
+  googleFonts: {
+    families: {
+      Merriweather: true,
+      Montserrat: true,
+    },
   },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {},
+  /*
+   ** The serverMiddleware Property
+   ** See https://nuxtjs.org/api/configuration-servermiddleware/
+   */
+  serverMiddleware: [
+    redirectSSL.create({
+      enabled: process.env.NODE_ENV === 'production',
+    }),
+  ],
 }
