@@ -101,7 +101,6 @@ export default {
         const address = await this.$axios.$get('/api/maps/suggest', {
           params: { q },
         })
-        console.log(address)
         this.shop.address = address
         this.$emit('submit', this.shop)
       } catch (error) {
