@@ -25,10 +25,16 @@ export default {
     }
   },
   methods: {
-    resetPassword() {
-      console.log('reset password ' + this.email)
-      // TODO:
-      this.$router.push('/auth/reset-password-success')
+    async resetPassword() {
+      try {
+        await this.$axios.$post('/api/password-reset', {
+          email: this.email,
+          master: this.$config.appMasterKey,
+        })
+        this.$router.push('/auth/reset-password-success')
+      } catch (error) {
+        console.error(error)
+      }
     },
   },
 }

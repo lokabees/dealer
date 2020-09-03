@@ -31,6 +31,8 @@
       {{ $t('login.signup') }}
     </button>
 
+    <n-link to="/auth/reset-password">{{ $t('login.forgot_password') }}</n-link>
+
     <div class="relative my-8">
       <div class="absolute inset-0 flex items-center">
         <div class="w-full border-t"></div>
@@ -102,10 +104,39 @@ export default {
         this.showModal(error)
       }
     },
-    socialLogin(provider) {
+    async socialLogin(provider) {
       try {
-        this.$router.push('/')
-      } catch (error) {}
+        // Set Loading
+        this.pending = provider
+
+        // Authenticate with external service
+        const authResponse = await this.$auth(provider)
+        console.log(authResponse)
+        // Post the access_token to login user on backend
+        /*
+        const {
+          data: { token },
+        } = await this.$axios.post(`/api/auth/${provider}`, {
+          token: access_token,
+        })
+*/
+        // Set local access token to store and cookie
+        // await this.setLocalUser(token)
+
+        // Get user informations
+        // await this.getMe()
+
+        // Unset Loading
+        this.pending = null
+
+        // Redirect on successfull authentication
+        // this.$router.push('/')
+      } catch (error) {
+        // Error handler
+        // TODO: Catch error
+        console.log(error)
+        this.pending = null
+      }
     },
   },
 }

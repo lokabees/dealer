@@ -13,21 +13,11 @@ export const mutations = {
 }
 
 export const actions = {
-  /**
-   * nuxtServerInit start on initial loading
-   * token and user validation
-   */
-  async getAllShops({ commit }) {
+  async getActiveShop({ rootGetters, commit }) {
     try {
-      const { rows } = await this.$axios.$get('/api/shops')
-      commit('setShops', rows)
-    } catch (error) {
-      console.error(error)
-    }
-  },
-  async getActiveShop({ commit }, shopId) {
-    try {
-      const shop = await this.$axios.$get(`/api/shops/${shopId}`)
+      const shop = await this.$axios.$get(
+        `/api/users/${rootGetters.user._id}/shops/active`
+      )
       commit('setActiveShop', shop)
     } catch (error) {
       console.error(error)

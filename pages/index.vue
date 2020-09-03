@@ -1,11 +1,11 @@
 <template>
   <div class="container prose">
-    <h1>{{ shop ? shop.name : '' }}</h1>
-    {{ shop }}
+    <h1>{{ shopName }}</h1>
+
     store img outside
-    <img src="icon.png" width="150px" />
+    <img :src="coverImage" width="150px" />
     store img inside
-    <img src="icon.png" width="150px" />
+    <img :src="profileImage" width="150px" />
 
     <button @click="$router.push('/shop/create')">
       create store (delete this button)
@@ -55,6 +55,15 @@ export default {
     ...mapGetters('shops', {
       shop: 'activeShop',
     }),
+    coverImage() {
+      return this.shop?.images?.cover?.url
+    },
+    profileImage() {
+      return this.shop?.images?.profile?.url
+    },
+    shopName() {
+      return this.shop?.name
+    },
   },
 }
 </script>

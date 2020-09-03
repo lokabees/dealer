@@ -77,17 +77,16 @@ export const actions = {
   /**
    * getMe Action
    * get User Information
+   * get active shop
    */
   async getMe({ state, commit, dispatch }) {
     try {
       const { data } = await this.$axios.get('/api/users/me')
-      // TODO backend: pass active shopId on fetch user
-      console.log(data.activeShop)
-      await dispatch('shops/getActiveShop', '5f500cf925675e4f543248c5')
       commit('setUser', data)
+      await dispatch('shops/getActiveShop')
     } catch (error) {
-      await dispatch('resetUser')
-      console.log(error)
+      dispatch('resetUser')
+      console.error(error)
     }
   },
 }
