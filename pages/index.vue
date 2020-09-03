@@ -3,7 +3,8 @@
     <h1>{{ shop ? shop.name : '' }}</h1>
 
     store img outside
-    <img src="icon.png" width="150px" />
+    {{ coverImage }}
+    <img :src="coverImage" width="150px" />
     store img inside
     <img src="icon.png" width="150px" />
 
@@ -51,10 +52,19 @@
 import { mapGetters } from 'vuex'
 export default {
   middleware: ['authenticated'],
+  data() {
+    return {
+      coverImage: this.shop?.images?.cover?.url,
+      profileImage: this.shop?.images?.profile?.url,
+    }
+  },
   computed: {
     ...mapGetters('shops', {
       shop: 'activeShop',
     }),
+  },
+  mounted() {
+    console.log(this.shop?.images)
   },
 }
 </script>
