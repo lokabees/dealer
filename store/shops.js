@@ -13,10 +13,6 @@ export const mutations = {
 }
 
 export const actions = {
-  /**
-   * admin
-   * token and user validation
-   */
   async getActiveShop({ rootGetters, commit }) {
     try {
       const shop = await this.$axios.$get(

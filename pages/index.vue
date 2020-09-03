@@ -1,12 +1,11 @@
 <template>
   <div class="container prose">
-    <h1>{{ shop ? shop.name : '' }}</h1>
+    <h1>{{ shopName }}</h1>
 
     store img outside
-    {{ coverImage }}
     <img :src="coverImage" width="150px" />
     store img inside
-    <img src="icon.png" width="150px" />
+    <img :src="profileImage" width="150px" />
 
     <button @click="$router.push('/shop/create')">
       create store (delete this button)
@@ -52,19 +51,19 @@
 import { mapGetters } from 'vuex'
 export default {
   middleware: ['authenticated'],
-  data() {
-    return {
-      coverImage: this.shop?.images?.cover?.url,
-      profileImage: this.shop?.images?.profile?.url,
-    }
-  },
   computed: {
     ...mapGetters('shops', {
       shop: 'activeShop',
     }),
-  },
-  mounted() {
-    console.log(this.shop?.images)
+    coverImage() {
+      return this.shop?.images?.cover?.url
+    },
+    profileImage() {
+      return this.shop?.images?.profile?.url
+    },
+    shopName() {
+      return this.shop?.name
+    },
   },
 }
 </script>
