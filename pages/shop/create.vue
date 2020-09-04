@@ -128,6 +128,7 @@ export default {
       try {
         this.shop.address = this.shop.address[0]
         await this.$axios.$post('/api/shops', this.shop)
+        await this.$store.dispatch('shops/getActiveShop')
         this.$router.push('success')
       } catch (error) {
         console.error(error)

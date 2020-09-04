@@ -22,6 +22,7 @@
         validation="required"
       />
       <FormulateInput type="group" name="address">
+        <!-- TODO custom validation: street and name can have spaces, but no numbers-->
         <FormulateInput
           type="text"
           name="street"
@@ -29,7 +30,7 @@
             $t('shop_registration_wizard.step_1.street_placeholder')
           "
           :label="$t('shop_registration_wizard.step_1.street')"
-          validation="required|alpha"
+          validation="required"
         />
         <FormulateInput
           type="text"
