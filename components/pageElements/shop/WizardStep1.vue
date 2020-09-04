@@ -29,7 +29,7 @@
             $t('shop_registration_wizard.step_1.street_placeholder')
           "
           :label="$t('shop_registration_wizard.step_1.street')"
-          validation="required"
+          validation="required|alpha"
         />
         <FormulateInput
           type="text"
@@ -38,7 +38,7 @@
             $t('shop_registration_wizard.step_1.number_placeholder')
           "
           :label="$t('shop_registration_wizard.step_1.number')"
-          validation="required"
+          validation="required|number"
         />
         <FormulateInput
           type="text"
