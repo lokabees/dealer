@@ -4,7 +4,7 @@
     <p>
       {{ $t('shop_registration_wizard.step_4.text') }}
     </p>
-    <FormulateForm v-model="contact" @submit="submit">
+    <FormulateForm v-model="shop.contact" @submit="$emit('submit')">
       <FormulateInput
         type="text"
         name="phone"
@@ -41,14 +41,17 @@
 
 <script>
 export default {
+  props: {
+    initialShop: { type: Object, default: () => {}, required: true },
+  },
   data() {
     return {
-      contact: {},
+      shop: this.initialShop || {},
     }
   },
-  methods: {
-    submit() {
-      this.$emit('submit', this.contact)
+  watch: {
+    shop(newShop, oldShop) {
+      this.$emit('input', newShop)
     },
   },
 }

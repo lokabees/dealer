@@ -2,8 +2,19 @@ import Vue from 'vue'
 import VueFormulate from '@braid/vue-formulate'
 import { de } from '@braid/vue-formulate-i18n'
 
+import OpeningHours from '~/components/elements/OpeningHours'
+
+// register your component with Vue
+Vue.component('OpeningHours', OpeningHours)
+
 Vue.use(VueFormulate, {
   plugins: [de],
+  library: {
+    openingHours: {
+      classification: 'text',
+      component: 'OpeningHours',
+    },
+  },
   classes: {
     wrapper: (context) => {
       const defaultClasses = 'my-6'

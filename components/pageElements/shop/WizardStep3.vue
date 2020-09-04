@@ -4,9 +4,9 @@
     <p>
       {{ $t('shop_registration_wizard.step_3.text') }}
     </p>
-    <FormulateForm @submit="submit">
+    <FormulateForm @submit="$emit('submit')">
       <FormulateInput
-        v-model="delivery"
+        v-model="shop.delivery"
         name="delivery"
         :options="{
           LD: $t('shop_registration_wizard.step_3.delivery'),
@@ -26,14 +26,17 @@
 
 <script>
 export default {
+  props: {
+    initialShop: { type: Object, default: () => {}, required: true },
+  },
   data() {
     return {
-      delivery: {},
+      shop: this.initialShop || {},
     }
   },
-  methods: {
-    submit() {
-      this.$emit('submit', this.delivery)
+  watch: {
+    shop(newShop, oldShop) {
+      this.$emit('input', newShop)
     },
   },
 }

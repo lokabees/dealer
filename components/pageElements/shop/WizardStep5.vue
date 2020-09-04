@@ -7,7 +7,7 @@
 
     <h2>{{ $t('shop_registration_wizard.step_5.your_store') }}</h2>
     <p>{{ $t('shop_registration_wizard.step_5.text_store') }}</p>
-    <FormulateForm @submit="submit">
+    <FormulateForm @submit="$emit('submit')">
       <FormulateInput
         name="coverImage"
         type="image"
@@ -29,7 +29,7 @@
       <h2>{{ $t('shop_registration_wizard.step_5.extra_points') }}</h2>
       <p>{{ $t('shop_registration_wizard.step_5.text_extra_points') }}</p>
       <FormulateInput
-        v-model="creatives.videoLink"
+        v-model="shop.videoLink"
         type="text"
         :placeholder="$t('shop_registration_wizard.step_5.yt_link_placeholder')"
         :label="$t('shop_registration_wizard.step_5.yt_link')"
@@ -44,10 +44,18 @@
 
 <script>
 export default {
+  props: {
+    initialShop: { type: Object, default: () => {}, required: true },
+  },
   data() {
     return {
-      creatives: {},
+      shop: this.initialShop || { images: {} },
     }
+  },
+  watch: {
+    shop(newShop, oldShop) {
+      this.$emit('input', newShop)
+    },
   },
   methods: {
     async uploadCoverImage(file, progress, error, options) {
@@ -55,7 +63,7 @@ export default {
       formData.append('file', file)
       try {
         const imgLocal = await this.$axios.$post(`/api/media/shop`, formData)
-        this.creatives.cover = imgLocal
+        this.shop.images.cover = imgLocal
       } catch (err) {
         // TODO handle error
         console.error(err)
@@ -66,15 +74,11 @@ export default {
       formData.append('file', file)
       try {
         const imgLocal = await this.$axios.$post(`/api/media/shop`, formData)
-        this.creatives.profile = imgLocal
+        this.shop.images.profile = imgLocal
       } catch (err) {
         // TODO handle error
         console.error(err)
       }
-    },
-    submit() {
-      console.log(this.creatives)
-      this.$emit('submit', this.creatives)
     },
   },
 }
