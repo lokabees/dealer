@@ -66,9 +66,9 @@
         :label="$t('edit_shop.description')"
         validation="required"
       />
+      <FormulateInput v-model="shop.openingHours" type="openingHours" />
       <FormulateInput type="submit" :label="$t('edit_shop.submit')" />
     </FormulateForm>
-    <FormulateInput v-model="shop.openingHours" type="openingHours" />
   </div>
 </template>
 
@@ -89,36 +89,8 @@ export default {
       shop: {
         ...this.$store.getters['shops/activeShop'],
         address: { ...this.$store.getters['shops/activeShop']?.address } || {},
-        openingHours: {
-          monday: {
-            open: '09:00',
-            close: '12:00',
-            breaks: [{}],
-          },
-          tuesday: {
-            breaks: [{}],
-          },
-          wednesday: {
-            breaks: [{}],
-          },
-          thursday: {
-            breaks: [{}],
-          },
-          friday: {
-            breaks: [{}],
-          },
-          saturday: {
-            breaks: [{}],
-          },
-          sunday: {
-            breaks: [{}],
-          },
-        },
       },
     }
-  },
-  mounted() {
-    console.log(this.shop)
   },
   methods: {
     async save() {
@@ -127,16 +99,13 @@ export default {
         const address = await this.$axios.$get('/api/maps/suggest', {
           params: { q },
         })
-        console.log(this.shop)
-
         this.shop.address = address
-        /*
         const updatedShop = await this.$axios.$put(
           `/api/shops/${this.shop._id}`,
           this.shop
         )
         this.$store.commit('shops/setActiveShop', updatedShop)
-        // this.$router.push('/') */
+        this.$router.push('/')
       } catch (e) {
         console.error(e)
       }
