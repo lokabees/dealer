@@ -4,7 +4,6 @@
     <p>
       {{ $t('shop_registration_wizard.step_1.text') }}
     </p>
-    <button @click="submit">submit</button>
     <FormulateForm v-model="shop" @submit="submit">
       <FormulateInput
         type="text"
@@ -23,6 +22,7 @@
         validation="required"
       />
       <FormulateInput type="group" name="address">
+        <!-- TODO custom validation: street and name can have spaces, but no numbers-->
         <FormulateInput
           type="text"
           name="street"
@@ -39,7 +39,7 @@
             $t('shop_registration_wizard.step_1.number_placeholder')
           "
           :label="$t('shop_registration_wizard.step_1.number')"
-          validation="required"
+          validation="required|number"
         />
         <FormulateInput
           type="text"
@@ -88,11 +88,21 @@ export default {
       type: Object,
       default: () => [],
     },
+    initialShop: {
+      type: Object,
+      default: () => {},
+      required: true,
+    },
   },
   data() {
     return {
-      shop: { address: [{}] },
+      shop: this.initialShop || {},
     }
+  },
+  watch: {
+    shop(newShop, oldShop) {
+      this.$emit('input', newShop)
+    },
   },
   methods: {
     async submit() {
@@ -101,8 +111,8 @@ export default {
         const address = await this.$axios.$get('/api/maps/suggest', {
           params: { q },
         })
-        this.shop.address = address
-        this.$emit('submit', this.shop)
+        this.shop.address[0] = address
+        this.$emit('submit')
       } catch (error) {
         console.error(error)
         // error 404: address not found

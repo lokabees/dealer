@@ -66,13 +66,13 @@
         :label="$t('edit_shop.description')"
         validation="required"
       />
+      <FormulateInput v-model="shop.openingHours" type="openingHours" />
       <FormulateInput type="submit" :label="$t('edit_shop.submit')" />
     </FormulateForm>
   </div>
 </template>
 
 <script>
-import { clone } from 'lodash'
 export default {
   middleware: ['authenticated'],
   async asyncData({ $axios }) {
@@ -87,8 +87,8 @@ export default {
   data() {
     return {
       shop: {
-        ...clone(this.$store.getters['shops/activeShop']),
-        address: clone(this.$store.getters['shops/activeShop']?.address) || {},
+        ...this.$store.getters['shops/activeShop'],
+        address: { ...this.$store.getters['shops/activeShop']?.address } || {},
       },
     }
   },
@@ -100,15 +100,12 @@ export default {
           params: { q },
         })
         this.shop.address = address
-        console.log(this.shop)
-        /*
         const updatedShop = await this.$axios.$put(
           `/api/shops/${this.shop._id}`,
           this.shop
         )
         this.$store.commit('shops/setActiveShop', updatedShop)
         this.$router.push('/')
-        */
       } catch (e) {
         console.error(e)
       }

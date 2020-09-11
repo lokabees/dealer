@@ -36,6 +36,7 @@ export const actions = {
     try {
       // Try to get token from Browser
       const accessToken = this.$cookies.get('Authorization')
+
       // Set token to $axios module config
       app.$axios.setToken(accessToken, 'Bearer')
 

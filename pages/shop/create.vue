@@ -8,34 +8,54 @@
     <form-wizard
       ref="wizard"
       color="#19ae9d"
-      :start-index="4"
+      :start-index="0"
       @on-complete="$router.push('/shop/success')"
     >
       <span slot="title"></span>
-
       <!-- STEP 1-->
       <tab-content>
-        <ShopInfo :shop-categories="shopCategories" @submit="submitStep1" />
+        <WizardStep1
+          :initial-shop="shop"
+          :shop-categories="shopCategories"
+          @input="updateShop"
+          @submit="$refs.wizard.nextTab()"
+        />
       </tab-content>
 
       <!-- STEP 2-->
       <tab-content>
-        <OpeningHours @submit="submitStep2" />
+        <WizardStep2
+          :initial-shop="shop"
+          @input="updateShop"
+          @submit="$refs.wizard.nextTab()"
+        />
       </tab-content>
 
       <!-- STEP 3-->
       <tab-content>
-        <DeliveryOptions @submit="submitStep3" />
+        <WizardStep3
+          :initial-shop="shop"
+          @input="updateShop"
+          @submit="$refs.wizard.nextTab()"
+        />
       </tab-content>
 
       <!-- STEP 4-->
       <tab-content>
-        <CustomerContact @submit="submitStep4" />
+        <WizardStep4
+          :initial-shop="shop"
+          @input="updateShop"
+          @submit="$refs.wizard.nextTab()"
+        />
       </tab-content>
 
       <!-- STEP 5-->
       <tab-content>
-        <ShopImages @submit="submitStep5" />
+        <WizardStep5
+          :initial-shop="shop"
+          @input="updateShop"
+          @submit="createShop"
+        />
       </tab-content>
 
       <template slot="footer" slot-scope="props">
@@ -46,19 +66,6 @@
             @click.native="props.prevTab()"
             >{{ $t('shop_registration_wizard.prevous') }}</wizard-button
           >
-        </div>
-        <div class="wizard-footer-right">
-          <wizard-button
-            v-if="props.isLastStep"
-            class="wizard-footer-right finish-button"
-            :style="props.fillButtonStyle"
-            @click.native="createShop"
-            >{{
-              props.isLastStep
-                ? $t('shop_registration_wizard.done')
-                : $t('shop_registration_wizard.next')
-            }}
-          </wizard-button>
         </div>
       </template>
     </form-wizard>
@@ -80,7 +87,33 @@ export default {
   },
   data() {
     return {
-      shop: { address: [{}] },
+      shop: {
+        images: {},
+        address: [{}],
+        openingHours: {
+          monday: {
+            breaks: [{}],
+          },
+          tuesday: {
+            breaks: [{}],
+          },
+          wednesday: {
+            breaks: [{}],
+          },
+          thursday: {
+            breaks: [{}],
+          },
+          friday: {
+            breaks: [{}],
+          },
+          saturday: {
+            breaks: [{}],
+          },
+          sunday: {
+            breaks: [{}],
+          },
+        },
+      },
     }
   },
   methods: {
@@ -88,32 +121,15 @@ export default {
       showModal: 'showModal',
       hideModal: 'hideModal',
     }),
-
-    submitStep1(shopInfo) {
-      this.shop = { ...shopInfo }
-      this.$refs.wizard.nextTab()
-      console.log(this.shop)
+    updateShop(updatedShop) {
+      Object.assign(this.shop, updatedShop)
     },
-    submitStep2(openingHours) {
-      this.shop.openingHours = openingHours
-      this.$refs.wizard.nextTab()
-      console.log(this.shop)
-    },
-    submitStep3(delivery) {
-      this.shop.delivery = delivery
-      this.$refs.wizard.nextTab()
-      console.log(this.shop)
-    },
-    submitStep4(contact) {
-      this.shop.contact = { ...contact }
-      this.$refs.wizard.nextTab()
-      console.log(this.shop)
-    },
-    async submitStep5(creatives) {
-      this.shop.images = { ...creatives }
-      console.log(this.shop)
+    async createShop(creatives) {
       try {
+        this.shop.address = this.shop.address[0]
         await this.$axios.$post('/api/shops', this.shop)
+        await this.$store.dispatch('shops/getActiveShop')
+        this.$router.push('success')
       } catch (error) {
         console.error(error)
         this.showModal(error)
