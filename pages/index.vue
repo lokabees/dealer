@@ -50,7 +50,7 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
-  middleware: ['authenticated'],
+  middleware: ['authenticated', 'hasShop'],
   computed: {
     ...mapGetters('shops', {
       shop: 'activeShop',
