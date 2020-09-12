@@ -80,7 +80,7 @@ export default {
           ...this.guest,
           master: this.$config.appMasterKey,
         })
-        this.$router.push('/auth/success')
+        this.$router.push('/auth/signup-success')
       } catch (error) {
         // this.$errorHandler({ error, type: 'signup' })
         console.error(error)

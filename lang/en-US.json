@@ -28,6 +28,7 @@
     "name": "What's your name?",
     "signup": "Sign up",
     "signup_successful": "Your registration has been successful!",
+    "verification_successful": "Your Email has been verified!",
     "check_inbox": "Check your Email inbox and confirm your Email to login",
     "accept_terms": "By clicking 'Sign Up' you agree to our privacy policy an accept our terms of use.",
     "error_messages": {
