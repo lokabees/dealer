@@ -22,7 +22,9 @@ export const actions = {
     } catch (error) {
       console.error(error)
       const status = error?.response?.status || 500
-      if (status === 404) commit('setActiveShop', null)
+      if (status === 404) {
+        commit('setActiveShop', null)
+      }
     }
   },
 }
