@@ -86,7 +86,9 @@
     "error_messages": {
       "409": "Email already exists!",
       "500": "An unknown error occured. Try reloading the page and login again."
-    }
+    },
+    "verification_successful": "Your Email got verified!",
+    "verification_successful_sub": "You can now login with your account. Have fun!"
   },
   "products": {
     "title": "My products",

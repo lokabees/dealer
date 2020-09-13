@@ -5,11 +5,11 @@
         <icon name="checkmark-circle-outline" height="100" width="100" />
       </div>
       <div class="prose lg:prose-lg">
-        <h1 class="leading-tight">
+        <h2 class="leading-tight">
           {{ $t('signup.verification_successful') }}
-        </h1>
+        </h2>
+        <p>{{ $t('signup.verification_successful_sub') }}</p>
       </div>
-
       <button class="primary w-full mt-8" @click="$router.push('/auth/login')">
         {{ $t('signup.to_login') }}
       </button>
