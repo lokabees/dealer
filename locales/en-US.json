@@ -17,6 +17,10 @@
     },
     "help_with_registration": "Help with registration?"
   },
+  "logout": {
+    "successful": "You got logged out!",
+    "sub": "Remember: good pictures = happy customers"
+  },
   "reset_password": {
     "title": "Reset password",
     "text": "No problem, it happens to the best! Just enter your email and we'll send you a reset link.",

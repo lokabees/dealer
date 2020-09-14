@@ -13,5 +13,9 @@
     "verification_successful": "Deine E-Mail wurde verifiziert!",
     "verification_successful_sub": "Du  kannst dich nun einloggen. Viel Spaß!",
     "to_login": "Zum Login"
+  },
+  "logout": {
+    "successful": "You got logged out!",
+    "sub": "Remember: good pictures = happy customers"
   }
 }
