@@ -254,6 +254,7 @@
     "home": "Home",
     "contact": "contact",
     "login": "Login",
+    "account_settings": "Account settings",
     "logout": "Logout"
   },
   "footer": {
