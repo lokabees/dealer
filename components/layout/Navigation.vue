@@ -1,17 +1,35 @@
 <template>
-  <div class="container prose">
-    <n-link to="/"><img src="/img/logo.svg" width="150px" /></n-link>
-    <button v-if="user" @click="dropdown = !dropdown" @blur="dropdown = false">
-      {{ user.name }}
-    </button>
-    <div v-if="dropdown" class="py-2 w-48 bg-white absolute shadow-xl">
-      <button class="block px-4 py-2" @click="goToAccountSettings">
-        Account settings
-      </button>
-      <button @click="logoutUser" class="block px-4 py-2">
-        Sign out
-      </button>
+  <div>
+    <div class="md:container prose">
+      <div class="flex overflow-hidden">
+        <div class="w-1/3 overflow-hidden">
+          <!-- Column Content -->
+        </div>
+
+        <div
+          class="flex flex-wrap content-center w-1/3 justify-center overflow-hidden"
+        >
+          <n-link to="/"><img src="/img/logo.svg" width="130px" /></n-link>
+        </div>
+
+        <div
+          class="flex flex-wrap content-center justify-end w-1/3 overflow-hidden"
+        >
+          <button v-if="user" @click="toggleDropdown">
+            {{ user.name }}
+          </button>
+          <div v-if="dropdown" class="py-2 w-48 bg-white absolute shadow-xl">
+            <button class="block px-4 py-2" @click="goToAccountSettings">
+              {{ $t('navbar.account_settings') }}
+            </button>
+            <button class="block px-4 py-2" @click="logoutUser">
+              {{ $t('navbar.logout') }}
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
+    <hr class="border-grey-dark" />
   </div>
 </template>
 
@@ -31,6 +49,9 @@ export default {
     ...mapMutations('modal', {
       showModal: 'showModal',
     }),
+    toggleDropdown() {
+      this.dropdown = !this.dropdown
+    },
     goToAccountSettings() {
       this.dropdown = false
       this.$router.push('/user')
