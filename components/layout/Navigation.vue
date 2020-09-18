@@ -1,18 +1,28 @@
 <template>
   <div class="container prose">
     <n-link to="/"><img src="/img/logo.svg" width="150px" /></n-link>
-    <button v-if="user" @click="$router.push('/user')">
+    <button v-if="user" @click="dropdown = !dropdown" @blur="dropdown = false">
       {{ user.name }}
     </button>
-    <button v-if="user" @click="logoutUser">
-      Sign out
-    </button>
+    <div v-if="dropdown" class="py-2 w-48 bg-white absolute shadow-xl">
+      <button class="block px-4 py-2" @click="goToAccountSettings">
+        Account settings
+      </button>
+      <button @click="logoutUser" class="block px-4 py-2">
+        Sign out
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapActions, mapMutations, mapGetters } from 'vuex'
 export default {
+  data() {
+    return {
+      dropdown: false,
+    }
+  },
   computed: {
     ...mapGetters(['user']),
   },
@@ -21,7 +31,12 @@ export default {
     ...mapMutations('modal', {
       showModal: 'showModal',
     }),
+    goToAccountSettings() {
+      this.dropdown = false
+      this.$router.push('/user')
+    },
     async logoutUser() {
+      this.dropdown = false
       try {
         await this.$axios.post(`/api/auth/logout`)
         this.resetUser()
