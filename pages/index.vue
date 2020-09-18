@@ -21,11 +21,13 @@
         <h1>{{ shopName }}</h1>
       </div>
       <div class="flex justify-end bg-gray-200">
-        Categories
+        <div v-for="(category, key) in shop.categories" :key="key">
+          {{ category }}
+        </div>
       </div>
     </div>
 
-    <div class="flex flex-wrap overflow-hidden -mx-4">
+    <div class="flex flex-wrap overflow-hidden">
       <!-- manage store -->
       <DashboardCard>
         <template v-slot:image>
@@ -92,12 +94,10 @@ export default {
       shop: 'activeShop',
     }),
     coverImage() {
-      // return this.shop?.images?.cover?.url || 'icon.png'
-      return 'icon.png'
+      return this.shop?.images?.cover?.url || 'icon.png'
     },
     profileImage() {
-      // return this.shop?.images?.profile?.url || 'icon.png'
-      return 'icon.png'
+      return this.shop?.images?.profile?.url || 'icon.png'
     },
     shopName() {
       return this.shop?.name

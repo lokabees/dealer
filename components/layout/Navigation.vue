@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="border-b border-grey-dark">
     <div class="md:container prose">
       <div class="flex overflow-hidden">
         <div class="w-1/3 overflow-hidden">
@@ -18,7 +18,7 @@
           <button v-if="user" @click="toggleDropdown">
             {{ user.name }}
           </button>
-          <div v-if="dropdown" class="py-2 w-48 bg-white absolute shadow-xl">
+          <div v-if="dropdown" class="py-2 w-48 bg-white absolut shadow-xl">
             <button class="block px-4 py-2" @click="goToAccountSettings">
               {{ $t('navbar.account_settings') }}
             </button>
@@ -29,7 +29,6 @@
         </div>
       </div>
     </div>
-    <hr class="border-grey-dark" />
   </div>
 </template>
 
