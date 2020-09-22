@@ -47,12 +47,12 @@
     "go_home": "Go to Homepage"
   },
   "dashboard": {
-    "store": {
-      "title": "My store",
+    "shop": {
+      "title": "My shop",
       "text": "Here you can enter and edit information about your shop.",
-      "manage": "Manage store",
-      "manage_store": "Manage my store",
-      "view_store": "View my store"
+      "manage": "Manage shop",
+      "manage_shop": "Manage my shop",
+      "view_shop": "View my shop"
     },
     "products": {
       "title": "My products",
@@ -64,7 +64,7 @@
       "text": "Here you will learn the basics of digitizing your shop step by step - no previous knowledge required!"
     },
     "analysis": {
-      "title": "Analysis of your store",
+      "title": "Analysis of your shop",
       "text": "Here you will soon find interesting options for analyzing your shop and optimizing your range."
     }
   },
@@ -114,7 +114,7 @@
   "user": {
     "title": "Your Profile",
     "image": "Upload a profile picture of yourself here.",
-    "role": "What is your Role in the store?",
+    "role": "What is your Role in the shop?",
     "role_placeholder": "Owner",
     "name": "Change your name",
     "name_placeholder": "Max Mustermann",
@@ -141,13 +141,13 @@
   "shop_registration_wizard": {
     "next": "Next",
     "step_1": {
-      "title": "Complete your store profile now",
-      "text": "With an informative profile page, your store will be easier to find and will attract more buyers",
-      "name": "What's the name of the store?",
-      "name_placeholder": "Cookie Store 24",
+      "title": "Complete your shop profile now",
+      "text": "With an informative profile page, your shop will be easier to find and will attract more buyers",
+      "name": "What's the name of the shop?",
+      "name_placeholder": "Cookie shop 24",
       "shop_owner": "Who is the shop owner?",
       "shop_owner_placeholder": "Jim Henson",
-      "street": "Where is your store?",
+      "street": "Where is your shop?",
       "street_placeholder": "Sesame Street",
       "number": "Number",
       "number_placeholder": "1",
@@ -157,9 +157,9 @@
       "postal_code_placeholder": "38100",
       "city": "City",
       "city_placeholder": "Braunschweig",
-      "description": "Short description of your store",
+      "description": "Short description of your shop",
       "description_placeholder": "Best Cookies in Town",
-      "categories": "Which keywords best describe your store?"
+      "categories": "Which keywords best describe your shop?"
     },
     "step_2": {
       "title": "Opening hours",
@@ -180,9 +180,9 @@
     },
     "step_3": {
       "title": "Pick up and delivery",
-      "text": "Can your customers pick up their products at the store or have it delivered to their home?",
+      "text": "Can your customers pick up their products at the shop or have it delivered to their home?",
       "pickup": "Pickup",
-      "pickup_text": "Customers can reserve products and collect them from your store.",
+      "pickup_text": "Customers can reserve products and collect them from your shop.",
       "delivery": "Delivery",
       "delivery_text": "Customers can have your products delivered to their home.",
       "ship": "Shipping",
@@ -198,30 +198,30 @@
       "email": "Email",
       "email_placeholder": "max@mustermann.com",
       "website": "Website",
-      "website_placeholder": "myawesomecookiestore24.com"
+      "website_placeholder": "myawesomecookieshop24.com"
     },
     "step_5": {
       "title": "Photos and Videos",
       "text": "Help potential customers to get an idea of ​​you and your shop.",
-      "your_store": "Your shop ...",
-      "text_store": "The people in your neighborhood will recognize your store - especially from the outside. Upload a photo of your shop front here to increase the recognition value.",
-      "store_photo": "Picture of your shop front",
+      "your_shop": "Your shop ...",
+      "text_shop": "The people in your neighborhood will recognize your shop - especially from the outside. Upload a photo of your shop front here to increase the recognition value.",
+      "shop_photo": "Picture of your shop front",
       "you": "... and you",
-      "text_you": "You and your team are what makes your store unique. Show the world who you are so your customers know who they are dealing with. If you don't want that, you can also show the interior of your shop here.",
-      "you_photo": "Picture of your, your team or inside of your store",
+      "text_you": "You and your team are what makes your shop unique. Show the world who you are so your customers know who they are dealing with. If you don't want that, you can also show the interior of your shop here.",
+      "you_photo": "Picture of your, your team or inside of your shop",
       "extra_points": "Extra points for a video",
       "text_extra_points": "A video is worth a thousand pictures. If you already have one from your shop, just paste the link here.",
-      "yt_link": "Youtube link to a short video from your store",
+      "yt_link": "Youtube link to a short video from your shop",
       "yt_link_placeholder": "https://youtube.com/..."
     },
 
     "success": {
-      "title": "Congratulations, your store is now online!",
+      "title": "Congratulations, your shop is now online!",
       "text1": "Together we have taken the first big step towards digitalizing your shop. You should be proud of that!",
       "text2": "But this is only the beginning. Set up your new shop and add some products.",
       "text3": "Then use our lokabees-academy to learn step by step how to be successful online without any previous knowledge!",
       "text4": "You can change the settings you have made at any time under `My profile`.",
-      "view_store": "View my store"
+      "view_shop": "View my shop"
     },
     "prevous": "Previous",
     "next": "Next",
@@ -229,14 +229,14 @@
     "cancel": "Cancel"
   },
   "edit_shop": {
-    "title": "My Store",
-    "shop_name": "Name of your store",
-    "shop_name_placeholder": "Cookie Store 24",
+    "title": "My shop",
+    "shop_name": "Name of your shop",
+    "shop_name_placeholder": "Cookie shop 24",
     "visibility": "Visibility",
-    "visibility_hint": "Your store is currently visible for customers.",
-    "categories": "Store categories",
+    "visibility_hint": "Your shop is currently visible for customers.",
+    "categories": "shop categories",
     "address": "Address",
-    "street": "Where is your store?",
+    "street": "Where is your shop?",
     "street_placeholder": "Sesame Street",
     "number": "Number",
     "number_placeholder": "1",
@@ -246,7 +246,7 @@
     "postal_code_placeholder": "38100",
     "city": "City",
     "city_placeholder": "Braunschweig",
-    "description": "Short description of your store",
+    "description": "Short description of your shop",
     "description_placeholder": "Best Cookies in Town",
     "submit": "Save"
   },

@@ -14,7 +14,7 @@
       {{ $t('shop_registration_wizard.success.text4') }}
     </p>
     <button class="primary" @click="$router.push('/')">
-      {{ $t('shop_registration_wizard.success.view_store') }}
+      {{ $t('shop_registration_wizard.success.view_shop') }}
     </button>
   </div>
 </template>

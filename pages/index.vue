@@ -8,10 +8,10 @@
       </div>
       <div class="mx-auto">
         <button class="primary" @click="$router.push('/shop/edit')">
-          {{ $t('dashboard.store.manage_store') }}
+          {{ $t('dashboard.shop.manage_shop') }}
         </button>
         <button class="tertiary" @click="$router.push('/')">
-          {{ $t('dashboard.store.view_store') }}
+          {{ $t('dashboard.shop.view_shop') }}
         </button>
       </div>
     </div>
@@ -28,18 +28,18 @@
     </div>
 
     <div class="flex flex-wrap overflow-hidden">
-      <!-- manage store -->
+      <!-- manage shop -->
       <DashboardCard>
         <template v-slot:image>
           <img src="icon.png" />
         </template>
         <template v-slot:text>
-          <h2>{{ $t('dashboard.store.title') }}</h2>
-          <p>{{ $t('dashboard.store.text') }}</p>
+          <h2>{{ $t('dashboard.shop.title') }}</h2>
+          <p>{{ $t('dashboard.shop.text') }}</p>
         </template>
         <template v-slot:button>
           <button class="secondary" @click="$router.push('/shop/edit')">
-            {{ $t('dashboard.store.manage') }}
+            {{ $t('dashboard.shop.manage') }}
           </button>
         </template>
       </DashboardCard>

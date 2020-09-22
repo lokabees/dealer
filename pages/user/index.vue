@@ -12,7 +12,7 @@
         validation="required"
       />
       <FormulateInput
-        name="storeRole"
+        name="shopRole"
         type="text"
         :label="$t('user.role')"
         :placeholder="$t('user.role_placeholder')"
