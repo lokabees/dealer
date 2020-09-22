@@ -1,19 +1,35 @@
 <template>
   <div class="container prose">
-    <h1>{{ $t('products.title') }}</h1>
-    <h2>{{ $t('products.add') }}</h2>
-    <button class="tertiary" @click="$router.push('/products/add')">
-      {{ $t('products.add_button') }}
-    </button>
+    <h1 class="text-center pt-16 pb-8">{{ $t('products.title') }}</h1>
 
-    <div v-for="product in products" :key="product.id">
-      <img :src="product.img" width="50px" />
-      <h2>{{ product.name }}</h2>
-      <p>{{ product.description }}</p>
-      <button @click="$router.push(`/products/${product.id}/edit`)">
-        {{ $t('products.edit') }}
+    <div class="flex justify-between">
+      <h2>{{ $t('products.add') }}</h2>
+      <button
+        class="tertiary justify-self-end"
+        @click="$router.push('/products/add')"
+      >
+        {{ $t('products.add_button') }}
       </button>
-      <button>{{ $t('products.delete') }}</button>
+    </div>
+
+    <div
+      v-for="product in products"
+      :key="product.id"
+      class="flex justify-between"
+    >
+      <div class="flex">
+        <img :src="product.img" class="w-16 object-contain" />
+        <div>
+          <h2>{{ product.name }}</h2>
+          <p>{{ product.description }}</p>
+        </div>
+      </div>
+      <div class="flex flex-col">
+        <button>{{ $t('products.delete') }}</button>
+        <button @click="$router.push(`/products/${product.id}/edit`)">
+          {{ $t('products.edit') }}
+        </button>
+      </div>
     </div>
   </div>
 </template>

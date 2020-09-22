@@ -73,6 +73,7 @@
 </template>
 
 <script>
+import { clone } from 'lodash'
 export default {
   middleware: ['authenticated'],
   async asyncData({ $axios }) {
@@ -87,7 +88,7 @@ export default {
   data() {
     return {
       shop: {
-        ...this.$store.getters['shops/activeShop'],
+        ...clone(this.$store.getters['shops/activeShop']),
         address: { ...this.$store.getters['shops/activeShop']?.address } || {},
       },
     }
