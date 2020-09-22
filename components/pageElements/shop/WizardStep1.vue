@@ -21,8 +21,9 @@
         :label="$t('shop_registration_wizard.step_1.shop_owner')"
         validation="required"
       />
+      <FormulateInput v-model="shop.address" type="addressInput" />
+      <!-- TODO custom validation: street and name can have spaces, but no numbers
       <FormulateInput type="group" name="address">
-        <!-- TODO custom validation: street and name can have spaces, but no numbers-->
         <FormulateInput
           type="text"
           name="street"
@@ -58,6 +59,7 @@
           validation="required"
         />
       </FormulateInput>
+    -->
       <FormulateInput
         type="textarea"
         name="description"

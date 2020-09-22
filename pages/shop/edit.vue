@@ -1,6 +1,7 @@
 <template>
   <div class="container prose">
     <h1 class="text-center pt-16 pb-8">{{ $t('edit_shop.title') }}</h1>
+    {{ shop }}
     <FormulateForm @submit="save">
       <FormulateInput
         v-model="shop.name"
@@ -24,6 +25,8 @@
         :options="shopCategories"
         :label="$t('edit_shop.categories')"
       />
+      <FormulateInput v-model="shop.address" type="addressInput" />
+      <!--
       <FormulateInput type="group" name="address">
         <FormulateInput
           v-model="shop.address.street"
@@ -58,6 +61,7 @@
           validation="required"
         />
       </FormulateInput>
+    -->
       <FormulateInput
         v-model="shop.description"
         type="textarea"
