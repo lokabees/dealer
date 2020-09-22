@@ -1,7 +1,7 @@
 <template>
   <div class="container prose">
-    <h1>{{ $t('user.title') }}</h1>
-    <p>{{ $t('user.text') }}</p>
+    <h1 class="text-center pt-16">{{ $t('user.title') }}</h1>
+    <p class="text-center pb-8">{{ $t('user.text') }}</p>
     <FormulateForm v-model="user">
       <FormulateInput type="image" :label="$t('user.image')" />
       <FormulateInput
