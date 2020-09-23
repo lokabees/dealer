@@ -27,6 +27,13 @@
       </div>
     </div>
 
+    <button
+      class="tertiary"
+      @click="$store.commit('shops/setActiveShop', null)"
+    >
+      Reset active shop
+    </button>
+
     <div class="flex flex-wrap overflow-hidden">
       <!-- manage shop -->
       <DashboardCard>
