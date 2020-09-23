@@ -1,5 +1,10 @@
 <template>
   <div class="container prose">
+    <Modal>
+      <template v-slot:buttons>
+        <button @click="hideModal">{{ $t('login.ok') }}</button>
+      </template>
+    </Modal>
     <h1 class="text-center pt-16">{{ $t('user.title') }}</h1>
     <p class="text-center pb-8">{{ $t('user.text') }}</p>
 
