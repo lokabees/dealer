@@ -19,7 +19,6 @@ Vue.use(VueFormulate, {
       component: 'OpeningHours',
     },
     shopCategories: {
-      classification: 'text',
       component: 'ShopCategories',
     },
     addressInput: {

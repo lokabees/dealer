@@ -1,11 +1,9 @@
-<template
-  ><div>
-    <h1>Hui</h1>
-    {{ context.options }}
-
+<template>
+  <div>
     <FormulateInput
       v-model="context.model"
       name="categories"
+      data-classification="shopCategories"
       type="checkbox"
       :options="context.options"
       :label="$t('edit_shop.categories')"
@@ -25,6 +23,11 @@ export default {
       required: true,
       default: () => {},
     },
+  },
+  data() {
+    return {
+      checkbox: null,
+    }
   },
 }
 </script>
