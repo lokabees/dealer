@@ -1,5 +1,10 @@
 <template>
   <div class="container prose">
+    <Modal>
+      <template v-slot:buttons>
+        <button @click="hideModal">{{ $t('login.ok') }}</button>
+      </template>
+    </Modal>
     <h1 class="text-center pt-16 pb-8">{{ $t('edit_shop.title') }}</h1>
     <FormulateForm @submit="save">
       <FormulateInput
@@ -77,6 +82,7 @@
 
 <script>
 import { clone } from 'lodash'
+import { mapMutations } from 'vuex'
 export default {
   middleware: ['authenticated'],
   async asyncData({ $axios }) {
@@ -97,6 +103,10 @@ export default {
     }
   },
   methods: {
+    ...mapMutations('modal', {
+      showModal: 'showModal',
+      hideModal: 'hideModal',
+    }),
     async save() {
       try {
         const q = this.getAddressString()
@@ -110,8 +120,10 @@ export default {
         )
         this.$store.commit('shops/setActiveShop', updatedShop)
         this.$router.push('/')
-      } catch (e) {
-        console.error(e)
+      } catch (error) {
+        console.error(error)
+        const { data } = error?.response
+        this.showModal(error + '\n' + JSON.stringify(data))
       }
     },
     getAddressString() {

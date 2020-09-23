@@ -1,6 +1,6 @@
 <template>
   <div class="container prose max-w-xl mx-auto">
-    <h1>{{ $t('shop_registration_wizard.success.title') }}</h1>
+    <h1 class="pt-16">{{ $t('shop_registration_wizard.success.title') }}</h1>
     <p>
       {{ $t('shop_registration_wizard.success.text1') }}
     </p>

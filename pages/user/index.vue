@@ -2,7 +2,8 @@
   <div class="container prose">
     <h1 class="text-center pt-16">{{ $t('user.title') }}</h1>
     <p class="text-center pb-8">{{ $t('user.text') }}</p>
-    <FormulateForm v-model="user">
+
+    <FormulateForm v-model="user" @submit="updateAccount">
       <FormulateInput type="image" :label="$t('user.image')" />
       <FormulateInput
         name="name"
@@ -30,6 +31,7 @@
         type="checkbox"
         :label="$t('user.newsletter')"
       />
+      <FormulateInput type="submit" :label="$t('user.submit')" />
     </FormulateForm>
     <p>{{ $t('user.need_help') }}</p>
     <button class="primary" @click="$router.push('/contact')">
@@ -43,15 +45,31 @@
 </template>
 
 <script>
+import { clone } from 'lodash'
+import { mapMutations } from 'vuex'
 export default {
   data() {
     return {
-      user: {},
+      user: { ...clone(this.$store.getters.user) },
     }
   },
   methods: {
+    ...mapMutations('modal', {
+      showModal: 'showModal',
+      hideModal: 'hideModal',
+    }),
     deleteAccount() {
       console.log('deleteAccount')
+    },
+    async updateAccount() {
+      try {
+        console.log('update Account')
+        await this.$axios.$put(`/api/user/${this.user._id}`)
+      } catch (error) {
+        console.error(error)
+        const { data } = error?.response
+        this.showModal(error + '\n' + JSON.stringify(data))
+      }
     },
   },
 }

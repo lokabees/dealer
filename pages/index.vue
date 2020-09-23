@@ -27,10 +27,7 @@
       </div>
     </div>
 
-    <button
-      class="tertiary"
-      @click="$store.commit('shops/setActiveShop', null)"
-    >
+    <button class="tertiary" @click="$store.commit('shops/setActiveShop', {})">
       Reset active shop
     </button>
 
@@ -101,9 +98,11 @@ export default {
       shop: 'activeShop',
     }),
     coverImage() {
+      if (this.shop?.images?.cover?.url === 'cdn-link') return 'icon.png'
       return this.shop?.images?.cover?.url || 'icon.png'
     },
     profileImage() {
+      if (this.shop?.images?.profile?.url === 'cdn-link') return 'icon.png'
       return this.shop?.images?.profile?.url || 'icon.png'
     },
     shopName() {

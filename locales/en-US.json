@@ -126,7 +126,8 @@
     "newsletter": "I would like to be informed about new developments and offers. I can revoke my consent at any time with effect for the future at www.lokabees.de/abmelden or at the end of every email.",
     "delete_info": "Here you can delete your entire Lokabees account. Warning: This process cannot be reversed!",
     "delete_button": "Delete my account",
-    "need_help": "Need help?"
+    "need_help": "Need help?",
+    "submit": "save"
   },
   "edit_product": {
     "title": "Edit product",
