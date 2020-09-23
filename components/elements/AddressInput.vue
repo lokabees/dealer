@@ -1,5 +1,5 @@
 <template>
-  <FormulateInput type="group" name="address">
+  <FormulateInput type="group" name="address" class="flex">
     <!-- TODO custom validation: street and name can have spaces, but no numbers-->
     <FormulateInput
       v-model="context.model.street"

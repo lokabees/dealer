@@ -1,7 +1,6 @@
 <template>
   <div class="container prose">
     <h1 class="text-center pt-16 pb-8">{{ $t('edit_shop.title') }}</h1>
-    {{ shop }}
     <FormulateForm @submit="save">
       <FormulateInput
         v-model="shop.name"
