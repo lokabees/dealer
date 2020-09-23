@@ -22,12 +22,11 @@
         :label="$t('edit_shop.visibility')"
       />
       <span>{{ $t('edit_shop.visibility_hint') }}</span>
+
       <FormulateInput
         v-model="shop.categories"
-        name="categories"
-        type="checkbox"
+        type="shopCategories"
         :options="shopCategories"
-        :label="$t('edit_shop.categories')"
       />
       <FormulateInput v-model="shop.address" type="addressInput" />
       <!--

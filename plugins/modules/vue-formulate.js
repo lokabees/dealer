@@ -4,10 +4,12 @@ import { de } from '@braid/vue-formulate-i18n'
 
 import OpeningHours from '~/components/elements/OpeningHours'
 import AddressInput from '~/components/elements/AddressInput'
+import ShopCategories from '~/components/elements/ShopCategories'
 
 // register your component with Vue
 Vue.component('OpeningHours', OpeningHours)
 Vue.component('AddressInput', AddressInput)
+Vue.component('ShopCategories', ShopCategories)
 
 Vue.use(VueFormulate, {
   plugins: [de],
@@ -15,6 +17,10 @@ Vue.use(VueFormulate, {
     openingHours: {
       classification: 'text',
       component: 'OpeningHours',
+    },
+    shopCategories: {
+      classification: 'text',
+      component: 'ShopCategories',
     },
     addressInput: {
       classification: 'text',

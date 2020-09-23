@@ -64,11 +64,11 @@ export default {
       hideModal: 'hideModal',
     }),
     deleteAccount() {
+      // TODO
       console.log('deleteAccount')
     },
     async updateAccount() {
       try {
-        console.log('update Account')
         await this.$axios.$put(`/api/user/${this.user._id}`)
       } catch (error) {
         console.error(error)
