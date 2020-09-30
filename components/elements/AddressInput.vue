@@ -1,7 +1,7 @@
 <template>
   <FormulateInput type="group" name="address">
     <!-- TODO custom validation: street and name can have spaces, but no numbers-->
-    <div class="flex">
+    <div class="sm:flex">
       <div class="w-full">
         <FormulateInput
           v-model="context.model.street"
@@ -29,7 +29,7 @@
         />
       </div>
     </div>
-    <div class="flex">
+    <div class="sm:flex">
       <div>
         <FormulateInput
           v-model="context.model.postcode"

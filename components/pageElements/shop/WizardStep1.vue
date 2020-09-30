@@ -5,6 +5,7 @@
       {{ $t('shop_registration_wizard.step_1.text') }}
     </p>
     <FormulateForm v-model="shop" @submit="submit">
+      <!--shop name-->
       <FormulateInput
         type="text"
         name="name"
@@ -12,6 +13,7 @@
         :label="$t('shop_registration_wizard.step_1.name')"
         validation="required"
       />
+      <!--owner name-->
       <FormulateInput
         type="text"
         name="owner"
@@ -21,45 +23,9 @@
         :label="$t('shop_registration_wizard.step_1.shop_owner')"
         validation="required"
       />
+      <!--shop address-->
       <FormulateInput v-model="shop.address" type="addressInput" />
-      <!-- TODO custom validation: street and name can have spaces, but no numbers
-      <FormulateInput type="group" name="address">
-        <FormulateInput
-          type="text"
-          name="street"
-          :placeholder="
-            $t('shop_registration_wizard.step_1.street_placeholder')
-          "
-          :label="$t('shop_registration_wizard.step_1.street')"
-          validation="required"
-        />
-        <FormulateInput
-          type="text"
-          name="number"
-          :placeholder="
-            $t('shop_registration_wizard.step_1.number_placeholder')
-          "
-          :label="$t('shop_registration_wizard.step_1.number')"
-          validation="required|number"
-        />
-        <FormulateInput
-          type="text"
-          name="postcode"
-          :placeholder="
-            $t('shop_registration_wizard.step_1.postal_code_placeholder')
-          "
-          :label="$t('shop_registration_wizard.step_1.postal_code')"
-          validation="required"
-        />
-        <FormulateInput
-          type="text"
-          name="city"
-          :placeholder="$t('shop_registration_wizard.step_1.city_placeholder')"
-          :label="$t('shop_registration_wizard.step_1.city')"
-          validation="required"
-        />
-      </FormulateInput>
-    -->
+      <!--shop description-->
       <FormulateInput
         type="textarea"
         name="description"
@@ -69,9 +35,10 @@
         :label="$t('shop_registration_wizard.step_1.description')"
         validation="required"
       />
+      <!--shop categories-->
       <FormulateInput
         name="categories"
-        type="checkbox"
+        type="shopCategories"
         :options="shopCategories"
         :label="$t('shop_registration_wizard.step_1.categories')"
       />
