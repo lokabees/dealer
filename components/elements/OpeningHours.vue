@@ -13,7 +13,7 @@
       :key="day"
       class="flex items-end"
     >
-      <div class="flex-none h-15 w-15 my-6 border inline-block">
+      <div class="flex-none h-15 w-15 my-6 border inline-block mr-4">
         <div class="flex h-full">
           <span class="uppercase my-auto mx-auto">
             {{ $t(`shop_registration_wizard.step_2.${day}`) }}
@@ -21,7 +21,7 @@
         </div>
       </div>
 
-      <div class="overflow-hidden w-full">
+      <div class="overflow-hidden w-full pr-4">
         <FormulateInput
           v-model="context.model[day].open"
           type="time"
@@ -29,7 +29,7 @@
           :label="$t('shop_registration_wizard.step_2.from')"
         />
       </div>
-      <div class="overflow-hidden w-full">
+      <div class="overflow-hidden w-full pl-4">
         <FormulateInput
           v-model="context.model[day].close"
           type="time"
@@ -38,8 +38,9 @@
         />
       </div>
     </div>
-    <div class="mx-auto">
+    <div class="flex">
       <FormulateInput
+        outer-class="mx-auto"
         input-class="secondary rounded-full py-2 "
         type="button"
         label="add brekas"
@@ -58,14 +59,14 @@
                 :key="day + 'break'"
                 class="flex items-end"
               >
-                <div class="flex-none h-15 w-15 my-6 border inline-block">
+                <div class="flex-none h-15 w-15 my-6 border inline-block mr-4">
                   <div class="flex h-full">
                     <span class="uppercase my-auto mx-auto">
                       {{ $t(`shop_registration_wizard.step_2.${day}`) }}
                     </span>
                   </div>
                 </div>
-                <div class="overflow-hidden w-full">
+                <div class="overflow-hidden w-full pr-4">
                   <FormulateInput
                     :value="getBreak(day).from"
                     type="time"
@@ -74,7 +75,7 @@
                     @input="context.model[day].breaks[0].from = $event"
                   />
                 </div>
-                <div class="overflow-hidden w-full">
+                <div class="overflow-hidden w-full pl-4">
                   <FormulateInput
                     :value="getBreak(day).to"
                     type="time"

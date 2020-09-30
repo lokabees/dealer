@@ -29,6 +29,7 @@
           :initial-shop="shop"
           @input="updateShop"
           @submit="$refs.wizard.nextTab()"
+          @back="$refs.wizard.prevTab()"
         />
       </tab-content>
 
@@ -38,6 +39,7 @@
           :initial-shop="shop"
           @input="updateShop"
           @submit="$refs.wizard.nextTab()"
+          @back="$refs.wizard.prevTab()"
         />
       </tab-content>
 
@@ -47,6 +49,7 @@
           :initial-shop="shop"
           @input="updateShop"
           @submit="$refs.wizard.nextTab()"
+          @back="$refs.wizard.prevTab()"
         />
       </tab-content>
 
@@ -56,18 +59,12 @@
           :initial-shop="shop"
           @input="updateShop"
           @submit="createShop"
+          @back="$refs.wizard.prevTab()"
         />
       </tab-content>
 
-      <template slot="footer" slot-scope="props">
-        <div class="wizard-footer-left">
-          <wizard-button
-            v-if="props.activeTabIndex > 0 && !props.isLastStep"
-            :style="props.fillButtonStyle"
-            @click.native="props.prevTab()"
-            >{{ $t('shop_registration_wizard.prevous') }}</wizard-button
-          >
-        </div>
+      <template slot="footer">
+        <div class="wizard-footer-left"></div>
       </template>
     </form-wizard>
   </div>

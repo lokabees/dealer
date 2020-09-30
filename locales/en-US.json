@@ -141,6 +141,7 @@
   },
   "shop_registration_wizard": {
     "next": "Next",
+    "back": "Back",
     "step_1": {
       "title": "Complete your shop profile now",
       "text": "With an informative profile page, your shop will be easier to find and will attract more buyers",
