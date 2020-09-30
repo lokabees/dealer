@@ -1,7 +1,9 @@
-shop<template>
+<template>
   <div class="container prose max-w-xl mx-auto">
-    <h1>{{ $t('shop_registration_wizard.step_5.title') }}</h1>
-    <p>
+    <h1 class="text-center pt-16">
+      {{ $t('shop_registration_wizard.step_5.title') }}
+    </h1>
+    <p class="text-center pb-8">
       {{ $t('shop_registration_wizard.step_5.text') }}
     </p>
 

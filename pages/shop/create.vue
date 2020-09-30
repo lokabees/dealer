@@ -9,6 +9,7 @@
       ref="wizard"
       color="#19ae9d"
       :start-index="0"
+      step-size="xs"
       @on-complete="$router.push('/shop/success')"
     >
       <span slot="title"></span>
@@ -138,3 +139,11 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.wizard {
+  @apply bg-black;
+
+  height: 20px;
+}
+</style>
