@@ -252,7 +252,9 @@
     "city_placeholder": "Braunschweig",
     "description": "Short description of your shop",
     "description_placeholder": "Best Cookies in Town",
-    "submit": "Save"
+    "submit": "Save",
+    "contact_data": "Contact data",
+    "opening_hours": "Opening hours"
   },
   "navbar": {
     "home": "Home",

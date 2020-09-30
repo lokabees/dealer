@@ -6,74 +6,56 @@
       </template>
     </Modal>
     <h1 class="text-center pt-16 pb-8">{{ $t('edit_shop.title') }}</h1>
-    <FormulateForm @submit="save">
-      <FormulateInput
-        v-model="shop.name"
-        name="name"
-        type="text"
-        :label="$t('edit_shop.shop_name')"
-        :placeholder="$t('edit_shop.shop_name_placeholder')"
-        validation="required"
-      />
-      <FormulateInput
-        v-model="shop.published"
-        name="visible"
-        type="checkbox"
-        :label="$t('edit_shop.visibility')"
-      />
-      <span>{{ $t('edit_shop.visibility_hint') }}</span>
 
-      <FormulateInput
-        v-model="shop.categories"
-        type="shopCategories"
-        :options="shopCategories"
-      />
-      <FormulateInput v-model="shop.address" type="addressInput" />
-      <!--
-      <FormulateInput type="group" name="address">
+    <div class="flex">
+      <div class="flex w-1/2">
+        <button class="mx-auto" @click="tab = 1">
+          {{ $t('edit_shop.contact_data') }}
+        </button>
+      </div>
+      <div class="flex w-1/2">
+        <button class="mx-auto" @click="tab = 2">
+          {{ $t('edit_shop.opening_hours') }}
+        </button>
+      </div>
+    </div>
+
+    <FormulateForm @submit="save">
+      <div v-show="tab === 1">
         <FormulateInput
-          v-model="shop.address.street"
+          v-model="shop.name"
+          name="name"
           type="text"
-          name="street"
-          :placeholder="$t('edit_shop.street_placeholder')"
-          :label="$t('edit_shop.street')"
+          :label="$t('edit_shop.shop_name')"
+          :placeholder="$t('edit_shop.shop_name_placeholder')"
           validation="required"
         />
         <FormulateInput
-          v-model="shop.address.number"
-          type="text"
-          name="number"
-          :placeholder="$t('edit_shop.number_placeholder')"
-          :label="$t('edit_shop.number')"
-          validation="required"
+          v-model="shop.published"
+          name="visible"
+          type="checkbox"
+          :label="$t('edit_shop.visibility')"
         />
+        <span>{{ $t('edit_shop.visibility_hint') }}</span>
+
         <FormulateInput
-          v-model="shop.address.postcode"
-          type="text"
-          name="postcode"
-          :placeholder="$t('edit_shop.postal_code_placeholder')"
-          :label="$t('edit_shop.postal_code')"
-          validation="required"
+          v-model="shop.categories"
+          type="shopCategories"
+          :options="shopCategories"
         />
+        <FormulateInput v-model="shop.address" type="addressInput" />
         <FormulateInput
-          v-model="shop.address.city"
-          type="text"
-          name="city"
-          :placeholder="$t('edit_shop.city_placeholder')"
-          :label="$t('edit_shop.city')"
+          v-model="shop.description"
+          type="textarea"
+          name="description"
+          :placeholder="$t('edit_shop.description_placeholder')"
+          :label="$t('edit_shop.description')"
           validation="required"
         />
-      </FormulateInput>
-    -->
-      <FormulateInput
-        v-model="shop.description"
-        type="textarea"
-        name="description"
-        :placeholder="$t('edit_shop.description_placeholder')"
-        :label="$t('edit_shop.description')"
-        validation="required"
-      />
-      <FormulateInput v-model="shop.openingHours" type="openingHours" />
+      </div>
+      <div v-show="tab === 2">
+        <FormulateInput v-model="shop.openingHours" type="openingHours" />
+      </div>
       <FormulateInput type="submit" :label="$t('edit_shop.submit')" />
     </FormulateForm>
   </div>
@@ -95,6 +77,7 @@ export default {
   },
   data() {
     return {
+      tab: 1,
       shop: {
         ...clone(this.$store.getters['shops/activeShop']),
         address: { ...this.$store.getters['shops/activeShop']?.address } || {},

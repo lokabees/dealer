@@ -13,7 +13,7 @@
       :key="day"
       class="flex items-end"
     >
-      <div class="flex-none h-15 w-15 my-6 border inline-block mr-4">
+      <div :class="{ day: true, active: context.model[day].open }">
         <div class="flex h-full">
           <span class="uppercase my-auto mx-auto">
             {{ $t(`shop_registration_wizard.step_2.${day}`) }}
@@ -59,7 +59,14 @@
                 :key="day + 'break'"
                 class="flex items-end"
               >
-                <div class="flex-none h-15 w-15 my-6 border inline-block mr-4">
+                <div
+                  :class="{
+                    day: true,
+                    active:
+                      context.model[day].breaks &&
+                      context.model[day].breaks[0].from,
+                  }"
+                >
                   <div class="flex h-full">
                     <span class="uppercase my-auto mx-auto">
                       {{ $t(`shop_registration_wizard.step_2.${day}`) }}
@@ -130,6 +137,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.day {
+  @apply flex-none h-15 w-15 my-6 border inline-block mr-4;
+}
+
+.active {
+  @apply bg-primary text-white;
+}
+
 /*
  * Top Modal Item Animation
  */
