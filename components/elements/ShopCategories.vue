@@ -19,11 +19,12 @@ export default {
     context: {
       type: Object,
       validation: (context) => {
-        console.log(context)
         return context.options
       },
       required: true,
-      default: () => {},
+      default: () => {
+        return {}
+      },
     },
   },
   data() {
@@ -36,6 +37,7 @@ export default {
       return this.context.model.includes(category.value)
     },
     select(category) {
+      if (!this.context.model) this.context.model = []
       if (!this.isSelected(category)) this.context.model.push(category.value)
       else
         this.context.model = this.context.model.filter(
