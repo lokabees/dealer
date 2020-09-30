@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex">
+    <div class="flex flex-wrap">
       <div
         v-for="category in context.options"
         :key="category.id"
@@ -50,7 +50,7 @@ export default {
 
 <style lang="scss" scoped>
 .category {
-  @apply bg-grey text-white rounded-full px-2 py-1 m-1;
+  @apply bg-grey text-white rounded-full px-2 py-1 m-1 flex-none;
 
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */

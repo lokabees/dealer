@@ -16,7 +16,6 @@
           MD: $t('shop_registration_wizard.step_3.ship'),
         }"
         type="checkbox"
-        label="This is a label for all the options"
       />
       <div class="flex">
         <div class="w-1/2 pr-1">

@@ -77,6 +77,7 @@ export default {
   async asyncData({ $axios }) {
     try {
       const shopCategories = await $axios.$get('/api/shops/categories')
+
       return { shopCategories }
     } catch (e) {
       console.error(e)

@@ -43,7 +43,7 @@
         outer-class="mx-auto"
         input-class="secondary rounded-full py-2 "
         type="button"
-        label="add brekas"
+        :label="$t('shop_registration_wizard.step_2.add_breaks')"
         @click="breaks = true"
       />
     </div>
@@ -90,7 +90,7 @@
               <FormulateInput
                 input-class="secondary rounded-full py-2"
                 type="button"
-                label="close"
+                :label="$t('shop_registration_wizard.step_2.close')"
                 @click="breaks = false"
               />
             </div>

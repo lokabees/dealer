@@ -18,7 +18,7 @@
           <button v-if="user" @click="toggleDropdown">
             {{ user.name }}
           </button>
-          <div v-if="dropdown" class="py-2 w-48 bg-white absolut shadow-xl">
+          <div v-if="dropdown">
             <button class="block px-4 py-2" @click="goToAccountSettings">
               {{ $t('navbar.account_settings') }}
             </button>
@@ -74,3 +74,13 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.dropdown {
+  @apply py-2 w-48 bg-white shadow-xl hidden;
+}
+
+.dropdown:hover .dropdown {
+  @apply block;
+}
+</style>
