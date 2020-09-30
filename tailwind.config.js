@@ -28,7 +28,7 @@ module.exports = {
         css: {
           'h1, h2, h3, h4': {
             fontFamily: theme('fontFamily.serif').join(', '),
-            fontWeight: 'bold',
+            fontWeight: 'black',
           },
           a: {
             color: theme('colors.primary.default'),
