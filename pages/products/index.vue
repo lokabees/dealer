@@ -12,25 +12,23 @@
       </button>
     </div>
 
-    <div
+    <Product
       v-for="product in products"
       :key="product.id"
       class="flex justify-between"
     >
-      <div class="flex">
+      <h2>{{ product.name }}</h2>
+      <p>{{ product.description }}</p>
+      <template v-slot:img>
         <img :src="product.img" class="w-16 object-contain" />
-        <div>
-          <h2>{{ product.name }}</h2>
-          <p>{{ product.description }}</p>
-        </div>
-      </div>
-      <div class="flex flex-col">
+      </template>
+      <template v-slot:buttons>
         <button>{{ $t('products.delete') }}</button>
         <button @click="$router.push(`/products/${product.id}/edit`)">
           {{ $t('products.edit') }}
         </button>
-      </div>
-    </div>
+      </template>
+    </Product>
   </div>
 </template>
 
