@@ -56,24 +56,26 @@
           <h1 class="py-5">{{ shopName }}</h1>
         </div>
       </div>
-      <!--
+
+      <!-- categories -->
       <div class="flex justify-end bg-gray-200">
         <div class="flex flex-wrap">
           <div
-            v-for="(category, key) in shop.categories"
+            v-for="(categoryId, key) in shop.categories"
             :key="key"
             class="category"
           >
-            <span class="text-white">{{ category }} </span>
+            <span class="text-white">{{ categoryName(categoryId) }} </span>
           </div>
         </div>
       </div>
 
-
-    <button class="tertiary" @click="$store.commit('shops/setActiveShop', {})">
-      Reset active shop
-    </button>
-    -->
+      <button
+        class="tertiary"
+        @click="$store.commit('shops/setActiveShop', {})"
+      >
+        Reset active shop
+      </button>
 
       <div class="flex flex-wrap overflow-hidden">
         <!-- manage shop -->
@@ -137,6 +139,15 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
+  async asyncData({ $axios }) {
+    try {
+      const shopCategories = await $axios.$get('/api/shops/categories')
+      return { shopCategories }
+    } catch (e) {
+      console.error(e)
+      return { shopCategories: {} }
+    }
+  },
   middleware: ['authenticated', 'hasShop'],
   computed: {
     ...mapGetters('shops', {
@@ -152,6 +163,11 @@ export default {
     },
     shopName() {
       return this.shop?.name
+    },
+  },
+  methods: {
+    categoryName(id) {
+      return this.shopCategories[id]
     },
   },
 }
