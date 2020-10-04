@@ -1,6 +1,6 @@
 <template>
   <div
-    class="prose container grid grid-cols-3 gap-6 my-12 pt-12 w-full border-t border-grey-dark"
+    class="container grid grid-cols-3 gap-6 my-12 pt-12 w-full border-t border-grey-dark"
   >
     <div class="text-center grid">
       <n-link to="/imprint">{{ $t('footer.links.imprint') }}</n-link>

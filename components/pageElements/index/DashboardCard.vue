@@ -4,11 +4,13 @@
       <slot name="image" />
     </div>
     <div class="flex">
-      <div class="flex flex-wrap content-end">
+      <div class="flex flex-wrap">
         <slot name="text" />
       </div>
-      <div class="flex flex-wrap content-end">
-        <slot name="button" />
+      <div class="flex flex-shrink-0 items-end">
+        <div>
+          <slot name="button" />
+        </div>
       </div>
     </div>
   </div>
@@ -25,7 +27,7 @@
     @apply absolute w-full h-full object-cover my-0;
   }
   h2 {
-    @apply my-2 font-serif antialiased select-none text-2xl font-black text-grey-dark;
+    @apply my-4 font-serif antialiased select-none text-2xl font-black text-grey-dark;
   }
   p {
     @apply mb-0;
