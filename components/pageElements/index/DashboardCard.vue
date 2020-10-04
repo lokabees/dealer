@@ -4,7 +4,7 @@
       <slot name="image" />
     </div>
     <div class="flex">
-      <div class="flex flex-wrap">
+      <div class="flex flex-wrap pr-4">
         <slot name="text" />
       </div>
       <div class="flex flex-shrink-0 items-end">

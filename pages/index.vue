@@ -167,7 +167,7 @@ export default {
 
 <style>
 h1 {
-  @apply font-serif antialiased select-none text-6xl font-black text-grey-dark;
+  @apply font-serif antialiased select-none text-5xl font-black text-grey-dark;
 }
 
 .category {

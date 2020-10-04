@@ -48,7 +48,7 @@ Vue.use(VueFormulate, {
           return 'form-input transition ease-in duration-200 border rounded-sm py-4 outline-none w-full resize-none focus:border-black focus:shadow-none hover:primary-lightest'
       }
     },
-    label: 'text-sm',
+    label: 'text-sm font-bold',
     help: 'text-xs text-dark',
     error: 'text-danger text-xs',
   },

@@ -8,13 +8,13 @@
     <h1 class="text-center pt-16 pb-8">{{ $t('edit_shop.title') }}</h1>
 
     <div class="flex">
-      <div class="flex w-1/2">
-        <button class="mx-auto" @click="tab = 1">
+      <div class="flex w-1/2" :class="{ active: tab === 1 }">
+        <button class="mx-auto capitalize" @click="tab = 1">
           {{ $t('edit_shop.contact_data') }}
         </button>
       </div>
-      <div class="flex w-1/2">
-        <button class="mx-auto" @click="tab = 2">
+      <div class="flex w-1/2" :class="{ active: tab === 2 }">
+        <button class="mx-auto capitalize" @click="tab = 2">
           {{ $t('edit_shop.opening_hours') }}
         </button>
       </div>
@@ -35,6 +35,8 @@
           name="visible"
           type="checkbox"
           :label="$t('edit_shop.visibility')"
+          input-class="toggle-checkbox"
+          element-class="toggle"
         />
         <span>{{ $t('edit_shop.visibility_hint') }}</span>
 
@@ -115,3 +117,13 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.active {
+  @apply border-b border-black;
+
+  button {
+    @apply font-bold;
+  }
+}
+</style>
