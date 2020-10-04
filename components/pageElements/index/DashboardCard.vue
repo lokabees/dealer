@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-card">
-    <div class="relative bg-grey pb-1/2">
+    <div class="relative pb-1/2">
       <slot name="image" />
     </div>
     <div class="flex">
@@ -25,7 +25,7 @@
     @apply absolute w-full h-full object-cover my-0;
   }
   h2 {
-    @apply my-2;
+    @apply my-2 font-serif antialiased select-none text-2xl font-black text-grey-dark;
   }
   p {
     @apply mb-0;

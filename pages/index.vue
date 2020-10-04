@@ -79,7 +79,7 @@
         <!-- manage shop -->
         <DashboardCard>
           <template v-slot:image>
-            <img src="icon.png" />
+            <img src="/img/index/shop.jpg" />
           </template>
           <template v-slot:text>
             <h2>{{ $t('dashboard.shop.title') }}</h2>
@@ -95,7 +95,7 @@
         <!-- manage products -->
         <DashboardCard>
           <template v-slot:image>
-            <img src="icon.png" />
+            <img src="/img/index/product.jpg" />
           </template>
           <template v-slot:text>
             <h2>{{ $t('dashboard.products.title') }}</h2>
@@ -111,7 +111,7 @@
         <!-- academy-->
         <DashboardCard>
           <template v-slot:image>
-            <img src="icon.png" />
+            <img src="/img/index/academy.jpg" />
           </template>
           <template v-slot:text>
             <h2>{{ $t('dashboard.academy.title') }}</h2>
@@ -122,7 +122,7 @@
         <!-- analysis -->
         <DashboardCard>
           <template v-slot:image>
-            <img src="icon.png" />
+            <img src="/img/index/dashboard.jpg" />
           </template>
           <template v-slot:text>
             <h2>{{ $t('dashboard.analysis.title') }}</h2>
