@@ -15,6 +15,9 @@ module.exports = {
         serif: ['Merriweather', ...fontFamily.serif],
         sans: ['Montserrat', ...fontFamily.sans],
       },
+      spacing: {
+        '2/5': '40%',
+      },
     },
     container: {
       center: true,
@@ -61,6 +64,7 @@ module.exports = {
       primary: {
         lightest: '#F5F7F6',
         lighter: '#E4F4E9',
+        light: '#ECEEF0',
         default: '#19AE9D',
       },
       secondary: '#006174',

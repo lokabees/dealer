@@ -1,6 +1,8 @@
 <template>
   <div class="dashboard-card">
-    <slot name="image" />
+    <div class="relative bg-grey pb-1/2">
+      <slot name="image" />
+    </div>
     <div class="flex">
       <div class="flex flex-wrap content-end">
         <slot name="text" />
@@ -20,7 +22,7 @@
     @apply w-1/2;
   }
   img {
-    @apply w-full h-64 object-cover my-0;
+    @apply absolute w-full h-full object-cover my-0;
   }
   h2 {
     @apply my-2;
