@@ -5,7 +5,7 @@
       <div class="w-full">
         <FormulateInput
           v-model="context.model.street"
-          outer-class="flex-initial"
+          outer-class="flex-initial pr-1"
           type="text"
           name="street"
           :placeholder="
@@ -18,7 +18,7 @@
       <div>
         <FormulateInput
           v-model="context.model.number"
-          outer-class="flex-initial"
+          outer-class="flex-initial pl-1"
           type="text"
           name="number"
           :placeholder="
@@ -33,6 +33,7 @@
       <div>
         <FormulateInput
           v-model="context.model.postcode"
+          outer-class="pr-1"
           type="text"
           name="postcode"
           :placeholder="
@@ -45,6 +46,7 @@
       <div class="w-full">
         <FormulateInput
           v-model="context.model.city"
+          outer-class="pl-1"
           type="text"
           name="city"
           :placeholder="$t('shop_registration_wizard.step_1.city_placeholder')"

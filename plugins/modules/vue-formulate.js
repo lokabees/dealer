@@ -28,7 +28,7 @@ Vue.use(VueFormulate, {
   },
   classes: {
     wrapper: (context) => {
-      const defaultClasses = 'my-6'
+      const defaultClasses = 'my-4'
       switch (context.classification) {
         case 'button':
           return `${defaultClasses}`

@@ -138,7 +138,7 @@ export default {
 
 <style lang="scss" scoped>
 .day {
-  @apply flex-none h-15 w-15 my-6 border inline-block mr-4;
+  @apply flex-none h-15 w-15 my-4 border inline-block mr-4;
 }
 
 .active {

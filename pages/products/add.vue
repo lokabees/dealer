@@ -1,6 +1,6 @@
 <template>
   <div class="container prose">
-    <h1>{{ $t('add_product.title') }}</h1>
+    <h1 class="text-center pt-16 pb-8">{{ $t('add_product.title') }}</h1>
     <FormulateForm v-model="product" @submit="addProduct">
       <FormulateInput
         type="image"

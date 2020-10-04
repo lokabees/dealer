@@ -2,7 +2,7 @@
   <div class="container prose">
     <h1 class="text-center pt-16 pb-8">{{ $t('products.title') }}</h1>
 
-    <div class="flex justify-between">
+    <div class="flex justify-between items-center">
       <h2>{{ $t('products.add') }}</h2>
       <button
         class="tertiary justify-self-end"
@@ -20,11 +20,14 @@
       <h2>{{ product.name }}</h2>
       <p>{{ product.description }}</p>
       <template v-slot:img>
-        <img :src="product.img" class="w-16 object-contain" />
+        <img :src="product.img" />
       </template>
       <template v-slot:buttons>
         <button>{{ $t('products.delete') }}</button>
-        <button @click="$router.push(`/products/${product.id}/edit`)">
+        <button
+          class="secondary"
+          @click="$router.push(`/products/${product.id}/edit`)"
+        >
           {{ $t('products.edit') }}
         </button>
       </template>

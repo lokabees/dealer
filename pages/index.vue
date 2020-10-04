@@ -2,14 +2,12 @@
   <div>
     <div class="relative">
       <div class="relative flex justify-end pb-1/4 bg-primary-light">
-        <!--
         <img
+          v-if="coverImage"
           :src="coverImage"
           class="absolute h-full w-full object-cover"
         />
-      -->
-        <!-- fallback -->
-        <div class="absolute flex h-full w-1/2 items-center">
+        <div v-else class="absolute flex h-full w-1/2 items-center">
           <div>
             <img class="mx-auto pb-5" src="/img/icons/add-pic.svg" />
             <span class="mx-auto text-center">{{
@@ -35,13 +33,10 @@
       <div
         class="absolute bottom-0 left-8 bg-white border-4 border-white -mb-5 w-1/3 pb-1/5"
       >
-        <!--
-        <div>
+        <div v-if="profileImage">
           <img :src="profileImage" class="object-cover" />
         </div>
-      -->
-        <!-- fallback -->
-        <div class="absolute flex h-full bg-grey-lighter">
+        <div v-else class="absolute flex h-full bg-grey-lighter">
           <div class="mx-auto my-auto text-center">
             <img class="mx-auto pb-5" src="/img/icons/add-pic.svg" />
             <span>{{ $t('dashboard.upload_profile_image') }}</span>
@@ -146,12 +141,12 @@ export default {
       shop: 'activeShop',
     }),
     coverImage() {
-      if (this.shop?.images?.cover?.url === 'cdn-link') return 'icon.png'
-      return this.shop?.images?.cover?.url || 'icon.png'
+      if (this.shop?.images?.cover?.url === 'cdn-link') return null
+      return this.shop?.images?.cover?.url
     },
     profileImage() {
-      if (this.shop?.images?.profile?.url === 'cdn-link') return 'icon.png'
-      return this.shop?.images?.profile?.url || 'icon.png'
+      if (this.shop?.images?.profile?.url === 'cdn-link') return null
+      return this.shop?.images?.profile?.url
     },
     shopName() {
       return this.shop?.name
