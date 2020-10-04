@@ -24,6 +24,6 @@ img {
 }
 
 h2 {
-  @apply mb-2;
+  @apply mt-6 mb-2;
 }
 </style>

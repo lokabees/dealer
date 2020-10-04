@@ -17,7 +17,7 @@ button,
   }
 
   &.secondary {
-    @apply border border-secondary py-4 bg-white text-black transition ease-in duration-100;
+    @apply border-2 border-secondary py-4 bg-white text-black transition ease-in duration-100;
     &:hover {
       @apply bg-secondary text-white;
     }

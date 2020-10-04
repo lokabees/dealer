@@ -3,7 +3,8 @@
  ** For Desktop, buttons follow the grid and should have enough space to each side of the CTA.
  ** For mobile views, Buttons are full width following the grid.
  */
-button, .button {
+button,
+.button {
   // General
   @apply p-4 rounded-sm uppercase text-sm select-none;
   &:focus {
@@ -13,15 +14,17 @@ button, .button {
   // Primary
   &.primary {
     @apply bg-grey-dark text-white;
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       @apply text-grey-lighter;
     }
   }
 
   // Secondary
   &.secondary {
-    @apply text-grey-dark bg-white border border-secondary;
-    &:hover, &:focus {
+    @apply text-grey-dark bg-white border-2 border-secondary;
+    &:hover,
+    &:focus {
       @apply bg-primary-lightest;
     }
   }
@@ -29,15 +32,15 @@ button, .button {
   // Tertiary
   &.tertiary {
     @apply text-white bg-primary;
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       @apply bg-secondary;
     }
   }
 
-  &[class*="icon"] {
+  &[class*='icon'] {
     @apply inline-flex items-center justify-center;
   }
-
 }
 
 .icon-l i {
