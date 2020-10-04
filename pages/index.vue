@@ -52,30 +52,22 @@
 
     <div class="container">
       <div class="flex">
-        <div>
+        <div class="w-full">
           <h1 class="py-5">{{ shopName }}</h1>
         </div>
-      </div>
-
-      <!-- categories -->
-      <div class="flex justify-end bg-gray-200">
-        <div class="flex flex-wrap">
-          <div
-            v-for="(categoryId, key) in shop.categories"
-            :key="key"
-            class="category"
-          >
-            <span class="text-white">{{ categoryName(categoryId) }} </span>
+        <!-- categories -->
+        <div class="flex items-center w-full">
+          <div class="flex flex-wrap justify-end w-full">
+            <div
+              v-for="(categoryId, key) in shop.categories"
+              :key="key"
+              class="category"
+            >
+              <span class="text-white">{{ categoryName(categoryId) }} </span>
+            </div>
           </div>
         </div>
       </div>
-
-      <button
-        class="tertiary"
-        @click="$store.commit('shops/setActiveShop', {})"
-      >
-        Reset active shop
-      </button>
 
       <div class="flex flex-wrap overflow-hidden">
         <!-- manage shop -->
@@ -179,11 +171,6 @@ h1 {
 }
 
 .category {
-  @apply bg-grey text-white rounded-full px-2 py-1 m-1 flex-none;
-
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
-  user-select: none; /* Standard */
+  @apply bg-grey-light text-white rounded-full px-2 py-1 m-1 flex-none select-none;
 }
 </style>

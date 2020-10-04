@@ -27,7 +27,7 @@
     @apply absolute w-full h-full object-cover my-0;
   }
   h2 {
-    @apply my-4 font-serif antialiased select-none text-2xl font-black text-grey-dark;
+    @apply my-4 font-serif antialiased text-2xl font-black text-grey-dark;
   }
   p {
     @apply mb-0;
