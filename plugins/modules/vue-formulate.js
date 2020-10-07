@@ -11,53 +11,72 @@ Vue.component('OpeningHours', OpeningHours)
 Vue.component('AddressInput', AddressInput)
 Vue.component('ShopCategories', ShopCategories)
 
-Vue.use(VueFormulate, {
-  plugins: [de],
-  library: {
-    openingHours: {
-      classification: 'text',
-      component: 'OpeningHours',
+export default ({ app }, inject) => {
+  Vue.use(VueFormulate, {
+    plugins: [de],
+    library: {
+      openingHours: {
+        classification: 'text',
+        component: 'OpeningHours',
+      },
+      shopCategories: {
+        component: 'ShopCategories',
+      },
+      addressInput: {
+        classification: 'text',
+        component: 'AddressInput',
+      },
     },
-    shopCategories: {
-      component: 'ShopCategories',
+    locales: {
+      en: {
+        required({ name }) {
+          return `Please fill out the ${name} field.`
+        },
+        password() {
+          return app.i18n.t('validation_errors.password')
+        },
+        noNumbers() {
+          return app.i18n.t('validation_errors.no_numbers')
+        },
+      },
     },
-    addressInput: {
-      classification: 'text',
-      component: 'AddressInput',
+    classes: {
+      wrapper: (context) => {
+        const defaultClasses = 'my-4'
+        switch (context.classification) {
+          case 'button':
+            return `${defaultClasses}`
+          case 'box':
+            return `${defaultClasses} flex items-center`
+          default:
+            return defaultClasses
+        }
+      },
+      input(context) {
+        switch (context.classification) {
+          case 'button':
+            return 'button primary w-full'
+          case 'box':
+            return 'form-checkbox h-6 w-6 rounded-sm text-primary transition duration-150 ease-in-out focus:shadow-none mr-2'
+          default:
+            return 'form-input transition ease-in duration-200 border rounded-sm py-4 outline-none w-full resize-none focus:border-black focus:shadow-none hover:primary-lightest'
+        }
+      },
+      label: 'text-sm font-bold',
+      help: 'text-xs text-dark',
+      error: 'text-danger text-xs',
     },
-  },
-  classes: {
-    wrapper: (context) => {
-      const defaultClasses = 'my-4'
-      switch (context.classification) {
-        case 'button':
-          return `${defaultClasses}`
-        case 'box':
-          return `${defaultClasses} flex items-center`
-        default:
-          return defaultClasses
-      }
+    rules: {
+      password: ({ value }) => {
+        const strongRegex = new RegExp(
+          '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*.])(?=.{8,})'
+        )
+        return strongRegex.test(value)
+      },
+      noNumbers: ({ value }) => {
+        const regex = new RegExp('^[^0-9]+$')
+        return regex.test(value)
+      },
     },
-    input(context) {
-      switch (context.classification) {
-        case 'button':
-          return 'button primary w-full'
-        case 'box':
-          return 'form-checkbox h-6 w-6 rounded-sm text-primary transition duration-150 ease-in-out focus:shadow-none mr-2'
-        default:
-          return 'form-input transition ease-in duration-200 border rounded-sm py-4 outline-none w-full resize-none focus:border-black focus:shadow-none hover:primary-lightest'
-      }
-    },
-    label: 'text-sm font-bold',
-    help: 'text-xs text-dark',
-    error: 'text-danger text-xs',
-  },
-  rules: {
-    password: ({ value }) => {
-      const strongRegex = new RegExp(
-        '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*.])(?=.{8,})'
-      )
-      return strongRegex.test(value)
-    },
-  },
-})
+  })
+}

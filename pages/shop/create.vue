@@ -8,7 +8,7 @@
     <form-wizard
       ref="wizard"
       color="#19ae9d"
-      :start-index="1"
+      :start-index="0"
       step-size="xs"
       @on-complete="$router.push('/shop/success')"
     >
@@ -91,25 +91,25 @@ export default {
         address: [{}],
         openingHours: {
           monday: {
-            breaks: [{}],
+            breaks: [],
           },
           tuesday: {
-            breaks: [{}],
+            breaks: [],
           },
           wednesday: {
-            breaks: [{}],
+            breaks: [],
           },
           thursday: {
-            breaks: [{}],
+            breaks: [],
           },
           friday: {
-            breaks: [{}],
+            breaks: [],
           },
           saturday: {
-            breaks: [{}],
+            breaks: [],
           },
           sunday: {
-            breaks: [{}],
+            breaks: [],
           },
         },
       },

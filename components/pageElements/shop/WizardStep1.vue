@@ -13,7 +13,7 @@
         name="name"
         :placeholder="$t('shop_registration_wizard.step_1.name_placeholder')"
         :label="$t('shop_registration_wizard.step_1.name')"
-        validation="required"
+        validation="required|max:60"
       />
       <!--owner name-->
       <FormulateInput

@@ -35,6 +35,15 @@
           type="time"
           :name="`${day} close`"
           :label="$t('shop_registration_wizard.step_2.until')"
+          :validation-rules="{
+            closeAfterOpen: ({ value }) => {
+              const valSec = getSecondsFromString(value)
+              const openSec = getSecondsFromString(context.model[day].open)
+              if (!valSec) return true
+              return valSec > openSec
+            },
+          }"
+          validation="closeAfterOpen"
         />
       </div>
     </div>
@@ -62,9 +71,7 @@
                 <div
                   :class="{
                     day: true,
-                    active:
-                      context.model[day].breaks &&
-                      context.model[day].breaks[0].from,
+                    active: getBreak(day).from,
                   }"
                 >
                   <div class="flex h-full">
@@ -79,7 +86,21 @@
                     type="time"
                     :name="`${day} break from`"
                     :label="$t('shop_registration_wizard.step_2.from')"
-                    @input="context.model[day].breaks[0].from = $event"
+                    :validation-rules="{
+                      closeAfterOpen: ({ value }) => {
+                        const valSec = getSecondsFromString(value)
+                        const openSec = getSecondsFromString(
+                          context.model[day].open
+                        )
+                        const closeSec = getSecondsFromString(
+                          context.model[day].close
+                        )
+                        if (!valSec) return true
+                        return valSec > openSec && valSec < closeSec
+                      },
+                    }"
+                    validation="closeAfterOpen"
+                    @input="getBreak(day).from = $event"
                   />
                 </div>
                 <div class="overflow-hidden w-full pl-4">
@@ -88,7 +109,21 @@
                     type="time"
                     :name="`${day} break until`"
                     :label="$t('shop_registration_wizard.step_2.until')"
-                    @input="context.model[day].breaks[0].to = $event"
+                    @input="getBreak(day).to = $event"
+                    :validation-rules="{
+                      closeAfterOpen: ({ value }) => {
+                        const valSec = getSecondsFromString(value)
+                        const openSec = getSecondsFromString(
+                          context.model[day].open
+                        )
+                        const closeSec = getSecondsFromString(
+                          context.model[day].close
+                        )
+                        if (!valSec) return true
+                        return valSec > openSec && valSec < closeSec
+                      },
+                    }"
+                    validation="closeAfterOpen"
                   />
                 </div>
               </div>
@@ -123,14 +158,23 @@ export default {
     }
   },
   methods: {
+    log(a, b, c) {
+      console.log(a)
+      console.log(b)
+      console.log(c)
+    },
     showBreaks() {
       console.log('click')
       this.breaks = true
     },
+    getSecondsFromString(str) {
+      if (!str) return
+      const valArr = str.split(':')
+      return valArr[0] * 60 * 60 + valArr[1] * 60
+    },
     getBreak(day) {
-      return this.context.model[day].breaks
-        ? this.context.model[day].breaks[0]
-        : {}
+      if (!this.context?.model[day]?.breaks) return {}
+      return this.context.model[day].breaks[0] || {}
     },
   },
 }

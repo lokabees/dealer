@@ -286,5 +286,9 @@
       "500": "An unknown error occured. Try reloading the page and login again.",
       "network": "We can not reach the server. Please check your internet connection."
     }
+  },
+  "validation_errors": {
+    "no_numbers": "No numbers",
+    "password": "The password must contain a lowercase letter, an uppercase letter, a number and a special character"
   }
 }

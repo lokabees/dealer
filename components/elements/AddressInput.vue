@@ -12,7 +12,7 @@
             $t('shop_registration_wizard.step_1.street_placeholder')
           "
           :label="$t('shop_registration_wizard.step_1.street')"
-          validation="required"
+          validation="required|noNumbers"
         />
       </div>
       <div>
