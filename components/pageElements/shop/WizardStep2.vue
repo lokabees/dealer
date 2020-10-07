@@ -7,7 +7,11 @@
       {{ $t('shop_registration_wizard.step_2.text') }}
     </p>
     <FormulateForm @submit="$emit('submit')">
-      <FormulateInput v-model="initialShop.openingHours" type="openingHours" />
+      <FormulateInput
+        v-model="initialShop.openingHours"
+        :create="true"
+        type="openingHours"
+      />
 
       <div class="flex">
         <div class="w-1/2 pr-1">

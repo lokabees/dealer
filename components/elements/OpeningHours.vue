@@ -15,27 +15,38 @@
 
       <div class="overflow-hidden w-full pr-4">
         <FormulateInput
-          v-model="context.model[day].open"
+          :value="context.model[day].open"
           type="time"
           :name="`${day} open`"
           :label="$t('shop_registration_wizard.step_2.from')"
+          :validation-rules="{
+            openBeforeClose: ({ value }) => {
+              const openSec = getSecondsFromString(value)
+              if (!context.model[day].close || !openSec) return true
+              const closeSec = getSecondsFromString(context.model[day].close)
+              return openSec < closeSec
+            },
+          }"
+          validation="openBeforeClose"
+          @input="setOpen(day, $event)"
         />
       </div>
       <div class="overflow-hidden w-full pl-4">
         <FormulateInput
-          v-model="context.model[day].close"
+          :value="context.model[day].close"
           type="time"
           :name="`${day} close`"
           :label="$t('shop_registration_wizard.step_2.until')"
           :validation-rules="{
             closeAfterOpen: ({ value }) => {
-              const valSec = getSecondsFromString(value)
+              const closeSec = getSecondsFromString(value)
+              if (!closeSec || !context.model[day].open) return true
               const openSec = getSecondsFromString(context.model[day].open)
-              if (!valSec) return true
-              return valSec > openSec
+              return closeSec > openSec
             },
           }"
           validation="closeAfterOpen"
+          @input="setClose(day, $event)"
         />
       </div>
     </div>
@@ -80,15 +91,27 @@
                     :label="$t('shop_registration_wizard.step_2.from')"
                     :validation-rules="{
                       closeAfterOpen: ({ value }) => {
-                        const valSec = getSecondsFromString(value)
+                        const breakOpenSec = getSecondsFromString(value)
+                        if (
+                          !breakOpenSec ||
+                          !context.model[day] ||
+                          !context.model[day].breaks[0]
+                        )
+                          return true
                         const openSec = getSecondsFromString(
                           context.model[day].open
                         )
                         const closeSec = getSecondsFromString(
                           context.model[day].close
                         )
-                        if (!valSec) return true
-                        return valSec > openSec && valSec < closeSec
+                        const breakCloseSec = getSecondsFromString(
+                          context.model[day].breaks[0].close
+                        )
+                        return (
+                          breakOpenSec > openSec &&
+                          valSec < closeSec &&
+                          breakOpenSec < breakCloseSec
+                        )
                       },
                     }"
                     validation="closeAfterOpen"
@@ -101,21 +124,33 @@
                     type="time"
                     :name="`${day} break until`"
                     :label="$t('shop_registration_wizard.step_2.until')"
-                    @input="setBreakTo(day, $event)"
                     :validation-rules="{
                       closeAfterOpen: ({ value }) => {
-                        const valSec = getSecondsFromString(value)
+                        const breakCloseSec = getSecondsFromString(value)
+                        if (
+                          !breakOpenSec ||
+                          !context.model[day] ||
+                          !context.model[day].breaks[0]
+                        )
+                          return true
                         const openSec = getSecondsFromString(
                           context.model[day].open
                         )
                         const closeSec = getSecondsFromString(
                           context.model[day].close
                         )
-                        if (!valSec) return true
-                        return valSec > openSec && valSec < closeSec
+                        const breakOpenSec = getSecondsFromString(
+                          context.model[day].breaks[0].close
+                        )
+                        return (
+                          breakCloseSec > openSec &&
+                          breakCloseSec < closeSec &&
+                          breakCloseSec > breakOpenSec
+                        )
                       },
                     }"
                     validation="closeAfterOpen"
+                    @input="setBreakTo(day, $event)"
                   />
                 </div>
               </div>
@@ -143,6 +178,11 @@ export default {
       required: true,
       default: () => {},
     },
+    create: {
+      type: Boolean,
+      require: false,
+      default: false,
+    },
   },
   data() {
     return {
@@ -156,11 +196,31 @@ export default {
     getSecondsFromString(str) {
       if (!str) return
       const valArr = str.split(':')
-      return valArr[0] * 60 * 60 + valArr[1] * 60
+      const secs = valArr[0] * 60 * 60 + valArr[1] * 60
+      return secs
     },
     getBreak(day) {
       if (!this.context?.model[day]?.breaks) return {}
       return this.context.model[day].breaks[0] || {}
+    },
+    setOpen(day, input) {
+      if (this.context?.attributes?.create) this.context.model[day].open = input
+      else {
+        const object = { openingHours: {} }
+        object.openingHours[day] = {}
+        object.openingHours[day].open = input
+        this.$store.commit('shops/updateActiveShop', object)
+      }
+    },
+    setClose(day, input) {
+      if (this.context?.attributes?.create)
+        this.context.model[day].close = input
+      else {
+        const object = { openingHours: {} }
+        object.openingHours[day] = {}
+        object.openingHours[day].close = input
+        this.$store.commit('shops/updateActiveShop', object)
+      }
     },
     setBreakFrom(day, input) {
       if (!this.context?.model[day]?.breaks[0])
