@@ -1,5 +1,5 @@
 <template>
-  <div class="container prose">
+  <div class="container max-w-md prose p-2">
     <h1>{{ $t('reset_password.title') }}</h1>
     <p>{{ $t('reset_password.text') }}</p>
     <FormulateForm @submit="resetPassword">
@@ -13,7 +13,9 @@
       />
       <FormulateInput type="submit" :label="$t('reset_password.submit')" />
     </FormulateForm>
-    <button>{{ $t('reset_password.back') }}</button>
+    <button @click="$router.push('/auth/login')">
+      {{ $t('reset_password.back') }}
+    </button>
   </div>
 </template>
 

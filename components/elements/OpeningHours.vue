@@ -1,19 +1,11 @@
 <template>
   <div>
-    <!-- TODO opening times validation
-    * close time > open time
-    * close time required when open time
-    * break time inside open time
-    * breaks only visible when open
-    * break times don't overlap
-    -->
-
     <div
       v-for="(openingTimes, day) in context.model"
       :key="day"
       class="flex items-end"
     >
-      <div :class="{ day: true, active: context.model[day].open }">
+      <div :class="{ day: true, active: isActive(day) }">
         <div class="flex h-full">
           <span class="uppercase my-auto mx-auto">
             {{ $t(`shop_registration_wizard.step_2.${day}`) }}
@@ -100,7 +92,7 @@
                       },
                     }"
                     validation="closeAfterOpen"
-                    @input="getBreak(day).from = $event"
+                    @input="setBreakFrom(day, $event)"
                   />
                 </div>
                 <div class="overflow-hidden w-full pl-4">
@@ -109,7 +101,7 @@
                     type="time"
                     :name="`${day} break until`"
                     :label="$t('shop_registration_wizard.step_2.until')"
-                    @input="getBreak(day).to = $event"
+                    @input="setBreakTo(day, $event)"
                     :validation-rules="{
                       closeAfterOpen: ({ value }) => {
                         const valSec = getSecondsFromString(value)
@@ -158,13 +150,7 @@ export default {
     }
   },
   methods: {
-    log(a, b, c) {
-      console.log(a)
-      console.log(b)
-      console.log(c)
-    },
     showBreaks() {
-      console.log('click')
       this.breaks = true
     },
     getSecondsFromString(str) {
@@ -175,6 +161,22 @@ export default {
     getBreak(day) {
       if (!this.context?.model[day]?.breaks) return {}
       return this.context.model[day].breaks[0] || {}
+    },
+    setBreakFrom(day, input) {
+      if (!this.context?.model[day]?.breaks[0])
+        this.context.model[day].breaks = [{}]
+      this.context.model[day].breaks[0].from = input
+    },
+    setBreakTo(day, input) {
+      if (!this.context?.model[day]?.breaks[0])
+        this.context.model[day].breaks = [{}]
+      this.context.model[day].breaks[0].to = input
+    },
+    isActive(day) {
+      if (this.context.model[day].open) {
+        const arr = this.context.model[day].open.split(':')
+        if (arr[0] >= 0) return true
+      }
     },
   },
 }

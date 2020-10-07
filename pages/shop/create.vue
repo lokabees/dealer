@@ -8,7 +8,7 @@
     <form-wizard
       ref="wizard"
       color="#19ae9d"
-      :start-index="0"
+      :start-index="1"
       step-size="xs"
       @on-complete="$router.push('/shop/success')"
     >
@@ -125,6 +125,7 @@ export default {
     },
     async createShop(creatives) {
       try {
+        console.log(this.shop)
         this.shop.address = this.shop.address[0]
         await this.$axios.$post('/api/shops', this.shop)
         await this.$store.dispatch('shops/getActiveShop')
