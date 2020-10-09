@@ -47,6 +47,16 @@
     "go_home": "Go to Homepage"
   },
   "dashboard": {
+    "product_creation_prompt": {
+      "title": "You don't have any products in your shop yet!",
+      "text": "Now you can easily create your first product and make your store decisions even more attractive for personal customers",
+      "button": "Create first product"
+    },
+    "complete_shop_prompt": {
+      "title": "You haven't entered any information about your store yet!",
+      "text": "Now briefly fill in all the important information about your store. This is how your customers find you and know when you are open!",
+      "button": "Enter information"
+    },
     "upload_cover_image": "Click here to upload a picture of your shop from the outside.",
     "upload_profile_image": "Click here to upload a picture of you, your team or inside of your shop.",
     "shop": {
@@ -129,7 +139,9 @@
     "delete_info": "Here you can delete your entire Lokabees account. Warning: This process cannot be reversed!",
     "delete_button": "Delete my account",
     "need_help": "Need help?",
-    "submit": "save"
+    "submit": "save",
+    "new_password": "Change password",
+    "better_safe": "Better safe than sorry"
   },
   "edit_product": {
     "title": "Edit product",

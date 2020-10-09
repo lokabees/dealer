@@ -9,7 +9,7 @@
         type="password"
         :label="$t('new_password.new_password')"
         :placeholder="$t('new_password.password_placeholder')"
-        validation="required"
+        validation="required|password"
       />
       <!--TODO validation passwords match-->
       <FormulateInput
@@ -18,7 +18,13 @@
         type="password"
         :label="$t('new_password.repeat_new_password')"
         :placeholder="$t('new_password.password_placeholder')"
-        validation="required"
+        :validation-rules="{
+          passwordMatch: ({ value }) => value === password,
+        }"
+        :validation-messages="{
+          passwordMatch: $t('validation_errors.confirm_password'),
+        }"
+        validation="required|passwordMatch"
       />
       <FormulateInput type="submit" :label="$t('new_password.submit')" />
     </FormulateForm>

@@ -30,22 +30,42 @@
         :label="$t('user.email')"
         validation="required|email"
       />
-      <p>{{ $t('user.newsletter_info') }}</p>
+
+      <div>
+        <span class="text-sm font-bold"> {{ $t('user.better_safe') }}</span>
+      </div>
       <FormulateInput
-        name="newsletter"
-        type="checkbox"
-        :label="$t('user.newsletter')"
+        type="button"
+        :label="$t('user.new_password')"
+        @click="$router.push('/auth/set-new-password')"
       />
+
       <FormulateInput type="submit" :label="$t('user.submit')" />
     </FormulateForm>
-    <p>{{ $t('user.need_help') }}</p>
-    <button class="primary" @click="$router.push('/contact')">
-      {{ $t('user.contact') }}
-    </button>
-    <p>{{ $t('user.delete_info') }}</p>
-    <button class="secondary" @click="deleteAccount">
-      {{ $t('user.delete_button') }}
-    </button>
+
+    <div class="border-grey-dark border-b my-12" />
+
+    <p>{{ $t('user.newsletter_info') }}</p>
+    <FormulateInput
+      name="newsletter"
+      type="checkbox"
+      input-class="toggle-checkbox"
+      element-class="toggle flex-none"
+      :label="$t('user.newsletter')"
+    />
+
+    <div class="border-grey-dark border-b my-12" />
+
+    <div class="text-center">
+      <p class="font-bold">{{ $t('user.need_help') }}</p>
+      <button class="primary" @click="$router.push('/contact')">
+        {{ $t('user.contact') }}
+      </button>
+      <p>{{ $t('user.delete_info') }}</p>
+      <button class="secondary" @click="deleteAccount">
+        {{ $t('user.delete_button') }}
+      </button>
+    </div>
   </div>
 </template>
 

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <ProductCreationPrompt />
     <div class="relative">
       <div class="relative flex justify-end pb-1/4 bg-primary-light">
         <img

@@ -1,32 +1,41 @@
 <template>
-  <div class="border-b border-grey-dark">
-    <div class="md:container prose">
-      <div class="flex overflow-hidden">
-        <div class="w-1/3 overflow-hidden">
-          <!-- Column Content -->
-        </div>
+  <div>
+    <div class="border-b border-grey-dark">
+      <div class="md:container prose">
+        <div class="flex">
+          <div class="w-1/3">
+            <!-- Column Content -->
+          </div>
 
-        <div
-          class="flex flex-wrap content-center w-1/3 justify-center overflow-hidden"
-        >
-          <n-link to="/"><img src="/img/logo.svg" width="130px" /></n-link>
-        </div>
+          <div class="flex flex-wrap content-center w-1/3 justify-center">
+            <n-link to="/"><img src="/img/logo.svg" width="130px" /></n-link>
+          </div>
 
-        <div
-          class="flex flex-wrap content-center justify-end w-1/3 overflow-hidden"
-        >
-          <button v-if="user" @click="toggleDropdown">
-            {{ user.name }}
-          </button>
-          <div v-if="dropdown">
-            <button class="block px-4 py-2" @click="goToAccountSettings">
-              {{ $t('navbar.account_settings') }}
-            </button>
-            <button class="block px-4 py-2" @click="logoutUser">
-              {{ $t('navbar.logout') }}
+          <div class="relative flex flex-wrap content-center justify-end w-1/3">
+            <button v-if="user" @click="toggleDropdown">
+              {{ user.name }}
             </button>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="relative md:container">
+      <div
+        class="absolute bg-white border border-t-0 border-grey-dark right-0 top-0 z-50 text-sm font-bold"
+        v-if="dropdown"
+      >
+        <button
+          class="text-left w-full px-2 py-2 hover:bg-grey-dark hover:text-white"
+          @click="goToAccountSettings"
+        >
+          {{ $t('navbar.account_settings') }}
+        </button>
+        <button
+          class="text-left w-full px-2 py-2 hover:bg-grey-dark hover:text-white"
+          @click="logoutUser"
+        >
+          {{ $t('navbar.logout') }}
+        </button>
       </div>
     </div>
   </div>
