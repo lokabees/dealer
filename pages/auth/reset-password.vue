@@ -1,7 +1,7 @@
 <template>
   <div class="container max-w-md prose p-2">
-    <h1>{{ $t('reset_password.title') }}</h1>
-    <p>{{ $t('reset_password.text') }}</p>
+    <h1 class="text-center">{{ $t('reset_password.title') }}</h1>
+    <p class="text-center">{{ $t('reset_password.text') }}</p>
     <FormulateForm @submit="resetPassword">
       <FormulateInput
         v-model="email"
@@ -13,7 +13,7 @@
       />
       <FormulateInput type="submit" :label="$t('reset_password.submit')" />
     </FormulateForm>
-    <button @click="$router.push('/auth/login')">
+    <button class="secondary w-full" @click="$router.push('/auth/login')">
       {{ $t('reset_password.back') }}
     </button>
   </div>
