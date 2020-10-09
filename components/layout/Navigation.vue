@@ -12,7 +12,11 @@
           </div>
 
           <div class="relative flex flex-wrap content-center justify-end w-1/3">
-            <button v-if="user" @click="toggleDropdown">
+            <button
+              v-if="user"
+              class="text-sm capitalize"
+              @click="toggleDropdown"
+            >
               {{ user.name }}
             </button>
           </div>
@@ -21,17 +25,19 @@
     </div>
     <div class="relative md:container">
       <div
-        class="absolute bg-white border border-t-0 border-grey-dark right-0 top-0 z-50 text-sm font-bold"
         v-if="dropdown"
+        class="absolute bg-white border border-t-0 border-grey-dark right-0 top-0 z-50 text-sm"
       >
         <button
-          class="text-left w-full px-2 py-2 hover:bg-grey-dark hover:text-white"
+          ref="accountSettings"
+          class="text-left capitalize font-bold w-full px-2 py-2 hover:bg-grey-dark hover:text-white"
+          @blur="dropdown = false"
           @click="goToAccountSettings"
         >
           {{ $t('navbar.account_settings') }}
         </button>
         <button
-          class="text-left w-full px-2 py-2 hover:bg-grey-dark hover:text-white"
+          class="text-left capitalize font-bold w-full px-2 py-2 hover:bg-grey-dark hover:text-white"
           @click="logoutUser"
         >
           {{ $t('navbar.logout') }}
@@ -59,6 +65,10 @@ export default {
     }),
     toggleDropdown() {
       this.dropdown = !this.dropdown
+      if (this.dropdown)
+        setTimeout(() => {
+          if (this.$refs.accountSettings) this.$refs.accountSettings.focus()
+        }, 0)
     },
     goToAccountSettings() {
       this.dropdown = false

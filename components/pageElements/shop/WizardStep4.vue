@@ -10,6 +10,13 @@
       <FormulateInput
         type="text"
         name="phone"
+        :validation-rules="{
+          phoneNumber: async function ({ value }) {
+            if (!value) return true
+            return await isValidPhoneNumber(value)
+          },
+        }"
+        validation="phoneNumber"
         :placeholder="$t('shop_registration_wizard.step_4.phone_placeholder')"
         :label="$t('shop_registration_wizard.step_4.phone')"
       />
@@ -19,6 +26,13 @@
         :placeholder="
           $t('shop_registration_wizard.step_4.whatsapp_placeholder')
         "
+        :validation-rules="{
+          phoneNumber: async function ({ value }) {
+            if (!value) return true
+            return await isValidPhoneNumber(value)
+          },
+        }"
+        validation="phoneNumber"
         :label="$t('shop_registration_wizard.step_4.whatsapp')"
       />
       <FormulateInput
@@ -30,6 +44,13 @@
       <FormulateInput
         type="text"
         name="website"
+        :validation-rules="{
+          website: ({ value }) => {
+            if (!value) return true
+            return websiteValidator.test(value)
+          },
+        }"
+        validation="website"
         :placeholder="$t('shop_registration_wizard.step_4.website_placeholder')"
         :label="$t('shop_registration_wizard.step_4.website')"
       />
@@ -54,6 +75,7 @@
 </template>
 
 <script>
+import { parsePhoneNumber } from 'libphonenumber-js'
 export default {
   props: {
     initialShop: { type: Object, default: () => {}, required: true },
@@ -61,11 +83,21 @@ export default {
   data() {
     return {
       shop: this.initialShop || {},
+      websiteValidator: new RegExp(
+        /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w.-]+)+[\w\-._~:/?#[\]@!&'()*+,;=.]+$/
+      ),
     }
   },
   watch: {
     shop(newShop, oldShop) {
       this.$emit('input', newShop)
+    },
+  },
+  methods: {
+    async isValidPhoneNumber(value) {
+      const res = await parsePhoneNumber(value).isValid()
+      console.log(res)
+      return res
     },
   },
 }
