@@ -9,7 +9,9 @@ export const mutations = {
   },
   updateActiveShop(state, newShop) {
     Object.assign(state.activeShop, newShop)
-    console.log(state.activeShop)
+  },
+  updateActiveShopOpeningHours(state, newOpeningHours) {
+    Object.assign(state.activeShop.openingHours, newOpeningHours)
   },
   setActiveShop(state, shop) {
     state.activeShop = shop

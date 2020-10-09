@@ -1,53 +1,66 @@
 <template>
   <div>
-    <div
-      v-for="(openingTimes, day) in context.model"
-      :key="day"
-      class="flex items-end"
-    >
-      <div :class="{ day: true, active: isActive(day) }">
-        <div class="flex h-full">
-          <span class="uppercase my-auto mx-auto">
-            {{ $t(`shop_registration_wizard.step_2.${day}`) }}
-          </span>
-        </div>
+    <div v-for="(openingTimes, day) in context.model" :key="day">
+      <div class="sm:hidden block flex w-full prose">
+        <h3 class="m-auto">
+          {{ $t(`shop_registration_wizard.step_2.${day}_long`) }}
+        </h3>
       </div>
 
-      <div class="overflow-hidden w-full pr-4">
-        <FormulateInput
-          :value="context.model[day].open"
-          type="time"
-          :name="`${day} open`"
-          :label="$t('shop_registration_wizard.step_2.from')"
-          :validation-rules="{
-            openBeforeClose: ({ value }) => {
+      <div class="flex items-end">
+        <div
+          class="hidden sm:inline-block"
+          :class="{ day: true, active: isActive(day) }"
+        >
+          <div class="flex h-full">
+            <span class="uppercase my-auto mx-auto">
+              {{ $t(`shop_registration_wizard.step_2.${day}`) }}
+            </span>
+          </div>
+        </div>
+
+        <div class="overflow-hidden w-full pr-2">
+          <FormulateInput
+            :value="context.model[day].open"
+            type="time"
+            :name="`${day} open`"
+            :label="$t('shop_registration_wizard.step_2.from')"
+            :validation-rules="{
+              openBeforeClose: ({ value }) => {
+                /*
               const openSec = getSecondsFromString(value)
               if (!context.model[day].close || !openSec) return true
               const closeSec = getSecondsFromString(context.model[day].close)
               return openSec < closeSec
-            },
-          }"
-          validation="openBeforeClose"
-          @input="setOpen(day, $event)"
-        />
-      </div>
-      <div class="overflow-hidden w-full pl-4">
-        <FormulateInput
-          :value="context.model[day].close"
-          type="time"
-          :name="`${day} close`"
-          :label="$t('shop_registration_wizard.step_2.until')"
-          :validation-rules="{
-            closeAfterOpen: ({ value }) => {
+              */
+                return true
+              },
+            }"
+            validation="openBeforeClose"
+            @input="setOpen(day, $event)"
+          />
+        </div>
+        <div class="overflow-hidden w-full pl-2">
+          <FormulateInput
+            :value="context.model[day].close"
+            type="time"
+            :name="`${day} close`"
+            :label="$t('shop_registration_wizard.step_2.until')"
+            :validation-rules="{
+              closeAfterOpen: ({ value }) => {
+                /*
               const closeSec = getSecondsFromString(value)
               if (!closeSec || !context.model[day].open) return true
               const openSec = getSecondsFromString(context.model[day].open)
               return closeSec > openSec
-            },
-          }"
-          validation="closeAfterOpen"
-          @input="setClose(day, $event)"
-        />
+              */
+                return true
+              },
+            }"
+            validation="closeAfterOpen"
+            @input="setClose(day, $event)"
+          />
+        </div>
       </div>
     </div>
     <div class="flex">
@@ -69,28 +82,35 @@
               <div
                 v-for="(openingTimes, day) in context.model"
                 :key="day + 'break'"
-                class="flex items-end"
               >
-                <div
-                  :class="{
-                    day: true,
-                    active: getBreak(day).from,
-                  }"
-                >
-                  <div class="flex h-full">
-                    <span class="uppercase my-auto mx-auto">
-                      {{ $t(`shop_registration_wizard.step_2.${day}`) }}
-                    </span>
-                  </div>
+                <div class="sm:hidden block flex w-full prose">
+                  <h3 class="m-auto">
+                    {{ $t(`shop_registration_wizard.step_2.${day}_long`) }}
+                  </h3>
                 </div>
-                <div class="overflow-hidden w-full pr-4">
-                  <FormulateInput
-                    :value="getBreak(day).from"
-                    type="time"
-                    :name="`${day} break from`"
-                    :label="$t('shop_registration_wizard.step_2.from')"
-                    :validation-rules="{
-                      closeAfterOpen: ({ value }) => {
+                <div class="flex items-end">
+                  <div
+                    class="hidden sm:inline-block"
+                    :class="{
+                      day: true,
+                      active: getBreak(day).from,
+                    }"
+                  >
+                    <div class="flex h-full">
+                      <span class="uppercase my-auto mx-auto">
+                        {{ $t(`shop_registration_wizard.step_2.${day}`) }}
+                      </span>
+                    </div>
+                  </div>
+                  <div class="overflow-hidden w-full pr-2">
+                    <FormulateInput
+                      :value="getBreak(day).from"
+                      type="time"
+                      :name="`${day} break from`"
+                      :label="$t('shop_registration_wizard.step_2.from')"
+                      :validation-rules="{
+                        closeAfterOpen: ({ value }) => {
+                          /*
                         const breakOpenSec = getSecondsFromString(value)
                         if (
                           !breakOpenSec ||
@@ -109,23 +129,26 @@
                         )
                         return (
                           breakOpenSec > openSec &&
-                          valSec < closeSec &&
+                          breakOpenSec < closeSec &&
                           breakOpenSec < breakCloseSec
                         )
-                      },
-                    }"
-                    validation="closeAfterOpen"
-                    @input="setBreakFrom(day, $event)"
-                  />
-                </div>
-                <div class="overflow-hidden w-full pl-4">
-                  <FormulateInput
-                    :value="getBreak(day).to"
-                    type="time"
-                    :name="`${day} break until`"
-                    :label="$t('shop_registration_wizard.step_2.until')"
-                    :validation-rules="{
-                      closeAfterOpen: ({ value }) => {
+                        */
+                          return true
+                        },
+                      }"
+                      validation="closeAfterOpen"
+                      @input="setBreakFrom(day, $event)"
+                    />
+                  </div>
+                  <div class="overflow-hidden w-full pl-2">
+                    <FormulateInput
+                      :value="getBreak(day).to"
+                      type="time"
+                      :name="`${day} break until`"
+                      :label="$t('shop_registration_wizard.step_2.until')"
+                      :validation-rules="{
+                        closeAfterOpen: ({ value }) => {
+                          /*
                         const breakCloseSec = getSecondsFromString(value)
                         if (
                           !breakOpenSec ||
@@ -147,11 +170,14 @@
                           breakCloseSec < closeSec &&
                           breakCloseSec > breakOpenSec
                         )
-                      },
-                    }"
-                    validation="closeAfterOpen"
-                    @input="setBreakTo(day, $event)"
-                  />
+                        */
+                          return true
+                        },
+                      }"
+                      validation="closeAfterOpen"
+                      @input="setBreakTo(day, $event)"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -206,20 +232,20 @@ export default {
     setOpen(day, input) {
       if (this.context?.attributes?.create) this.context.model[day].open = input
       else {
-        const object = { openingHours: {} }
-        object.openingHours[day] = {}
-        object.openingHours[day].open = input
-        this.$store.commit('shops/updateActiveShop', object)
+        const openingHours = {}
+        openingHours[day] = {}
+        openingHours[day].open = input
+        this.$store.commit('shops/updateActiveShopOpeningHours', openingHours)
       }
     },
     setClose(day, input) {
       if (this.context?.attributes?.create)
         this.context.model[day].close = input
       else {
-        const object = { openingHours: {} }
-        object.openingHours[day] = {}
-        object.openingHours[day].close = input
-        this.$store.commit('shops/updateActiveShop', object)
+        const openingHours = {}
+        openingHours[day] = {}
+        openingHours[day].close = input
+        this.$store.commit('shops/updateActiveShopOpeningHours', openingHours)
       }
     },
     setBreakFrom(day, input) {
@@ -244,7 +270,7 @@ export default {
 
 <style lang="scss" scoped>
 .day {
-  @apply flex-none h-15 w-15 my-4 border inline-block mr-4;
+  @apply flex-none h-15 w-15 my-4 border  mr-4;
 }
 
 .active {

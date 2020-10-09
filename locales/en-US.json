@@ -180,6 +180,13 @@
       "friday": "Fr",
       "saturday": "Sa",
       "sunday": "Su",
+      "monday_long": "Monday",
+      "tuesday_long": "Tuesday",
+      "wednesday_long": "Wednesday",
+      "thursday_long": "Thursday",
+      "friday_long": "Friday",
+      "saturday_long": "Saturday",
+      "sunday_long": "Sunday",
       "from": "From",
       "until": "Until",
       "closed": "Closed"
