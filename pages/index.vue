@@ -37,7 +37,7 @@
         <div v-if="profileImage">
           <img :src="profileImage" class="object-cover" />
         </div>
-        <div v-else class="absolute flex h-full bg-grey-lighter">
+        <div v-else class="absolute flex h-full w-full bg-grey-lighter">
           <div class="mx-auto my-auto text-center">
             <img class="mx-auto pb-5" src="/img/icons/add-pic.svg" />
             <span>{{ $t('dashboard.upload_profile_image') }}</span>

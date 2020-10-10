@@ -97,3 +97,24 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.formulate-input {
+  @apply border-0;
+
+  &[data-classification='file'] {
+    .formulate-input-upload-area {
+      @apply p-5 border-dashed border-2 relative pb-1/3;
+
+      input {
+        // The actual upload element
+        @apply absolute top-0 left-0 w-full h-full;
+
+        #file-upload-button {
+          @apply hidden;
+        }
+      }
+    }
+  }
+}
+</style>

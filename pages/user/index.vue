@@ -1,5 +1,5 @@
 <template>
-  <div class="container prose">
+  <div class="container prose p-2">
     <Modal>
       <template v-slot:buttons>
         <button @click="hideModal">{{ $t('login.ok') }}</button>
