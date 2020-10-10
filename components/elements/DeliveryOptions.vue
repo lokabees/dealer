@@ -1,13 +1,15 @@
 <template>
   <div>
+    {{ context.model }}
     <div
       v-for="option in options"
       :key="option.value"
       class="flex border border-grey-light p-4 my-2 items-center"
+      :class="{ active: context.model.includes(option.value) }"
     >
       <div class="pr-2">
         <input
-          :value="option.value"
+          :value="ld"
           class="form-checkbox h-6 w-6 rounded-sm text-primary transition duration-150 ease-in-out focus:shadow-none mr-2"
           type="checkbox"
           @input="select(option.value)"
@@ -37,6 +39,11 @@ export default {
   },
   data() {
     return {
+      selected: {
+        LD: false,
+        PU: false,
+        MD: false,
+      },
       options: [
         {
           title: 'shop_registration_wizard.step_3.delivery',
@@ -59,13 +66,24 @@ export default {
       ],
     }
   },
+  computed: {
+    ld() {
+      return this.context.model.includes('LD')
+    },
+  },
   methods: {
     select(value) {
       if (!this.context.model.includes(value)) {
         if (this.context.model) this.context.model.push(value)
         else this.context.model = [value]
-      } else this.context.model.splice(value, 1)
+      } else this.context.model.splice(this.context.model.indexOf(value), 1)
     },
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.active {
+  @apply border-2 border-primary;
+}
+</style>
