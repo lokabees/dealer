@@ -7,16 +7,8 @@
       {{ $t('shop_registration_wizard.step_3.text') }}
     </p>
     <FormulateForm @submit="$emit('submit')">
-      <FormulateInput
-        v-model="shop.delivery"
-        name="delivery"
-        :options="{
-          LD: $t('shop_registration_wizard.step_3.delivery'),
-          PU: $t('shop_registration_wizard.step_3.pickup'),
-          MD: $t('shop_registration_wizard.step_3.ship'),
-        }"
-        type="checkbox"
-      />
+      <FormulateInput v-model="shop.delivery" type="deliveryOptions" />
+
       <div class="flex">
         <div class="w-1/2 pr-1">
           <FormulateInput

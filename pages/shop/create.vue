@@ -5,68 +5,70 @@
         <button @click="hideModal">{{ $t('login.ok') }}</button>
       </template>
     </Modal>
-    <form-wizard
-      ref="wizard"
-      color="#19ae9d"
-      :start-index="1"
-      step-size="xs"
-      @on-complete="$router.push('/shop/success')"
-    >
-      <span slot="title"></span>
-      <!-- STEP 1-->
-      <tab-content>
-        <WizardStep1
-          :initial-shop="shop"
-          :shop-categories="shopCategories"
-          @input="updateShop"
-          @submit="$refs.wizard.nextTab()"
-        />
-      </tab-content>
+    <div class="container max-w-xl">
+      <form-wizard
+        ref="wizard"
+        color="#19ae9d"
+        :start-index="2"
+        step-size="xs"
+        @on-complete="$router.push('/shop/success')"
+      >
+        <span slot="title"></span>
+        <!-- STEP 1-->
+        <tab-content>
+          <WizardStep1
+            :initial-shop="shop"
+            :shop-categories="shopCategories"
+            @input="updateShop"
+            @submit="$refs.wizard.nextTab()"
+          />
+        </tab-content>
 
-      <!-- STEP 2-->
-      <tab-content>
-        <WizardStep2
-          :initial-shop="shop"
-          @input="updateShop"
-          @submit="$refs.wizard.nextTab()"
-          @back="$refs.wizard.prevTab()"
-        />
-      </tab-content>
+        <!-- STEP 2-->
+        <tab-content>
+          <WizardStep2
+            :initial-shop="shop"
+            @input="updateShop"
+            @submit="$refs.wizard.nextTab()"
+            @back="$refs.wizard.prevTab()"
+          />
+        </tab-content>
 
-      <!-- STEP 3-->
-      <tab-content>
-        <WizardStep3
-          :initial-shop="shop"
-          @input="updateShop"
-          @submit="$refs.wizard.nextTab()"
-          @back="$refs.wizard.prevTab()"
-        />
-      </tab-content>
+        <!-- STEP 3-->
+        <tab-content>
+          <WizardStep3
+            :initial-shop="shop"
+            @input="updateShop"
+            @submit="$refs.wizard.nextTab()"
+            @back="$refs.wizard.prevTab()"
+          />
+        </tab-content>
 
-      <!-- STEP 4-->
-      <tab-content>
-        <WizardStep4
-          :initial-shop="shop"
-          @input="updateShop"
-          @submit="$refs.wizard.nextTab()"
-          @back="$refs.wizard.prevTab()"
-        />
-      </tab-content>
+        <!-- STEP 4-->
+        <tab-content>
+          <WizardStep4
+            :initial-shop="shop"
+            @input="updateShop"
+            @submit="$refs.wizard.nextTab()"
+            @back="$refs.wizard.prevTab()"
+          />
+        </tab-content>
 
-      <!-- STEP 5-->
-      <tab-content>
-        <WizardStep5
-          :initial-shop="shop"
-          @input="updateShop"
-          @submit="createShop"
-          @back="$refs.wizard.prevTab()"
-        />
-      </tab-content>
+        <!-- STEP 5-->
+        <tab-content>
+          <WizardStep5
+            :initial-shop="shop"
+            @input="updateShop"
+            @submit="createShop"
+            @back="$refs.wizard.prevTab()"
+          />
+        </tab-content>
 
-      <template slot="footer">
-        <div class="wizard-footer-left"></div>
-      </template>
-    </form-wizard>
+        <template slot="footer">
+          <div class="wizard-footer-left"></div>
+        </template>
+      </form-wizard>
+    </div>
   </div>
 </template>
 

@@ -5,11 +5,13 @@ import { de } from '@braid/vue-formulate-i18n'
 import OpeningHours from '~/components/elements/OpeningHours'
 import AddressInput from '~/components/elements/AddressInput'
 import ShopCategories from '~/components/elements/ShopCategories'
+import DeliveryOptions from '~/components/elements/DeliveryOptions'
 
 // register your component with Vue
 Vue.component('OpeningHours', OpeningHours)
 Vue.component('AddressInput', AddressInput)
 Vue.component('ShopCategories', ShopCategories)
+Vue.component('DeliveryOptions', DeliveryOptions)
 
 export default ({ app }, inject) => {
   Vue.use(VueFormulate, {
@@ -21,6 +23,9 @@ export default ({ app }, inject) => {
       },
       shopCategories: {
         component: 'ShopCategories',
+      },
+      deliveryOptions: {
+        component: 'DeliveryOptions',
       },
       addressInput: {
         classification: 'text',

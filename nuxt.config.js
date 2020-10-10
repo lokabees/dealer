@@ -56,6 +56,7 @@ export default {
     '~/plugins/modules/i18n',
     '~/plugins/modules/vue-form-wizard',
     { src: '~/plugins/modules/auth', mode: 'client' },
+    { src: '~/plugins/modules/eva-icons', ssr: false },
   ],
   /*
    ** Auto import components

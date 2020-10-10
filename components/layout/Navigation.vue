@@ -14,10 +14,22 @@
           <div class="relative flex flex-wrap content-center justify-end w-1/3">
             <button
               v-if="user"
-              class="text-sm capitalize"
+              class="flex items-center text-sm capitalize"
               @click="toggleDropdown"
             >
+              <eva-icon
+                class="mr-2 border-2 border-grey-dark"
+                height="16"
+                width="16"
+                name="person-outline"
+              />
               {{ user.name }}
+              <eva-icon
+                class="ml-2"
+                height="16"
+                width="16"
+                name="arrow-ios-downward"
+              />
             </button>
           </div>
         </div>
