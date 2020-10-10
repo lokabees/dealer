@@ -4,7 +4,7 @@
       <div class="flex justify-center text-primary my-8">
         <icon name="checkmark-circle-outline" height="100" width="100" />
       </div>
-      <div class="prose lg:prose-lg text-center">
+      <div class="prose lg:prose-lg">
         <h2 class="leading-tight">{{ $t('signup.signup_successful') }}</h2>
         <p>{{ $t('signup.check_inbox') }}</p>
       </div>

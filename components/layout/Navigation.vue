@@ -23,7 +23,9 @@
                 width="16"
                 name="person-outline"
               />
-              {{ user.name }}
+              <div class="hidden sm:block">
+                {{ user.name }}
+              </div>
               <eva-icon
                 class="ml-2"
                 height="16"
@@ -43,7 +45,6 @@
         <button
           ref="accountSettings"
           class="text-left capitalize font-bold w-full px-2 py-2 hover:bg-grey-dark hover:text-white"
-          @blur="dropdown = false"
           @click="goToAccountSettings"
         >
           {{ $t('navbar.account_settings') }}

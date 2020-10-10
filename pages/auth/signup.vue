@@ -48,13 +48,19 @@
         :label="$t('signup.accept_terms')"
         validation="required"
       />
+      <FormulateInput
+        name="updates"
+        type="checkbox"
+        :label="$t('signup.updates_offers_consent')"
+        validation=""
+      />
       <FormulateInput type="submit" :label="$t('signup.signup')" />
     </FormulateForm>
 
     <div class="flex flex-col">
-      <div>{{ $t('signup.account_exists') }}</div>
+      <!--<div>{{ $t('signup.account_exists') }}</div>-->
       <button class="secondary w-full" @click="$router.push('/auth/login')">
-        {{ $t('signup.login') }}
+        {{ $t('signup.account_exists') }}
       </button>
     </div>
   </div>

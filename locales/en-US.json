@@ -123,6 +123,13 @@
     "category": "Choose a product category",
     "submit": "Add Product"
   },
+  "product_success": {
+    "title": "Your first product is online right away!",
+    "paragraph_1": "We just check quickly if everything is okay!",
+    "paragraph_2": "Under “My Products” you can add up to 6 products to give your customers an insight into your product catalog and to arouse his / her curiosity!",
+    "add_another_product": "+ add another product",
+    "back": "Back to Dashboard"
+  },
   "user": {
     "title": "Your Profile",
     "image": "Upload a profile picture of yourself here.",
@@ -156,6 +163,7 @@
   "shop_registration_wizard": {
     "next": "Next",
     "back": "Back",
+    "skip": "Skip",
     "step_1": {
       "title": "Complete your shop profile now",
       "text": "With an informative profile page, your shop will be easier to find and will attract more buyers",

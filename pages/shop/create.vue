@@ -9,7 +9,7 @@
       <form-wizard
         ref="wizard"
         color="#19ae9d"
-        :start-index="2"
+        :start-index="0"
         step-size="xs"
         @on-complete="$router.push('/shop/success')"
       >

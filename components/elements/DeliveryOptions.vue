@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{ context.model }}
     <div
       v-for="option in options"
       :key="option.value"
