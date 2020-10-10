@@ -113,7 +113,7 @@ export default {
   googleFonts: {
     families: {
       Merriweather: [400, 900],
-      Montserrat: true,
+      Montserrat: [400, 500],
     },
   },
   /*
