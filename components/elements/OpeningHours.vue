@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="(openingTimes, day) in context.model" :key="day">
+    <div v-for="(openingTimes, day) in activeShop.openingHours" :key="day">
       <div class="sm:hidden block flex w-full prose">
         <h3 class="m-auto">
           {{ $t(`shop_registration_wizard.step_2.${day}_long`) }}
@@ -21,7 +21,7 @@
 
         <div class="overflow-hidden w-full pr-2">
           <FormulateInput
-            :value="context.model[day].open"
+            :value="activeShop.openingHours[day].open"
             type="time"
             :name="`${day} open`"
             :label="$t('shop_registration_wizard.step_2.from')"
@@ -29,20 +29,25 @@
               openBeforeClose: ({ value }) => {
                 /*
               const openSec = getSecondsFromString(value)
-              if (!context.model[day].close || !openSec) return true
-              const closeSec = getSecondsFromString(context.model[day].close)
+              if (!activeShop.openingHours[day].close || !openSec) return true
+              const closeSec = getSecondsFromString(activeShop.openingHours[day].close)
               return openSec < closeSec
               */
                 return true
               },
             }"
             validation="openBeforeClose"
-            @input="setOpen(day, $event)"
+            @input="
+              updateActiveShopOpeningHours({
+                day,
+                openingHours: { open: $event },
+              })
+            "
           />
         </div>
         <div class="overflow-hidden w-full pl-2">
           <FormulateInput
-            :value="context.model[day].close"
+            :value="activeShop.openingHours[day].close"
             type="time"
             :name="`${day} close`"
             :label="$t('shop_registration_wizard.step_2.until')"
@@ -50,15 +55,20 @@
               closeAfterOpen: ({ value }) => {
                 /*
               const closeSec = getSecondsFromString(value)
-              if (!closeSec || !context.model[day].open) return true
-              const openSec = getSecondsFromString(context.model[day].open)
+              if (!closeSec || !activeShop.openingHours[day].open) return true
+              const openSec = getSecondsFromString(activeShop.openingHours[day].open)
               return closeSec > openSec
               */
                 return true
               },
             }"
             validation="closeAfterOpen"
-            @input="setClose(day, $event)"
+            @input="
+              updateActiveShopOpeningHours({
+                day,
+                openingHours: { close: $event },
+              })
+            "
           />
         </div>
       </div>
@@ -80,7 +90,7 @@
             <h1 class="text-center pt-16 pb-8">Breaks</h1>
             <div>
               <div
-                v-for="(openingTimes, day) in context.model"
+                v-for="(openingTimes, day) in activeShop.openingHours"
                 :key="day + 'break'"
               >
                 <div class="sm:hidden block flex w-full prose">
@@ -114,18 +124,18 @@
                         const breakOpenSec = getSecondsFromString(value)
                         if (
                           !breakOpenSec ||
-                          !context.model[day] ||
-                          !context.model[day].breaks[0]
+                          !activeShop.openingHours[day] ||
+                          !activeShop.openingHours[day].breaks[0]
                         )
                           return true
                         const openSec = getSecondsFromString(
-                          context.model[day].open
+                          activeShop.openingHours[day].open
                         )
                         const closeSec = getSecondsFromString(
-                          context.model[day].close
+                          activeShop.openingHours[day].close
                         )
                         const breakCloseSec = getSecondsFromString(
-                          context.model[day].breaks[0].close
+                          activeShop.openingHours[day].breaks[0].close
                         )
                         return (
                           breakOpenSec > openSec &&
@@ -137,7 +147,12 @@
                         },
                       }"
                       validation="closeAfterOpen"
-                      @input="setBreakFrom(day, $event)"
+                      @input="
+                        updateActiveShopBreaks({
+                          day,
+                          breaks: { from: $event },
+                        })
+                      "
                     />
                   </div>
                   <div class="overflow-hidden w-full pl-2">
@@ -152,18 +167,18 @@
                         const breakCloseSec = getSecondsFromString(value)
                         if (
                           !breakOpenSec ||
-                          !context.model[day] ||
-                          !context.model[day].breaks[0]
+                          !activeShop.openingHours[day] ||
+                          !activeShop.openingHours[day].breaks[0]
                         )
                           return true
                         const openSec = getSecondsFromString(
-                          context.model[day].open
+                          activeShop.openingHours[day].open
                         )
                         const closeSec = getSecondsFromString(
-                          context.model[day].close
+                          activeShop.openingHours[day].close
                         )
                         const breakOpenSec = getSecondsFromString(
-                          context.model[day].breaks[0].close
+                          activeShop.openingHours[day].breaks[0].close
                         )
                         return (
                           breakCloseSec > openSec &&
@@ -175,7 +190,12 @@
                         },
                       }"
                       validation="closeAfterOpen"
-                      @input="setBreakTo(day, $event)"
+                      @input="
+                        updateActiveShopBreaks({
+                          day,
+                          breaks: { to: $event },
+                        })
+                      "
                     />
                   </div>
                 </div>
@@ -197,6 +217,7 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
 export default {
   props: {
     context: {
@@ -215,10 +236,16 @@ export default {
       breaks: false,
     }
   },
+  computed: {
+    ...mapGetters('shops', {
+      activeShop: 'activeShop',
+    }),
+  },
   methods: {
-    showBreaks() {
-      this.breaks = true
-    },
+    ...mapMutations('shops', {
+      updateActiveShopOpeningHours: 'updateActiveShopOpeningHours',
+      updateActiveShopBreaks: 'updateActiveShopBreaks',
+    }),
     getSecondsFromString(str) {
       if (!str) return
       const valArr = str.split(':')
@@ -226,41 +253,12 @@ export default {
       return secs
     },
     getBreak(day) {
-      if (!this.context?.model[day]?.breaks) return {}
-      return this.context.model[day].breaks[0] || {}
-    },
-    setOpen(day, input) {
-      if (this.context?.attributes?.create) this.context.model[day].open = input
-      else {
-        const openingHours = {}
-        openingHours[day] = {}
-        openingHours[day].open = input
-        this.$store.commit('shops/updateActiveShopOpeningHours', openingHours)
-      }
-    },
-    setClose(day, input) {
-      if (this.context?.attributes?.create)
-        this.context.model[day].close = input
-      else {
-        const openingHours = {}
-        openingHours[day] = {}
-        openingHours[day].close = input
-        this.$store.commit('shops/updateActiveShopOpeningHours', openingHours)
-      }
-    },
-    setBreakFrom(day, input) {
-      if (!this.context?.model[day]?.breaks[0])
-        this.context.model[day].breaks = [{}]
-      this.context.model[day].breaks[0].from = input
-    },
-    setBreakTo(day, input) {
-      if (!this.context?.model[day]?.breaks[0])
-        this.context.model[day].breaks = [{}]
-      this.context.model[day].breaks[0].to = input
+      if (!this.activeShop.openingHours[day]?.breaks) return {}
+      return this.activeShop.openingHours[day].breaks[0] || {}
     },
     isActive(day) {
-      if (this.context.model[day].open) {
-        const arr = this.context.model[day].open.split(':')
+      if (this.activeShop.openingHours[day].open) {
+        const arr = this.activeShop.openingHours[day].open.split(':')
         if (arr[0] >= 0) return true
       }
     },

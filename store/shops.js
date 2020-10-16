@@ -42,9 +42,23 @@ export const mutations = {
     const newShop = Object.assign({}, state.activeShop, changes)
     Vue.set(state, 'activeShop', newShop)
   },
-  updateActiveShopOpeningHours(state, changes) {
-    const newOpeningHours = Object.assign({}, state.activeShop.address, changes)
-    Vue.set(state.activeShop, 'address', newOpeningHours)
+  updateActiveShopOpeningHours(state, { day, openingHours }) {
+    const newOpeningHours = Object.assign(
+      {},
+      state.activeShop.openingHours[day],
+      openingHours
+    )
+    Vue.set(state.activeShop.openingHours, `${day}`, newOpeningHours)
+  },
+  updateActiveShopBreaks(state, { day, breaks }) {
+    const mergedBreaks = Object.assign(
+      {},
+      state.activeShop.openingHours[day].breaks[0],
+      breaks
+    )
+    const breaksArray = []
+    breaksArray.push(mergedBreaks)
+    Vue.set(state.activeShop.openingHours[day], `breaks`, breaksArray)
   },
   updateActiveShopAddress(state, changes) {
     const newAddress = Object.assign({}, state.activeShop.address, changes)

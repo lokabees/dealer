@@ -44,12 +44,12 @@
         @input="updateActiveShop({ description: $event })"
       />
       <!--shop categories-->
+      <!--TODO validation required!-->
       <FormulateInput
         name="categories"
         type="shopCategories"
         :options="shopCategories"
         :label="$t('shop_registration_wizard.step_1.categories')"
-        validation="required"
       />
       <FormulateInput
         type="submit"
@@ -68,11 +68,6 @@ export default {
       default: () => [],
     },
   },
-  data() {
-    return {
-      shop: this.initialShop || {},
-    }
-  },
   computed: {
     ...mapGetters('shops', {
       activeShop: 'activeShop',
@@ -84,14 +79,16 @@ export default {
     },
   },
   methods: {
-    ...mapMutations('shops', { updateActiveShop: 'updateActiveShop' }),
+    ...mapMutations('shops', {
+      updateActiveShop: 'updateActiveShop',
+    }),
     async submit() {
       try {
         const q = this.getAddressString()
         const address = await this.$axios.$get('/api/maps/suggest', {
           params: { q },
         })
-        this.shop.address[0] = address
+        this.updateActiveShop({ address })
         this.$emit('submit')
       } catch (error) {
         console.error(error)
@@ -100,7 +97,7 @@ export default {
       }
     },
     getAddressString() {
-      const { street, number, postcode, city } = this.shop.address[0]
+      const { street, number, postcode, city } = this.activeShop.address
       return `${street} ${number}, ${postcode} ${city}`
     },
   },

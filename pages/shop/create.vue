@@ -9,7 +9,7 @@
       <form-wizard
         ref="wizard"
         color="#19ae9d"
-        :start-index="0"
+        :start-index="1"
         step-size="xs"
         @on-complete="$router.push('/shop/success')"
       >
@@ -20,7 +20,6 @@
         <tab-content>
           <WizardStep1
             :shop-categories="shopCategories"
-            @input="updateShop"
             @submit="$refs.wizard.nextTab()"
           />
         </tab-content>
@@ -28,42 +27,37 @@
         <!-- STEP 2-->
         <tab-content>
           <WizardStep2
-            :initial-shop="shop"
-            @input="updateShop"
             @submit="$refs.wizard.nextTab()"
             @back="$refs.wizard.prevTab()"
           />
         </tab-content>
 
         <!-- STEP 3-->
+        <!--
         <tab-content>
           <WizardStep3
-            :initial-shop="shop"
-            @input="updateShop"
             @submit="$refs.wizard.nextTab()"
             @back="$refs.wizard.prevTab()"
           />
         </tab-content>
+      -->
 
         <!-- STEP 4-->
+        <!--
         <tab-content>
           <WizardStep4
-            :initial-shop="shop"
-            @input="updateShop"
             @submit="$refs.wizard.nextTab()"
             @back="$refs.wizard.prevTab()"
           />
         </tab-content>
+      -->
 
         <!-- STEP 5-->
+        <!--
         <tab-content>
-          <WizardStep5
-            :initial-shop="shop"
-            @input="updateShop"
-            @submit="createShop"
-            @back="$refs.wizard.prevTab()"
-          />
+          <WizardStep5 @submit="createShop" @back="$refs.wizard.prevTab()" />
         </tab-content>
+      -->
 
         <template slot="footer">
           <div class="wizard-footer-left"></div>
@@ -74,7 +68,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 export default {
   middleware: 'authenticated',
   async asyncData({ $axios }) {
@@ -87,50 +81,20 @@ export default {
       return { shopCategories: {} }
     }
   },
-  data() {
-    return {
-      shop: {
-        images: {},
-        address: [{}],
-        openingHours: {
-          monday: {
-            breaks: [],
-          },
-          tuesday: {
-            breaks: [],
-          },
-          wednesday: {
-            breaks: [],
-          },
-          thursday: {
-            breaks: [],
-          },
-          friday: {
-            breaks: [],
-          },
-          saturday: {
-            breaks: [],
-          },
-          sunday: {
-            breaks: [],
-          },
-        },
-      },
-    }
+  computed: {
+    ...mapGetters('shops', {
+      activeShop: 'activeShop',
+    }),
   },
   methods: {
     ...mapMutations('modal', {
       showModal: 'showModal',
       hideModal: 'hideModal',
     }),
-    updateShop(updatedShop) {
-      Object.assign(this.shop, updatedShop)
-    },
     async createShop(creatives) {
       try {
         console.log(this.shop)
-        this.shop.address = this.shop.address[0]
-        await this.$axios.$post('/api/shops', this.shop)
+        await this.$axios.$post('/api/shops', this.activeShop)
         await this.$store.dispatch('shops/getActiveShop')
         this.$router.push('success')
       } catch (error) {

@@ -31,9 +31,6 @@
 
 <script>
 export default {
-  props: {
-    initialShop: { type: Object, default: () => {}, required: true },
-  },
   data() {
     return {
       shop: this.initialShop || {},
