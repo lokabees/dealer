@@ -94,6 +94,6 @@ export const actions = {
 
 export const getters = {
   user: (state) => state.user,
-  isAdmin: (state) => state.user.role === 'admin',
+  isAdmin: (state) => state.user?.role === 'admin',
   pending: (state) => state.pending,
 }

@@ -14,10 +14,11 @@
         @on-complete="$router.push('/shop/success')"
       >
         <span slot="title"></span>
+
+        {{ $store.getters['shops/activeShop'] }}
         <!-- STEP 1-->
         <tab-content>
           <WizardStep1
-            :initial-shop="shop"
             :shop-categories="shopCategories"
             @input="updateShop"
             @submit="$refs.wizard.nextTab()"

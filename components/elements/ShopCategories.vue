@@ -14,35 +14,45 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
 export default {
   props: {
     context: {
       type: Object,
-      validation: (context) => {
-        return context.options
-      },
-      required: true,
-      default: () => {
-        return {}
-      },
+      defualt: () => {},
     },
   },
   data() {
     return {
-      checkbox: null,
+      categories: [],
     }
   },
+  computed: {
+    ...mapGetters('shops', {
+      activeShop: 'activeShop',
+    }),
+  },
   methods: {
+    ...mapMutations('shops', {
+      updateActiveShopAddress: 'updateActiveShopAddress',
+    }),
     isSelected(category) {
-      return this.context.model.includes(category.value)
+      return this.activeShop.categories.includes(category.value)
     },
     select(category) {
-      if (!this.context.model) this.context.model = []
-      if (!this.isSelected(category)) this.context.model.push(category.value)
-      else
-        this.context.model = this.context.model.filter(
+      this.$store.commit('shops/selectActiveShopCategorie', category)
+      /*
+      let categories = []
+      if (!this.isSelected(category)) {
+        categories.push(category.value)
+        this.updateShop({ categories })
+      } else {
+        categories = this.activeShop.categories.filter(
           (item) => item !== category.value
         )
+        this.updateShop({ categories })
+      }
+      */
     },
   },
 }

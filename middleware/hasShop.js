@@ -1,6 +1,7 @@
 export default function ({ store, redirect }) {
-  // If the user is not authenticated
-  if (!store.state.shops?.activeShop) {
+  // If user does not have an active shop
+
+  if (!store.state.shops?.activeShop.name) {
     return redirect('/shop/create')
   }
 }

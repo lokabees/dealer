@@ -70,6 +70,9 @@ export default {
   },
   methods: {
     ...mapActions(['setLocalUser', 'getMe']),
+    ...mapActions('shops', {
+      getActiveShop: 'getActiveShop',
+    }),
     ...mapMutations('modal', {
       showModal: 'showModal',
       hideModal: 'hideModal',
@@ -91,6 +94,9 @@ export default {
 
         // Get user information
         await this.getMe()
+
+        // Get shop information
+        await this.getActiveShop()
 
         // Unset Loading
         this.pending = null

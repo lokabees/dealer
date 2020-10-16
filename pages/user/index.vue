@@ -73,6 +73,13 @@
 import { clone } from 'lodash'
 import { mapMutations } from 'vuex'
 export default {
+  async asyncData({ store }) {
+    try {
+      await store.dispatch('shops/getActiveShop')
+    } catch (e) {
+      console.error(e)
+    }
+  },
   data() {
     return {
       user: { ...clone(this.$store.getters.user) },
@@ -89,7 +96,8 @@ export default {
     },
     async updateAccount() {
       try {
-        await this.$axios.$put(`/api/user/${this.user._id}`)
+        console.log(this.user)
+        await this.$axios.$put(`/api/users/${this.user._id}`, this.user)
       } catch (error) {
         console.error(error)
         const { data } = error?.response

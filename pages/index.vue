@@ -137,6 +137,7 @@ export default {
     }
   },
   middleware: ['authenticated', 'hasShop'],
+
   computed: {
     ...mapGetters('shops', {
       shop: 'activeShop',
@@ -157,6 +158,9 @@ export default {
     categoryName(id) {
       return this.shopCategories[id]
     },
+  },
+  mounted() {
+    console.log(this.$store.getters['shops/activeShop'])
   },
 }
 </script>

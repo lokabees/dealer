@@ -67,6 +67,7 @@
         />
       </div>
       <div v-show="tab === 2">
+        {{ shop.openingHours }}
         <!--v-model="shop.openingHours"-->
         <FormulateInput
           :value="shop.openingHours"
@@ -130,7 +131,9 @@ export default {
       }
     },
     updateActiveShop(newShop) {
+      console.log(newShop)
       this.$store.commit('shops/updateActiveShop', newShop)
+      console.log(this.$store.getters['shops/activeShop'])
     },
     getAddressString() {
       const { street, number, postcode, city } = this.shop.address

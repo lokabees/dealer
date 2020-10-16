@@ -6,17 +6,20 @@
     <p class="text-center pb-8">
       {{ $t('shop_registration_wizard.step_1.text') }}
     </p>
-    <FormulateForm v-model="shop" @submit="submit">
+    <FormulateForm @submit="submit">
       <!--shop name-->
       <FormulateInput
+        :value="activeShop.name"
         type="text"
         name="name"
         :placeholder="$t('shop_registration_wizard.step_1.name_placeholder')"
         :label="$t('shop_registration_wizard.step_1.name')"
         validation="required|max:50"
+        @input="updateActiveShop({ name: $event })"
       />
       <!--owner name-->
       <FormulateInput
+        :value="activeShop.owner"
         type="text"
         name="owner"
         :placeholder="
@@ -24,11 +27,13 @@
         "
         :label="$t('shop_registration_wizard.step_1.shop_owner')"
         validation="required"
+        @input="updateActiveShop({ owner: $event })"
       />
       <!--shop address-->
-      <FormulateInput v-model="shop.address" type="addressInput" />
+      <FormulateInput name="address" type="addressInput" />
       <!--shop description-->
       <FormulateInput
+        :value="activeShop.description"
         type="textarea"
         name="description"
         :placeholder="
@@ -36,6 +41,7 @@
         "
         :label="$t('shop_registration_wizard.step_1.description')"
         validation="required"
+        @input="updateActiveShop({ description: $event })"
       />
       <!--shop categories-->
       <FormulateInput
@@ -54,16 +60,12 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
 export default {
   props: {
     shopCategories: {
       type: Object,
       default: () => [],
-    },
-    initialShop: {
-      type: Object,
-      default: () => {},
-      required: true,
     },
   },
   data() {
@@ -71,12 +73,18 @@ export default {
       shop: this.initialShop || {},
     }
   },
+  computed: {
+    ...mapGetters('shops', {
+      activeShop: 'activeShop',
+    }),
+  },
   watch: {
     shop(newShop, oldShop) {
       this.$emit('input', newShop)
     },
   },
   methods: {
+    ...mapMutations('shops', { updateActiveShop: 'updateActiveShop' }),
     async submit() {
       try {
         const q = this.getAddressString()
