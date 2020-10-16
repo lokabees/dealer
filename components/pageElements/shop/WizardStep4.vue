@@ -98,7 +98,6 @@ export default {
     ...mapMutations('shops', { updateActiveShop: 'updateActiveShop' }),
     async isValidPhoneNumber(value) {
       const res = await parsePhoneNumber(value).isValid()
-      console.log(res)
       return res
     },
   },

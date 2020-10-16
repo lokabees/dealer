@@ -23,7 +23,7 @@
     <FormulateForm @submit="save">
       <div v-show="tab === 1">
         <FormulateInput
-          :value="shop.name"
+          :value="activeShop.name"
           name="name"
           type="text"
           :label="$t('edit_shop.shop_name')"
@@ -33,7 +33,7 @@
         />
         <!--v-model="shop.published"-->
         <FormulateInput
-          :value="shop.published"
+          :checked="activeShop.published"
           name="visible"
           type="checkbox"
           :label="$t('edit_shop.visibility')"
@@ -43,21 +43,12 @@
         />
         <span>{{ $t('edit_shop.visibility_hint') }}</span>
         <!--v-model="shop.categories"-->
-        <FormulateInput
-          :value="shop.categories"
-          type="shopCategories"
-          :options="shopCategories"
-          @input="updateActiveShop({ categories: $event })"
-        />
+        <FormulateInput type="shopCategories" :options="shopCategories" />
         <!--v-model="shop.address" -->
-        <FormulateInput
-          :value="shop.address"
-          type="addressInput"
-          @input="updateActiveShop({ address: $event })"
-        />
+        <FormulateInput type="addressInput" />
         <!---->
         <FormulateInput
-          :value="shop.description"
+          :value="activeShop.description"
           type="textarea"
           name="description"
           :placeholder="$t('edit_shop.description_placeholder')"
@@ -67,13 +58,7 @@
         />
       </div>
       <div v-show="tab === 2">
-        {{ shop.openingHours }}
-        <!--v-model="shop.openingHours"-->
-        <FormulateInput
-          :value="shop.openingHours"
-          type="openingHours"
-          @input="updateActiveShop({ openingHours: $event })"
-        />
+        <FormulateInput type="openingHours" />
       </div>
       <FormulateInput type="submit" :label="$t('edit_shop.submit')" />
     </FormulateForm>
@@ -81,8 +66,7 @@
 </template>
 
 <script>
-import { clone } from 'lodash'
-import { mapMutations } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 export default {
   middleware: ['authenticated'],
   async asyncData({ $axios }) {
@@ -97,16 +81,20 @@ export default {
   data() {
     return {
       tab: 1,
-      shop: {
-        ...clone(this.$store.getters['shops/activeShop']),
-        address: { ...this.$store.getters['shops/activeShop']?.address } || {},
-      },
     }
+  },
+  computed: {
+    ...mapGetters('shops', {
+      activeShop: 'activeShop',
+    }),
   },
   methods: {
     ...mapMutations('modal', {
       showModal: 'showModal',
       hideModal: 'hideModal',
+    }),
+    ...mapMutations('shops', {
+      updateActiveShop: 'updateActiveShop',
     }),
     async save() {
       try {
@@ -114,13 +102,10 @@ export default {
         const address = await this.$axios.$get('/api/maps/suggest', {
           params: { q },
         })
-        this.shop.address = address
-
-        console.log(this.shop)
-
+        this.updateActiveShop({ address })
         const updatedShop = await this.$axios.$put(
-          `/api/shops/${this.shop._id}`,
-          this.shop
+          `/api/shops/${this.activeShop._id}`,
+          this.activeShop
         )
         this.$store.commit('shops/setActiveShop', updatedShop)
         this.$router.push('/')
@@ -130,13 +115,8 @@ export default {
         this.showModal(error + '\n' + JSON.stringify(data))
       }
     },
-    updateActiveShop(newShop) {
-      console.log(newShop)
-      this.$store.commit('shops/updateActiveShop', newShop)
-      console.log(this.$store.getters['shops/activeShop'])
-    },
     getAddressString() {
-      const { street, number, postcode, city } = this.shop.address
+      const { street, number, postcode, city } = this.activeShop.address
       return `${street} ${number}, ${postcode} ${city}`
     },
   },

@@ -73,7 +73,8 @@ export default {
       this.selectActiveShopDeliveryOption(value)
     },
     isSelected(value) {
-      return this.activeShop.deliveryOptions.includes(value)
+      if (this.activeShop.deliveryOptions)
+        return this.activeShop.deliveryOptions.includes(value)
     },
   },
 }

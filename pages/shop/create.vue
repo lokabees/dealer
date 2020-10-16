@@ -9,13 +9,12 @@
       <form-wizard
         ref="wizard"
         color="#19ae9d"
-        :start-index="2"
+        :start-index="0"
         step-size="xs"
         @on-complete="$router.push('/shop/success')"
       >
         <span slot="title"></span>
 
-        {{ $store.getters['shops/activeShop'] }}
         <!-- STEP 1-->
         <tab-content>
           <WizardStep1
