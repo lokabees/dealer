@@ -9,7 +9,7 @@
       <form-wizard
         ref="wizard"
         color="#19ae9d"
-        :start-index="1"
+        :start-index="2"
         step-size="xs"
         @on-complete="$router.push('/shop/success')"
       >
@@ -33,31 +33,25 @@
         </tab-content>
 
         <!-- STEP 3-->
-        <!--
         <tab-content>
           <WizardStep3
             @submit="$refs.wizard.nextTab()"
             @back="$refs.wizard.prevTab()"
           />
         </tab-content>
-      -->
 
         <!-- STEP 4-->
-        <!--
         <tab-content>
           <WizardStep4
             @submit="$refs.wizard.nextTab()"
             @back="$refs.wizard.prevTab()"
           />
         </tab-content>
-      -->
 
         <!-- STEP 5-->
-        <!--
         <tab-content>
           <WizardStep5 @submit="createShop" @back="$refs.wizard.prevTab()" />
         </tab-content>
-      -->
 
         <template slot="footer">
           <div class="wizard-footer-left"></div>

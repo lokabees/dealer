@@ -4,11 +4,11 @@
       v-for="option in options"
       :key="option.value"
       class="flex border border-grey-light p-4 my-2 items-center"
-      :class="{ active: context.model.includes(option.value) }"
+      :class="{ active: isSelected(option.value) }"
     >
       <div class="pr-2">
         <input
-          :value="ld"
+          :checked="isSelected(option.value)"
           class="form-checkbox h-6 w-6 rounded-sm text-primary transition duration-150 ease-in-out focus:shadow-none mr-2"
           type="checkbox"
           @input="select(option.value)"
@@ -28,14 +28,8 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
 export default {
-  props: {
-    context: {
-      type: Object,
-      required: true,
-      default: () => {},
-    },
-  },
   data() {
     return {
       selected: {
@@ -43,6 +37,7 @@ export default {
         PU: false,
         MD: false,
       },
+      value: true,
       options: [
         {
           title: 'shop_registration_wizard.step_3.delivery',
@@ -66,16 +61,19 @@ export default {
     }
   },
   computed: {
-    ld() {
-      return this.context.model.includes('LD')
-    },
+    ...mapGetters('shops', {
+      activeShop: 'activeShop',
+    }),
   },
   methods: {
+    ...mapMutations('shops', {
+      selectActiveShopDeliveryOption: 'selectActiveShopDeliveryOption',
+    }),
     select(value) {
-      if (!this.context.model.includes(value)) {
-        if (this.context.model) this.context.model.push(value)
-        else this.context.model = [value]
-      } else this.context.model.splice(this.context.model.indexOf(value), 1)
+      this.selectActiveShopDeliveryOption(value)
+    },
+    isSelected(value) {
+      return this.activeShop.deliveryOptions.includes(value)
     },
   },
 }

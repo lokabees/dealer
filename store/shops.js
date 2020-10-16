@@ -3,6 +3,7 @@ import Vue from 'vue'
 const emptyShop = {
   images: {},
   address: {},
+  deliveryOptions: [],
   openingHours: {
     monday: {
       breaks: [],
@@ -64,6 +65,10 @@ export const mutations = {
     const newAddress = Object.assign({}, state.activeShop.address, changes)
     Vue.set(state.activeShop, 'address', newAddress)
   },
+  updateActiveShopImages(state, images) {
+    const newImages = Object.assign({}, state.activeShop.images, images)
+    Vue.set(state.activeShop, 'images', newImages)
+  },
   selectActiveShopCategorie(state, category) {
     const categories = state.activeShop.categories
     if (!categories.includes(category.value)) categories.push(category.value)
@@ -71,8 +76,16 @@ export const mutations = {
       state.activeShop.categories = categories.filter(
         (item) => item !== category.value
       )
-
-    console.log(state.activeShop)
+  },
+  selectActiveShopDeliveryOption(state, option) {
+    if (!state.activeShop.deliveryOptions.includes(option))
+      state.activeShop.deliveryOptions.push(option)
+    else {
+      state.activeShop.deliveryOptions.splice(
+        state.activeShop.deliveryOptions.indexOf(option),
+        1
+      )
+    }
   },
   setActiveShop(state, shop) {
     state.activeShop = shop

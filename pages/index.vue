@@ -127,7 +127,7 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
-  async asyncData({ $axios }) {
+  async asyncData({ $axios, store }) {
     try {
       const shopCategories = await $axios.$get('/api/shops/categories')
       return { shopCategories }
@@ -158,9 +158,6 @@ export default {
     categoryName(id) {
       return this.shopCategories[id]
     },
-  },
-  mounted() {
-    console.log(this.$store.getters['shops/activeShop'])
   },
 }
 </script>

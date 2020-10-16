@@ -6,7 +6,11 @@
     <p class="text-center pb-8">
       {{ $t('shop_registration_wizard.step_4.text') }}
     </p>
-    <FormulateForm v-model="shop.contact" @submit="$emit('submit')">
+    <FormulateForm
+      :value="activeShop.contact"
+      @input="updateActiveShop({ contact: $event })"
+      @submit="$emit('submit')"
+    >
       <FormulateInput
         type="text"
         name="phone"
@@ -75,22 +79,23 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
 import { parsePhoneNumber } from 'libphonenumber-js'
 export default {
   data() {
     return {
-      shop: this.initialShop || {},
       websiteValidator: new RegExp(
         /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w.-]+)+[\w\-._~:/?#[\]@!&'()*+,;=.]+$/
       ),
     }
   },
-  watch: {
-    shop(newShop, oldShop) {
-      this.$emit('input', newShop)
-    },
+  computed: {
+    ...mapGetters('shops', {
+      activeShop: 'activeShop',
+    }),
   },
   methods: {
+    ...mapMutations('shops', { updateActiveShop: 'updateActiveShop' }),
     async isValidPhoneNumber(value) {
       const res = await parsePhoneNumber(value).isValid()
       console.log(res)

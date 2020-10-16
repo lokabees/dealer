@@ -31,7 +31,7 @@
       <h2>{{ $t('shop_registration_wizard.step_5.extra_points') }}</h2>
       <p>{{ $t('shop_registration_wizard.step_5.text_extra_points') }}</p>
       <FormulateInput
-        v-model="shop.videoLink"
+        :value="activeShop.videoLink"
         type="text"
         :placeholder="$t('shop_registration_wizard.step_5.yt_link_placeholder')"
         :label="$t('shop_registration_wizard.step_5.yt_link')"
@@ -57,24 +57,23 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
 export default {
-  data() {
-    return {
-      shop: this.initialShop || { images: {} },
-    }
-  },
-  watch: {
-    shop(newShop, oldShop) {
-      this.$emit('input', newShop)
-    },
+  computed: {
+    ...mapGetters('shops', {
+      activeShop: 'activeShop',
+    }),
   },
   methods: {
+    ...mapMutations('shops', {
+      updateActiveShopImages: 'updateActiveShopImages',
+    }),
     async uploadCoverImage(file, progress, error, options) {
       const formData = new FormData()
       formData.append('file', file)
       try {
         const imgLocal = await this.$axios.$post(`/api/media/shop`, formData)
-        this.shop.images.cover = imgLocal
+        this.updateActiveShopImages({ cover: imgLocal })
       } catch (err) {
         // TODO handle error
         console.error(err)
@@ -85,7 +84,7 @@ export default {
       formData.append('file', file)
       try {
         const imgLocal = await this.$axios.$post(`/api/media/shop`, formData)
-        this.shop.images.profile = imgLocal
+        this.updateActiveShopImages({ profile: imgLocal })
       } catch (err) {
         // TODO handle error
         console.error(err)

@@ -7,7 +7,7 @@
       {{ $t('shop_registration_wizard.step_3.text') }}
     </p>
     <FormulateForm @submit="$emit('submit')">
-      <FormulateInput v-model="shop.delivery" type="deliveryOptions" />
+      <FormulateInput type="deliveryOptions" />
 
       <div class="flex">
         <div class="w-1/2 pr-1">
@@ -28,18 +28,3 @@
     </FormulateForm>
   </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      shop: this.initialShop || {},
-    }
-  },
-  watch: {
-    shop(newShop, oldShop) {
-      this.$emit('input', newShop)
-    },
-  },
-}
-</script>

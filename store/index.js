@@ -84,7 +84,6 @@ export const actions = {
     try {
       const { data } = await this.$axios.get('/api/users/me')
       commit('setUser', data)
-      await dispatch('shops/getActiveShop')
     } catch (error) {
       dispatch('resetUser')
       console.error(error)

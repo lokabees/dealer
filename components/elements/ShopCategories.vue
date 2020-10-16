@@ -19,7 +19,7 @@ export default {
   props: {
     context: {
       type: Object,
-      defualt: () => {},
+      default: () => {},
     },
   },
   data() {
