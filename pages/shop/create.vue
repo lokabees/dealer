@@ -86,7 +86,7 @@ export default {
     }),
     async createShop(creatives) {
       try {
-        console.log(this.shop)
+        // console.log(this.shop)
         await this.$axios.$post('/api/shops', this.activeShop)
         await this.$store.dispatch('shops/getActiveShop')
         this.$router.push('success')

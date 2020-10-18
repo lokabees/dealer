@@ -34,9 +34,11 @@
       <div
         class="absolute bottom-0 left-8 bg-white border-4 border-white -mb-5 w-1/3 pb-1/5"
       >
-        <div v-if="profileImage">
-          <img :src="profileImage" class="object-cover" />
-        </div>
+        <img
+          v-if="profileImage"
+          :src="profileImage"
+          class="absolute h-full w-full object-cover"
+        />
         <div v-else class="absolute flex h-full w-full bg-grey-lighter">
           <div class="mx-auto my-auto text-center">
             <img class="mx-auto pb-5" src="/img/icons/add-pic.svg" />
