@@ -81,7 +81,11 @@
     <div class="container">
       <div class="flex">
         <div class="w-full">
-          <h1 class="py-5">{{ shopName }}</h1>
+          <h1
+            class="py-5 font-serif antialiased select-none text-5xl font-black text-grey-dark"
+          >
+            {{ shopName }}
+          </h1>
         </div>
         <!-- categories -->
         <div class="flex items-center w-full">
@@ -237,7 +241,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .element img {
   @apply absolute h-full w-full object-cover;
 }
@@ -248,10 +252,6 @@ export default {
 
 .img-input {
   @apply opacity-0;
-}
-
-h1 {
-  @apply font-serif antialiased select-none text-5xl font-black text-grey-dark;
 }
 
 .category {

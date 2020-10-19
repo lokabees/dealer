@@ -18,6 +18,7 @@
         @input="updateActiveShop({ name: $event })"
       />
       <!--owner name-->
+      <!--
       <FormulateInput
         :value="activeShop.owner"
         type="text"
@@ -29,6 +30,7 @@
         validation="required"
         @input="updateActiveShop({ owner: $event })"
       />
+    -->
       <!--shop address-->
       <FormulateInput name="address" type="addressInput" />
       <!--shop description-->
