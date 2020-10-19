@@ -1,4 +1,4 @@
-<template>
+<template v-if="visible">
   <div class="bg-warning-light bg-opacity-25 sm:flex py-10">
     <div class="flex flex-1"><button class="ml-auto sm:hidden">X</button></div>
     <div class="flex-initial max-w-lg text-center text-warning m-auto prose">
@@ -22,5 +22,12 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    visible: {
+      type: Boolean,
+      dafault: true,
+    },
+  },
+}
 </script>
