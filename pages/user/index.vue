@@ -9,7 +9,9 @@
     <p class="text-center pb-8">{{ $t('user.text') }}</p>
 
     <FormulateForm v-model="user" @submit="updateAccount">
+      <!--
       <FormulateInput type="image" :label="$t('user.image')" />
+    -->
       <FormulateInput
         name="name"
         type="text"
@@ -17,12 +19,22 @@
         :placeholder="$t('user.name_placeholder')"
         validation="required"
       />
+      <!--
       <FormulateInput
         name="shopRole"
         type="text"
         :label="$t('user.role')"
         :placeholder="$t('user.role_placeholder')"
       />
+    -->
+      <label class="text-sm font-bold">{{
+        $t('user.change_credentials')
+      }}</label>
+      <p>
+        {{ $t('user.change_credentials_text') }}
+      </p>
+
+      <!--
       <FormulateInput
         name="email"
         type="text"
@@ -30,6 +42,7 @@
         :label="$t('user.email')"
         validation="required|email"
       />
+    -->
 
       <div>
         <span class="text-sm font-bold"> {{ $t('user.better_safe') }}</span>

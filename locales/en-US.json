@@ -148,7 +148,9 @@
     "need_help": "Need help?",
     "submit": "save",
     "new_password": "Change password",
-    "better_safe": "Better safe than sorry"
+    "better_safe": "Better safe than sorry",
+    "change_credentials": "Change email or password",
+    "change_credentials_text": "Please contact our support if you want to change your email or password."
   },
   "edit_product": {
     "title": "Edit product",

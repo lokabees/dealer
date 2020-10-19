@@ -1,6 +1,9 @@
 <template>
   <div>
-    <ProductCreationPrompt />
+    <ProductCreationPrompt
+      v-if="productCreationPrompt"
+      @hide="productCreationPrompt = false"
+    />
     <div class="relative">
       <div class="relative flex justify-end pb-1/4 bg-primary-light">
         <FormulateInput
@@ -168,6 +171,7 @@ export default {
   data() {
     return {
       uploading: { cover: false, profile: false },
+      productCreationPrompt: true,
     }
   },
   middleware: ['authenticated', 'hasShop'],
