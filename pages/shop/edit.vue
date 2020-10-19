@@ -5,6 +5,19 @@
         <button @click="hideModal">{{ $t('login.ok') }}</button>
       </template>
     </Modal>
+    <UnsavedChangesModal
+      :visible="unsavedChangesModal"
+      :message="$t('edit_shop.unsaved_changes')"
+    >
+      <template v-slot:buttons>
+        <button @click="discardChanges">
+          {{ $t('edit_shop.discard_changes') }}
+        </button>
+        <button class="primary" @click="save">
+          {{ $t('edit_shop.save_changes') }}
+        </button>
+      </template>
+    </UnsavedChangesModal>
     <h1 class="text-center pt-16 pb-8">{{ $t('edit_shop.title') }}</h1>
 
     <div class="flex">
@@ -81,12 +94,28 @@ export default {
   data() {
     return {
       tab: 1,
+      nextRoute: '/',
+      unsavedChanges: false,
+      unsavedChangesModal: false,
     }
+  },
+  beforeRouteLeave(to, from, next) {
+    this.nextRoute = to.path
+    if (this.unsavedChanges) this.unsavedChangesModal = true
+    else next()
   },
   computed: {
     ...mapGetters('shops', {
       activeShop: 'activeShop',
     }),
+  },
+  watch: {
+    activeShop: {
+      deep: true,
+      handler() {
+        this.unsavedChanges = true
+      },
+    },
   },
   methods: {
     ...mapMutations('modal', {
@@ -96,6 +125,12 @@ export default {
     ...mapMutations('shops', {
       updateActiveShop: 'updateActiveShop',
     }),
+    discardChanges() {
+      this.$store.dispatch('shops/getActiveShop').then(() => {
+        this.unsavedChanges = false
+        this.$router.push(this.nextRoute)
+      })
+    },
     async save() {
       try {
         const q = this.getAddressString()
@@ -108,6 +143,7 @@ export default {
           this.activeShop
         )
         this.$store.commit('shops/setActiveShop', updatedShop)
+        this.unsavedChanges = false
         this.$router.push('/')
       } catch (error) {
         console.error(error)

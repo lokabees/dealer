@@ -44,13 +44,13 @@
       >
         <button
           ref="accountSettings"
-          class="text-left capitalize font-bold w-full px-2 py-2 hover:bg-grey-dark hover:text-white"
+          class="text-left capitalize font-bold w-full px-2 py-2 hover:bg-grey-dark hover:text-white rounded-none"
           @click="goToAccountSettings"
         >
           {{ $t('navbar.account_settings') }}
         </button>
         <button
-          class="text-left capitalize font-bold w-full px-2 py-2 hover:bg-grey-dark hover:text-white"
+          class="text-left capitalize font-bold w-full px-2 py-2 hover:bg-grey-dark hover:text-white rounded-none"
           @click="logoutUser"
         >
           {{ $t('navbar.logout') }}
