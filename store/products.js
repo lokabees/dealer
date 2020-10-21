@@ -9,7 +9,12 @@ export const mutations = {
   addProduct(state, product) {
     state.products.push(product)
   },
-  editProduct(state, newProduct) {},
+  editProduct(state, newProduct) {
+    const index = state.products.findIndex(
+      (element) => element._id === newProduct._id
+    )
+    if (index >= 0) Object.assign(state.products[index], newProduct)
+  },
   editProductPicture(state, newProduct) {},
 }
 

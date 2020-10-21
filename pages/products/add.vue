@@ -2,13 +2,23 @@
   <div class="container prose">
     <h1 class="text-center pt-16 pb-8">{{ $t('add_product.title') }}</h1>
     <FormulateForm v-model="product" @submit="addProduct">
-      <FormulateInput
-        type="image"
-        name="img"
-        :label="$t('add_product.image')"
-        :uploader="uploadProductImage"
-        upload-behavior="delayed"
-      />
+      <div class="relative w-full flex justify-center">
+        <FormulateInput
+          type="image"
+          name="img"
+          :label="$t('add_product.image')"
+          :uploader="uploadProductImage"
+          upload-behavior="delayed"
+        />
+        <div class="absolute top-0 flex h-full w-1/2 items-center z-1">
+          <div>
+            <img class="mx-auto" src="/img/icons/add-pic.svg" />
+            <span class="mx-auto text-center">{{
+              $t('edit_product.upload_product_image')
+            }}</span>
+          </div>
+        </div>
+      </div>
       <FormulateInput
         type="text"
         name="title"
