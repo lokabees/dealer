@@ -20,16 +20,16 @@
         :key="product.id"
         class="flex justify-between"
       >
-        <h2>{{ product.name }}</h2>
+        <h2>{{ product.title }}</h2>
         <p>{{ product.description }}</p>
         <template v-slot:img>
-          <img :src="product.img" />
+          <img :src="product.picture.url" />
         </template>
         <template v-slot:buttons>
           <button>{{ $t('products.delete') }}</button>
           <button
             class="secondary my-auto"
-            @click="$router.push(`/products/${product.id}/edit`)"
+            @click="$router.push(`/products/${product._id}/edit`)"
           >
             {{ $t('products.edit') }}
           </button>
@@ -40,30 +40,17 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  data() {
-    return {
-      products: [
-        {
-          id: '1',
-          img: 'icon.png',
-          name: 'Example product 1',
-          description: 'Product description 1',
-        },
-        {
-          id: '2',
-          img: 'icon.png',
-          name: 'Example product 2',
-          description: 'Product description 2',
-        },
-        {
-          id: '3',
-          img: 'icon.png',
-          name: 'Example product 3',
-          description: 'Product description 3',
-        },
-      ],
+  async fetch({ store }) {
+    try {
+      await store.dispatch('products/getProducts')
+    } catch (e) {
+      console.error(e)
     }
+  },
+  computed: {
+    ...mapGetters('products', { products: 'products' }),
   },
 }
 </script>

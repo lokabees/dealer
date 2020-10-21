@@ -1,7 +1,7 @@
 <template>
   <div class="border-grey-light border-b-2">
     <div class="flex">
-      <div class="relative bg-grey h-32 w-32 rounded-lg my-4">
+      <div class="relative h-32 w-32 rounded-lg my-4">
         <slot name="img"></slot>
       </div>
       <div class="pl-5">
