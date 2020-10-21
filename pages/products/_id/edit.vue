@@ -1,37 +1,34 @@
 <template>
   <div class="container prose">
     <h1 class="text-center pt-16 pb-8">{{ $t('edit_product.title') }}</h1>
-    <FormulateForm v-model="product" @submit="updateProduct">
+    <FormulateForm @submit="updateProduct">
       <FormulateInput
         type="image"
-        name="img"
+        name="picture"
         :label="$t('edit_product.image')"
         validation="required"
       />
       <FormulateInput
         type="text"
-        name="name"
+        name="title"
         :label="$t('edit_product.name')"
         :placeholder="$t('edit_product.name_placeholder')"
+        :value="product.title"
         validation="required"
       />
       <FormulateInput
         type="textarea"
         name="description"
+        :value="product.description"
         :label="$t('edit_product.description')"
         :placeholder="$t('edit_product.description_placeholder')"
         validation="required"
       />
       <FormulateInput
-        type="checkbox"
-        :options="{
-          first: 'First',
-          second: 'Second',
-          third: 'Third',
-          fourth: 'Fourth',
-        }"
+        type="text"
         name="category"
         :label="$t('edit_product.category')"
+        :value="product.category"
         validation="required"
       />
       <FormulateInput type="submit" :label="$t('edit_product.submit')" />
@@ -40,11 +37,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  data() {
-    return {
-      product: {},
-    }
+  computed: {
+    ...mapGetters('products', { products: 'products' }),
+    product() {
+      const found = this.products.find(
+        (element) => element._id === this.$route.params.id
+      )
+      return found
+    },
   },
   methods: {
     updateProduct() {

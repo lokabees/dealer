@@ -9,6 +9,8 @@ export const mutations = {
   addProduct(state, product) {
     state.products.push(product)
   },
+  editProduct(state, newProduct) {},
+  editProductPicture(state, newProduct) {},
 }
 
 export const actions = {
