@@ -60,7 +60,7 @@ export default {
     ...mapGetters('products', { products: 'products' }),
   },
   methods: {
-    ...mapMutations('products', { addProduct: 'addProduct' }),
+    ...mapMutations('products', { addProductInStore: 'addProduct' }),
     async uploadProductImage(file, progress, error, options) {
       const formData = new FormData()
       formData.append('file', file)
@@ -74,12 +74,11 @@ export default {
       }
     },
     async addProduct() {
-      // TODO infinite loop
       this.product.shop = this.activeShop?._id
       if (!this.product.shop) return
       try {
         const product = await this.$axios.$post('/api/products', this.product)
-        this.addProduct(product)
+        this.addProductInStore(product)
         if (this.products.length === 1) this.$router.push('/products/success')
         else this.$router.push('/products')
       } catch (e) {
