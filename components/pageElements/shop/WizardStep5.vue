@@ -43,7 +43,7 @@
           :uploader="uploadProfileImage"
           :label="$t('shop_registration_wizard.step_5.you_photo')"
           validation="mime:image/jpeg,image/png"
-          element-class="relative h-64 w-full preview-image border-2 border-dashed "
+          element-class="relative h-64 w-full preview-image border-2 border-dashed"
           input-class="absolute top-0 left-0 h-full w-full z-20 opacity-0"
         />
         <div class="absolute top-0 flex h-full w-1/2 items-center z-1">

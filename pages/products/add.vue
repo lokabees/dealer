@@ -6,11 +6,12 @@
         type="image"
         name="img"
         :label="$t('add_product.image')"
-        validation="required"
+        :uploader="uploadProductImage"
+        upload-behavior="delayed"
       />
       <FormulateInput
         type="text"
-        name="name"
+        name="title"
         :label="$t('add_product.name')"
         :placeholder="$t('add_product.name_placeholder')"
         validation="required"
@@ -23,13 +24,7 @@
         validation="required"
       />
       <FormulateInput
-        type="checkbox"
-        :options="{
-          first: 'First',
-          second: 'Second',
-          third: 'Third',
-          fourth: 'Fourth',
-        }"
+        type="text"
         name="category"
         :label="$t('add_product.category')"
         validation="required"
@@ -40,16 +35,41 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
 export default {
   data() {
     return {
       product: {},
     }
   },
+  computed: {
+    ...mapGetters('shops', { activeShop: 'getActiveShop' }),
+    ...mapGetters('products', { products: 'products' }),
+  },
   methods: {
-    addProduct() {
-      console.log('add product')
-      console.log(this.product)
+    ...mapMutations('products', { addProduct: 'addProduct' }),
+    async uploadProductImage(file, progress, error, options) {
+      const formData = new FormData()
+      formData.append('file', file)
+      try {
+        const imgLocal = await this.$axios.$post(`/api/media/product`, formData)
+        // this.updateActiveShopImages({ cover: imgLocal })
+        this.product.picture = imgLocal
+      } catch (err) {
+        // TODO handle error
+        console.error(err)
+      }
+    },
+    async addProduct() {
+      this.product.shop = this.activeShop._id
+      try {
+        const product = await this.$axios.$post('/api/products', this.product)
+        this.addProduct(product)
+        if (this.products.length === 1) this.$router.push('/products/success')
+        else this.$router.push('/products')
+      } catch (e) {
+        console.error(e)
+      }
     },
   },
 }
