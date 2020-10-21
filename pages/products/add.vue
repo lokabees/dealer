@@ -4,11 +4,14 @@
     <FormulateForm v-model="product" @submit="addProduct">
       <div class="relative w-full flex justify-center">
         <FormulateInput
+          class="w-full"
           type="image"
           name="img"
           :label="$t('add_product.image')"
           :uploader="uploadProductImage"
           upload-behavior="delayed"
+          element-class="relative h-64 w-full preview-image border-2 border-dashed "
+          input-class="absolute top-0 left-0 h-full w-full z-20 opacity-0"
         />
         <div class="absolute top-0 flex h-full w-1/2 items-center z-1">
           <div>
@@ -53,7 +56,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('shops', { activeShop: 'getActiveShop' }),
+    ...mapGetters('shops', { activeShop: 'activeShop' }),
     ...mapGetters('products', { products: 'products' }),
   },
   methods: {
@@ -71,7 +74,9 @@ export default {
       }
     },
     async addProduct() {
-      this.product.shop = this.activeShop._id
+      // TODO infinite loop
+      this.product.shop = this.activeShop?._id
+      if (!this.product.shop) return
       try {
         const product = await this.$axios.$post('/api/products', this.product)
         this.addProduct(product)

@@ -87,8 +87,6 @@ export default {
       }
     },
     async updateProduct() {
-      console.log('update product')
-      console.log(this.product)
       try {
         await this.$axios.$put(
           `/api/products/${this.product._id}`,

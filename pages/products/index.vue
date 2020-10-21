@@ -1,5 +1,12 @@
 <template>
   <div>
+    <Modal>
+      <template v-slot:buttons>
+        <button @click="hideModal">{{ $t('products.cancel') }}</button>
+        <button @click="deleteProduct">{{ $t('products.ok') }}</button>
+      </template>
+    </Modal>
+
     <h1 class="text-center pt-16 pb-8">{{ $t('products.title') }}</h1>
 
     <div class="bg-primary-lightest py-6 mb-8">
@@ -26,7 +33,9 @@
           <img :src="product.picture.url" />
         </template>
         <template v-slot:buttons>
-          <button>{{ $t('products.delete') }}</button>
+          <button @click="showDeleteModal(product._id)">
+            {{ $t('products.delete') }}
+          </button>
           <button
             class="secondary my-auto"
             @click="$router.push(`/products/${product._id}/edit`)"
@@ -40,7 +49,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 export default {
   async fetch({ store }) {
     try {
@@ -49,8 +58,37 @@ export default {
       console.error(e)
     }
   },
+  data() {
+    return {
+      deleteId: null,
+    }
+  },
   computed: {
     ...mapGetters('products', { products: 'products' }),
+  },
+  methods: {
+    ...mapMutations('modal', {
+      showModal: 'showModal',
+      hideModal: 'hideModal',
+    }),
+    ...mapMutations('products', {
+      deleteProductInStore: 'deleteProduct',
+    }),
+    showDeleteModal(id) {
+      this.deleteId = id
+      this.showModal(this.$t('products.delete_confirmation'))
+    },
+    async deleteProduct() {
+      try {
+        if (!this.deleteId) return
+        await this.$axios.$delete(`/api/products/${this.deleteId}`)
+        this.deleteProductInStore(this.product)
+        this.deleteId = null
+        this.hideModal()
+      } catch (e) {
+        console.error(e)
+      }
+    },
   },
 }
 </script>

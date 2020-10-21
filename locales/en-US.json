@@ -111,7 +111,10 @@
     "add": "Add new product",
     "add_button": "Add product",
     "delete": "Delete",
-    "edit": "Edit"
+    "edit": "Edit",
+    "delete_confirmation": "Are you sure you want to delete the product?",
+    "ok": "Delete Product",
+    "cancel": "Cancel"
   },
   "add_product": {
     "title": "Add product",
