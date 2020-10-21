@@ -82,7 +82,7 @@ export default {
       try {
         if (!this.deleteId) return
         await this.$axios.$delete(`/api/products/${this.deleteId}`)
-        this.deleteProductInStore(this.product)
+        this.deleteProductInStore(this.deleteId)
         this.deleteId = null
         this.hideModal()
       } catch (e) {

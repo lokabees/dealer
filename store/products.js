@@ -9,9 +9,9 @@ export const mutations = {
   addProduct(state, product) {
     state.products.push(product)
   },
-  deleteProduct(state, product) {
+  deleteProduct(state, productId) {
     const index = state.products.findIndex(
-      (element) => element._id === product._id
+      (element) => element._id === productId
     )
     state.products.splice(index, 1)
   },

@@ -92,6 +92,7 @@ export default {
           `/api/products/${this.product._id}`,
           this.product
         )
+        this.$router.push('/products')
       } catch (e) {
         console.error(e)
       }
