@@ -6,7 +6,7 @@
         <div class="modal">
           <div class="modal-body p-6 sm:p-8 w-full max-w-xl">
             <div>
-              {{ message }}
+              <slot />
             </div>
             <div class="flex justify-end">
               <slot name="buttons"></slot>
@@ -19,13 +19,9 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 export default {
-  computed: {
-    ...mapGetters('modal', {
-      visible: 'visible',
-      message: 'message',
-    }),
+  props: {
+    visible: { type: Boolean, default: false },
   },
 }
 </script>

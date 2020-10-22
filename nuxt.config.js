@@ -55,6 +55,7 @@ export default {
     '~/plugins/modules/vue-formulate',
     '~/plugins/modules/i18n',
     '~/plugins/modules/vue-form-wizard',
+    '~/plugins/services/error-handler',
     { src: '~/plugins/modules/auth', mode: 'client' },
     { src: '~/plugins/modules/eva-icons', ssr: false },
   ],

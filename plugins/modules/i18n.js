@@ -21,10 +21,13 @@ export default ({ app, store }) => {
     locale: store.state.locale,
     fallbackLocale: 'en',
     missing: (locale, key, vm) => {
+      if (!key) return
+      console.log(key)
       const keyParts = key.split('.')
+      if (keyParts.includes('unspecific')) return
       keyParts[keyParts.length - 1] = 'unspecific'
       const newKey = keyParts.join('.')
-      return vm.$t(newKey)
+      if (vm) return vm.$t(newKey)
     },
     messages: {
       en,

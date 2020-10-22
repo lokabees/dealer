@@ -6,10 +6,10 @@
         <div class="modal">
           <div class="modal-body p-6 sm:p-8 w-full max-w-xl">
             <div>
-              <slot />
+              {{ $t(message) }}
             </div>
             <div class="flex justify-end">
-              <slot name="buttons"></slot>
+              <button @click="hideModal">{{ $t('general.ok') }}</button>
             </div>
           </div>
         </div>
@@ -19,9 +19,16 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
 export default {
-  props: {
-    visible: { type: Boolean, default: false },
+  computed: {
+    ...mapGetters('modal', {
+      visible: 'visible',
+      message: 'message',
+    }),
+  },
+  methods: {
+    ...mapMutations('modal', { hideModal: 'hideModal' }),
   },
 }
 </script>

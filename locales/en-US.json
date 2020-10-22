@@ -10,7 +10,7 @@
     "sign_up_with": "or sign up with",
     "email": "Email",
     "new_registration": "New Registration",
-    "error_messages": {
+    "errors": {
       "401_1": "Your email has not yet been verified. Please check your inbox. If you did not receive our verification email tell us via hello@lokabees.com",
       "401": "Invalid credentials. Please enter a correct username and password.",
       "500": "An unknown error occured. Try reloading the page and login again."
@@ -91,7 +91,7 @@
     "login": "Login",
     "to_login": "Go to login",
     "confirm_password": "Confirm password",
-    "email": "What is your e-mail address?",
+    "email": "What is your Email address?",
     "account_exists": "I already have an account",
     "name": "What's your name?",
     "signup": "Create account",
@@ -99,9 +99,10 @@
     "check_inbox": "Check your Email inbox and confirm your Email to login",
     "accept_terms": "By clicking 'Sign Up' you agree to our privacy policy an accept our terms of use.",
     "updates_offers_consent": "I want to be informed about new updates and offers. I can withdraw my consent at any time in the future on www.lokabees.de/abmelden or on the end of each e-mail.",
-    "error_messages": {
-      "409": "Email already exists!",
-      "500": "An unknown error occured. Try reloading the page and login again."
+    "errors": {
+      "409": "That user already exists! Login to your account or choose a different email address.",
+      "500": "An unknown error occured. Try reloading the page and login again.",
+      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
     },
     "verification_successful": "Your Email got verified!",
     "verification_successful_sub": "You can now login with your account. Have fun!"
@@ -129,7 +130,7 @@
     "ok": "Okay",
     "errors": {
       "400": "Invalid input, check all the input fields again.",
-      "unspecific": "Ups. Something went wrong on our side. Please try again or contact our support, if the request keeps failing."
+      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
     }
   },
   "product_success": {
@@ -315,14 +316,9 @@
       "contact": "Contact"
     }
   },
-  "validation_errors": {
-    "password": "The password must contain at least: 1 uppercase letter, 1 lowercase letter, 1 number, and one special character (E.g. , . _ & ? etc)",
-    "required": "This field is required",
-    "confirm_password": "The passwords do not match"
-  },
   "general": {
     "ok": "Ok",
-    "error_messages": {
+    "errors": {
       "400": "Something went wrong. Please contact support.",
       "401": "Unauthorized",
       "500": "An unknown error occured. Try reloading the page and login again.",
@@ -331,6 +327,7 @@
   },
   "validation_errors": {
     "no_numbers": "No numbers",
-    "password": "The password must contain a lowercase letter, an uppercase letter, a number and a special character"
+    "password": "The password must contain a lowercase letter, an uppercase letter, a number and a special character",
+    "confirm_password": "The passwords do not match"
   }
 }

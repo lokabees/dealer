@@ -1,10 +1,5 @@
 <template>
   <div class="container max-w-md p-3 md:p-0">
-    <Modal>
-      <template v-slot:buttons>
-        <button @click="hideModal">{{ $t('signup.ok') }}</button>
-      </template>
-    </Modal>
     <div class="prose lg:prose-lg text-center">
       <h1 class="py-10">{{ $t('signup.title') }}</h1>
     </div>
@@ -54,7 +49,12 @@
         :label="$t('signup.updates_offers_consent')"
         validation=""
       />
-      <FormulateInput type="submit" :label="$t('signup.signup')" />
+      <FormulateInput
+        :class="{ 'spinner-dark': pending }"
+        input-class="button bg-grey-dark text-white w-full hide-on-spinner"
+        type="submit"
+        :label="$t('signup.signup')"
+      />
     </FormulateForm>
 
     <div class="flex flex-col">
@@ -67,19 +67,15 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
 export default {
   auth: false,
   data() {
     return {
+      pending: false,
       guest: {},
     }
   },
   methods: {
-    ...mapMutations('modal', {
-      showModal: 'showModal',
-      hideModal: 'hideModal',
-    }),
     async localSignUp() {
       try {
         await this.$axios.post(`/api/users`, {
@@ -88,9 +84,8 @@ export default {
         })
         this.$router.push('/auth/signup-success')
       } catch (error) {
-        // this.$errorHandler({ error, type: 'signup' })
-        console.error(error)
-        this.showModal(error)
+        console.error(error.response.status)
+        this.$errorHandler({ prefix: 'signup', error })
       }
     },
   },

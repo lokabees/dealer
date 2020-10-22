@@ -1,11 +1,5 @@
 <template>
   <div class="container prose">
-    <ErrorModal :visible="!!error">
-      <template v-slot:buttons>
-        <button @click="error = null">{{ $t('add_product.ok') }}</button>
-      </template>
-      {{ $t(`add_product.errors.${error}`) }}</ErrorModal
-    >
     <h1 class="text-center pt-16 pb-8">{{ $t('add_product.title') }}</h1>
     <FormulateForm v-model="product" @submit="addProduct">
       <div class="relative w-full flex justify-center">
@@ -66,7 +60,6 @@ export default {
     return {
       product: {},
       pending: false,
-      error: null,
     }
   },
   computed: {
@@ -96,18 +89,11 @@ export default {
         this.addProductInStore(product)
         if (this.products.length === 1) this.$router.push('/products/success')
         else this.$router.push('/products')
-      } catch (e) {
-        console.error(e)
+      } catch (error) {
         this.pending = false
-        const status = e?.response?.status || 500
-        this.error = status
+        this.$errorHandler({ prefix: 'add_product', error })
       }
     },
   },
 }
 </script>
-<style>
-.spinner-dark .hide-on-spinner {
-  @apply text-grey-dark;
-}
-</style>
