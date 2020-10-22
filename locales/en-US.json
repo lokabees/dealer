@@ -124,7 +124,13 @@
     "description": "Product description",
     "description_placeholder": "Handmade japanese vase in white",
     "category": "Choose a product category",
-    "submit": "Add Product"
+    "category_placeholder": "Pottery",
+    "submit": "Add Product",
+    "ok": "Okay",
+    "errors": {
+      "400": "Invalid input, check all the input fields again.",
+      "unspecific": "Ups. Something went wrong on our side. Please try again or contact our support, if the request keeps failing."
+    }
   },
   "product_success": {
     "title": "Your first product is online right away!",

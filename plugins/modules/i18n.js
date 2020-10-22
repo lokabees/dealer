@@ -20,6 +20,12 @@ export default ({ app, store }) => {
   app.i18n = new VueI18n({
     locale: store.state.locale,
     fallbackLocale: 'en',
+    missing: (locale, key, vm) => {
+      const keyParts = key.split('.')
+      keyParts[keyParts.length - 1] = 'unspecific'
+      const newKey = keyParts.join('.')
+      return vm.$t(newKey)
+    },
     messages: {
       en,
       de,

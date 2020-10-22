@@ -1,5 +1,11 @@
 <template>
   <div class="container prose">
+    <ErrorModal :visible="!!error">
+      <template v-slot:buttons>
+        <button @click="error = null">{{ $t('add_product.ok') }}</button>
+      </template>
+      {{ $t(`add_product.errors.${error}`) }}</ErrorModal
+    >
     <h1 class="text-center pt-16 pb-8">{{ $t('add_product.title') }}</h1>
     <FormulateForm v-model="product" @submit="addProduct">
       <div class="relative w-full flex justify-center">
@@ -40,9 +46,15 @@
         type="text"
         name="category"
         :label="$t('add_product.category')"
+        :placeholder="$t('add_product.category_placeholder')"
         validation="required"
       />
-      <FormulateInput type="submit" :label="$t('add_product.submit')" />
+      <FormulateInput
+        :class="{ 'spinner-dark': pending }"
+        input-class="button bg-grey-dark text-white w-full hide-on-spinner"
+        type="submit"
+        :label="$t('add_product.submit')"
+      />
     </FormulateForm>
   </div>
 </template>
@@ -53,6 +65,8 @@ export default {
   data() {
     return {
       product: {},
+      pending: false,
+      error: null,
     }
   },
   computed: {
@@ -74,8 +88,9 @@ export default {
       }
     },
     async addProduct() {
-      this.product.shop = this.activeShop?._id
-      if (!this.product.shop) return
+      if (!this.activeShop._id) return
+      this.product.shop = this.activeShop._id
+      this.pending = true
       try {
         const product = await this.$axios.$post('/api/products', this.product)
         this.addProductInStore(product)
@@ -83,8 +98,16 @@ export default {
         else this.$router.push('/products')
       } catch (e) {
         console.error(e)
+        this.pending = false
+        const status = e?.response?.status || 500
+        this.error = status
       }
     },
   },
 }
 </script>
+<style>
+.spinner-dark .hide-on-spinner {
+  @apply text-grey-dark;
+}
+</style>
