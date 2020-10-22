@@ -19,7 +19,12 @@
         placeholder="******************"
       />
 
-      <FormulateInput type="submit" :label="$t('login.login')" />
+      <FormulateInput
+        :class="{ 'spinner-dark': pending }"
+        input-class="button bg-grey-dark text-white w-full hide-on-spinner"
+        type="submit"
+        :label="$t('login.login')"
+      />
     </FormulateForm>
 
     <button class="secondary w-full" @click="$router.push('/auth/signup')">

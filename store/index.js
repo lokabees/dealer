@@ -35,7 +35,10 @@ export const actions = {
   async nuxtServerInit({ commit, dispatch, state }) {
     try {
       // Try to get token from Browser
-      const [type, token] = this.$cookies.get('Authorization').split(' ')
+      const authCookie = this.$cookies.get('Authorization')
+
+      if (!authCookie) return
+      const [type, token] = authCookie.split(' ')
 
       // Set token to $axios module config
       this.$axios.setToken(token, type)

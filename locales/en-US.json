@@ -11,8 +11,8 @@
     "email": "Email",
     "new_registration": "New Registration",
     "errors": {
-      "401_1": "Your email has not yet been verified. Please check your inbox. If you did not receive our verification email tell us via hello@lokabees.com",
       "401": "Invalid credentials. Please enter a correct username and password.",
+      "403": "Your email has not yet been verified. Please check your inbox. If you did not receive our verification email tell us via hello@lokabees.com",
       "500": "An unknown error occured. Try reloading the page and login again."
     },
     "help_with_registration": "Help with registration?"
