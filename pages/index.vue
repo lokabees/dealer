@@ -166,6 +166,9 @@ export default {
   async asyncData({ $axios, store }) {
     try {
       const shopCategories = await $axios.$get('/api/shops/categories')
+      await store.dispatch('shops/getActiveShop')
+      await store.dispatch('products/getProducts')
+
       return { shopCategories }
     } catch (e) {
       console.error(e)
@@ -175,7 +178,6 @@ export default {
   data() {
     return {
       uploading: { cover: false, profile: false },
-      productCreationPrompt: true,
     }
   },
   middleware: ['authenticated', 'hasShop'],
@@ -184,6 +186,12 @@ export default {
     ...mapGetters('shops', {
       shop: 'activeShop',
     }),
+    ...mapGetters('products', {
+      products: 'products',
+    }),
+    productCreationPrompt() {
+      return this.products.length === 0
+    },
     coverImage() {
       if (this.shop?.images?.cover?.url === 'cdn-link') return null
       return this.shop?.images?.cover?.url

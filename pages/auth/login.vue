@@ -73,6 +73,9 @@ export default {
     ...mapActions('shops', {
       getActiveShop: 'getActiveShop',
     }),
+    ...mapActions('products', {
+      getProducts: 'getProducts',
+    }),
     async localLogin() {
       try {
         // Set Loading
@@ -90,9 +93,6 @@ export default {
 
         // Get user information
         await this.getMe()
-
-        // Get shop information
-        await this.getActiveShop()
 
         // Unset Loading
         this.pending = null

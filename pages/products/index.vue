@@ -1,10 +1,11 @@
 <template>
   <div>
-    <Modal>
+    <Modal :visible="showModal">
       <template v-slot:buttons>
-        <button @click="hideModal">{{ $t('products.cancel') }}</button>
+        <button @click="showModal = false">{{ $t('products.cancel') }}</button>
         <button @click="deleteProduct">{{ $t('products.ok') }}</button>
       </template>
+      {{ $t('products.delete_confirmation') }}
     </Modal>
 
     <h1 class="text-center pt-16 pb-8">{{ $t('products.title') }}</h1>
@@ -61,22 +62,19 @@ export default {
   data() {
     return {
       deleteId: null,
+      showModal: false,
     }
   },
   computed: {
     ...mapGetters('products', { products: 'products' }),
   },
   methods: {
-    ...mapMutations('modal', {
-      showModal: 'showModal',
-      hideModal: 'hideModal',
-    }),
     ...mapMutations('products', {
       deleteProductInStore: 'deleteProduct',
     }),
     showDeleteModal(id) {
       this.deleteId = id
-      this.showModal(this.$t('products.delete_confirmation'))
+      this.showModal = true
     },
     async deleteProduct() {
       try {
@@ -84,7 +82,7 @@ export default {
         await this.$axios.$delete(`/api/products/${this.deleteId}`)
         this.deleteProductInStore(this.deleteId)
         this.deleteId = null
-        this.hideModal()
+        this.showModal = false
       } catch (e) {
         console.error(e)
       }
