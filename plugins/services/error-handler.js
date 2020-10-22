@@ -1,9 +1,15 @@
-export default ({ app: { store, i18n } }, inject) => {
+export default ({ app: { store } }, inject) => {
   inject('errorHandler', (args) => {
     const error = args?.error || 'unknown error'
+
     const status = error?.response?.status
-    const prefix = args.prefix || 'general'
-    const suffix = args.suffix || status
+    let prefix = args.prefix || 'general'
+    let suffix = args.suffix || status
+
+    if (error.message === 'Network Error') {
+      prefix = 'general'
+      suffix = 'network'
+    }
 
     const errorMessage = prefix + '.errors.' + suffix
 

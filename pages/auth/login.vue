@@ -1,10 +1,5 @@
 <template>
   <div class="container max-w-md p-3 md:p-0">
-    <Modal>
-      <template v-slot:buttons>
-        <button @click="hideModal">{{ $t('login.ok') }}</button>
-      </template>
-    </Modal>
     <div class="prose lg:prose-lg text-center">
       <h1 class="py-10">Login with your credentials</h1>
     </div>
@@ -60,7 +55,7 @@
 </template>
 
 <script>
-import { mapActions, mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
 export default {
   data() {
     return {
@@ -72,10 +67,6 @@ export default {
     ...mapActions(['setLocalUser', 'getMe']),
     ...mapActions('shops', {
       getActiveShop: 'getActiveShop',
-    }),
-    ...mapMutations('modal', {
-      showModal: 'showModal',
-      hideModal: 'hideModal',
     }),
     async localLogin() {
       try {
@@ -104,10 +95,8 @@ export default {
         // Redirect on successfull authentication
         await this.$router.push('/')
       } catch (error) {
-        // TODO: Catch error
         this.pending = null
-        console.error(error)
-        this.showModal(error)
+        this.$errorHandler({ prefix: 'login', error })
       }
     },
     async socialLogin(provider) {

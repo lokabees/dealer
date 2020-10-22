@@ -47,7 +47,6 @@
         name="updates"
         type="checkbox"
         :label="$t('signup.updates_offers_consent')"
-        validation=""
       />
       <FormulateInput
         :class="{ 'spinner-dark': pending }"
@@ -77,6 +76,7 @@ export default {
   },
   methods: {
     async localSignUp() {
+      this.pending = true
       try {
         await this.$axios.post(`/api/users`, {
           ...this.guest,
@@ -84,8 +84,8 @@ export default {
         })
         this.$router.push('/auth/signup-success')
       } catch (error) {
-        console.error(error.response.status)
         this.$errorHandler({ prefix: 'signup', error })
+        this.pending = false
       }
     },
   },
