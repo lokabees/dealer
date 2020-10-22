@@ -164,15 +164,16 @@
 import { mapGetters, mapMutations } from 'vuex'
 export default {
   async asyncData({ $axios, store }) {
+    let productCreationPrompt = true
     try {
       const shopCategories = await $axios.$get('/api/shops/categories')
       await store.dispatch('shops/getActiveShop')
       await store.dispatch('products/getProducts')
-
-      return { shopCategories }
+      productCreationPrompt = store.getters['products/products'].length === 0
+      return { shopCategories, productCreationPrompt }
     } catch (e) {
       console.error(e)
-      return { shopCategories: {} }
+      return { shopCategories: {}, productCreationPrompt }
     }
   },
   data() {
@@ -189,9 +190,6 @@ export default {
     ...mapGetters('products', {
       products: 'products',
     }),
-    productCreationPrompt() {
-      return this.products.length === 0
-    },
     coverImage() {
       if (this.shop?.images?.cover?.url === 'cdn-link') return null
       return this.shop?.images?.cover?.url
