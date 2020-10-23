@@ -3,7 +3,7 @@ import Vue from 'vue'
 const emptyShop = {
   images: {},
   address: {},
-  deliveryOptions: [],
+  delivery: [],
   openingHours: {
     monday: {
       breaks: [],
@@ -77,12 +77,12 @@ export const mutations = {
         (item) => item !== category.value
       )
   },
-  selectActiveShopDeliveryOption(state, option) {
-    if (!state.activeShop.deliveryOptions.includes(option))
-      state.activeShop.deliveryOptions.push(option)
+  selectActiveShopDelivery(state, option) {
+    if (!state.activeShop.delivery.includes(option))
+      state.activeShop.delivery.push(option)
     else {
-      state.activeShop.deliveryOptions.splice(
-        state.activeShop.deliveryOptions.indexOf(option),
+      state.activeShop.delivery.splice(
+        state.activeShop.delivery.indexOf(option),
         1
       )
     }

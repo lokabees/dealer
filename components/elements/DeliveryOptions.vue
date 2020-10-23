@@ -67,14 +67,11 @@ export default {
   },
   methods: {
     ...mapMutations('shops', {
-      selectActiveShopDeliveryOption: 'selectActiveShopDeliveryOption',
+      select: 'selectActiveShopDelivery',
     }),
-    select(value) {
-      this.selectActiveShopDeliveryOption(value)
-    },
     isSelected(value) {
-      if (this.activeShop.deliveryOptions)
-        return this.activeShop.deliveryOptions.includes(value)
+      if (this.activeShop.delivery)
+        return this.activeShop.delivery.includes(value)
     },
   },
 }
