@@ -34,8 +34,6 @@
                   activeShop.openingHours[day].close
                 )
                 return openSec < closeSec
-
-                return true
               },
             }"
             validation="openBeforeClose"
@@ -63,7 +61,6 @@
                   activeShop.openingHours[day].open
                 )
                 return closeSec > openSec
-                return true
               },
             }"
             validation="closeAfterOpen"
@@ -77,10 +74,12 @@
           />
         </div>
       </div>
-
-      <div class="flex">
+      <div
+        v-if="validation[day].open.hasErrors || validation[day].close.hasErrors"
+        class="flex"
+      >
         <div class="hidden sm:block flex-none w-15 mr-4" />
-        <ul class="formulate-input-errors w-full">
+        <ul class="formulate-input-errors w-full my-0">
           <li
             v-for="error in validation[day].open.errors"
             :key="error"
@@ -89,7 +88,7 @@
             {{ error }}
           </li>
         </ul>
-        <ul class="formulate-input-errors w-full">
+        <ul class="formulate-input-errors w-full my-0">
           <li
             v-for="error in validation[day].close.errors"
             :key="error"
@@ -140,7 +139,11 @@
                       </span>
                     </div>
                   </div>
-                  <div class="overflow-hidden w-full pr-2">
+
+                  <div
+                    v-if="openingTimes.open && openingTimes.close"
+                    class="overflow-hidden w-full pr-2"
+                  >
                     <FormulateInput
                       :value="getBreak(day).from"
                       type="time"
@@ -170,7 +173,6 @@
                             breakOpenSec < closeSec &&
                             breakOpenSec < breakCloseSec
                           )
-                          return true
                         },
                       }"
                       validation="closeAfterOpen"
@@ -183,7 +185,10 @@
                       "
                     />
                   </div>
-                  <div class="overflow-hidden w-full pl-2">
+                  <div
+                    v-if="openingTimes.open && openingTimes.close"
+                    class="overflow-hidden w-full pl-2"
+                  >
                     <FormulateInput
                       :value="getBreak(day).to"
                       type="time"
@@ -213,7 +218,6 @@
                             breakCloseSec < closeSec &&
                             breakCloseSec > breakOpenSec
                           )
-                          return true
                         },
                       }"
                       validation="closeAfterOpen"
@@ -226,11 +230,17 @@
                       "
                     />
                   </div>
+                  <div
+                    v-if="!openingTimes.open || !openingTimes.close"
+                    class="flex my-auto"
+                  >
+                    {{ $t('shop_registration_wizard.step_2.closed') }}
+                  </div>
                 </div>
 
                 <div class="flex">
                   <div class="hidden sm:block flex-none w-15 mr-4" />
-                  <ul class="formulate-input-errors w-full">
+                  <ul class="formulate-input-errors w-full my-0">
                     <li
                       v-for="error in validation[day].breaks.from.errors"
                       :key="error"
@@ -239,7 +249,7 @@
                       {{ error }}
                     </li>
                   </ul>
-                  <ul class="formulate-input-errors w-full">
+                  <ul class="formulate-input-errors w-full my-0">
                     <li
                       v-for="error in validation[day].breaks.to.errors"
                       :key="error"
@@ -300,11 +310,6 @@ export default {
       updateActiveShopOpeningHours: 'updateActiveShopOpeningHours',
       updateActiveShopBreaks: 'updateActiveShopBreaks',
     }),
-    cal(context, args) {
-      console.log('cal')
-      console.log(context)
-      console.log(args)
-    },
     getSecondsFromString(str) {
       if (!str) return
       const valArr = str.split(':')
@@ -332,6 +337,10 @@ export default {
 
 .active {
   @apply bg-primary text-white;
+}
+
+.formulate-input-error {
+  @apply text-xs text-danger;
 }
 
 /*
