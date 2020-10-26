@@ -100,7 +100,7 @@
     "accept_terms": "By clicking 'Sign Up' you agree to our privacy policy an accept our terms of use.",
     "updates_offers_consent": "I want to be informed about new updates and offers. I can withdraw my consent at any time in the future on www.lokabees.de/abmelden or on the end of each e-mail.",
     "errors": {
-      "409": "That user already exists! Login to your account or choose a different email address.",
+      "409": "That user already exists! Login to your account or choose a different email address. Also make sure to confirm your email address before you login for the first time.",
       "504": "We can not reach the server. Please check your internet connection and try again.",
       "500": "An unknown error occured. Try reloading the page and login again.",
       "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
@@ -318,7 +318,7 @@
     }
   },
   "general": {
-    "ok": "Ok",
+    "ok": "Okay",
     "errors": {
       "400": "Something went wrong. Please contact support.",
       "401": "Unauthorized",

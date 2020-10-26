@@ -56,7 +56,7 @@
       />
     </FormulateForm>
 
-    <div class="flex flex-col">
+    <div class="flex flex-col pb-3">
       <!--<div>{{ $t('signup.account_exists') }}</div>-->
       <button class="secondary w-full" @click="$router.push('/auth/login')">
         {{ $t('signup.account_exists') }}

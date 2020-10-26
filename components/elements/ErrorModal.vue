@@ -5,11 +5,21 @@
       <div v-show="visible" class="modal-wrapper">
         <div class="modal">
           <div class="modal-body p-6 sm:p-8 w-full max-w-xl">
+            <div class="flex justify-center py-3">
+              <eva-icon
+                name="alert-circle-outline"
+                width="40"
+                height="40"
+                fill="#2B2B2B"
+              />
+            </div>
             <div>
               {{ $t(message) }}
             </div>
             <div class="flex justify-end">
-              <button @click="hideModal">{{ $t('general.ok') }}</button>
+              <button class="font-bold" @click="hideModal">
+                {{ $t('general.ok') }}
+              </button>
             </div>
           </div>
         </div>
@@ -61,7 +71,7 @@ export default {
     @apply z-50 fixed top-0 left-0 h-screen w-full bg-black opacity-50;
   }
   &-body {
-    @apply bg-white m-3 max-h-full  rounded-lg;
+    @apply bg-warning-lighter border-t-4 border-warning m-3 max-h-full  rounded-lg;
   }
 }
 </style>

@@ -133,9 +133,9 @@ export default {
         // this.$router.push('/')
       } catch (error) {
         // Error handler
-        // TODO: Catch error
         console.log(error)
         this.pending = null
+        this.$errorHandler({ prefix: 'login', error })
       }
     },
   },

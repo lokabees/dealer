@@ -23,20 +23,23 @@
           <FormulateInput
             :value="activeShop.openingHours[day].open"
             type="time"
+            errors-class="hidden"
             :name="`${day} open`"
             :label="$t('shop_registration_wizard.step_2.from')"
             :validation-rules="{
               openBeforeClose: ({ value }) => {
-                /*
-              const openSec = getSecondsFromString(value)
-              if (!activeShop.openingHours[day].close || !openSec) return true
-              const closeSec = getSecondsFromString(activeShop.openingHours[day].close)
-              return openSec < closeSec
-              */
+                const openSec = getSecondsFromString(value)
+                if (!activeShop.openingHours[day].close || !openSec) return true
+                const closeSec = getSecondsFromString(
+                  activeShop.openingHours[day].close
+                )
+                return openSec < closeSec
+
                 return true
               },
             }"
             validation="openBeforeClose"
+            @validation="validation[day].open = $event"
             @input="
               updateActiveShopOpeningHours({
                 day,
@@ -50,19 +53,21 @@
             :value="activeShop.openingHours[day].close"
             type="time"
             :name="`${day} close`"
+            errors-class="hidden"
             :label="$t('shop_registration_wizard.step_2.until')"
             :validation-rules="{
               closeAfterOpen: ({ value }) => {
-                /*
-              const closeSec = getSecondsFromString(value)
-              if (!closeSec || !activeShop.openingHours[day].open) return true
-              const openSec = getSecondsFromString(activeShop.openingHours[day].open)
-              return closeSec > openSec
-              */
+                const closeSec = getSecondsFromString(value)
+                if (!closeSec || !activeShop.openingHours[day].open) return true
+                const openSec = getSecondsFromString(
+                  activeShop.openingHours[day].open
+                )
+                return closeSec > openSec
                 return true
               },
             }"
             validation="closeAfterOpen"
+            @validation="validation[day].close = $event"
             @input="
               updateActiveShopOpeningHours({
                 day,
@@ -72,7 +77,30 @@
           />
         </div>
       </div>
+
+      <div class="flex">
+        <div class="hidden sm:block flex-none w-15 mr-4" />
+        <ul class="formulate-input-errors w-full">
+          <li
+            v-for="error in validation[day].open.errors"
+            :key="error"
+            class="formulate-input-error"
+          >
+            {{ error }}
+          </li>
+        </ul>
+        <ul class="formulate-input-errors w-full">
+          <li
+            v-for="error in validation[day].close.errors"
+            :key="error"
+            class="formulate-input-error"
+          >
+            {{ error }}
+          </li>
+        </ul>
+      </div>
     </div>
+
     <div class="flex">
       <FormulateInput
         outer-class="mx-auto"
@@ -117,36 +145,36 @@
                       :value="getBreak(day).from"
                       type="time"
                       :name="`${day} break from`"
+                      errors-class="hidden"
                       :label="$t('shop_registration_wizard.step_2.from')"
                       :validation-rules="{
                         closeAfterOpen: ({ value }) => {
-                          /*
-                        const breakOpenSec = getSecondsFromString(value)
-                        if (
-                          !breakOpenSec ||
-                          !activeShop.openingHours[day] ||
-                          !activeShop.openingHours[day].breaks[0]
-                        )
-                          return true
-                        const openSec = getSecondsFromString(
-                          activeShop.openingHours[day].open
-                        )
-                        const closeSec = getSecondsFromString(
-                          activeShop.openingHours[day].close
-                        )
-                        const breakCloseSec = getSecondsFromString(
-                          activeShop.openingHours[day].breaks[0].close
-                        )
-                        return (
-                          breakOpenSec > openSec &&
-                          breakOpenSec < closeSec &&
-                          breakOpenSec < breakCloseSec
-                        )
-                        */
+                          const breakOpenSec = getSecondsFromString(value)
+                          if (
+                            !breakOpenSec ||
+                            !activeShop.openingHours[day] ||
+                            !activeShop.openingHours[day].breaks[0]
+                          )
+                            return true
+                          const openSec = getSecondsFromString(
+                            activeShop.openingHours[day].open
+                          )
+                          const closeSec = getSecondsFromString(
+                            activeShop.openingHours[day].close
+                          )
+                          const breakCloseSec = getSecondsFromString(
+                            activeShop.openingHours[day].breaks[0].close
+                          )
+                          return (
+                            breakOpenSec > openSec &&
+                            breakOpenSec < closeSec &&
+                            breakOpenSec < breakCloseSec
+                          )
                           return true
                         },
                       }"
                       validation="closeAfterOpen"
+                      @validation="validation[day].breaks.from = $event"
                       @input="
                         updateActiveShopBreaks({
                           day,
@@ -160,36 +188,36 @@
                       :value="getBreak(day).to"
                       type="time"
                       :name="`${day} break until`"
+                      errors-class="hidden"
                       :label="$t('shop_registration_wizard.step_2.until')"
                       :validation-rules="{
                         closeAfterOpen: ({ value }) => {
-                          /*
-                        const breakCloseSec = getSecondsFromString(value)
-                        if (
-                          !breakOpenSec ||
-                          !activeShop.openingHours[day] ||
-                          !activeShop.openingHours[day].breaks[0]
-                        )
-                          return true
-                        const openSec = getSecondsFromString(
-                          activeShop.openingHours[day].open
-                        )
-                        const closeSec = getSecondsFromString(
-                          activeShop.openingHours[day].close
-                        )
-                        const breakOpenSec = getSecondsFromString(
-                          activeShop.openingHours[day].breaks[0].close
-                        )
-                        return (
-                          breakCloseSec > openSec &&
-                          breakCloseSec < closeSec &&
-                          breakCloseSec > breakOpenSec
-                        )
-                        */
+                          const breakCloseSec = getSecondsFromString(value)
+                          if (
+                            !breakOpenSec ||
+                            !activeShop.openingHours[day] ||
+                            !activeShop.openingHours[day].breaks[0]
+                          )
+                            return true
+                          const openSec = getSecondsFromString(
+                            activeShop.openingHours[day].open
+                          )
+                          const closeSec = getSecondsFromString(
+                            activeShop.openingHours[day].close
+                          )
+                          const breakOpenSec = getSecondsFromString(
+                            activeShop.openingHours[day].breaks[0].close
+                          )
+                          return (
+                            breakCloseSec > openSec &&
+                            breakCloseSec < closeSec &&
+                            breakCloseSec > breakOpenSec
+                          )
                           return true
                         },
                       }"
                       validation="closeAfterOpen"
+                      @validation="validation[day].breaks.to = $event"
                       @input="
                         updateActiveShopBreaks({
                           day,
@@ -198,6 +226,28 @@
                       "
                     />
                   </div>
+                </div>
+
+                <div class="flex">
+                  <div class="hidden sm:block flex-none w-15 mr-4" />
+                  <ul class="formulate-input-errors w-full">
+                    <li
+                      v-for="error in validation[day].breaks.from.errors"
+                      :key="error"
+                      class="formulate-input-error"
+                    >
+                      {{ error }}
+                    </li>
+                  </ul>
+                  <ul class="formulate-input-errors w-full">
+                    <li
+                      v-for="error in validation[day].breaks.to.errors"
+                      :key="error"
+                      class="formulate-input-error"
+                    >
+                      {{ error }}
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -225,15 +275,19 @@ export default {
       required: true,
       default: () => {},
     },
-    create: {
-      type: Boolean,
-      require: false,
-      default: false,
-    },
   },
   data() {
     return {
       breaks: false,
+      validation: {
+        monday: { open: {}, close: {}, breaks: { from: {}, to: {} } },
+        tuesday: { open: {}, close: {}, breaks: { from: {}, to: {} } },
+        wednesday: { open: {}, close: {}, breaks: { from: {}, to: {} } },
+        thursday: { open: {}, close: {}, breaks: { from: {}, to: {} } },
+        friday: { open: {}, close: {}, breaks: { from: {}, to: {} } },
+        saturday: { open: {}, close: {}, breaks: { from: {}, to: {} } },
+        sunday: { open: {}, close: {}, breaks: { from: {}, to: {} } },
+      },
     }
   },
   computed: {
@@ -246,6 +300,11 @@ export default {
       updateActiveShopOpeningHours: 'updateActiveShopOpeningHours',
       updateActiveShopBreaks: 'updateActiveShopBreaks',
     }),
+    cal(context, args) {
+      console.log('cal')
+      console.log(context)
+      console.log(args)
+    },
     getSecondsFromString(str) {
       if (!str) return
       const valArr = str.split(':')
