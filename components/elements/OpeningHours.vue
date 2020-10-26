@@ -221,7 +221,13 @@
                   </div>
                 </div>
 
-                <div class="flex">
+                <div
+                  v-if="
+                    validation[day].breaks.from.hasErrors ||
+                    validation[day].breaks.to.hasErrors
+                  "
+                  class="flex"
+                >
                   <div class="hidden sm:block flex-none w-15 mr-4" />
                   <ul class="formulate-input-errors w-full my-0">
                     <li

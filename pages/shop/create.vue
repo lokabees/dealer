@@ -1,10 +1,5 @@
 <template>
   <div>
-    <Modal>
-      <template v-slot:buttons>
-        <button @click="hideModal">{{ $t('login.ok') }}</button>
-      </template>
-    </Modal>
     <div class="container max-w-xl">
       <form-wizard
         ref="wizard"
@@ -61,7 +56,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   middleware: 'authenticated',
   async asyncData({ $axios }) {
@@ -80,19 +75,13 @@ export default {
     }),
   },
   methods: {
-    ...mapMutations('modal', {
-      showModal: 'showModal',
-      hideModal: 'hideModal',
-    }),
     async createShop(creatives) {
       try {
-        // console.log(this.shop)
         await this.$axios.$post('/api/shops', this.activeShop)
         await this.$store.dispatch('shops/getActiveShop')
         this.$router.push('success')
       } catch (error) {
-        console.error(error)
-        this.showModal(error)
+        this.$errorHandler({ prefix: 'shop_registration_wizard', error })
       }
     },
   },

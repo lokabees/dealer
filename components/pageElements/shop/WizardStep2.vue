@@ -28,3 +28,13 @@
     </FormulateForm>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    validate() {
+      console.log('val')
+    },
+  },
+}
+</script>

@@ -73,7 +73,12 @@
       <div v-show="tab === 2">
         <FormulateInput type="openingHours" />
       </div>
-      <FormulateInput type="submit" :label="$t('edit_shop.submit')" />
+      <FormulateInput
+        :class="{ 'spinner-dark': pending }"
+        input-class="button bg-grey-dark text-white w-full hide-on-spinner"
+        type="submit"
+        :label="$t('edit_shop.submit')"
+      />
     </FormulateForm>
   </div>
 </template>
@@ -93,6 +98,7 @@ export default {
   },
   data() {
     return {
+      pending: false,
       tab: 1,
       nextRoute: '/',
       unsavedChanges: false,
@@ -132,6 +138,7 @@ export default {
       })
     },
     async save() {
+      this.pending = true
       try {
         const q = this.getAddressString()
         const address = await this.$axios.$get('/api/maps/suggest', {
@@ -146,9 +153,8 @@ export default {
         this.unsavedChanges = false
         this.$router.push('/')
       } catch (error) {
-        console.error(error)
-        const { data } = error?.response
-        this.showModal(error + '\n' + JSON.stringify(data))
+        this.pending = false
+        this.$errorHandler({ prefix: 'edit_shop', error })
       }
     },
     getAddressString() {

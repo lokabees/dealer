@@ -273,7 +273,11 @@
     "prevous": "Previous",
     "next": "Next",
     "done": "Create shop",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "errors": {
+      "400": "Invalid input, please check if you filled all the input fields correctly.",
+      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+    }
   },
   "edit_shop": {
     "title": "My shop",
