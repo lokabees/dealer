@@ -81,8 +81,8 @@
         <div class="hidden sm:block flex-none w-15 mr-4" />
         <ul class="formulate-input-errors w-full my-0">
           <li
-            v-for="error in validation[day].open.errors"
-            :key="error"
+            v-for="(error, index) in validation[day].open.errors"
+            :key="error + index + 'open'"
             class="formulate-input-error"
           >
             {{ error }}
@@ -90,8 +90,8 @@
         </ul>
         <ul class="formulate-input-errors w-full my-0">
           <li
-            v-for="error in validation[day].close.errors"
-            :key="error"
+            v-for="(error, index) in validation[day].close.errors"
+            :key="error + index + 'close'"
             class="formulate-input-error"
           >
             {{ error }}
@@ -151,31 +151,11 @@
                       errors-class="hidden"
                       :label="$t('shop_registration_wizard.step_2.from')"
                       :validation-rules="{
-                        closeAfterOpen: ({ value }) => {
-                          const breakOpenSec = getSecondsFromString(value)
-                          if (
-                            !breakOpenSec ||
-                            !activeShop.openingHours[day] ||
-                            !activeShop.openingHours[day].breaks[0]
-                          )
-                            return true
-                          const openSec = getSecondsFromString(
-                            activeShop.openingHours[day].open
-                          )
-                          const closeSec = getSecondsFromString(
-                            activeShop.openingHours[day].close
-                          )
-                          const breakCloseSec = getSecondsFromString(
-                            activeShop.openingHours[day].breaks[0].close
-                          )
-                          return (
-                            breakOpenSec > openSec &&
-                            breakOpenSec < closeSec &&
-                            breakOpenSec < breakCloseSec
-                          )
+                        breakOpenValidation(context) {
+                          return breakOpenValidation(context, day)
                         },
                       }"
-                      validation="closeAfterOpen"
+                      validation="breakOpenValidation"
                       @validation="validation[day].breaks.from = $event"
                       @input="
                         updateActiveShopBreaks({
@@ -219,8 +199,11 @@
                             breakCloseSec > breakOpenSec
                           )
                         },
+                        breakCloseValidation(context) {
+                          return breakCloseValidation(context, day)
+                        },
                       }"
-                      validation="closeAfterOpen"
+                      validation="breakCloseValidation"
                       @validation="validation[day].breaks.to = $event"
                       @input="
                         updateActiveShopBreaks({
@@ -242,8 +225,9 @@
                   <div class="hidden sm:block flex-none w-15 mr-4" />
                   <ul class="formulate-input-errors w-full my-0">
                     <li
-                      v-for="error in validation[day].breaks.from.errors"
-                      :key="error"
+                      v-for="(error, index) in validation[day].breaks.from
+                        .errors"
+                      :key="error + index"
                       class="formulate-input-error"
                     >
                       {{ error }}
@@ -251,8 +235,8 @@
                   </ul>
                   <ul class="formulate-input-errors w-full my-0">
                     <li
-                      v-for="error in validation[day].breaks.to.errors"
-                      :key="error"
+                      v-for="(error, index) in validation[day].breaks.to.errors"
+                      :key="error + index"
                       class="formulate-input-error"
                     >
                       {{ error }}
@@ -325,6 +309,52 @@ export default {
         const arr = this.activeShop.openingHours[day].open.split(':')
         if (arr[0] >= 0) return true
       }
+    },
+    breakOpenValidation({ value }, day) {
+      const breakOpenSec = this.getSecondsFromString(value)
+      if (
+        !breakOpenSec ||
+        !this.activeShop.openingHours[day] ||
+        !this.activeShop.openingHours[day].breaks[0]
+      )
+        return true
+      const openSec = this.getSecondsFromString(
+        this.activeShop.openingHours[day].open
+      )
+      const closeSec = this.getSecondsFromString(
+        this.activeShop.openingHours[day].close
+      )
+      const breakCloseSec = this.getSecondsFromString(
+        this.activeShop.openingHours[day].breaks[0].to
+      )
+      return (
+        breakOpenSec > openSec &&
+        breakOpenSec < closeSec &&
+        breakOpenSec < breakCloseSec
+      )
+    },
+    breakCloseValidation({ value }, day) {
+      const breakCloseSec = this.getSecondsFromString(value)
+      if (
+        !breakCloseSec ||
+        !this.activeShop.openingHours[day] ||
+        !this.activeShop.openingHours[day].breaks[0]
+      )
+        return true
+      const openSec = this.getSecondsFromString(
+        this.activeShop.openingHours[day].open
+      )
+      const closeSec = this.getSecondsFromString(
+        this.activeShop.openingHours[day].close
+      )
+      const breakOpenSec = this.getSecondsFromString(
+        this.activeShop.openingHours[day].breaks[0].from
+      )
+      return (
+        breakCloseSec > openSec &&
+        breakCloseSec < closeSec &&
+        breakCloseSec > breakOpenSec
+      )
     },
   },
 }
