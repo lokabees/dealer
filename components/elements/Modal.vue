@@ -5,7 +5,7 @@
       <div v-show="visible && !errorModal" class="modal-wrapper">
         <div class="modal">
           <div class="modal-body p-6 sm:p-8 w-full max-w-xl">
-            <div>
+            <div class="pb-6">
               {{ message }}
             </div>
             <div class="flex justify-end">

@@ -1,23 +1,21 @@
 <template>
-  <div>
-    <Modal
-      :visible="unsavedChangesModal"
-      :message="$t('edit_shop.unsaved_changes')"
-    >
+  <div class="bg-primary-lightest">
+    <Modal :visible="showModal" :message="$t('products.delete_confirmation')">
       <template v-slot:buttons>
         <button @click="showModal = false">{{ $t('products.cancel') }}</button>
         <button @click="deleteProduct">{{ $t('products.ok') }}</button>
       </template>
-      {{ $t('products.delete_confirmation') }}
     </Modal>
 
-    <h1 class="text-center pt-16 pb-8">{{ $t('products.title') }}</h1>
+    <h1 class="text-center font-serif font-black text-grey-dark pt-16 pb-8">
+      {{ $t('products.title') }}
+    </h1>
 
-    <div class="bg-primary-lightest py-6 mb-8">
-      <div class="container flex justify-between items-center">
+    <div class="bg-white py-6 mb-8">
+      <div class="container max-w-2xl flex justify-between items-center px-2">
         <h2>{{ $t('products.add') }}</h2>
         <button
-          class="tertiary justify-self-end"
+          class="tertiary justify-self-end capitalize"
           @click="$router.push('/products/add')"
         >
           {{ $t('products.add_button') }}
@@ -25,7 +23,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container max-w-2xl px-2">
       <Product
         v-for="product in products"
         :key="product.id"
@@ -37,14 +35,31 @@
           <img :src="product.picture.url" />
         </template>
         <template v-slot:buttons>
-          <button @click="showDeleteModal(product._id)">
+          <button
+            class="flex items-center text-grey-dark capitalize"
+            @click="showDeleteModal(product._id)"
+          >
             {{ $t('products.delete') }}
+            <eva-icon
+              class="ml-2"
+              name="close"
+              height="20"
+              width="20"
+              fill="#2B2B2B"
+            />
           </button>
           <button
-            class="secondary my-auto"
+            class="bg-white text-grey-dark border border-grey-dark my-auto flex items-center capitalize"
             @click="$router.push(`/products/${product._id}/edit`)"
           >
             {{ $t('products.edit') }}
+            <eva-icon
+              class="ml-2"
+              name="edit-2-outline"
+              height="20"
+              width="20"
+              fill="#2B2B2B"
+            />
           </button>
         </template>
       </Product>
