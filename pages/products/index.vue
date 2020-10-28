@@ -1,6 +1,9 @@
 <template>
   <div>
-    <Modal :visible="showModal">
+    <Modal
+      :visible="unsavedChangesModal"
+      :message="$t('edit_shop.unsaved_changes')"
+    >
       <template v-slot:buttons>
         <button @click="showModal = false">{{ $t('products.cancel') }}</button>
         <button @click="deleteProduct">{{ $t('products.ok') }}</button>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container prose">
+  <div class="container">
     <h1 class="text-center pt-16 pb-8">{{ $t('add_product.title') }}</h1>
     <FormulateForm v-model="product" @submit="addProduct">
       <div class="relative w-full flex justify-center">

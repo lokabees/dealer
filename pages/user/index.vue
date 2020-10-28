@@ -1,9 +1,6 @@
 <template>
   <div class="container prose p-2">
-    <UnsavedChangesModal
-      :visible="unsavedChangesModal"
-      :message="$t('user.unsaved_changes')"
-    >
+    <Modal :visible="unsavedChangesModal" :message="$t('user.unsaved_changes')">
       <template v-slot:buttons>
         <button
           :class="{ 'spinner-light': pending.discard }"
@@ -19,7 +16,7 @@
           {{ $t('user.save_changes') }}
         </button>
       </template>
-    </UnsavedChangesModal>
+    </Modal>
     <h1 class="text-center pt-16">{{ $t('user.title') }}</h1>
     <p class="text-center pb-8">{{ $t('user.text') }}</p>
 

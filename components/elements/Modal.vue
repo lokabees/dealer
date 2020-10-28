@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div v-show="visible" class="modal-bg" />
+    <div v-show="visible && !errorModal" class="modal-bg" />
     <transition name="modalAnimation">
-      <div v-show="visible" class="modal-wrapper">
+      <div v-show="visible && !errorModal" class="modal-wrapper">
         <div class="modal">
           <div class="modal-body p-6 sm:p-8 w-full max-w-xl">
             <div>
-              <slot />
+              {{ message }}
             </div>
             <div class="flex justify-end">
               <slot name="buttons"></slot>
@@ -19,9 +19,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   props: {
     visible: { type: Boolean, default: false },
+    message: { type: String, default: '' },
+  },
+  computed: {
+    ...mapGetters('modal', {
+      errorModal: 'visible',
+    }),
   },
 }
 </script>
