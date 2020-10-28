@@ -129,6 +129,9 @@
     "category_placeholder": "Pottery",
     "submit": "Add Product",
     "ok": "Okay",
+    "unsaved_changes": "All changes will be lost if you leave now. Do you want to stay and finish adding the product?",
+    "stay": "Stay",
+    "discard_changes": "Discard changes",
     "errors": {
       "400": "Invalid input, check all the input fields again.",
       "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
@@ -179,7 +182,10 @@
     "description_placeholder": "Handmade japanese vase in white",
     "category": "Choose a product category",
     "submit": "Save",
-    "upload_product_image": "Click here to upload a product picture."
+    "upload_product_image": "Click here to upload a product picture.",
+    "unsaved_changes": "All changes will be lost if you leave without saving. Do you want to save your changes before exiting?",
+    "save": "Save changes",
+    "discard_changes": "Discard changes"
   },
   "shop_registration_wizard": {
     "next": "Next",

@@ -20,7 +20,7 @@
           :label="$t('shop_registration_wizard.step_5.shop_photo')"
           validation="mime:image/jpeg,image/png"
           element-class="relative h-64 w-full preview-image border-2 border-dashed "
-          input-class="absolute top-0 left-0 h-full w-full z-20 opacity-0"
+          input-class="absolute top-0 left-0 h-full w-full z-20 opacity-0 cursor-pointer"
         />
         <div class="absolute top-0 flex h-full w-1/2 items-center z-1">
           <div>
@@ -44,7 +44,7 @@
           :label="$t('shop_registration_wizard.step_5.you_photo')"
           validation="mime:image/jpeg,image/png"
           element-class="relative h-64 w-full preview-image border-2 border-dashed"
-          input-class="absolute top-0 left-0 h-full w-full z-20 opacity-0"
+          input-class="absolute top-0 left-0 h-full w-full z-20 opacity-0 cursor-pointer"
         />
         <div class="absolute top-0 flex h-full w-1/2 items-center z-1">
           <div>
@@ -109,9 +109,8 @@ export default {
       try {
         const imgLocal = await this.$axios.$post(`/api/media/shop`, formData)
         this.updateActiveShopImages({ cover: imgLocal })
-      } catch (err) {
-        // TODO handle error
-        console.error(err)
+      } catch (error) {
+        this.$errorHandler({ prefix: 'shop_registration_wizard', error })
       }
     },
     async uploadProfileImage(file, progress, error, options) {
@@ -120,9 +119,8 @@ export default {
       try {
         const imgLocal = await this.$axios.$post(`/api/media/shop`, formData)
         this.updateActiveShopImages({ profile: imgLocal })
-      } catch (err) {
-        // TODO handle error
-        console.error(err)
+      } catch (error) {
+        this.$errorHandler({ prefix: 'shop_registration_wizard', error })
       }
     },
   },

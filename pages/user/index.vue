@@ -159,7 +159,6 @@ export default {
     async updateAccount() {
       this.pending.save = true
       try {
-        console.log(this.user)
         await this.$axios.$put(`/api/users/${this.user._id}`, this.user)
         this.$router.push('/')
       } catch (error) {

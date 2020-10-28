@@ -1,5 +1,25 @@
 <template>
-  <div class="container max-w-2xl pb-16">
+  <div class="container max-w-2xl pb-16 px-2">
+    <Modal
+      :visible="unsavedChangesModal"
+      :message="$t('add_product.unsaved_changes')"
+    >
+      <template v-slot:buttons>
+        <button
+          :class="{ 'spinner-light': pending.discard }"
+          @click="discardChanges"
+        >
+          {{ $t('add_product.discard_changes') }}
+        </button>
+        <button
+          :class="{ 'spinner-dark': pending.save }"
+          class="primary"
+          @click="unsavedChangesModal = false"
+        >
+          {{ $t('add_product.stay') }}
+        </button>
+      </template>
+    </Modal>
     <h1
       class="text-4xl text-center font-serif font-black text-grey-dark pt-16 pb-8"
     >
@@ -14,8 +34,8 @@
           :label="$t('add_product.image')"
           :uploader="uploadProductImage"
           upload-behavior="delayed"
-          element-class="relative h-64 w-full preview-image border-2 border-dashed "
-          input-class="absolute top-0 left-0 h-full w-full z-20 opacity-0"
+          element-class="hover:border-primary relative h-64 w-full preview-image border-2 border-dashed "
+          input-class="absolute top-0 left-0 h-full w-full z-20 opacity-0 cursor-pointer"
         />
         <div class="absolute top-0 flex h-full w-1/2 items-center z-1">
           <div>
@@ -48,7 +68,7 @@
         validation="required"
       />
       <FormulateInput
-        :class="{ 'spinner-dark': pending }"
+        :class="{ 'spinner-dark': pending.save }"
         input-class="button bg-grey-dark text-white w-full hide-on-spinner"
         type="submit"
         :label="$t('add_product.submit')"
@@ -62,13 +82,28 @@ import { mapGetters, mapMutations } from 'vuex'
 export default {
   data() {
     return {
+      unsavedChanges: false,
+      unsavedChangesModal: false,
       product: {},
-      pending: false,
+      pending: { discard: false, save: false },
     }
+  },
+  beforeRouteLeave(to, from, next) {
+    this.nextRoute = to.path
+    if (this.unsavedChanges) this.unsavedChangesModal = true
+    else next()
   },
   computed: {
     ...mapGetters('shops', { activeShop: 'activeShop' }),
     ...mapGetters('products', { products: 'products' }),
+  },
+  watch: {
+    product: {
+      deep: true,
+      handler() {
+        this.unsavedChanges = true
+      },
+    },
   },
   methods: {
     ...mapMutations('products', { addProductInStore: 'addProduct' }),
@@ -79,14 +114,17 @@ export default {
         const imgLocal = await this.$axios.$post(`/api/media/product`, formData)
         // this.updateActiveShopImages({ cover: imgLocal })
         this.product.picture = imgLocal
-      } catch (err) {
-        // TODO handle error
-        console.error(err)
+      } catch (error) {
+        this.$errorHandler({ prefix: 'add_product', error })
       }
+    },
+    discardChanges() {
+      this.unsavedChanges = false
+      this.$router.push(this.nextRoute)
     },
     async addProduct() {
       if (!this.activeShop._id) return
-      this.pending = true
+      this.pending.save = true
       this.product.shop = this.activeShop._id
 
       try {
@@ -95,7 +133,8 @@ export default {
         if (this.products.length === 1) this.$router.push('/products/success')
         else this.$router.push('/products')
       } catch (error) {
-        this.pending = false
+        this.pending.save = false
+        this.unsavedChangesModal = false
         this.$errorHandler({ prefix: 'add_product', error })
       }
     },
