@@ -3,7 +3,9 @@
     <Modal :visible="showModal" :message="$t('products.delete_confirmation')">
       <template v-slot:buttons>
         <button @click="showModal = false">{{ $t('products.cancel') }}</button>
-        <button @click="deleteProduct">{{ $t('products.ok') }}</button>
+        <button :class="{ 'spinner-light': pending }" @click="deleteProduct">
+          {{ $t('products.ok') }}
+        </button>
       </template>
     </Modal>
 
@@ -81,6 +83,7 @@ export default {
     return {
       deleteId: null,
       showModal: false,
+      pending: false,
     }
   },
   computed: {
@@ -97,12 +100,14 @@ export default {
     async deleteProduct() {
       try {
         if (!this.deleteId) return
+        this.pending = true
         await this.$axios.$delete(`/api/products/${this.deleteId}`)
         this.deleteProductInStore(this.deleteId)
         this.deleteId = null
         this.showModal = false
-      } catch (e) {
-        console.error(e)
+      } catch (error) {
+        this.pending = false
+        this.$errorHandler({ prefix: 'products', error })
       }
     },
   },

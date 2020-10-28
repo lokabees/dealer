@@ -82,7 +82,7 @@
       <div class="flex">
         <div class="w-full">
           <h1
-            class="py-5 font-serif antialiased select-none text-5xl font-black text-grey-dark"
+            class="py-5 font-serif antialiased select-none text-6xl font-black text-grey-dark"
           >
             {{ shopName }}
           </h1>
@@ -95,7 +95,9 @@
               :key="key"
               class="category"
             >
-              <span class="text-white">{{ categoryName(categoryId) }} </span>
+              <span class="text-white text-sm"
+                >{{ categoryName(categoryId) }}
+              </span>
             </div>
           </div>
         </div>

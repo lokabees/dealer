@@ -1,6 +1,10 @@
 <template>
-  <div class="container">
-    <h1 class="text-center pt-16 pb-8">{{ $t('add_product.title') }}</h1>
+  <div class="container max-w-2xl pb-16">
+    <h1
+      class="text-4xl text-center font-serif font-black text-grey-dark pt-16 pb-8"
+    >
+      {{ $t('add_product.title') }}
+    </h1>
     <FormulateForm v-model="product" @submit="addProduct">
       <div class="relative w-full flex justify-center">
         <FormulateInput
@@ -82,8 +86,9 @@ export default {
     },
     async addProduct() {
       if (!this.activeShop._id) return
-      this.product.shop = this.activeShop._id
       this.pending = true
+      this.product.shop = this.activeShop._id
+
       try {
         const product = await this.$axios.$post('/api/products', this.product)
         this.addProductInStore(product)
@@ -97,3 +102,18 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.preview-image img {
+  @apply bg-black absolute h-full w-full object-cover top-0 left-0 m-0 z-10;
+}
+.preview-image .formulate-file-image-preview {
+  @apply h-64;
+}
+.preview-image .formulate-files {
+  @apply m-0;
+}
+.preview-image li {
+  @apply m-0;
+}
+</style>

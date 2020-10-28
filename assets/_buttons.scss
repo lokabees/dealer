@@ -6,7 +6,7 @@
 button,
 .button {
   // General
-  @apply p-4 rounded-sm uppercase text-sm select-none;
+  @apply p-4 rounded-sm capitalize text-sm select-none;
   &:focus {
     @apply outline-none;
   }
