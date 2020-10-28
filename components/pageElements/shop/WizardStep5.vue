@@ -55,6 +55,7 @@
           </div>
         </div>
       </div>
+      <!--
       <h2>{{ $t('shop_registration_wizard.step_5.extra_points') }}</h2>
       <p>{{ $t('shop_registration_wizard.step_5.text_extra_points') }}</p>
       <FormulateInput
@@ -63,6 +64,7 @@
         :placeholder="$t('shop_registration_wizard.step_5.yt_link_placeholder')"
         :label="$t('shop_registration_wizard.step_5.yt_link')"
       />
+    -->
       <div class="flex">
         <div class="w-1/2 pr-1">
           <FormulateInput

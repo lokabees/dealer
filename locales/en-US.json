@@ -19,7 +19,11 @@
   },
   "logout": {
     "successful": "You got logged out!",
-    "sub": "Remember: good pictures = happy customers"
+    "sub": "Remember: good pictures = happy customers",
+    "errors": {
+      "500": "An unknown error occured. Try reloading the page and login again.",
+      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+    }
   },
   "reset_password": {
     "title": "Reset password",
@@ -27,35 +31,59 @@
     "submit": "Reset password",
     "email": "Email address",
     "email_placeholder": "max@mustermann.com",
-    "back": "Back to login"
+    "back": "Back to login",
+    "errors": {
+      "500": "An unknown error occured. Try reloading the page and login again.",
+      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+    }
   },
   "reset_password_success": {
     "title": "Your password has been reset!",
     "text": "Now look into your inbox and click the link to reset your password.",
-    "button": "To login"
+    "button": "To login",
+    "errors": {
+      "500": "An unknown error occured. Try reloading the page and login again.",
+      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+    }
   },
   "new_password": {
     "title": "Set your new password",
     "new_password": "New password",
     "repeat_new_password": "Repeat new password",
     "submit": "Save and go to login",
-    "password_placeholder": "********"
+    "password_placeholder": "********",
+    "errors": {
+      "500": "An unknown error occured. Try reloading the page and login again.",
+      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+    }
   },
   "error": {
     "error_occured": "Ups. An error occured.",
     "continue_home": "You can continue on our homepage or try reloading the page again.",
-    "go_home": "Go to Homepage"
+    "go_home": "Go to Homepage",
+    "errors": {
+      "500": "An unknown error occured. Try reloading the page and login again.",
+      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+    }
   },
   "dashboard": {
     "product_creation_prompt": {
       "title": "You don't have any products in your shop yet!",
       "text": "Now you can easily create your first product and make your store decisions even more attractive for personal customers",
-      "button": "Create first product"
+      "button": "Create first product",
+      "errors": {
+        "500": "An unknown error occured. Try reloading the page and login again.",
+        "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+      }
     },
     "complete_shop_prompt": {
       "title": "You haven't entered any information about your store yet!",
       "text": "Now briefly fill in all the important information about your store. This is how your customers find you and know when you are open!",
-      "button": "Enter information"
+      "button": "Enter information",
+      "errors": {
+        "500": "An unknown error occured. Try reloading the page and login again.",
+        "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+      }
     },
     "upload_cover_image": "Click here to upload a picture of your shop from the outside.",
     "upload_profile_image": "Click here to upload a picture of you, your team or inside of your shop.",
@@ -64,20 +92,36 @@
       "text": "Here you can enter and edit information about your shop.",
       "manage": "Manage shop",
       "manage_shop": "Manage my shop",
-      "view_shop": "View my shop"
+      "view_shop": "View my shop",
+      "errors": {
+        "500": "An unknown error occured. Try reloading the page and login again.",
+        "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+      }
     },
     "products": {
       "title": "My products",
       "text": "Here you can manage the products in your range",
-      "manage": "Manage products"
+      "manage": "Manage products",
+      "errors": {
+        "500": "An unknown error occured. Try reloading the page and login again.",
+        "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+      }
     },
     "academy": {
       "title": "Lokabees academy",
-      "text": "Here you will learn the basics of digitizing your shop step by step - no previous knowledge required!"
+      "text": "Here you will learn the basics of digitizing your shop step by step - no previous knowledge required!",
+      "errors": {
+        "500": "An unknown error occured. Try reloading the page and login again.",
+        "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+      }
     },
     "analysis": {
       "title": "Analysis of your shop",
-      "text": "Here you will soon find interesting options for analyzing your shop and optimizing your range."
+      "text": "Here you will soon find interesting options for analyzing your shop and optimizing your range.",
+      "errors": {
+        "500": "An unknown error occured. Try reloading the page and login again.",
+        "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+      }
     }
   },
   "signup": {
@@ -116,7 +160,11 @@
     "edit": "Edit",
     "delete_confirmation": "Are you sure you want to delete the product?",
     "ok": "Delete Product",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "errors": {
+      "500": "An unknown error occured. Try reloading the page and login again.",
+      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+    }
   },
   "add_product": {
     "title": "Add product",
@@ -134,6 +182,7 @@
     "discard_changes": "Discard changes",
     "errors": {
       "400": "Invalid input, check all the input fields again.",
+      "500": "An unknown error occured. Try reloading the page and login again.",
       "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
     }
   },
@@ -142,7 +191,11 @@
     "paragraph_1": "We just check quickly if everything is okay!",
     "paragraph_2": "Under “My Products” you can add up to 6 products to give your customers an insight into your product catalog and to arouse his / her curiosity!",
     "add_another_product": "+ add another product",
-    "back": "Back to Dashboard"
+    "back": "Back to Dashboard",
+    "errors": {
+      "500": "An unknown error occured. Try reloading the page and login again.",
+      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+    }
   },
   "user": {
     "title": "Your Profile",
@@ -170,6 +223,7 @@
     "discard_changes": "Discard changes",
     "errors": {
       "400": "Invalid input, check all the input fields again.",
+      "500": "An unknown error occured. Try reloading the page and login again.",
       "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
     }
   },
@@ -185,7 +239,11 @@
     "upload_product_image": "Click here to upload a product picture.",
     "unsaved_changes": "All changes will be lost if you leave without saving. Do you want to save your changes before exiting?",
     "save": "Save changes",
-    "discard_changes": "Discard changes"
+    "discard_changes": "Discard changes",
+    "errors": {
+      "500": "An unknown error occured. Try reloading the page and login again.",
+      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+    }
   },
   "shop_registration_wizard": {
     "next": "Next",
@@ -210,7 +268,11 @@
       "city_placeholder": "Braunschweig",
       "description": "Short description of your shop",
       "description_placeholder": "Best Cookies in Town",
-      "categories": "Which keywords best describe your shop?"
+      "categories": "Which keywords best describe your shop?",
+      "errors": {
+        "500": "An unknown error occured. Try reloading the page and login again.",
+        "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+      }
     },
     "step_2": {
       "title": "Opening hours",
@@ -236,7 +298,11 @@
       "sunday_long": "Sunday",
       "from": "From",
       "until": "Until",
-      "closed": "Closed"
+      "closed": "Closed",
+      "errors": {
+        "500": "An unknown error occured. Try reloading the page and login again.",
+        "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+      }
     },
     "step_3": {
       "title": "Pick up and delivery",
@@ -246,7 +312,11 @@
       "delivery": "Delivery",
       "delivery_text": "Customers can have your products delivered to their home.",
       "ship": "Shipping",
-      "ship_text": "You send your products by post or a logistics service provider"
+      "ship_text": "You send your products by post or a logistics service provider",
+      "errors": {
+        "500": "An unknown error occured. Try reloading the page and login again.",
+        "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+      }
     },
     "step_4": {
       "title": "Customer contact",
@@ -258,7 +328,11 @@
       "email": "Email",
       "email_placeholder": "max@mustermann.com",
       "website": "Website",
-      "website_placeholder": "myawesomecookieshop24.com"
+      "website_placeholder": "myawesomecookieshop24.com",
+      "errors": {
+        "500": "An unknown error occured. Try reloading the page and login again.",
+        "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+      }
     },
     "step_5": {
       "title": "Photos and Videos",
@@ -272,7 +346,11 @@
       "extra_points": "Extra points for a video",
       "text_extra_points": "A video is worth a thousand pictures. If you already have one from your shop, just paste the link here.",
       "yt_link": "Youtube link to a short video from your shop",
-      "yt_link_placeholder": "https://youtube.com/..."
+      "yt_link_placeholder": "https://youtube.com/...",
+      "errors": {
+        "500": "An unknown error occured. Try reloading the page and login again.",
+        "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+      }
     },
 
     "success": {
@@ -281,7 +359,11 @@
       "text2": "But this is only the beginning. Set up your new shop and add some products.",
       "text3": "Then use our lokabees-academy to learn step by step how to be successful online without any previous knowledge!",
       "text4": "You can change the settings you have made at any time under `My profile`.",
-      "view_shop": "View my shop"
+      "view_shop": "View my shop",
+      "errors": {
+        "500": "An unknown error occured. Try reloading the page and login again.",
+        "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+      }
     },
     "prevous": "Previous",
     "next": "Next",
@@ -289,6 +371,7 @@
     "cancel": "Cancel",
     "errors": {
       "400": "Invalid input, please check if you filled all the input fields correctly.",
+      "500": "An unknown error occured. Try reloading the page and login again.",
       "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
     }
   },
@@ -317,14 +400,22 @@
     "description_placeholder": "Best Cookies in Town",
     "submit": "Save",
     "contact_data": "Contact data",
-    "opening_hours": "Opening hours"
+    "opening_hours": "Opening hours",
+    "errors": {
+      "500": "An unknown error occured. Try reloading the page and login again.",
+      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+    }
   },
   "navbar": {
     "home": "Home",
     "contact": "contact",
     "login": "Login",
     "account_settings": "Account settings",
-    "logout": "Logout"
+    "logout": "Logout",
+    "errors": {
+      "500": "An unknown error occured. Try reloading the page and login again.",
+      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+    }
   },
   "footer": {
     "links": {
@@ -332,6 +423,10 @@
       "imprint": "Imprint",
       "terms": "Terms of Use",
       "contact": "Contact"
+    },
+    "errors": {
+      "500": "An unknown error occured. Try reloading the page and login again.",
+      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
     }
   },
   "general": {

@@ -79,17 +79,17 @@
     </div>
 
     <div class="container">
-      <div class="flex">
+      <div class="md:flex px-2">
         <div class="w-full">
           <h1
-            class="py-5 font-serif antialiased select-none text-6xl font-black text-grey-dark"
+            class="py-5 font-serif antialiased leading-tight select-none text-6xl font-black text-grey-dark"
           >
             {{ shopName }}
           </h1>
         </div>
         <!-- categories -->
         <div class="flex items-center w-full">
-          <div class="flex flex-wrap justify-end w-full">
+          <div class="flex flex-wrap md:justify-end w-full">
             <div
               v-for="(categoryId, key) in shop.categories"
               :key="key"
@@ -222,9 +222,8 @@ export default {
           images: { cover: imgLocal },
         })
         this.uploading.cover = false
-      } catch (err) {
-        // TODO handle error
-        console.error(err)
+      } catch (error) {
+        this.$errorHandler({ prefix: 'dashboard', error })
         this.uploading.cover = false
       }
     },
@@ -240,8 +239,7 @@ export default {
         })
         this.uploading.profile = true
       } catch (err) {
-        // TODO handle error
-        console.error(err)
+        this.$errorHandler({ prefix: 'dashboard', error })
         this.uploading.profile = true
       }
     },

@@ -1,5 +1,5 @@
 <template>
-  <div class="container prose">
+  <div class="container prose pb-16">
     <Modal
       :visible="unsavedChangesModal"
       :message="$t('edit_product.unsaved_changes')"
