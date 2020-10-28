@@ -162,6 +162,9 @@
     "better_safe": "Better safe than sorry",
     "change_credentials": "Change email or password",
     "change_credentials_text": "Please contact our support if you want to change your email or password.",
+    "unsaved_changes": "All changes will be lost if you continue without saving. Do you want to save your changes?",
+    "save_changes": "Save changes",
+    "discard_changes": "Discard changes",
     "errors": {
       "400": "Invalid input, check all the input fields again.",
       "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."

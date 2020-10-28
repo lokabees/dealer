@@ -70,13 +70,17 @@
         @click="$router.push('/auth/set-new-password')"
       />
 
-      <FormulateInput type="submit" :label="$t('user.submit')" />
+      <FormulateInput
+        :class="{ 'spinner-dark': pending.save }"
+        input-class="button bg-grey-dark text-white w-full hide-on-spinner"
+        type="submit"
+        :label="$t('user.submit')"
+      />
     </FormulateForm>
 
     <div class="border-grey-dark border-b my-12" />
 
     <p>{{ $t('user.newsletter_info') }}</p>
-    {{ user }}
 
     <FormulateInput
       :value="user.value"
