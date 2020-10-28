@@ -129,11 +129,16 @@ export default {
     ...mapMutations('shops', {
       updateActiveShop: 'updateActiveShop',
     }),
-    discardChanges() {
-      this.$store.dispatch('shops/getActiveShop').then(() => {
+    async discardChanges() {
+      this.pending.discard = true
+      try {
+        await this.$store.dispatch('shops/getActiveShop')
         this.unsavedChanges = false
         this.$router.push(this.nextRoute)
-      })
+      } catch (error) {
+        this.pending.discard = false
+        this.$errorHandler({ prefix: 'user', error })
+      }
     },
     async save() {
       this.pending.save = true
@@ -152,6 +157,7 @@ export default {
         this.$router.push('/')
       } catch (error) {
         this.pending.save = false
+        this.unsavedChangesModal = false
         this.$errorHandler({ prefix: 'edit_shop', error })
       }
     },
