@@ -5,10 +5,17 @@
       :message="$t('edit_shop.unsaved_changes')"
     >
       <template v-slot:buttons>
-        <button @click="discardChanges">
+        <button
+          :class="{ 'spinner-light': pending.discard }"
+          @click="discardChanges"
+        >
           {{ $t('edit_shop.discard_changes') }}
         </button>
-        <button class="primary" @click="save">
+        <button
+          :class="{ 'spinner-dark': pending.save }"
+          class="primary"
+          @click="save"
+        >
           {{ $t('edit_shop.save_changes') }}
         </button>
       </template>
@@ -69,7 +76,7 @@
         <FormulateInput type="openingHours" />
       </div>
       <FormulateInput
-        :class="{ 'spinner-dark': pending }"
+        :class="{ 'spinner-dark': pending.save }"
         input-class="button bg-grey-dark text-white w-full hide-on-spinner"
         type="submit"
         :label="$t('edit_shop.submit')"
@@ -93,7 +100,7 @@ export default {
   },
   data() {
     return {
-      pending: false,
+      pending: { save: false, discard: false },
       tab: 1,
       nextRoute: '/',
       unsavedChanges: false,
@@ -129,7 +136,7 @@ export default {
       })
     },
     async save() {
-      this.pending = true
+      this.pending.save = true
       try {
         const q = this.getAddressString()
         const address = await this.$axios.$get('/api/maps/suggest', {
@@ -144,7 +151,7 @@ export default {
         this.unsavedChanges = false
         this.$router.push('/')
       } catch (error) {
-        this.pending = false
+        this.pending.save = false
         this.$errorHandler({ prefix: 'edit_shop', error })
       }
     },
