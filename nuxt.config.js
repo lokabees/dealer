@@ -41,6 +41,8 @@ export default {
   privateRuntimeConfig: {
     VUE_APP_GOOGLE_ID: process.env.VUE_APP_GOOGLE_ID,
     VUE_APP_FACEBOOK_ID: process.env.VUE_APP_FACEBOOK_ID,
+    CTF_SPACE_ID: process.env.CTF_SPACE_ID,
+    CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
   },
   /*
    ** Global CSS
@@ -56,6 +58,7 @@ export default {
     '~/plugins/modules/i18n',
     '~/plugins/modules/vue-form-wizard',
     '~/plugins/services/error-handler',
+    { src: '~/plugins/modules/contentful', mode: 'server' },
     { src: '~/plugins/modules/auth', mode: 'client' },
     { src: '~/plugins/modules/eva-icons', ssr: false },
   ],
@@ -89,6 +92,8 @@ export default {
     '@nuxt/content',
     // Doc: https://github.com/nuxt-community/google-fonts-module
     '@nuxtjs/google-fonts',
+    // Doc: https://github.com/nuxt-community/modules/tree/master/packages/markdownit
+    '@nuxtjs/markdownit',
   ],
   /*
    ** Axios module configuration
@@ -99,6 +104,14 @@ export default {
   },
   proxy: {
     '/api': { target: process.env.API_URL },
+  },
+  /**
+   ** Markdown configuration
+   */
+  markdownit: {
+    preset: 'default',
+    breaks: true,
+    injected: true,
   },
   /*
    ** Content module configuration
