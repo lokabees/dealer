@@ -1,23 +1,40 @@
 <template>
   <div class="container prose p-2">
-    <Modal>
+    <UnsavedChangesModal
+      :visible="unsavedChangesModal"
+      :message="$t('user.unsaved_changes')"
+    >
       <template v-slot:buttons>
-        <button @click="hideModal">{{ $t('login.ok') }}</button>
+        <button
+          :class="{ 'spinner-light': pending.discard }"
+          @click="discardChanges"
+        >
+          {{ $t('user.discard_changes') }}
+        </button>
+        <button
+          :class="{ 'spinner-dark': pending.save }"
+          class="primary"
+          @click="updateAccount"
+        >
+          {{ $t('user.save_changes') }}
+        </button>
       </template>
-    </Modal>
+    </UnsavedChangesModal>
     <h1 class="text-center pt-16">{{ $t('user.title') }}</h1>
     <p class="text-center pb-8">{{ $t('user.text') }}</p>
 
-    <FormulateForm v-model="user" @submit="updateAccount">
+    <FormulateForm @submit="updateAccount">
       <!--
       <FormulateInput type="image" :label="$t('user.image')" />
     -->
       <FormulateInput
+        :value="user.name"
         name="name"
         type="text"
         :label="$t('user.name')"
         :placeholder="$t('user.name_placeholder')"
         validation="required"
+        @input="updateUser({ name: $event })"
       />
       <!--
       <FormulateInput
@@ -59,12 +76,16 @@
     <div class="border-grey-dark border-b my-12" />
 
     <p>{{ $t('user.newsletter_info') }}</p>
+    {{ user }}
+
     <FormulateInput
+      :value="user.value"
       name="newsletter"
       type="checkbox"
       input-class="toggle-checkbox"
       element-class="toggle flex-none"
       :label="$t('user.newsletter')"
+      @input="updateUser({ newsletter: $event })"
     />
 
     <div class="border-grey-dark border-b my-12" />
@@ -83,8 +104,7 @@
 </template>
 
 <script>
-import { clone } from 'lodash'
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 export default {
   async asyncData({ store }) {
     try {
@@ -95,26 +115,56 @@ export default {
   },
   data() {
     return {
-      user: { ...clone(this.$store.getters.user) },
+      // user: { ...clone(this.$store.getters.user) },
+      unsavedChanges: false,
+      unsavedChangesModal: false,
+      pending: { save: false, discard: false },
     }
   },
+  beforeRouteLeave(to, from, next) {
+    this.nextRoute = to.path
+    if (this.unsavedChanges) this.unsavedChangesModal = true
+    else next()
+  },
+  computed: {
+    ...mapGetters(['user']),
+  },
+  watch: {
+    user: {
+      deep: true,
+      handler() {
+        this.unsavedChanges = true
+      },
+    },
+  },
+
   methods: {
-    ...mapMutations('modal', {
-      showModal: 'showModal',
-      hideModal: 'hideModal',
-    }),
+    ...mapMutations(['updateUser']),
+    async discardChanges() {
+      this.pending.discard = true
+      try {
+        await this.$store.dispatch('getMe')
+        this.unsavedChanges = false
+        this.$router.push(this.nextRoute)
+      } catch (error) {
+        this.pending.discard = false
+        this.$errorHandler({ prefix: 'user', error })
+      }
+    },
     deleteAccount() {
       // TODO
       console.log('deleteAccount')
     },
     async updateAccount() {
+      this.pending.save = true
       try {
         console.log(this.user)
         await this.$axios.$put(`/api/users/${this.user._id}`, this.user)
+        this.$router.push('/')
       } catch (error) {
-        console.error(error)
-        const { data } = error?.response
-        this.showModal(error + '\n' + JSON.stringify(data))
+        this.pending.save = false
+        this.unsavedChangesModal = false
+        this.$errorHandler({ prefix: 'user', error })
       }
     },
   },
