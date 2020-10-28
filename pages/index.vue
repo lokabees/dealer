@@ -5,7 +5,7 @@
       @hide="productCreationPrompt = false"
     />
     <div class="relative">
-      <div class="relative flex justify-end pb-1/4 bg-primary-light">
+      <div class="relative flex justify-end pb-1/2 md:pb-1/4 bg-primary-light">
         <FormulateInput
           name="coverImage"
           type="image"
@@ -34,7 +34,37 @@
         </div>
       </div>
 
-      <div class="bg-primary-lightest py-3 mb-5">
+      <div
+        class="hidden md:block absolute bottom-0 md:left-8 bg-white border-4 border-white -mb-5 w-2/3 md:w-1/3 pb-1/3 md:pb-1/5"
+      >
+        <FormulateInput
+          name="profileImage"
+          type="image"
+          :value="[shop.images.profile]"
+          upload-behavior="live"
+          :uploader="uploadProfileImage"
+          :label="$t('shop_registration_wizard.step_5.you_photo')"
+          validation="mime:image/jpeg,image/png"
+          outer-class="absolute h-full w-full"
+          label-class="hidden"
+          input-class="absolute h-full w-full z-20 img-input cursor-pointer"
+          help-class="hidden"
+          wrapper-class="p-0 m-0"
+          element-class="absolute h-full w-full element"
+        />
+
+        <div
+          v-if="!profileImage"
+          class="absolute flex h-full w-full bg-grey-lighter"
+        >
+          <div class="mx-auto my-auto text-center">
+            <img class="mx-auto pb-5" src="/img/icons/add-pic.svg" />
+            <span>{{ $t('dashboard.upload_profile_image') }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary-lightest py-3 mb-5 hidden md:block">
         <div class="container flex justify-end">
           <div>
             <button class="primary" @click="$router.push('/shop/edit')">
@@ -46,9 +76,11 @@
           </div>
         </div>
       </div>
+    </div>
 
+    <div class="flex w-full justify-items-center">
       <div
-        class="absolute bottom-0 left-8 bg-white border-4 border-white -mb-5 w-1/3 pb-1/5"
+        class="mx-auto relative md:hidden bg-white border-4 border-white -mb-5 w-2/3 pb-1/3 -mt-1/4"
       >
         <FormulateInput
           name="profileImage"
@@ -82,14 +114,14 @@
       <div class="md:flex px-2">
         <div class="w-full">
           <h1
-            class="py-5 font-serif antialiased leading-tight select-none text-6xl font-black text-grey-dark"
+            class="py-5 text-center md:text-left font-serif antialiased leading-tight select-none text-6xl font-black text-grey-dark"
           >
             {{ shopName }}
           </h1>
         </div>
         <!-- categories -->
         <div class="flex items-center w-full">
-          <div class="flex flex-wrap md:justify-end w-full">
+          <div class="flex flex-wrap justify-center md:justify-end w-full pb-6">
             <div
               v-for="(categoryId, key) in shop.categories"
               :key="key"
@@ -102,7 +134,22 @@
           </div>
         </div>
       </div>
+    </div>
 
+    <div class="bg-primary-lightest py-3 mb-5 md:hidden">
+      <div class="container flex justify-center">
+        <div>
+          <button class="primary" @click="$router.push('/shop/edit')">
+            {{ $t('dashboard.shop.manage_shop') }}
+          </button>
+          <button class="tertiary" @click="$router.push('/')">
+            {{ $t('dashboard.shop.view_shop') }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
       <div class="flex flex-wrap overflow-hidden">
         <!-- manage shop -->
         <DashboardCard>

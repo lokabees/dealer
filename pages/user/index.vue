@@ -1,5 +1,5 @@
 <template>
-  <div class="container prose p-2">
+  <div class="container prose p-2 pb-16">
     <Modal :visible="unsavedChangesModal" :message="$t('user.unsaved_changes')">
       <template v-slot:buttons>
         <button
