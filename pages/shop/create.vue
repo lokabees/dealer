@@ -4,7 +4,7 @@
       <form-wizard
         ref="wizard"
         color="#19ae9d"
-        :start-index="1"
+        :start-index="4"
         step-size="xs"
         @on-complete="$router.push('/shop/success')"
       >
@@ -44,7 +44,11 @@
 
         <!-- STEP 5-->
         <tab-content>
-          <WizardStep5 @submit="createShop" @back="$refs.wizard.prevTab()" />
+          <WizardStep5
+            :pending="pending"
+            @submit="createShop"
+            @back="$refs.wizard.prevTab()"
+          />
         </tab-content>
 
         <template slot="footer">
@@ -69,6 +73,11 @@ export default {
       return { shopCategories: {} }
     }
   },
+  data() {
+    return {
+      pending: false,
+    }
+  },
   computed: {
     ...mapGetters('shops', {
       activeShop: 'activeShop',
@@ -76,11 +85,13 @@ export default {
   },
   methods: {
     async createShop(creatives) {
+      this.pending = true
       try {
         await this.$axios.$post('/api/shops', this.activeShop)
         await this.$store.dispatch('shops/getActiveShop')
         this.$router.push('success')
       } catch (error) {
+        this.pending = false
         this.$errorHandler({ prefix: 'shop_registration_wizard', error })
       }
     },

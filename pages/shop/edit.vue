@@ -1,10 +1,5 @@
 <template>
   <div class="container prose p-2">
-    <Modal>
-      <template v-slot:buttons>
-        <button @click="hideModal">{{ $t('login.ok') }}</button>
-      </template>
-    </Modal>
     <UnsavedChangesModal
       :visible="unsavedChangesModal"
       :message="$t('edit_shop.unsaved_changes')"
@@ -124,10 +119,6 @@ export default {
     },
   },
   methods: {
-    ...mapMutations('modal', {
-      showModal: 'showModal',
-      hideModal: 'hideModal',
-    }),
     ...mapMutations('shops', {
       updateActiveShop: 'updateActiveShop',
     }),

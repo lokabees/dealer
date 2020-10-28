@@ -74,6 +74,8 @@
         </div>
         <div class="w-1/2 pl-1">
           <FormulateInput
+            :class="{ 'spinner-dark': pending }"
+            input-class="button bg-grey-dark text-white w-full hide-on-spinner"
             type="submit"
             :label="$t('shop_registration_wizard.next')"
           />
@@ -86,6 +88,12 @@
 <script>
 import { mapGetters, mapMutations } from 'vuex'
 export default {
+  props: {
+    pending: {
+      type: Boolean,
+      default: false,
+    },
+  },
   computed: {
     ...mapGetters('shops', {
       activeShop: 'activeShop',

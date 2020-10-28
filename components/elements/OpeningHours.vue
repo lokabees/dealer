@@ -141,7 +141,12 @@
                   </div>
 
                   <div
-                    v-if="openingTimes.open && openingTimes.close"
+                    v-if="
+                      openingTimes.open &&
+                      openingTimes.close &&
+                      openingTimes.open !== 'NaN:NaN' &&
+                      openingTimes.close !== 'NaN:NaN'
+                    "
                     class="overflow-hidden w-full pr-2"
                   >
                     <FormulateInput
@@ -166,7 +171,12 @@
                     />
                   </div>
                   <div
-                    v-if="openingTimes.open && openingTimes.close"
+                    v-if="
+                      openingTimes.open &&
+                      openingTimes.close &&
+                      openingTimes.open !== 'NaN:NaN' &&
+                      openingTimes.close !== 'NaN:NaN'
+                    "
                     class="overflow-hidden w-full pl-2"
                   >
                     <FormulateInput
@@ -214,7 +224,12 @@
                     />
                   </div>
                   <div
-                    v-if="!openingTimes.open || !openingTimes.close"
+                    v-if="
+                      !openingTimes.open ||
+                      !openingTimes.close ||
+                      openingTimes.open === 'NaN:NaN' ||
+                      openingTimes.close === 'NaN:NaN'
+                    "
                     class="flex my-auto"
                   >
                     {{ $t('shop_registration_wizard.step_2.closed') }}

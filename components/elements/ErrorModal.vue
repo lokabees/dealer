@@ -71,7 +71,7 @@ export default {
     @apply z-50 fixed top-0 left-0 h-screen w-full bg-black opacity-50;
   }
   &-body {
-    @apply bg-warning-lighter border-t-4 border-warning m-3 max-h-full  rounded-lg;
+    @apply bg-danger-lighter border-t-4 border-danger m-3 max-h-full  rounded-lg;
   }
 }
 </style>
