@@ -41,12 +41,6 @@
         :placeholder="$t('user.role_placeholder')"
       />
     -->
-      <label class="text-sm font-bold">{{
-        $t('user.change_credentials')
-      }}</label>
-      <p>
-        {{ $t('user.change_credentials_text') }}
-      </p>
 
       <!--
       <FormulateInput
@@ -63,6 +57,7 @@
       </div>
       <FormulateInput
         type="button"
+        input-class="secondary w-full"
         :label="$t('user.new_password')"
         @click="$router.push('/auth/set-new-password')"
       />
@@ -80,7 +75,8 @@
     <p>{{ $t('user.newsletter_info') }}</p>
 
     <FormulateInput
-      :value="user.value"
+      :value="user.newsletter"
+      :checked="user.newsletter"
       name="newsletter"
       type="checkbox"
       input-class="toggle-checkbox"
@@ -96,11 +92,16 @@
       <button class="primary" @click="$router.push('/contact')">
         {{ $t('user.contact') }}
       </button>
+      <p class="text-sm font-bold">{{ $t('user.change_credentials') }}</p>
+      <p>
+        {{ $t('user.change_credentials_text') }}
+      </p>
+      <!--
       <p>{{ $t('user.delete_info') }}</p>
       <button class="secondary" @click="deleteAccount">
         {{ $t('user.delete_button') }}
       </button>
-    </div>
+    --></div>
   </div>
 </template>
 
@@ -160,6 +161,7 @@ export default {
       this.pending.save = true
       try {
         await this.$axios.$put(`/api/users/${this.user._id}`, this.user)
+        this.unsavedChanges = false
         this.$router.push('/')
       } catch (error) {
         this.pending.save = false

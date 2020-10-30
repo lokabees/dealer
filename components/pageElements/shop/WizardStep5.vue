@@ -22,9 +22,9 @@
           element-class="relative h-64 w-full preview-image border-2 border-dashed "
           input-class="absolute top-0 left-0 h-full w-full z-20 opacity-0 cursor-pointer"
         />
-        <div class="absolute top-0 flex h-full w-1/2 items-center z-1">
+        <div class="absolute top-0 flex h-full w-2/3 items-center z-1">
           <div>
-            <img class="mx-auto" src="/img/icons/add-pic.svg" />
+            <img class="mx-auto w-16" src="/img/icons/add-pic.svg" />
             <span class="mx-auto text-center">{{
               $t('dashboard.upload_cover_image')
             }}</span>
@@ -46,9 +46,9 @@
           element-class="relative h-64 w-full preview-image border-2 border-dashed"
           input-class="absolute top-0 left-0 h-full w-full z-20 opacity-0 cursor-pointer"
         />
-        <div class="absolute top-0 flex h-full w-1/2 items-center z-1">
+        <div class="absolute top-0 flex h-full w-2/3 items-center z-1">
           <div>
-            <img class="mx-auto" src="/img/icons/add-pic.svg" />
+            <img class="mx-auto w-16" src="/img/icons/add-pic.svg" />
             <span class="mx-auto text-center">{{
               $t('dashboard.upload_profile_image')
             }}</span>
