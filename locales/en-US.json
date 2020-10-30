@@ -240,6 +240,7 @@
     "discard_changes": "Discard changes",
     "errors": {
       "400": "Invalid input, check all the input fields again.",
+      "403": "Access denied.",
       "500": "An unknown error occured. Try reloading the page and login again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
       "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
@@ -268,6 +269,9 @@
     "next": "Next",
     "back": "Back",
     "skip": "Skip",
+    "unsaved_changes": "All changes will be lost if you leave without saving. Do you want to stay and continue creating your shop profile?",
+    "stay": "Stay",
+    "discard_changes": "Discard changes",
     "step_1": {
       "title": "Complete your shop profile now",
       "text": "With an informative profile page, your shop will be easier to find and will attract more buyers",
@@ -394,6 +398,12 @@
     "next": "Next",
     "done": "Create shop",
     "cancel": "Cancel",
+    "errors": {
+      "400": "Invalid input, please check if you filled all the input fields correctly.",
+      "500": "An unknown error occured. Try reloading the page and login again.",
+      "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
+      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+    },
     "errors": {
       "400": "Invalid input, please check if you filled all the input fields correctly.",
       "500": "An unknown error occured. Try reloading the page and login again.",

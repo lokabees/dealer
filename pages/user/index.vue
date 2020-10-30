@@ -17,6 +17,7 @@
         </button>
       </template>
     </Modal>
+
     <h1 class="text-center pt-16">{{ $t('user.title') }}</h1>
     <p class="text-center pb-8">{{ $t('user.text') }}</p>
 
@@ -59,7 +60,7 @@
         type="button"
         input-class="secondary w-full"
         :label="$t('user.new_password')"
-        @click="$router.push('/auth/set-new-password')"
+        @click="changePassword"
       />
 
       <FormulateInput
@@ -153,9 +154,14 @@ export default {
         this.$errorHandler({ prefix: 'user', error })
       }
     },
-    deleteAccount() {
-      // TODO
-      console.log('deleteAccount')
+    async changePassword() {
+      try {
+        await this.$axios.$post('/api/password-reset/', {
+          email: this.user.email,
+        })
+      } catch (error) {
+        this.$errorHandler({ prefix: 'user', error })
+      }
     },
     async updateAccount() {
       this.pending.save = true

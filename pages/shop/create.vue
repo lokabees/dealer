@@ -1,10 +1,30 @@
 <template>
   <div>
+    <Modal
+      :visible="unsavedChangesModal"
+      :message="$t('shop_registration_wizard.unsaved_changes')"
+    >
+      <template v-slot:buttons>
+        <button
+          :class="{ 'spinner-light': pending.discard }"
+          @click="discardChanges"
+        >
+          {{ $t('shop_registration_wizard.discard_changes') }}
+        </button>
+        <button
+          :class="{ 'spinner-dark': pending.save }"
+          class="primary"
+          @click="unsavedChangesModal = false"
+        >
+          {{ $t('shop_registration_wizard.stay') }}
+        </button>
+      </template>
+    </Modal>
     <div class="container max-w-xl">
       <form-wizard
         ref="wizard"
         color="#19ae9d"
-        :start-index="4"
+        :start-index="0"
         step-size="xs"
         @on-complete="$router.push('/shop/success')"
       >
@@ -75,23 +95,44 @@ export default {
   },
   data() {
     return {
+      unsavedChanges: false,
+      unsavedChangesModal: false,
       pending: false,
     }
+  },
+  beforeRouteLeave(to, from, next) {
+    this.nextRoute = to.path
+    if (this.unsavedChanges) this.unsavedChangesModal = true
+    else next()
   },
   computed: {
     ...mapGetters('shops', {
       activeShop: 'activeShop',
     }),
   },
+  watch: {
+    activeShop: {
+      deep: true,
+      handler() {
+        this.unsavedChanges = true
+      },
+    },
+  },
   methods: {
+    discardChanges() {
+      this.unsavedChanges = false
+      this.$router.push(this.nextRoute)
+    },
     async createShop(creatives) {
       this.pending = true
       try {
         await this.$axios.$post('/api/shops', this.activeShop)
         await this.$store.dispatch('shops/getActiveShop')
+        this.unsavedChanges = false
         this.$router.push('success')
       } catch (error) {
         this.pending = false
+        this.unsavedChanges = false
         this.$errorHandler({ prefix: 'shop_registration_wizard', error })
       }
     },
