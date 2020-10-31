@@ -70,9 +70,16 @@
             <button class="primary" @click="$router.push('/shop/edit')">
               {{ $t('dashboard.shop.manage_shop') }}
             </button>
-            <button class="tertiary" @click="$router.push('/')">
-              {{ $t('dashboard.shop.view_shop') }}
-            </button>
+
+            <a
+              class="h-full"
+              :href="`${$config.consumerUrl}/shops/${shop.slug}`"
+              target="_blank"
+            >
+              <button class="tertiary" @click="$router.push('/')">
+                {{ $t('dashboard.shop.view_shop') }}
+              </button>
+            </a>
           </div>
         </div>
       </div>
@@ -142,9 +149,16 @@
           <button class="primary" @click="$router.push('/shop/edit')">
             {{ $t('dashboard.shop.manage_shop') }}
           </button>
-          <button class="tertiary" @click="$router.push('/')">
-            {{ $t('dashboard.shop.view_shop') }}
-          </button>
+
+          <a
+            class="h-full"
+            :href="`${$config.consumerUrl}/shops/${shop.slug}`"
+            target="_blank"
+          >
+            <button class="tertiary">
+              {{ $t('dashboard.shop.view_shop') }}
+            </button>
+          </a>
         </div>
       </div>
     </div>
