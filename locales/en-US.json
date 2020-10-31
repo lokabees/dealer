@@ -135,6 +135,11 @@
         "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
         "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
       }
+    },
+    "errors": {
+      "500": "An unknown error occured. Try reloading the page and login again.",
+      "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
+      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
     }
   },
   "signup": {
