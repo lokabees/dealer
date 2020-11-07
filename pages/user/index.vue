@@ -57,8 +57,9 @@
         <span class="text-sm font-bold"> {{ $t('user.better_safe') }}</span>
       </div>
       <FormulateInput
+        :class="{ 'spinner-light': pending.resetPW }"
+        input-class="button text-grey-dark bg-white border-2 border-secondary w-full hide-on-spinner"
         type="button"
-        input-class="secondary w-full"
         :label="$t('user.new_password')"
         @click="changePassword"
       />
@@ -121,7 +122,7 @@ export default {
       // user: { ...clone(this.$store.getters.user) },
       unsavedChanges: false,
       unsavedChangesModal: false,
-      pending: { save: false, discard: false },
+      pending: { save: false, discard: false, resetPW: false },
     }
   },
   beforeRouteLeave(to, from, next) {
@@ -155,6 +156,7 @@ export default {
       }
     },
     async changePassword() {
+      this.pending.resetPW = true
       try {
         await this.$axios.$post('/api/password-reset/', {
           email: this.user.email,
@@ -163,6 +165,7 @@ export default {
         this.$router.push('/auth/reset-password-success')
       } catch (error) {
         this.$errorHandler({ prefix: 'user', error })
+        this.pending.resetPW = false
       }
     },
     async updateAccount() {
