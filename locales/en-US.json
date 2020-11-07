@@ -42,8 +42,8 @@
     }
   },
   "reset_password_success": {
-    "title": "Your password has been reset!",
-    "text": "Now look into your inbox and click the link to reset your password.",
+    "title": "Check your inbox",
+    "text": "We sent you a link to reset your password. Now look into your inbox and click the link to reset your password.",
     "button": "To login",
     "errors": {
       "500": "An unknown error occured. Try reloading the page and login again.",
@@ -245,6 +245,7 @@
     "discard_changes": "Discard changes",
     "errors": {
       "400": "Invalid input, check all the input fields again.",
+      "401": "Not allowed.",
       "403": "Access denied.",
       "500": "An unknown error occured. Try reloading the page and login again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
@@ -478,9 +479,11 @@
     "errors": {
       "400": "Something went wrong. Please contact support.",
       "401": "Unauthorized",
+      "403": "Access denied.",
       "500": "An unknown error occured. Try reloading the page and login again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
-      "network": "We can not reach the server. Please check your internet connection."
+      "network": "We can not reach the server. Please check your internet connection.",
+      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
     }
   },
   "validation_errors": {

@@ -2,7 +2,6 @@
   <div class="container max-w-md prose p-2">
     <h1 class="text-center">{{ $t('new_password.title') }}</h1>
     <FormulateForm @submit="setNewPassword">
-      <!--TODO validation password-->
       <FormulateInput
         v-model="password"
         name="password"
@@ -11,7 +10,6 @@
         :placeholder="$t('new_password.password_placeholder')"
         validation="required|password"
       />
-      <!--TODO validation passwords match-->
       <FormulateInput
         v-model="confirmPassword"
         name="password"
@@ -40,10 +38,16 @@ export default {
     }
   },
   methods: {
-    setNewPassword() {
-      console.log('set new password')
-      // TODO
-      // this.$router.push('/auth/login')
+    async setNewPassword() {
+      try {
+        const { token } = this.$route.params
+        await this.$axios.patch(`/api/password-reset/${token}`, {
+          password: this.password,
+        })
+        this.$router.push('/auth/login')
+      } catch (error) {
+        this.$errorHandler(error, { prefix: 'reset_password' })
+      }
     },
   },
 }

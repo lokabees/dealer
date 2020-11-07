@@ -158,7 +158,9 @@ export default {
       try {
         await this.$axios.$post('/api/password-reset/', {
           email: this.user.email,
+          master: this.$config.appMasterKey,
         })
+        this.$router.push('/auth/reset-password-success')
       } catch (error) {
         this.$errorHandler({ prefix: 'user', error })
       }

@@ -35,7 +35,7 @@ export default {
         })
         this.$router.push('/auth/reset-password-success')
       } catch (error) {
-        console.error(error)
+        this.$errorHandler(error, { prefix: 'reset_password' })
       }
     },
   },
