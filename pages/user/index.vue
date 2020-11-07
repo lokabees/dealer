@@ -91,9 +91,11 @@
 
     <div class="text-center">
       <p class="font-bold">{{ $t('user.need_help') }}</p>
-      <button class="primary" @click="$router.push('/contact')">
-        {{ $t('user.contact') }}
-      </button>
+      <a :href="`${$config.consumerUrl}/contact`">
+        <button class="primary">
+          {{ $t('user.contact') }}
+        </button>
+      </a>
       <p class="text-sm font-bold">{{ $t('user.change_credentials') }}</p>
       <p>
         {{ $t('user.change_credentials_text') }}
