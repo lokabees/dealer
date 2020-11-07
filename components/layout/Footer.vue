@@ -4,12 +4,16 @@
       class="container grid grid-cols-3 gap-6 my-16 pt-12 w-full border-t border-grey-dark"
     >
       <div class="text-center grid">
-        <n-link class="text-grey-dark font-medium" to="/imprint">{{
-          $t('footer.links.imprint')
-        }}</n-link>
-        <n-link class="text-grey-dark font-medium" to="/privacy">{{
-          $t('footer.links.privacy')
-        }}</n-link>
+        <a
+          class="text-grey-dark font-medium"
+          :href="`${$config.consumerUrl}/imprint`"
+          >{{ $t('footer.links.imprint') }}</a
+        >
+        <a
+          class="text-grey-dark font-medium"
+          :href="`${$config.consumerUrl}/privacy`"
+          >{{ $t('footer.links.privacy') }}</a
+        >
       </div>
       <div class="col-span-1 flex justify-center">
         <div>
@@ -32,12 +36,16 @@
         </div>
       </div>
       <div class="text-center grid">
-        <n-link class="text-grey-dark font-medium" to="/contact">{{
-          $t('footer.links.contact')
-        }}</n-link>
-        <n-link class="text-grey-dark font-medium" to="/terms">{{
-          $t('footer.links.terms')
-        }}</n-link>
+        <a
+          class="text-grey-dark font-medium"
+          :href="`${$config.consumerUrl}/contact`"
+          >{{ $t('footer.links.contact') }}</a
+        >
+        <a
+          class="text-grey-dark font-medium"
+          :href="`${$config.consumerUrl}/terms`"
+          >{{ $t('footer.links.terms') }}</a
+        >
       </div>
     </div>
   </div>

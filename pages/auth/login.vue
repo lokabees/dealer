@@ -62,6 +62,7 @@
 <script>
 import { mapActions } from 'vuex'
 export default {
+  middleware: ['notAuthenticated'],
   data() {
     return {
       guest: {},

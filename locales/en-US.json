@@ -487,5 +487,11 @@
     "no_numbers": "No numbers",
     "password": "The password must contain a lowercase letter, an uppercase letter, a number and a special character",
     "confirm_password": "The passwords do not match"
+  },
+  "cookies_consent": {
+    "text": "We use cookies on our website. Some of them are essential, while others help us to improve this website and your experience.",
+    "accept": "Accept",
+    "more_info": "You can find more information on how we use cookies in our ",
+    "privacy": "Privacy Policy"
   }
 }

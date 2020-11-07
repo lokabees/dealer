@@ -33,7 +33,7 @@
           name="img"
           :label="$t('add_product.image')"
           :uploader="uploadProductImage"
-          upload-behavior="delayed"
+          upload-behavior="live"
           element-class="hover:border-primary relative h-64 w-full preview-image border-2 border-dashed "
           input-class="absolute top-0 left-0 h-full w-full z-20 opacity-0 cursor-pointer"
         />
@@ -108,13 +108,17 @@ export default {
   methods: {
     ...mapMutations('products', { addProductInStore: 'addProduct' }),
     async uploadProductImage(file, progress, error, options) {
+      console.log('a')
       const formData = new FormData()
       formData.append('file', file)
+      console.log('b')
       try {
         const imgLocal = await this.$axios.$post(`/api/media/product`, formData)
         // this.updateActiveShopImages({ cover: imgLocal })
         this.product.picture = imgLocal
+        console.log(this.product.picture)
       } catch (error) {
+        console.log(error)
         this.$errorHandler({ prefix: 'add_product', error })
       }
     },
