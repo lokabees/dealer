@@ -80,7 +80,8 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
-import { parsePhoneNumber } from 'libphonenumber-js'
+// import { parsePhoneNumber } from 'libphonenumber-js'
+import { PhoneNumberUtil } from 'google-libphonenumber'
 export default {
   data() {
     return {
@@ -96,9 +97,9 @@ export default {
   },
   methods: {
     ...mapMutations('shops', { updateActiveShop: 'updateActiveShop' }),
-    async isValidPhoneNumber(value) {
-      const res = await parsePhoneNumber(value).isValid()
-      return res
+    isValidPhoneNumber(value) {
+      const phoneUtil = PhoneNumberUtil.getInstance()
+      return phoneUtil.isValidNumber(phoneUtil.parse(value, 'DE'))
     },
   },
 }

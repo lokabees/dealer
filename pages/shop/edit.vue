@@ -22,6 +22,8 @@
     </Modal>
     <h1 class="text-center pt-16 pb-8">{{ $t('edit_shop.title') }}</h1>
 
+    <button @click="deleteShop">SHOP LÖSCHEN</button>
+
     <div class="flex">
       <div class="flex w-1/2" :class="{ active: tab === 1 }">
         <button class="mx-auto capitalize" @click="tab = 1">
@@ -134,6 +136,15 @@ export default {
     ...mapMutations('shops', {
       updateActiveShop: 'updateActiveShop',
     }),
+    async deleteShop() {
+      console.log('del')
+      try {
+        await this.$axios.delete(`/api/shops/${this.activeShop._id}`)
+        console.log('shop is gone')
+      } catch (error) {
+        this.$errorHandler({ error })
+      }
+    },
     async discardChanges() {
       this.pending.discard = true
       try {
