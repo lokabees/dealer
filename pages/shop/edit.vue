@@ -56,7 +56,12 @@
           element-class="toggle"
           @input="updateActiveShop({ published: $event })"
         />
-        <span>{{ $t('edit_shop.visibility_hint') }}</span>
+        <span>{{
+          activeShop.published
+            ? $t('edit_shop.visibility_hint_visible')
+            : $t('edit_shop.visibility_hint_invisible')
+        }}</span>
+
         <!--v-model="shop.categories"-->
         <FormulateInput type="shopCategories" :options="shopCategories" />
         <!--v-model="shop.address" -->

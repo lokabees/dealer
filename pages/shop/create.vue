@@ -33,41 +33,46 @@
         <!-- STEP 1-->
         <tab-content>
           <WizardStep1
+            ref="wizard_step_1"
             :shop-categories="shopCategories"
-            @submit="$refs.wizard.nextTab()"
+            @submit="nextTab()"
           />
         </tab-content>
 
         <!-- STEP 2-->
         <tab-content>
           <WizardStep2
-            @submit="$refs.wizard.nextTab()"
-            @back="$refs.wizard.prevTab()"
+            ref="wizard_step_2"
+            @submit="nextTab()"
+            @back="prevTab()"
           />
         </tab-content>
 
         <!-- STEP 3-->
         <tab-content>
           <WizardStep3
-            @submit="$refs.wizard.nextTab()"
-            @back="$refs.wizard.prevTab()"
+            ref="wizard_step_3"
+            @submit="nextTab()"
+            @back="prevTab()"
           />
         </tab-content>
 
         <!-- STEP 4-->
         <tab-content>
           <WizardStep4
-            @submit="$refs.wizard.nextTab()"
-            @back="$refs.wizard.prevTab()"
+            ref="wizard_step_4"
+            @submit="nextTab()"
+            @back="prevTab()"
           />
         </tab-content>
 
         <!-- STEP 5-->
         <tab-content>
           <WizardStep5
+            ref="wizard_step_5"
             :pending="pending"
             @submit="createShop"
-            @back="$refs.wizard.prevTab()"
+            @back="prevTab()"
           />
         </tab-content>
 
@@ -119,6 +124,16 @@ export default {
     },
   },
   methods: {
+    prevTab() {
+      if (!this.$refs.wizard) return
+      this.$refs.wizard.prevTab()
+      window.scrollTo(0, 0)
+    },
+    nextTab() {
+      if (!this.$refs.wizard) return
+      this.$refs.wizard.nextTab()
+      window.scrollTo(0, 0)
+    },
     discardChanges() {
       this.unsavedChanges = false
       this.$router.push(this.nextRoute)
