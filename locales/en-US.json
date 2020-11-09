@@ -329,6 +329,8 @@
       "from": "From",
       "until": "Until",
       "closed": "Closed",
+      "ok": "Okay",
+      "has_validation_errors": "Your input is invalid. Please check if the closing times are after the opening times and breaks are within these timeboxes.",
       "errors": {
         "500": "An unknown error occured. Try reloading the page and login again.",
         "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",

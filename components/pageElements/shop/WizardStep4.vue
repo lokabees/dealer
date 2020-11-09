@@ -23,6 +23,7 @@
         validation="phoneNumber"
         :placeholder="$t('shop_registration_wizard.step_4.phone_placeholder')"
         :label="$t('shop_registration_wizard.step_4.phone')"
+        error-behavior="blur"
       />
       <FormulateInput
         type="text"
@@ -38,6 +39,7 @@
         }"
         validation="phoneNumber"
         :label="$t('shop_registration_wizard.step_4.whatsapp')"
+        error-behavior="blur"
       />
       <FormulateInput
         type="text"

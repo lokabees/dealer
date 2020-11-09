@@ -37,6 +37,7 @@
               },
             }"
             validation="openBeforeClose"
+            error-behavior="live"
             @validation="validation[day].open = $event"
             @input="
               updateActiveShopOpeningHours({
@@ -52,6 +53,7 @@
             type="time"
             :name="`${day} close`"
             errors-class="hidden"
+            error-behavior="live"
             :label="$t('shop_registration_wizard.step_2.until')"
             :validation-rules="{
               closeAfterOpen: ({ value }) => {
@@ -160,6 +162,7 @@
                           return breakOpenValidation(context, day)
                         },
                       }"
+                      error-behavior="live"
                       validation="breakOpenValidation"
                       @validation="validation[day].breaks.from = $event"
                       @input="
@@ -184,6 +187,7 @@
                       type="time"
                       :name="`${day} break until`"
                       errors-class="hidden"
+                      error-behavior="live"
                       :label="$t('shop_registration_wizard.step_2.until')"
                       :validation-rules="{
                         closeAfterOpen: ({ value }) => {
@@ -336,7 +340,8 @@ export default {
       if (
         !breakOpenSec ||
         !this.activeShop.openingHours[day] ||
-        !this.activeShop.openingHours[day].breaks[0]
+        !this.activeShop.openingHours[day].breaks[0] ||
+        !this.activeShop.openingHours[day].breaks[0].to
       )
         return true
       const openSec = this.getSecondsFromString(
@@ -348,6 +353,7 @@ export default {
       const breakCloseSec = this.getSecondsFromString(
         this.activeShop.openingHours[day].breaks[0].to
       )
+
       return (
         breakOpenSec > openSec &&
         breakOpenSec < closeSec &&
