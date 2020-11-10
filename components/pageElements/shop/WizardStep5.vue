@@ -18,7 +18,7 @@
           :uploader="uploadCoverImage"
           upload-behavior="delayed"
           :label="$t('shop_registration_wizard.step_5.shop_photo')"
-          validation="mime:image/jpeg,image/png"
+          validation="mime:image/jpeg,image/png,image/heic,image/heif"
           element-class="relative h-64 w-full preview-image border-2 border-dashed "
           input-class="absolute top-0 left-0 h-full w-full z-20 opacity-0 cursor-pointer"
         />
@@ -42,7 +42,7 @@
           upload-behavior="delayed"
           :uploader="uploadProfileImage"
           :label="$t('shop_registration_wizard.step_5.you_photo')"
-          validation="mime:image/jpeg,image/png"
+          validation="mime:image/jpeg,image/png,image/heic,image/heif"
           element-class="relative h-64 w-full preview-image border-2 border-dashed"
           input-class="absolute top-0 left-0 h-full w-full z-20 opacity-0 cursor-pointer"
         />
@@ -113,6 +113,7 @@ export default {
         this.updateActiveShopImages({ cover: imgLocal })
       } catch (error) {
         this.$errorHandler({ prefix: 'shop_registration_wizard', error })
+        this.updateActiveShopImages({ cover: null })
       }
     },
     async uploadProfileImage(file, progress, error, options) {
@@ -123,6 +124,7 @@ export default {
         this.updateActiveShopImages({ profile: imgLocal })
       } catch (error) {
         this.$errorHandler({ prefix: 'shop_registration_wizard', error })
+        this.updateActiveShopImages({ profile: null })
       }
     },
   },

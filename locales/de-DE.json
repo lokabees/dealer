@@ -1,21 +1,493 @@
 {
-  "login": {
-    "login": "Einloggen",
-    "password": "Passwort"
-  },
-  "general": {
-    "error_messages": {
-      "ok": "Oki",
-      "network": "Server nicht erreichbar. Überprüfe deine Internetverbindung"
-    }
-  },
-  "signup": {
-    "verification_successful": "Deine E-Mail wurde verifiziert!",
-    "verification_successful_sub": "Du  kannst dich nun einloggen. Viel Spaß!",
-    "to_login": "Zum Login"
-  },
-  "logout": {
-    "successful": "You got logged out!",
-    "sub": "Remember: good pictures = happy customers"
-  }
+	"add_product": {
+		"category": "Wählen Sie eine Produktkategorie",
+		"category_placeholder": "Keramik",
+		"description": "Produktbeschreibung",
+		"description_placeholder": "Handgemachte japanische Vase in Weiß",
+		"discard_changes": "Änderungen verwerfen",
+		"errors": {
+			"400": "Ungültige Eingabe, überprüfen Sie alle Eingabefelder erneut.",
+			"500": "Ein unbekannter Fehler ist aufgetreten. Versuchen Sie, die Seite neu zu laden und sich erneut anzumelden.",
+			"504": "Wir können den Server nicht erreichen. Bitte versuchen Sie es später erneut oder melden Sie das Problem an hello@lokabees.com",
+			"unspecific": "UPS. Etwas ist schief gelaufen. Bitte versuchen Sie es erneut oder wenden Sie sich an unseren Support, wenn die Anfrage weiterhin fehlschlägt."
+		},
+		"image": "Produktabbildung",
+		"name": "Wie heißt dieses Produkt?",
+		"name_placeholder": "Japanische Vase",
+		"ok": "Okay",
+		"stay": "bleibe",
+		"submit": "Produkt hinzufügen",
+		"title": "Produkt hinzufügen",
+		"unsaved_changes": "Alle Änderungen gehen verloren, wenn Sie jetzt gehen. Möchten Sie bleiben und das Hinzufügen des Produkts beenden?"
+	},
+	"cookies_consent": {
+		"accept": "Akzeptieren",
+		"more_info": "Weitere Informationen zur Verwendung von Cookies finden Sie in unserer",
+		"privacy": "Datenschutz-Bestimmungen",
+		"text": "Wir verwenden Cookies auf unserer Website. Einige von ihnen sind unerlässlich, während andere uns helfen, diese Website und Ihre Erfahrungen zu verbessern."
+	},
+	"dashboard": {
+		"academy": {
+			"errors": {
+				"500": "Ein unbekannter Fehler ist aufgetreten. Versuchen Sie, die Seite neu zu laden und sich erneut anzumelden.",
+				"504": "Wir können den Server nicht erreichen. Bitte versuchen Sie es später erneut oder melden Sie das Problem an hello@lokabees.com",
+				"unspecific": "UPS. Etwas ist schief gelaufen. Bitte versuchen Sie es erneut oder wenden Sie sich an unseren Support, wenn die Anfrage weiterhin fehlschlägt."
+			},
+			"text": "Hier lernen Sie Schritt für Schritt die Grundlagen der Digitalisierung Ihres Shops - keine Vorkenntnisse erforderlich!",
+			"title": "Lokabees Akademie"
+		},
+		"analysis": {
+			"errors": {
+				"500": "Ein unbekannter Fehler ist aufgetreten. Versuchen Sie, die Seite neu zu laden und sich erneut anzumelden.",
+				"504": "Wir können den Server nicht erreichen. Bitte versuchen Sie es später erneut oder melden Sie das Problem an hello@lokabees.com",
+				"unspecific": "UPS. Etwas ist schief gelaufen. Bitte versuchen Sie es erneut oder wenden Sie sich an unseren Support, wenn die Anfrage weiterhin fehlschlägt."
+			},
+			"text": "Hier finden Sie bald interessante Möglichkeiten, Ihren Shop zu analysieren und Ihr Sortiment zu optimieren.",
+			"title": ""
+		},
+		"complete_shop_prompt": {
+			"button": "",
+			"errors": {
+				"500": "",
+				"504": "",
+				"unspecific": ""
+			},
+			"text": "",
+			"title": ""
+		},
+		"errors": {
+			"500": "",
+			"504": "",
+			"unspecific": ""
+		},
+		"product_creation_prompt": {
+			"button": "",
+			"errors": {
+				"500": "",
+				"504": "",
+				"unspecific": ""
+			},
+			"text": "",
+			"title": ""
+		},
+		"products": {
+			"errors": {
+				"500": "",
+				"504": "",
+				"unspecific": ""
+			},
+			"manage": "",
+			"text": "",
+			"title": ""
+		},
+		"shop": {
+			"errors": {
+				"500": "",
+				"504": "",
+				"unspecific": ""
+			},
+			"manage": "",
+			"manage_shop": "",
+			"text": "",
+			"title": "",
+			"view_shop": ""
+		},
+		"upload_cover_image": "",
+		"upload_profile_image": ""
+	},
+	"edit_product": {
+		"category": "",
+		"description": "",
+		"description_placeholder": "",
+		"discard_changes": "",
+		"errors": {
+			"500": "",
+			"504": "",
+			"unspecific": ""
+		},
+		"image": "",
+		"name": "",
+		"name_placeholder": "",
+		"save": "",
+		"submit": "",
+		"title": "",
+		"unsaved_changes": "",
+		"upload_product_image": ""
+	},
+	"edit_shop": {
+		"address": "",
+		"categories": "",
+		"city": "",
+		"city_placeholder": "",
+		"contact_data": "",
+		"description": "",
+		"description_placeholder": "",
+		"discard_changes": "",
+		"errors": {
+			"500": "",
+			"504": "",
+			"unspecific": ""
+		},
+		"number": "",
+		"number_placeholder": "",
+		"opening_hours": "",
+		"optional": "",
+		"optional_placeholder": "",
+		"postal_code": "",
+		"postal_code_placeholder": "",
+		"save_changes": "",
+		"shop_name": "",
+		"shop_name_placeholder": "",
+		"street": "",
+		"street_placeholder": "",
+		"submit": "",
+		"title": "",
+		"unsaved_changes": "",
+		"visibility": "",
+		"visibility_hint_invisible": "",
+		"visibility_hint_visible": ""
+	},
+	"error": {
+		"continue_home": "",
+		"error_occured": "",
+		"errors": {
+			"500": "",
+			"504": "",
+			"unspecific": ""
+		},
+		"go_home": ""
+	},
+	"footer": {
+		"errors": {
+			"500": "",
+			"504": "",
+			"unspecific": ""
+		},
+		"links": {
+			"contact": "",
+			"imprint": "",
+			"privacy": "",
+			"terms": ""
+		}
+	},
+	"general": {
+		"errors": {
+			"400": "",
+			"401": "",
+			"403": "",
+			"500": "",
+			"504": "",
+			"network": "",
+			"unspecific": ""
+		},
+		"ok": ""
+	},
+	"login": {
+		"email": "",
+		"errors": {
+			"401": "",
+			"403": "",
+			"500": "",
+			"504": "",
+			"unspecific": ""
+		},
+		"facebook": "",
+		"forgot_password": "",
+		"google": "",
+		"help_with_registration": "",
+		"login": "",
+		"new_registration": "",
+		"ok": "",
+		"password": "",
+		"sign_up_with": "",
+		"signup": ""
+	},
+	"logout": {
+		"errors": {
+			"500": "",
+			"504": "",
+			"unspecific": ""
+		},
+		"sub": "",
+		"successful": ""
+	},
+	"navbar": {
+		"account_settings": "",
+		"contact": "",
+		"errors": {
+			"500": "",
+			"504": "",
+			"unspecific": ""
+		},
+		"home": "",
+		"login": "",
+		"logout": ""
+	},
+	"new_password": {
+		"errors": {
+			"500": "",
+			"504": "",
+			"unspecific": ""
+		},
+		"new_password": "",
+		"password_placeholder": "",
+		"repeat_new_password": "",
+		"submit": "",
+		"title": ""
+	},
+	"product_success": {
+		"add_another_product": "",
+		"back": "",
+		"errors": {
+			"500": "",
+			"504": "",
+			"unspecific": ""
+		},
+		"paragraph_1": "",
+		"paragraph_2": "",
+		"title": ""
+	},
+	"products": {
+		"add": "",
+		"add_button": "",
+		"cancel": "",
+		"delete": "",
+		"delete_confirmation": "",
+		"edit": "",
+		"errors": {
+			"500": "",
+			"504": "",
+			"unspecific": ""
+		},
+		"ok": "",
+		"title": ""
+	},
+	"reset_password": {
+		"back": "",
+		"email": "",
+		"email_placeholder": "",
+		"errors": {
+			"500": "",
+			"504": "",
+			"unspecific": ""
+		},
+		"submit": "",
+		"text": "",
+		"title": ""
+	},
+	"reset_password_success": {
+		"button": "",
+		"errors": {
+			"500": "",
+			"504": "",
+			"unspecific": ""
+		},
+		"text": "",
+		"title": ""
+	},
+	"shop_registration_wizard": {
+		"back": "",
+		"cancel": "",
+		"discard_changes": "",
+		"done": "",
+		"errors": {
+			"400": "",
+			"500": "",
+			"504": "",
+			"unspecific": ""
+		},
+		"next": "",
+		"prevous": "",
+		"skip": "",
+		"stay": "",
+		"step_1": {
+			"categories": "",
+			"city": "",
+			"city_placeholder": "",
+			"description": "",
+			"description_placeholder": "",
+			"errors": {
+				"500": "",
+				"504": "",
+				"unspecific": ""
+			},
+			"name": "",
+			"name_placeholder": "",
+			"number": "",
+			"number_placeholder": "",
+			"optional": "",
+			"optional_placeholder": "",
+			"postal_code": "",
+			"postal_code_placeholder": "",
+			"shop_owner": "",
+			"shop_owner_placeholder": "",
+			"street": "",
+			"street_placeholder": "",
+			"text": "",
+			"title": ""
+		},
+		"step_2": {
+			"add_breaks": "",
+			"close": "",
+			"closed": "",
+			"errors": {
+				"500": "",
+				"504": "",
+				"unspecific": ""
+			},
+			"friday": "",
+			"friday_long": "",
+			"from": "",
+			"has_validation_errors": "",
+			"monday": "",
+			"monday_long": "",
+			"ok": "",
+			"opening_hours": "",
+			"saturday": "",
+			"saturday_long": "",
+			"sunday": "",
+			"sunday_long": "",
+			"text": "",
+			"thursday": "",
+			"thursday_long": "",
+			"title": "",
+			"to": "",
+			"tuesday": "",
+			"tuesday_long": "",
+			"until": "",
+			"wednesday": "",
+			"wednesday_long": ""
+		},
+		"step_3": {
+			"delivery": "",
+			"delivery_text": "",
+			"errors": {
+				"500": "",
+				"504": "",
+				"unspecific": ""
+			},
+			"pickup": "",
+			"pickup_text": "",
+			"ship": "",
+			"ship_text": "",
+			"text": "",
+			"title": ""
+		},
+		"step_4": {
+			"email": "",
+			"email_placeholder": "",
+			"errors": {
+				"500": "",
+				"504": "",
+				"unspecific": ""
+			},
+			"phone": "",
+			"phone_placeholder": "",
+			"text": "",
+			"title": "",
+			"website": "",
+			"website_placeholder": "",
+			"whatsapp": "",
+			"whatsapp_placeholder": ""
+		},
+		"step_5": {
+			"errors": {
+				"500": "",
+				"504": "",
+				"unspecific": ""
+			},
+			"extra_points": "",
+			"shop_photo": "",
+			"text": "",
+			"text_extra_points": "",
+			"text_shop": "",
+			"text_you": "",
+			"title": "",
+			"you": "",
+			"you_photo": "",
+			"your_shop": "",
+			"yt_link": "",
+			"yt_link_placeholder": ""
+		},
+		"success": {
+			"errors": {
+				"500": "",
+				"504": "",
+				"unspecific": ""
+			},
+			"text1": "",
+			"text2": "",
+			"text3": "",
+			"text4": "",
+			"title": "",
+			"view_shop": ""
+		},
+		"unsaved_changes": ""
+	},
+	"signup": {
+		"accept_terms": "",
+		"account_exists": "",
+		"check_inbox": "",
+		"confirm_password": "",
+		"email": "",
+		"errors": {
+			"409": "",
+			"500": "",
+			"504": "",
+			"unspecific": ""
+		},
+		"facebook": "",
+		"google": "",
+		"login": "",
+		"name": "",
+		"ok": "",
+		"password": "",
+		"register_with": "",
+		"signup": "",
+		"signup_successful": "",
+		"text": "",
+		"title": "",
+		"to_login": "",
+		"updates_offers_consent": "",
+		"verification_successful": "",
+		"verification_successful_sub": ""
+	},
+	"user": {
+		"better_safe": "",
+		"change_credentials": "",
+		"change_credentials_text": "",
+		"contact": "",
+		"delete_button": "",
+		"delete_info": "",
+		"discard_changes": "",
+		"email": "",
+		"email_placeholder": "",
+		"errors": {
+			"400": "",
+			"401": "",
+			"403": "",
+			"500": "",
+			"504": "",
+			"unspecific": ""
+		},
+		"image": "",
+		"name": "",
+		"name_placeholder": "",
+		"need_help": "",
+		"new_password": "",
+		"newsletter": "",
+		"newsletter_info": "",
+		"role": "",
+		"role_placeholder": "",
+		"save_changes": "",
+		"submit": "",
+		"text": "",
+		"title": "",
+		"unsaved_changes": ""
+	},
+	"validation_errors": {
+		"confirm_password": "",
+		"no_numbers": "",
+		"password": ""
+	}
 }

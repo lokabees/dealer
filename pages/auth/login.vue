@@ -19,6 +19,10 @@
         placeholder="******************"
       />
 
+      <n-link to="/auth/reset-password">{{
+        $t('login.forgot_password')
+      }}</n-link>
+
       <FormulateInput
         :class="{ 'spinner-dark': pending }"
         input-class="button bg-grey-dark text-white w-full hide-on-spinner"
@@ -30,8 +34,6 @@
     <button class="secondary w-full" @click="$router.push('/auth/signup')">
       {{ $t('login.signup') }}
     </button>
-
-    <n-link to="/auth/reset-password">{{ $t('login.forgot_password') }}</n-link>
 
     <div class="relative my-8">
       <div class="absolute inset-0 flex items-center">

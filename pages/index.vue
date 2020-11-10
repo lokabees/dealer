@@ -12,7 +12,7 @@
           :uploader="uploadCoverImage"
           upload-behavior="live"
           :label="$t('shop_registration_wizard.step_5.shop_photo')"
-          validation="mime:image/jpeg,image/png"
+          validation="mime:image/jpeg,image/png,image/"
           :value="[shop.images.cover]"
           outer-class="absolute h-full w-full"
           label-class="hidden"
@@ -20,6 +20,7 @@
           help-class="hidden"
           wrapper-class="p-0 m-0"
           element-class="absolute h-full w-full element"
+          accept=".heic"
         />
         <div
           v-if="!coverImage || uploading.cover"
@@ -278,14 +279,15 @@ export default {
       formData.append('file', file)
       try {
         const imgLocal = await this.$axios.$post(`/api/media/shop`, formData)
-        this.updateActiveShopImages({ cover: imgLocal })
         await this.$axios.$put(`/api/shops/${this.shop._id}`, {
           images: { cover: imgLocal },
         })
+        this.updateActiveShopImages({ cover: imgLocal })
         this.uploading.cover = false
       } catch (error) {
         this.$errorHandler({ prefix: 'dashboard', error })
         this.uploading.cover = false
+        this.updateActiveShopImages({ cover: null })
       }
     },
     async uploadProfileImage(file, progress, error, options) {
@@ -294,14 +296,16 @@ export default {
       formData.append('file', file)
       try {
         const imgLocal = await this.$axios.$post(`/api/media/shop`, formData)
-        this.updateActiveShopImages({ profile: imgLocal })
+
         await this.$axios.$put(`/api/shops/${this.shop._id}`, {
           images: { profile: imgLocal },
         })
+        this.updateActiveShopImages({ profile: imgLocal })
         this.uploading.profile = true
-      } catch (err) {
+      } catch (error) {
         this.$errorHandler({ prefix: 'dashboard', error })
         this.uploading.profile = true
+        this.updateActiveShopImages({ profile: null })
       }
     },
   },
