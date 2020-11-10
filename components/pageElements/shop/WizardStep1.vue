@@ -46,12 +46,18 @@
         @input="updateActiveShop({ description: $event })"
       />
       <!--shop categories-->
-      <!--TODO validation required!-->
       <FormulateInput
         name="categories"
         type="shopCategories"
         :options="shopCategories"
         :label="$t('shop_registration_wizard.step_1.categories')"
+        validation="required|max3"
+        :validation-rules="{
+          max3: ({ value }) => value.length < 4,
+        }"
+        :validation-messages="{
+          max3: $t('validation_errors.max_3_categories'),
+        }"
       />
       <FormulateInput
         type="submit"
@@ -84,6 +90,10 @@ export default {
     ...mapMutations('shops', {
       updateActiveShop: 'updateActiveShop',
     }),
+    hallo(val) {
+      console.log(val)
+      return val < 4
+    },
     async submit() {
       try {
         const q = this.getAddressString()

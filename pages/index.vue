@@ -287,7 +287,7 @@ export default {
       } catch (error) {
         this.$errorHandler({ prefix: 'dashboard', error })
         this.uploading.cover = false
-        this.updateActiveShopImages({ cover: null })
+        this.updateActiveShopImages({ cover: {} })
       }
     },
     async uploadProfileImage(file, progress, error, options) {
@@ -305,7 +305,7 @@ export default {
       } catch (error) {
         this.$errorHandler({ prefix: 'dashboard', error })
         this.uploading.profile = true
-        this.updateActiveShopImages({ profile: null })
+        this.updateActiveShopImages({ profile: {} })
       }
     },
   },
