@@ -59,18 +59,19 @@ export const actions = {
   },
   setLocalUser({ commit }, token) {
     // Set CSR Token
-    this.$axios
-      .setToken(token, 'Bearer')
-      [
-        ('lokabees-dealer-dev.herokuapp.com',
-        'lokabees-consumer-dev.herokuapp.com')
-      ].forEach((domain) => {
-        this.$cookies.set('Authorization', `Bearer ${token}`, {
-          path: '/',
-          maxAge: 60 * 60 * 24 * 7,
-          domain,
-        })
-      })
+    this.$axios.setToken(token, 'Bearer')
+
+    this.$cookies.set('Authorization', `Bearer ${token}`, {
+      path: '/',
+      maxAge: 60 * 60 * 24 * 7,
+      domain: 'lokabees-dealer-dev.herokuapp.com',
+    })
+    this.$cookies.set('Authorization', `Bearer ${token}`, {
+      path: '/',
+      maxAge: 60 * 60 * 24 * 7,
+      domain: 'lokabees-consumer-dev.herokuapp.com',
+    })
+
     commit('setToken', token)
   },
 
