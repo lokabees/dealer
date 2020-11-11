@@ -64,12 +64,7 @@ export const actions = {
     this.$cookies.set('Authorization', `Bearer ${token}`, {
       path: '/',
       maxAge: 60 * 60 * 24 * 7,
-      domain: 'lokabees-dealer-dev.herokuapp.com',
-    })
-    this.$cookies.set('Authorization', `Bearer ${token}`, {
-      path: '/',
-      maxAge: 60 * 60 * 24 * 7,
-      domain: 'lokabees-consumer-dev.herokuapp.com',
+      domain: 'herokuapp.com',
     })
 
     commit('setToken', token)
