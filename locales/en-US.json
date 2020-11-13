@@ -171,6 +171,10 @@
     }
   },
   "general": {
+    "error_messages": {
+      "network": "Server not responding. Check your internet connection",
+      "ok": "Oki Doki"
+    },
     "errors": {
       "400": "Something went wrong. Please contact support.",
       "401": "Unauthorized",
@@ -275,7 +279,7 @@
   "reset_password": {
     "back": "Back to login",
     "email": "Email address",
-    "email_placeholder": "max@mustermann.com",
+    "email_placeholder": "john.dough@domain.com",
     "errors": {
       "500": "An unknown error occured. Try reloading the page and login again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
@@ -341,7 +345,7 @@
       "monday": "Mo",
       "monday_long": "Monday",
       "opening_hours": "Opening Hours",
-      "saturday": "Sa",
+      "saturday": "Sat",
       "saturday_long": "Saturday",
       "sunday": "Su",
       "sunday_long": "Sunday",
