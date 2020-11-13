@@ -31,7 +31,7 @@
       "errors": {
         "500": "An unknown error occured. Try reloading the page and login again.",
         "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
-        "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+        "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com if the request keeps failing."
       },
       "text": "Here you will learn the basics of digitizing your shop step by step - no previous knowledge required!",
       "title": "Lokabees academy"
@@ -118,7 +118,7 @@
     "address": "Address",
     "categories": "shop categories",
     "city": "City",
-    "city_placeholder": "Braunschweig",
+    "city_placeholder": "Brunswick",
     "contact_data": "Contact data",
     "description": "Short description of your shop",
     "description_placeholder": "Best Cookies in Town",
@@ -144,7 +144,7 @@
     "title": "My shop",
     "unsaved_changes": "All changes will be lost if you continue without saving. Do you want to save your changes?",
     "visibility": "Visibility",
-    "visibility_hint_invisible": "Your shop is currently NOT visible for customers.",
+    "visibility_hint_invisible": "Your shop is currently NOT visible to customers.",
     "visibility_hint_visible": "Your shop is currently visible for customers."
   },
   "error": {
@@ -176,7 +176,7 @@
       "ok": "Oki Doki"
     },
     "errors": {
-      "400": "Something went wrong. Please contact support.",
+      "400": "Something went wrong. Please contact support via hello@lokabees.com",
       "401": "Unauthorized",
       "403": "Access denied.",
       "500": "An unknown error occured. Try reloading the page and login again.",
