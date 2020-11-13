@@ -201,7 +201,7 @@
     "help_with_registration": "Help with registration?",
     "login": "Login",
     "new_registration": "New Registration",
-    "ok": "Ok",
+    "ok": "Okay",
     "password": "Password",
     "sign_up_with": "or sign up with",
     "signup": "Sign Up"
@@ -307,7 +307,7 @@
     "step_1": {
       "categories": "Which keywords best describe your shop?",
       "city": "City",
-      "city_placeholder": "Braunschweig",
+      "city_placeholder": "Brunswick",
       "description": "Short description of your shop",
       "description_placeholder": "Best Cookies in Town",
       "errors": {
@@ -433,7 +433,7 @@
     "confirm_password": "Confirm password",
     "email": "What is your Email address?",
     "errors": {
-      "409": "That user already exists! Login to your account or choose a different email address. Also make sure to confirm your email address before you login for the first time.",
+      "409": "The entered email address is already connected to a Lokabees account. If you already have a Lokabees account, use your password to log in. If you have forgotten your password, please contact the Lokabees support via hello@lokabees.com.",
       "500": "An unknown error occured. Try reloading the page and login again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
       "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
