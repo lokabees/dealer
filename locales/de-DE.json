@@ -273,7 +273,7 @@
       "504": "Wir konnten den Server nicht erreichen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com.",
       "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n"
     },
-    "text": "Wir haben dir einen Link geschickt, um dein Passwort zurückzusetzen. Schau jetzt in deinen Posteingang und klicke auf den Link, um dein Passwort zurückzusetzen.\n\n",
+    "text": "Wir haben dir einen Link zum zurückzusetzen deines Passworts an die Email Adresse geschickt, die mit deinem Lokabees Konto verbunden ist. Überprüfe deinen Posteingang und klicke auf den Link, um dein Passwort zurückzusetzen.\n\n",
     "title": "Überprüfe bitte Deinen Posteingang"
   },
   "reset_password": {
@@ -419,7 +419,7 @@
       },
       "text1": "Gemeinsam haben wir den ersten großen Schritt zur Digitalisierung deines Ladens gemacht. Darauf solltest du stolz sein!\n",
       "text2": "Aber dies ist nur der Anfang. Richte deinen neuen Shop ein und füge einige Produkte hinzu.\n\n",
-      "text3": "Dann nutze unsere lokabees-academy, um Schritt für Schritt zu lernen, wie du ohne Vorkenntnisse online erfolgreich sein kannst!\n\n",
+      "text3": "Dann nutze unsere Lokabees Academy, um Schritt für Schritt zu lernen, wie du ohne Vorkenntnisse online erfolgreich sein kannst!\n\n",
       "text4": "Du kannst die Einstellungen, die du vorgenommen hast, jederzeit unter `Mein Profil` ändern.\n\n",
       "title": "Herzlichen Glückwunsch, Dein Shop ist jetzt online!",
       "view_shop": "Meinen Laden ansehen"
@@ -483,7 +483,7 @@
     "role_placeholder": "Besitzer",
     "save_changes": "Änderungen speichern",
     "submit": "speichern",
-    "text": "Hier kannst Du Änderungen eintragen, die Dich als Person betreffen.\n",
+    "text": "Ändere Accountinformationen.",
     "title": "Dein Profil",
     "unsaved_changes": "Alle Änderungen gehen verloren, wenn du ohne Speichern fortfährst. Willst du Deine Änderungen speichern?"
   },
