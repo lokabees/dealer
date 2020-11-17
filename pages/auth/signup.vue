@@ -44,7 +44,7 @@
         validation="required"
       />
       <FormulateInput
-        name="updates"
+        name="newsletter"
         type="checkbox"
         :label="$t('signup.updates_offers_consent')"
       />

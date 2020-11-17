@@ -301,7 +301,7 @@
     "skip": "Skip",
     "stay": "Stay",
     "step_1": {
-      "categories": "Which keywords best describe your shop?",
+      "categories": "Which keywords best describe your shop? (max. 3)",
       "city": "City",
       "city_placeholder": "Braunschweig",
       "description": "Short description of your shop",

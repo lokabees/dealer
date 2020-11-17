@@ -20,7 +20,7 @@
             return await isValidPhoneNumber(value)
           },
         }"
-        validation="phoneNumber"
+        validation="bail|phoneNumber"
         :placeholder="$t('shop_registration_wizard.step_4.phone_placeholder')"
         :label="$t('shop_registration_wizard.step_4.phone')"
         error-behavior="blur"
@@ -37,7 +37,7 @@
             return await isValidPhoneNumber(value)
           },
         }"
-        validation="phoneNumber"
+        validation="bail|phoneNumber"
         :label="$t('shop_registration_wizard.step_4.whatsapp')"
         error-behavior="blur"
       />
@@ -56,7 +56,7 @@
             return websiteValidator.test(value)
           },
         }"
-        validation="website"
+        validation="bail|website"
         :placeholder="$t('shop_registration_wizard.step_4.website_placeholder')"
         :label="$t('shop_registration_wizard.step_4.website')"
       />

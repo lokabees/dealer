@@ -14,7 +14,7 @@
         name="name"
         :placeholder="$t('shop_registration_wizard.step_1.name_placeholder')"
         :label="$t('shop_registration_wizard.step_1.name')"
-        validation="required|max:50"
+        validation="bail|required|max:50"
         @input="updateActiveShop({ name: $event })"
       />
       <!--owner name-->
@@ -42,7 +42,7 @@
           $t('shop_registration_wizard.step_1.description_placeholder')
         "
         :label="$t('shop_registration_wizard.step_1.description')"
-        validation="required"
+        validation="bail|required"
         @input="updateActiveShop({ description: $event })"
       />
       <!--shop categories-->
@@ -51,7 +51,7 @@
         type="shopCategories"
         :options="shopCategories"
         :label="$t('shop_registration_wizard.step_1.categories')"
-        validation="required|max3"
+        validation="bail|required|max3"
         :validation-rules="{
           max3: ({ value }) => value.length < 4,
         }"
