@@ -1,6 +1,6 @@
 phraseapp:
   access_token: 50ecfe232fd12b483f280958f2c2374b5c30aeaec6819fa6dfa89258fa079fab
-  project_id: 5b4b6f3cad4f8ff0a4851d2fd77516f2
+  project_id: 046b23d21a63cf613dcdad3338efd175
   push:
     sources:
     - file: ./locales/<locale_name>.json
