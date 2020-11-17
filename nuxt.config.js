@@ -38,6 +38,7 @@ export default {
     dev: process.env.NODE_ENV !== 'production',
     appMasterKey: process.env.VUE_APP_MASTER_KEY,
     consumerUrl: process.env.CONSUMER_URL,
+    appUrl: process.env.APP_URL,
   },
   privateRuntimeConfig: {
     VUE_APP_GOOGLE_ID: process.env.VUE_APP_GOOGLE_ID,

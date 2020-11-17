@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-primary-lightest">
+  <div class="bg-primary-lightest h-full">
     <Modal :visible="showModal" :message="$t('products.delete_confirmation')">
       <template v-slot:buttons>
         <button @click="showModal = false">{{ $t('products.cancel') }}</button>

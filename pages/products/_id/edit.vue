@@ -32,6 +32,7 @@
           :value="[product.picture]"
           element-class="hover:border-primary relative h-64 w-full preview-image border-2 border-dashed "
           input-class="absolute top-0 left-0 h-full w-full z-20 opacity-0 cursor-pointer"
+          @input="uploadProductImage"
         />
         <div
           v-if="!product.picture"

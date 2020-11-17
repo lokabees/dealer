@@ -26,16 +26,20 @@
       {{ $t('add_product.title') }}
     </h1>
     <FormulateForm v-model="product" @submit="addProduct">
+      {{ product.picture }}
       <div class="relative w-full flex justify-center">
         <FormulateInput
+          :value="[product.picture || {}]"
+          name="img"
           class="w-full"
           type="image"
-          name="img"
           :label="$t('add_product.image')"
           :uploader="uploadProductImage"
           upload-behavior="live"
-          element-class="hover:border-primary relative h-64 w-full preview-image border-2 border-dashed "
-          input-class="absolute top-0 left-0 h-full w-full z-20 opacity-0 cursor-pointer"
+          element-class="hover:border-primary relative h-64
+        w-full preview-image border-2 border-dashed "
+          input-class="absolute
+        top-0 left-0 h-full w-full z-20 opacity-0 cursor-pointer"
         />
         <div class="absolute top-0 flex h-full w-1/2 items-center z-1">
           <div>
@@ -112,9 +116,17 @@ export default {
       formData.append('file', file)
       try {
         const imgLocal = await this.$axios.$post(`/api/media/product`, formData)
-        // this.updateActiveShopImages({ cover: imgLocal })
+        if (imgLocal.url) {
+          const urlArray = imgLocal.url.split('.')
+          urlArray[urlArray.length - 1] = 'jpg'
+          const newUrl = urlArray.join('.')
+          imgLocal.url = newUrl
+          imgLocal.format = 'jpg'
+        }
         this.product.picture = imgLocal
-        console.log(this.product.picture)
+        this.product.img = imgLocal
+        progress(100)
+        return this.product.picture
       } catch (error) {
         console.log(error)
         this.$errorHandler({ prefix: 'add_product', error })
