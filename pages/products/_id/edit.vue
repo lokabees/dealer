@@ -152,6 +152,7 @@ export default {
           `/api/products/${this.product._id}`,
           this.product
         )
+        this.unsavedChanges = false
         this.$router.push('/products')
       } catch (error) {
         this.pending.save = false

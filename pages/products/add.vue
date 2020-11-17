@@ -108,10 +108,8 @@ export default {
   methods: {
     ...mapMutations('products', { addProductInStore: 'addProduct' }),
     async uploadProductImage(file, progress, error, options) {
-      console.log('a')
       const formData = new FormData()
       formData.append('file', file)
-      console.log('b')
       try {
         const imgLocal = await this.$axios.$post(`/api/media/product`, formData)
         // this.updateActiveShopImages({ cover: imgLocal })
@@ -132,10 +130,15 @@ export default {
       this.product.shop = this.activeShop._id
 
       try {
+        delete this.product.img
         const product = await this.$axios.$post('/api/products', this.product)
         this.addProductInStore(product)
-        if (this.products.length === 1) this.$router.push('/products/success')
-        else this.$router.push('/products')
+        this.unsavedChanges = false
+        if (this.products.length === 1) {
+          this.$router.push('/products/success')
+        } else {
+          this.$router.push('/products')
+        }
       } catch (error) {
         this.pending.save = false
         this.unsavedChangesModal = false
