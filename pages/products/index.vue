@@ -105,6 +105,7 @@ export default {
         this.deleteProductInStore(this.deleteId)
         this.deleteId = null
         this.showModal = false
+        this.pending = false
       } catch (error) {
         this.pending = false
         this.$errorHandler({ prefix: 'products', error })
