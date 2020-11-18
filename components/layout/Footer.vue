@@ -1,7 +1,7 @@
 <template>
   <div class="bg-primary-lightest">
     <div
-      class="container grid grid-cols-3 gap-6 my-16 pt-12 w-full border-t border-grey-dark"
+      class="container grid grid-cols-3 gap-6 mt-16 mb-8 pt-12 w-full border-t border-grey-dark"
     >
       <div class="text-center grid">
         <a
@@ -48,9 +48,31 @@
         >
       </div>
     </div>
+    <div class="container flex justify-center pb-5">
+      <button
+        v-for="locale in locales"
+        :key="locale.code"
+        class="w-14"
+        @click="switchLanguage(locale.code)"
+      >
+        <img :src="locale.icon" />
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  computed: {
+    locales() {
+      return this.$store.getters.locales
+    },
+  },
+  methods: {
+    switchLanguage(localeCode) {
+      this.$cookies.set('locale', localeCode)
+      location.reload()
+    },
+  },
+}
 </script>

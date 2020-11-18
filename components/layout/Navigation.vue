@@ -76,6 +76,7 @@ export default {
     ...mapMutations('modal', {
       showModal: 'showModal',
     }),
+
     toggleDropdown() {
       this.dropdown = !this.dropdown
       if (this.dropdown)
