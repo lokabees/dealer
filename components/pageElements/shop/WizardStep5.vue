@@ -10,51 +10,23 @@
     <h2>{{ $t('shop_registration_wizard.step_5.your_shop') }}</h2>
     <p>{{ $t('shop_registration_wizard.step_5.text_shop') }}</p>
     <FormulateForm @submit="$emit('submit')">
-      <div class="relative w-full flex justify-center">
-        <FormulateInput
-          class="w-full"
-          name="coverImage"
-          type="image"
-          :uploader="uploadCoverImage"
-          upload-behavior="delayed"
-          :label="$t('shop_registration_wizard.step_5.shop_photo')"
-          validation="mime:image/jpeg,image/png,image/heic,image/heif"
-          element-class="relative h-64 w-full preview-image border-2 border-dashed "
-          input-class="absolute top-0 left-0 h-full w-full z-20 opacity-0 cursor-pointer"
-        />
-        <div class="absolute top-0 flex h-full w-2/3 items-center z-1">
-          <div>
-            <img class="mx-auto w-16" src="/img/icons/add-pic.svg" />
-            <span class="mx-auto text-center">{{
-              $t('dashboard.upload_cover_image')
-            }}</span>
-          </div>
-        </div>
-      </div>
+      <FormulateInput
+        type="imageUpload"
+        :label="$t('shop_registration_wizard.step_5.shop_photo')"
+        upload-url="/api/media/shop"
+        @uploaded="updateActiveShopImages({ cover: $event })"
+        @delete="removeActiveShopImage('cover')"
+      />
 
       <h2>{{ $t('shop_registration_wizard.step_5.you') }}</h2>
       <p>{{ $t('shop_registration_wizard.step_5.text_you') }}</p>
-      <div class="relative w-full flex justify-center">
-        <FormulateInput
-          class="w-full"
-          name="profileImage"
-          type="image"
-          upload-behavior="delayed"
-          :uploader="uploadProfileImage"
-          :label="$t('shop_registration_wizard.step_5.you_photo')"
-          validation="mime:image/jpeg,image/png,image/heic,image/heif"
-          element-class="relative h-64 w-full preview-image border-2 border-dashed"
-          input-class="absolute top-0 left-0 h-full w-full z-20 opacity-0 cursor-pointer"
-        />
-        <div class="absolute top-0 flex h-full w-2/3 items-center z-1">
-          <div>
-            <img class="mx-auto w-16" src="/img/icons/add-pic.svg" />
-            <span class="mx-auto text-center">{{
-              $t('dashboard.upload_profile_image')
-            }}</span>
-          </div>
-        </div>
-      </div>
+      <FormulateInput
+        type="imageUpload"
+        :label="$t('shop_registration_wizard.step_5.you_photo')"
+        upload-url="/api/media/shop"
+        @uploaded="updateActiveShopImages({ profile: $event })"
+        @delete="removeActiveShopImage('profile')"
+      />
       <!--
       <h2>{{ $t('shop_registration_wizard.step_5.extra_points') }}</h2>
       <p>{{ $t('shop_registration_wizard.step_5.text_extra_points') }}</p>
@@ -104,29 +76,8 @@ export default {
   methods: {
     ...mapMutations('shops', {
       updateActiveShopImages: 'updateActiveShopImages',
+      removeActiveShopImage: 'removeActiveShopImage',
     }),
-    async uploadCoverImage(file, progress, error, options) {
-      const formData = new FormData()
-      formData.append('file', file)
-      try {
-        const imgLocal = await this.$axios.$post(`/api/media/shop`, formData)
-        this.updateActiveShopImages({ cover: imgLocal })
-      } catch (error) {
-        this.$errorHandler({ prefix: 'shop_registration_wizard', error })
-        this.updateActiveShopImages({ cover: null })
-      }
-    },
-    async uploadProfileImage(file, progress, error, options) {
-      const formData = new FormData()
-      formData.append('file', file)
-      try {
-        const imgLocal = await this.$axios.$post(`/api/media/shop`, formData)
-        this.updateActiveShopImages({ profile: imgLocal })
-      } catch (error) {
-        this.$errorHandler({ prefix: 'shop_registration_wizard', error })
-        this.updateActiveShopImages({ profile: null })
-      }
-    },
   },
 }
 </script>

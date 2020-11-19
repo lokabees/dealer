@@ -69,6 +69,12 @@ export const mutations = {
     const newImages = Object.assign({}, state.activeShop.images, images)
     Vue.set(state.activeShop, 'images', newImages)
   },
+  removeActiveShopImage(state, key) {
+    if (key !== 'cover' && key !== 'profile') return
+    const newImages = state.activeShop.images
+    delete newImages[key]
+    Vue.set(state.activeShop, 'images', newImages)
+  },
   selectActiveShopCategorie(state, category) {
     const categories = state.activeShop.categories
     if (!categories.includes(category.value)) categories.push(category.value)

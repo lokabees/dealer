@@ -31,7 +31,7 @@
           <div v-else>
             <img class="mx-auto w-16 pb-2" src="/img/icons/add-pic.svg" />
             <span class="text-center">{{
-              $t('edit_product.upload_product_image')
+              $t('general.picture_upload_placeholder')
             }}</span>
           </div>
         </div>

@@ -171,6 +171,7 @@
     }
   },
   "general": {
+    "picture_upload_placeholder": "Click here to upload a picture",
     "errors": {
       "400": "Something went wrong. Please contact support.",
       "401": "Unauthorized",

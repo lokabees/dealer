@@ -24,7 +24,7 @@
       <form-wizard
         ref="wizard"
         color="#19ae9d"
-        :start-index="1"
+        :start-index="0"
         step-size="xs"
         @on-complete="$router.push('/shop/success')"
       >
