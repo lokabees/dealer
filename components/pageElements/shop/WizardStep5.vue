@@ -130,18 +130,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.preview-image img {
-  @apply bg-black absolute h-full w-full object-cover top-0 left-0 m-0 z-10;
-}
-.preview-image .formulate-file-image-preview {
-  @apply h-64;
-}
-.preview-image .formulate-files {
-  @apply m-0;
-}
-.preview-image li {
-  @apply m-0;
-}
-</style>

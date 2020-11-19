@@ -25,9 +25,7 @@
     >
       {{ $t('add_product.title') }}
     </h1>
-    {{ product }}
     <FormulateForm v-model="product" @submit="addProduct">
-      {{ product.picture }}
       <ImageUpload
         :label="$t('add_product.image')"
         upload-url="/api/media/product"
@@ -35,31 +33,6 @@
         @uploaded="product.picture = $event"
         @delete="product.picture = {}"
       />
-      <!--
-      <div class="relative w-full flex justify-center">
-        <FormulateInput
-          :value="[product.picture || {}]"
-          name="img"
-          class="w-full"
-          type="image"
-          :label="$t('add_product.image')"
-          :uploader="uploadProductImage"
-          upload-behavior="live"
-          element-class="hover:border-primary relative h-64
-        w-full preview-image border-2 border-dashed "
-          input-class="absolute
-        top-0 left-0 h-full w-full z-20 opacity-0 cursor-pointer"
-        />
-        <div class="absolute top-0 flex h-full w-1/2 items-center z-1">
-          <div>
-            <img class="mx-auto" src="/img/icons/add-pic.svg" />
-            <span class="mx-auto text-center">{{
-              $t('edit_product.upload_product_image')
-            }}</span>
-          </div>
-        </div>
-      </div>
-    -->
       <FormulateInput
         type="text"
         name="title"
@@ -124,22 +97,6 @@ export default {
       this.product.picture = e
     },
     ...mapMutations('products', { addProductInStore: 'addProduct' }),
-    async uploadProductImage(file, progress, error, options) {
-      const formData = new FormData()
-      formData.append('file', file)
-      try {
-        // const regex = new RegExp('^([a-zA-Z0-9_.-])+.(heic|HEIC)$')
-        // if (regex.test(file.name)) converted = heic2any({ blob: file })
-        const imgLocal = await this.$axios.$post(`/api/media/product`, formData)
-        console.log(imgLocal)
-        this.product.picture = imgLocal
-        progress(100)
-        console.log('done')
-      } catch (error) {
-        console.log(error)
-        this.$errorHandler({ prefix: 'add_product', error })
-      }
-    },
     discardChanges() {
       this.unsavedChanges = false
       this.$router.push(this.nextRoute)
@@ -168,18 +125,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.preview-image img {
-  @apply bg-black absolute h-full w-full object-cover top-0 left-0 m-0 z-10;
-}
-.preview-image .formulate-file-image-preview {
-  @apply h-64;
-}
-.preview-image .formulate-files {
-  @apply m-0;
-}
-.preview-image li {
-  @apply m-0;
-}
-</style>
