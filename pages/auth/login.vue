@@ -35,6 +35,8 @@
       {{ $t('login.signup') }}
     </button>
 
+    <!--
+
     <div class="relative my-8">
       <div class="absolute inset-0 flex items-center">
         <div class="w-full border-t"></div>
@@ -58,7 +60,7 @@
         <icon name="google" /> {{ $t('login.google') }}
       </button>
     </div>
-  </div>
+  --></div>
 </template>
 
 <script>

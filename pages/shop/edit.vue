@@ -22,8 +22,6 @@
     </Modal>
     <h1 class="text-center pt-16 pb-8">{{ $t('edit_shop.title') }}</h1>
 
-    <button @click="deleteShop">SHOP LÖSCHEN</button>
-
     <div class="flex">
       <div class="flex w-1/2" :class="{ active: tab === 1 }">
         <button class="mx-auto capitalize" @click="tab = 1">

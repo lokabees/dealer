@@ -25,8 +25,12 @@
     >
       {{ $t('add_product.title') }}
     </h1>
+    <ImageUpload
+      upload-url="/api/media/product"
+      :value="product.picture"
+      @uploaded="product.picture = $event"
+    />
     <FormulateForm v-model="product" @submit="addProduct">
-      {{ product.picture }}
       <div class="relative w-full flex justify-center">
         <FormulateInput
           :value="[product.picture || {}]"
@@ -115,18 +119,13 @@ export default {
       const formData = new FormData()
       formData.append('file', file)
       try {
+        // const regex = new RegExp('^([a-zA-Z0-9_.-])+.(heic|HEIC)$')
+        // if (regex.test(file.name)) converted = heic2any({ blob: file })
         const imgLocal = await this.$axios.$post(`/api/media/product`, formData)
-        if (imgLocal.url) {
-          const urlArray = imgLocal.url.split('.')
-          urlArray[urlArray.length - 1] = 'jpg'
-          const newUrl = urlArray.join('.')
-          imgLocal.url = newUrl
-          imgLocal.format = 'jpg'
-        }
+        console.log(imgLocal)
         this.product.picture = imgLocal
-        this.product.img = imgLocal
         progress(100)
-        return this.product.picture
+        console.log('done')
       } catch (error) {
         console.log(error)
         this.$errorHandler({ prefix: 'add_product', error })
