@@ -26,6 +26,7 @@
       {{ $t('add_product.title') }}
     </h1>
     <ImageUpload
+      :label="$t('add_product.image')"
       upload-url="/api/media/product"
       :value="product.picture"
       @uploaded="product.picture = $event"

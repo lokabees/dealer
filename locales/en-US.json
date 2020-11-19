@@ -489,6 +489,7 @@
     "confirm_password": "The passwords do not match",
     "no_numbers": "No numbers",
     "password": "The password must contain a lowercase letter, an uppercase letter, a number and a special character",
-    "max_3_categories": "You can only choose 3 categories max"
+    "max_3_categories": "You can only choose 3 categories max",
+    "image_upload": "Image upload failed."
   }
 }
