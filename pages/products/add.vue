@@ -25,13 +25,17 @@
     >
       {{ $t('add_product.title') }}
     </h1>
-    <ImageUpload
-      :label="$t('add_product.image')"
-      upload-url="/api/media/product"
-      :value="product.picture"
-      @uploaded="product.picture = $event"
-    />
+    {{ product }}
     <FormulateForm v-model="product" @submit="addProduct">
+      {{ product.picture }}
+      <ImageUpload
+        :label="$t('add_product.image')"
+        upload-url="/api/media/product"
+        :value="product.picture"
+        @uploaded="product.picture = $event"
+        @delete="product.picture = {}"
+      />
+      <!--
       <div class="relative w-full flex justify-center">
         <FormulateInput
           :value="[product.picture || {}]"
@@ -55,6 +59,7 @@
           </div>
         </div>
       </div>
+    -->
       <FormulateInput
         type="text"
         name="title"
@@ -93,7 +98,7 @@ export default {
     return {
       unsavedChanges: false,
       unsavedChangesModal: false,
-      product: {},
+      product: { picture: {} },
       pending: { discard: false, save: false },
     }
   },
@@ -115,6 +120,9 @@ export default {
     },
   },
   methods: {
+    uploaded(e) {
+      this.product.picture = e
+    },
     ...mapMutations('products', { addProductInStore: 'addProduct' }),
     async uploadProductImage(file, progress, error, options) {
       const formData = new FormData()
