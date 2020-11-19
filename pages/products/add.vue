@@ -26,8 +26,9 @@
       {{ $t('add_product.title') }}
     </h1>
     <FormulateForm v-model="product" @submit="addProduct">
-      <ImageUpload
-        :label="$t('add_product.image')"
+      <FormulateInput
+        type="imageUpload"
+        :label="$t('edit_product.image')"
         upload-url="/api/media/product"
         :value="product.picture"
         @uploaded="product.picture = $event"

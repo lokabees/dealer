@@ -1,20 +1,17 @@
 <template>
   <div>
-    <div>
-      <label class="text-sm font-bold">{{ label }}</label>
-    </div>
-    <div v-if="value.url" class="relative h-64">
+    <div v-if="context.model.url" class="relative h-64">
       <div>
         <button
           class="absolute top-0 right-0 z-10 bg-white rounded-none"
-          @click="$emit('delete')"
+          @click="deleteImage"
         >
           X
         </button>
       </div>
       <img
         class="absolute top-0 left-0 w-full h-full object-cover"
-        :src="value.url"
+        :src="context.model.url"
       />
     </div>
     <div v-else>
@@ -22,7 +19,7 @@
         class="relative hover:border-primary cursor-pointer h-64 w-full border-2 border-dashed justify-center flex"
       >
         <input
-          :ref="uploadUrl"
+          :ref="context.uploadUrl"
           type="file"
           multiple
           accept="image/*,.heic"
@@ -40,29 +37,15 @@
         </div>
       </div>
     </div>
-    <div>
-      <label class="text-danger text-sm font-bold">{{ error }}</label>
-    </div>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    label: {
-      type: String,
-      required: false,
-      default: null,
-    },
-    uploadUrl: {
-      type: String,
-      required: true,
-      default: null,
-    },
-    value: {
+    context: {
       type: Object,
       default: () => {},
-      required: false,
     },
   },
   data() {
@@ -72,12 +55,16 @@ export default {
     }
   },
   methods: {
+    deleteImage() {
+      this.context.model = {}
+      this.$emit('delete')
+    },
     async handleFileChange(e) {
       const formData = new FormData()
       formData.append('file', e.target.files[0])
       try {
         this.uploading = true
-        const image = await this.$axios.$post(this.uploadUrl, formData)
+        const image = await this.$axios.$post(this.context.uploadUrl, formData)
         const regex = new RegExp('^([a-zA-Z0-9_.-/:])+.(heic|HEIC)$')
         if (regex.test(image.url)) {
           image.url = image.url.substring(0, image.url.length - 4) + 'jpg'
@@ -85,6 +72,7 @@ export default {
         }
         this.uploading = false
         this.error = null
+        this.context.model = image
         this.$emit('uploaded', image)
       } catch (error) {
         this.$errorHandler(error)

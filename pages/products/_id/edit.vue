@@ -26,10 +26,12 @@
       {{ $t('edit_product.title') }}
     </h1>
     <FormulateForm @submit="updateProduct">
-      <ImageUpload
+      <FormulateInput
+        type="imageUpload"
         :label="$t('edit_product.image')"
         upload-url="/api/media/product"
         :value="product.picture"
+        validation="required"
         @uploaded="editProduct({ _id: product._id, picture: $event })"
         @delete="editProduct({ _id: product._id, picture: {} })"
       />

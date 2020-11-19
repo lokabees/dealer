@@ -6,12 +6,14 @@ import OpeningHours from '~/components/elements/OpeningHours'
 import AddressInput from '~/components/elements/AddressInput'
 import ShopCategories from '~/components/elements/ShopCategories'
 import DeliveryOptions from '~/components/elements/DeliveryOptions'
+import ImageUpload from '~/components/elements/ImageUpload'
 
 // register your component with Vue
 Vue.component('OpeningHours', OpeningHours)
 Vue.component('AddressInput', AddressInput)
 Vue.component('ShopCategories', ShopCategories)
 Vue.component('DeliveryOptions', DeliveryOptions)
+Vue.component('ImageUpload', ImageUpload)
 
 export default ({ app }, inject) => {
   Vue.use(VueFormulate, {
@@ -23,6 +25,9 @@ export default ({ app }, inject) => {
       },
       shopCategories: {
         component: 'ShopCategories',
+      },
+      imageUpload: {
+        component: 'ImageUpload',
       },
       deliveryOptions: {
         component: 'DeliveryOptions',
