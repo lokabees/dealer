@@ -246,18 +246,6 @@ export default {
 </script>
 
 <style lang="scss">
-.element img {
-  @apply absolute h-full w-full object-cover;
-}
-
-.formulate-file-name {
-  @apply hidden;
-}
-
-.img-input {
-  @apply opacity-0;
-}
-
 .category {
   @apply bg-grey-light text-white rounded-full px-2 py-1 m-1 flex-none select-none;
 }
