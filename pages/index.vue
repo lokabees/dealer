@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-white">
     <ProductCreationPrompt
       v-if="productCreationPrompt"
       @hide="productCreationPrompt = false"

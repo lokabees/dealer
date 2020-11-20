@@ -26,15 +26,11 @@
     </div>
 
     <div class="container max-w-2xl px-2">
-      <Product
-        v-for="product in products"
-        :key="product.id"
-        class="flex justify-between"
-      >
+      <Product v-for="product in products" :key="product.id">
         <h2>{{ product.title }}</h2>
         <p>{{ product.description }}</p>
         <template v-slot:img>
-          <img :src="product.picture.url" />
+          <img class="h-32 w-32" :src="product.picture.url" />
         </template>
         <template v-slot:buttons>
           <button
