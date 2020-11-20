@@ -63,7 +63,17 @@
         }}</span>
 
         <!--v-model="shop.categories"-->
-        <FormulateInput type="shopCategories" :options="shopCategories" />
+        <FormulateInput
+          type="shopCategories"
+          :options="shopCategories"
+          validation="bail|required|max3"
+          :validation-rules="{
+            max3: ({ value }) => value.length < 4,
+          }"
+          :validation-messages="{
+            max3: $t('validation_errors.max_3_categories'),
+          }"
+        />
         <!--v-model="shop.address" -->
         <FormulateInput type="addressInput" />
         <!---->
