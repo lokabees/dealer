@@ -6,7 +6,6 @@
     <p class="text-center pb-8">
       {{ $t('shop_registration_wizard.step_4.text') }}
     </p>
-    {{ activeShop.contact }}
     <FormulateForm
       :value="activeShop.contact"
       @input="updateActiveShop({ contact: $event })"
