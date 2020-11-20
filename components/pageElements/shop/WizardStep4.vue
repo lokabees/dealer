@@ -6,10 +6,11 @@
     <p class="text-center pb-8">
       {{ $t('shop_registration_wizard.step_4.text') }}
     </p>
+    {{ activeShop.contact }}
     <FormulateForm
       :value="activeShop.contact"
       @input="updateActiveShop({ contact: $event })"
-      @submit="$emit('submit')"
+      @submit="submit"
     >
       <FormulateInput
         type="text"
@@ -102,6 +103,15 @@ export default {
     isValidPhoneNumber(value) {
       const phoneUtil = PhoneNumberUtil.getInstance()
       return phoneUtil.isValidNumber(phoneUtil.parse(value, 'DE'))
+    },
+    submit() {
+      const contact = {}
+      for (const key in this.activeShop.contact) {
+        if (this.activeShop.contact[key] !== '')
+          contact[key] = this.activeShop.contact[key]
+      }
+      this.updateActiveShop({ contact })
+      this.$emit('submit')
     },
   },
 }

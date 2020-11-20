@@ -3,7 +3,7 @@
     <div v-if="context.model.url" class="relative h-64">
       <div>
         <button
-          class="absolute top-0 right-0 z-10 bg-white rounded-none"
+          class="absolute top-0 right-0 z-20 bg-white rounded-none"
           @click="deleteImage"
         >
           X
@@ -26,7 +26,7 @@
           class="h-full w-full focus:outline-none opacity-0 z-10 cursor-pointer"
           @change="handleFileChange"
         />
-        <div class="absolute top-0 flex h-full max-w-sm items-center z-1 p-2">
+        <div class="absolute top-0 flex h-full max-w-sm items-center z-0 p-2">
           <div v-if="uploading" class="spinner-light w-full" />
           <div v-else>
             <img class="mx-auto w-16 pb-2" src="/img/icons/add-pic.svg" />
