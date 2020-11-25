@@ -182,7 +182,7 @@
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
       "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com",
       "network": "Wir konnten den Server nicht erreichen. Bitte überprüfe Deine Internetverbindung oder versuche es später erneut.",
-      "unspecific": "Etwas ist schief gelaufen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com"
+      "unspecific": "Etwas ist schief gelaufen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com."
     },
     "ok": "Okay"
   },
@@ -261,7 +261,7 @@
     "errors": {
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
       "504": "Wir können den Server nicht erreichen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com.",
-      "unspecific": "Da ist wohl etwas schief gelaufen. Bitte versuche es erneut oder wende dich an unseren Support, falls Du weiterhin Probleme hast."
+      "unspecific": "Da ist wohl etwas schief gelaufen. Bitte versuche es erneut oder wende Dich an unseren Support, falls Du weiterhin Probleme hast."
     },
     "ok": "Produkt löschen",
     "title": "Meine Produkte"
