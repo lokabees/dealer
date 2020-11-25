@@ -26,26 +26,14 @@
       {{ $t('add_product.title') }}
     </h1>
     <FormulateForm v-model="product" @submit="addProduct">
-      <div class="relative w-full flex justify-center">
-        <FormulateInput
-          class="w-full"
-          type="image"
-          name="img"
-          :label="$t('add_product.image')"
-          :uploader="uploadProductImage"
-          upload-behavior="live"
-          element-class="hover:border-primary relative h-64 w-full preview-image border-2 border-dashed "
-          input-class="absolute top-0 left-0 h-full w-full z-20 opacity-0 cursor-pointer"
-        />
-        <div class="absolute top-0 flex h-full w-1/2 items-center z-1">
-          <div>
-            <img class="mx-auto" src="/img/icons/add-pic.svg" />
-            <span class="mx-auto text-center">{{
-              $t('edit_product.upload_product_image')
-            }}</span>
-          </div>
-        </div>
-      </div>
+      <FormulateInput
+        type="imageUpload"
+        :label="$t('edit_product.image')"
+        upload-url="/api/media/product"
+        :value="product.picture"
+        @uploaded="product.picture = $event"
+        @delete="product.picture = {}"
+      />
       <FormulateInput
         type="text"
         name="title"
@@ -84,7 +72,7 @@ export default {
     return {
       unsavedChanges: false,
       unsavedChangesModal: false,
-      product: {},
+      product: { picture: {} },
       pending: { discard: false, save: false },
     }
   },
@@ -106,22 +94,10 @@ export default {
     },
   },
   methods: {
-    ...mapMutations('products', { addProductInStore: 'addProduct' }),
-    async uploadProductImage(file, progress, error, options) {
-      console.log('a')
-      const formData = new FormData()
-      formData.append('file', file)
-      console.log('b')
-      try {
-        const imgLocal = await this.$axios.$post(`/api/media/product`, formData)
-        // this.updateActiveShopImages({ cover: imgLocal })
-        this.product.picture = imgLocal
-        console.log(this.product.picture)
-      } catch (error) {
-        console.log(error)
-        this.$errorHandler({ prefix: 'add_product', error })
-      }
+    uploaded(e) {
+      this.product.picture = e
     },
+    ...mapMutations('products', { addProductInStore: 'addProduct' }),
     discardChanges() {
       this.unsavedChanges = false
       this.$router.push(this.nextRoute)
@@ -132,10 +108,15 @@ export default {
       this.product.shop = this.activeShop._id
 
       try {
+        delete this.product.img
         const product = await this.$axios.$post('/api/products', this.product)
         this.addProductInStore(product)
-        if (this.products.length === 1) this.$router.push('/products/success')
-        else this.$router.push('/products')
+        this.unsavedChanges = false
+        if (this.products.length === 1) {
+          this.$router.push('/products/success')
+        } else {
+          this.$router.push('/products')
+        }
       } catch (error) {
         this.pending.save = false
         this.unsavedChangesModal = false
@@ -145,18 +126,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.preview-image img {
-  @apply bg-black absolute h-full w-full object-cover top-0 left-0 m-0 z-10;
-}
-.preview-image .formulate-file-image-preview {
-  @apply h-64;
-}
-.preview-image .formulate-files {
-  @apply m-0;
-}
-.preview-image li {
-  @apply m-0;
-}
-</style>

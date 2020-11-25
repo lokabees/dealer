@@ -40,7 +40,7 @@
     <div class="relative md:container">
       <div
         v-if="dropdown"
-        class="absolute bg-white border border-t-0 border-grey-dark right-0 top-0 z-50 text-sm"
+        class="absolute bg-white border border-t-0 border-grey-dark right-0 top-0 z-30 text-sm"
       >
         <button
           ref="accountSettings"
@@ -76,6 +76,7 @@ export default {
     ...mapMutations('modal', {
       showModal: 'showModal',
     }),
+
     toggleDropdown() {
       this.dropdown = !this.dropdown
       if (this.dropdown)

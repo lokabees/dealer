@@ -10,9 +10,11 @@
     <p>
       {{ $t('shop_registration_wizard.success.text2') }}
     </p>
+    <!--
     <p>
       {{ $t('shop_registration_wizard.success.text3') }}
     </p>
+  -->
     <p>
       {{ $t('shop_registration_wizard.success.text4') }}
     </p>

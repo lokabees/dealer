@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-primary-lightest">
+  <div class="bg-primary-lightest h-full">
     <Modal :visible="showModal" :message="$t('products.delete_confirmation')">
       <template v-slot:buttons>
         <button @click="showModal = false">{{ $t('products.cancel') }}</button>
@@ -26,15 +26,11 @@
     </div>
 
     <div class="container max-w-2xl px-2">
-      <Product
-        v-for="product in products"
-        :key="product.id"
-        class="flex justify-between"
-      >
+      <Product v-for="product in products" :key="product.id">
         <h2>{{ product.title }}</h2>
         <p>{{ product.description }}</p>
         <template v-slot:img>
-          <img :src="product.picture.url" />
+          <img class="h-32 w-32" :src="product.picture.url" />
         </template>
         <template v-slot:buttons>
           <button
@@ -105,6 +101,7 @@ export default {
         this.deleteProductInStore(this.deleteId)
         this.deleteId = null
         this.showModal = false
+        this.pending = false
       } catch (error) {
         this.pending = false
         this.$errorHandler({ prefix: 'products', error })

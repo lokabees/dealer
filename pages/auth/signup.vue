@@ -44,7 +44,7 @@
         validation="required"
       />
       <FormulateInput
-        name="updates"
+        name="newsletter"
         type="checkbox"
         :label="$t('signup.updates_offers_consent')"
       />
@@ -67,6 +67,7 @@
 
 <script>
 export default {
+  middleware: ['notAuthenticated'],
   auth: false,
   data() {
     return {

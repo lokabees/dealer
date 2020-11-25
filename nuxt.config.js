@@ -38,6 +38,7 @@ export default {
     dev: process.env.NODE_ENV !== 'production',
     appMasterKey: process.env.VUE_APP_MASTER_KEY,
     consumerUrl: process.env.CONSUMER_URL,
+    appUrl: process.env.APP_URL,
   },
   privateRuntimeConfig: {
     VUE_APP_GOOGLE_ID: process.env.VUE_APP_GOOGLE_ID,
@@ -59,6 +60,7 @@ export default {
     '~/plugins/services/error-handler',
     { src: '~/plugins/modules/auth', mode: 'client' },
     { src: '~/plugins/modules/eva-icons', ssr: false },
+    { src: '~/plugins/modules/persisted-state', ssr: false },
   ],
   /*
    ** Auto import components

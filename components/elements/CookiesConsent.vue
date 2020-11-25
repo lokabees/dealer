@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="fixed">
     <div v-show="!cookiesAllowed && !isLegalPage()" class="modal-bg" />
     <transition name="modalAnimation">
       <div v-show="!cookiesAllowed && !isLegalPage()" class="modal-wrapper">

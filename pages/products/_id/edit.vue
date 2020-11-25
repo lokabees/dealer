@@ -1,5 +1,5 @@
 <template>
-  <div class="container prose pb-16">
+  <div class="container max-w-2xl pb-16 px-2">
     <Modal
       :visible="unsavedChangesModal"
       :message="$t('edit_product.unsaved_changes')"
@@ -20,31 +20,21 @@
         </button>
       </template>
     </Modal>
-    <h1 class="text-center pt-16 pb-8">{{ $t('edit_product.title') }}</h1>
+    <h1
+      class="text-4xl text-center font-serif font-black text-grey-dark pt-16 pb-8"
+    >
+      {{ $t('edit_product.title') }}
+    </h1>
     <FormulateForm @submit="updateProduct">
-      <div class="relative w-full flex justify-center">
-        <FormulateInput
-          class="w-full"
-          type="image"
-          name="picture"
-          :label="$t('edit_product.image')"
-          :uploader="uploadProductImage"
-          :value="[product.picture]"
-          element-class="hover:border-primary relative h-64 w-full preview-image border-2 border-dashed "
-          input-class="absolute top-0 left-0 h-full w-full z-20 opacity-0 cursor-pointer"
-        />
-        <div
-          v-if="!product.picture"
-          class="absolute top-0 flex h-full w-1/2 items-center z-1"
-        >
-          <div>
-            <img class="mx-auto" src="/img/icons/add-pic.svg" />
-            <span class="mx-auto text-center">{{
-              $t('edit_product.upload_product_image')
-            }}</span>
-          </div>
-        </div>
-      </div>
+      <FormulateInput
+        type="imageUpload"
+        :label="$t('edit_product.image')"
+        upload-url="/api/media/product"
+        :value="product.picture"
+        validation="required"
+        @uploaded="editProduct({ _id: product._id, picture: $event })"
+        @delete="editProduct({ _id: product._id, picture: {} })"
+      />
       <FormulateInput
         type="text"
         name="title"
@@ -152,6 +142,7 @@ export default {
           `/api/products/${this.product._id}`,
           this.product
         )
+        this.unsavedChanges = false
         this.$router.push('/products')
       } catch (error) {
         this.pending.save = false
@@ -162,18 +153,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.preview-image img {
-  @apply bg-black absolute h-full w-full object-cover top-0 left-0 m-0 z-10;
-}
-.preview-image .formulate-file-image-preview {
-  @apply h-64;
-}
-.preview-image .formulate-files {
-  @apply m-0;
-}
-.preview-image li {
-  @apply m-0;
-}
-</style>

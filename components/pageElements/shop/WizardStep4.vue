@@ -9,7 +9,7 @@
     <FormulateForm
       :value="activeShop.contact"
       @input="updateActiveShop({ contact: $event })"
-      @submit="$emit('submit')"
+      @submit="submit"
     >
       <FormulateInput
         type="text"
@@ -20,9 +20,10 @@
             return await isValidPhoneNumber(value)
           },
         }"
-        validation="phoneNumber"
+        validation="bail|phoneNumber"
         :placeholder="$t('shop_registration_wizard.step_4.phone_placeholder')"
         :label="$t('shop_registration_wizard.step_4.phone')"
+        error-behavior="blur"
       />
       <FormulateInput
         type="text"
@@ -36,8 +37,9 @@
             return await isValidPhoneNumber(value)
           },
         }"
-        validation="phoneNumber"
+        validation="bail|phoneNumber"
         :label="$t('shop_registration_wizard.step_4.whatsapp')"
+        error-behavior="blur"
       />
       <FormulateInput
         type="text"
@@ -54,7 +56,7 @@
             return websiteValidator.test(value)
           },
         }"
-        validation="website"
+        validation="bail|website"
         :placeholder="$t('shop_registration_wizard.step_4.website_placeholder')"
         :label="$t('shop_registration_wizard.step_4.website')"
       />
@@ -80,7 +82,8 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
-import { parsePhoneNumber } from 'libphonenumber-js'
+// import { parsePhoneNumber } from 'libphonenumber-js'
+import { PhoneNumberUtil } from 'google-libphonenumber'
 export default {
   data() {
     return {
@@ -96,9 +99,18 @@ export default {
   },
   methods: {
     ...mapMutations('shops', { updateActiveShop: 'updateActiveShop' }),
-    async isValidPhoneNumber(value) {
-      const res = await parsePhoneNumber(value).isValid()
-      return res
+    isValidPhoneNumber(value) {
+      const phoneUtil = PhoneNumberUtil.getInstance()
+      return phoneUtil.isValidNumber(phoneUtil.parse(value, 'DE'))
+    },
+    submit() {
+      const contact = {}
+      for (const key in this.activeShop.contact) {
+        if (this.activeShop.contact[key] !== '')
+          contact[key] = this.activeShop.contact[key]
+      }
+      this.updateActiveShop({ contact })
+      this.$emit('submit')
     },
   },
 }

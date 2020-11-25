@@ -1,12 +1,22 @@
 <template>
   <div class="container prose max-w-xl mx-auto">
+    <Modal
+      :visible="modal"
+      :message="$t('shop_registration_wizard.step_2.has_validation_errors')"
+    >
+      <template v-slot:buttons
+        ><button @click="modal = false">
+          {{ $t('shop_registration_wizard.step_2.ok') }}
+        </button></template
+      ></Modal
+    >
     <h1 class="text-center pt-16">
       {{ $t('shop_registration_wizard.step_2.title') }}
     </h1>
     <p class="text-center pb-8">
       {{ $t('shop_registration_wizard.step_2.text') }}
     </p>
-    <FormulateForm @submit="$emit('submit')">
+    <FormulateForm @submit-raw="validation($event)" @submit="$emit('submit')">
       <FormulateInput :create="true" type="openingHours" />
 
       <div class="flex">
@@ -31,9 +41,14 @@
 
 <script>
 export default {
+  data() {
+    return {
+      modal: false,
+    }
+  },
   methods: {
-    validate() {
-      console.log('val')
+    async validation(validation) {
+      if (await validation.hasValidationErrors()) this.modal = true
     },
   },
 }

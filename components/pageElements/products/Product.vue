@@ -1,14 +1,14 @@
 <template>
-  <div class="border-grey-light border-b-2">
-    <div class="flex">
-      <div class="relative h-32 w-32 rounded-lg my-4">
+  <div class="sm:flex sm:justify-between border-grey-light border-b-2 py-2">
+    <div class="sm:flex">
+      <div class="relative h-32 w-32 flex-none rounded-lg my-4">
         <slot name="img"></slot>
       </div>
-      <div class="pl-5">
+      <div class="md:pl-5 pb-2">
         <slot />
       </div>
     </div>
-    <div class="flex flex-col">
+    <div class="flex sm:flex-col justify-end">
       <slot name="buttons" />
     </div>
   </div>

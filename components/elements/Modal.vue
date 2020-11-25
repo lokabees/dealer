@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="z-50">
     <div v-show="visible && !errorModal" class="modal-bg" />
     <transition name="modalAnimation">
       <div v-show="visible && !errorModal" class="modal-wrapper">

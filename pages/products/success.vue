@@ -1,5 +1,5 @@
 <template>
-  <div class="container max-w-md p-3 md:p-0 flex h-screen">
+  <div class="container max-w-md p-3 md:p-0 flex">
     <div class="m-auto">
       <div class="flex justify-center text-primary my-8">
         <icon name="checkmark-circle-outline" height="100" width="100" />

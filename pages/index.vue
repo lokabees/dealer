@@ -1,67 +1,28 @@
 <template>
-  <div>
+  <div class="bg-white">
     <ProductCreationPrompt
       v-if="productCreationPrompt"
       @hide="productCreationPrompt = false"
     />
-    <div class="relative">
-      <div class="relative flex justify-end pb-1/2 md:pb-1/4 bg-primary-light">
-        <FormulateInput
-          name="coverImage"
-          type="image"
-          :uploader="uploadCoverImage"
-          upload-behavior="live"
-          :label="$t('shop_registration_wizard.step_5.shop_photo')"
-          validation="mime:image/jpeg,image/png"
-          :value="[shop.images.cover]"
-          outer-class="absolute h-full w-full"
-          label-class="hidden"
-          input-class="absolute h-full w-full z-20 img-input cursor-pointer"
-          help-class="hidden"
-          wrapper-class="p-0 m-0"
-          element-class="absolute h-full w-full element"
-        />
-        <div
-          v-if="!coverImage || uploading.cover"
-          class="absolute flex h-full w-1/2 items-center"
-        >
-          <div>
-            <img class="mx-auto pb-5" src="/img/icons/add-pic.svg" />
-            <span class="mx-auto text-center">{{
-              $t('dashboard.upload_cover_image')
-            }}</span>
-          </div>
-        </div>
-      </div>
+    <div class="relative pb-1/2 md:pb-1/4 bg-primary-light">
+      <ShopImage
+        :value="shop.images.cover"
+        upload-url="/api/media/shop"
+        @uploaded="updateCoverImage($event)"
+        @delete="removeImage('cover')"
+      />
+    </div>
 
+    <div class="relative">
       <div
         class="hidden md:block absolute bottom-0 md:left-8 bg-white border-4 border-white -mb-5 w-2/3 md:w-1/3 pb-1/3 md:pb-1/5"
       >
-        <FormulateInput
-          name="profileImage"
-          type="image"
-          :value="[shop.images.profile]"
-          upload-behavior="live"
-          :uploader="uploadProfileImage"
-          :label="$t('shop_registration_wizard.step_5.you_photo')"
-          validation="mime:image/jpeg,image/png"
-          outer-class="absolute h-full w-full"
-          label-class="hidden"
-          input-class="absolute h-full w-full z-20 img-input cursor-pointer"
-          help-class="hidden"
-          wrapper-class="p-0 m-0"
-          element-class="absolute h-full w-full element"
+        <ShopImage
+          :value="shop.images.profile"
+          upload-url="/api/media/shop"
+          @uploaded="updateProfileImage($event)"
+          @delete="removeImage('profile')"
         />
-
-        <div
-          v-if="!profileImage"
-          class="absolute flex h-full w-full bg-grey-lighter"
-        >
-          <div class="mx-auto my-auto text-center">
-            <img class="mx-auto pb-5" src="/img/icons/add-pic.svg" />
-            <span>{{ $t('dashboard.upload_profile_image') }}</span>
-          </div>
-        </div>
       </div>
 
       <div class="bg-primary-lightest py-3 mb-5 hidden md:block">
@@ -89,31 +50,12 @@
       <div
         class="mx-auto relative md:hidden bg-white border-4 border-white -mb-5 w-2/3 pb-1/3 -mt-1/4"
       >
-        <FormulateInput
-          name="profileImage"
-          type="image"
-          :value="[shop.images.profile]"
-          upload-behavior="live"
-          :uploader="uploadProfileImage"
-          :label="$t('shop_registration_wizard.step_5.you_photo')"
-          validation="mime:image/jpeg,image/png"
-          outer-class="absolute h-full w-full"
-          label-class="hidden"
-          input-class="absolute h-full w-full z-20 img-input cursor-pointer"
-          help-class="hidden"
-          wrapper-class="p-0 m-0"
-          element-class="absolute h-full w-full element"
+        <ShopImage
+          :value="shop.images.profile"
+          upload-url="/api/media/shop"
+          @uploaded="updateProfileImage($event)"
+          @delete="removeImage('profile')"
         />
-
-        <div
-          v-if="!profileImage"
-          class="absolute flex h-full w-full bg-grey-lighter"
-        >
-          <div class="mx-auto my-auto text-center">
-            <img class="mx-auto pb-5" src="/img/icons/add-pic.svg" />
-            <span>{{ $t('dashboard.upload_profile_image') }}</span>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -268,59 +210,42 @@ export default {
   methods: {
     ...mapMutations('shops', {
       updateActiveShopImages: 'updateActiveShopImages',
+      removeActiveShopImage: 'removeActiveShopImage',
     }),
     categoryName(id) {
       return this.shopCategories[id]
     },
-    async uploadCoverImage(file, progress, error, options) {
-      this.uploading.cover = true
-      const formData = new FormData()
-      formData.append('file', file)
+    async updateCoverImage(image) {
       try {
-        const imgLocal = await this.$axios.$post(`/api/media/shop`, formData)
-        this.updateActiveShopImages({ cover: imgLocal })
         await this.$axios.$put(`/api/shops/${this.shop._id}`, {
-          images: { cover: imgLocal },
+          images: { cover: image },
         })
-        this.uploading.cover = false
+        this.updateActiveShopImages({ cover: image })
       } catch (error) {
         this.$errorHandler({ prefix: 'dashboard', error })
-        this.uploading.cover = false
+        this.removeActiveShopImage('cover')
       }
     },
-    async uploadProfileImage(file, progress, error, options) {
-      this.uploading.profile = true
-      const formData = new FormData()
-      formData.append('file', file)
+    async updateProfileImage(image) {
       try {
-        const imgLocal = await this.$axios.$post(`/api/media/shop`, formData)
-        this.updateActiveShopImages({ profile: imgLocal })
         await this.$axios.$put(`/api/shops/${this.shop._id}`, {
-          images: { profile: imgLocal },
+          images: { profile: image },
         })
-        this.uploading.profile = true
-      } catch (err) {
+        this.updateActiveShopImages({ profile: image })
+      } catch (error) {
         this.$errorHandler({ prefix: 'dashboard', error })
-        this.uploading.profile = true
+        this.removeActiveShopImage('profile')
       }
+    },
+    removeImage(key) {
+      this.removeActiveShopImage(key)
+      this.$forceUpdate()
     },
   },
 }
 </script>
 
 <style lang="scss">
-.element img {
-  @apply absolute h-full w-full object-cover;
-}
-
-.formulate-file-name {
-  @apply hidden;
-}
-
-.img-input {
-  @apply opacity-0;
-}
-
 .category {
   @apply bg-grey-light text-white rounded-full px-2 py-1 m-1 flex-none select-none;
 }

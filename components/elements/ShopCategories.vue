@@ -22,11 +22,6 @@ export default {
       default: () => {},
     },
   },
-  data() {
-    return {
-      categories: [],
-    }
-  },
   computed: {
     ...mapGetters('shops', {
       activeShop: 'activeShop',
@@ -41,17 +36,17 @@ export default {
     },
     select(category) {
       this.$store.commit('shops/selectActiveShopCategorie', category)
+      this.context.model = this.activeShop.categories
+
       /*
-      let categories = []
-      if (!this.isSelected(category)) {
-        categories.push(category.value)
-        this.updateShop({ categories })
+      if (this.isSelected(category)) {
+        this.context.model.push(category.value)
       } else {
-        categories = this.activeShop.categories.filter(
+        this.context.model = this.context.model.filter(
           (item) => item !== category.value
         )
-        this.updateShop({ categories })
       }
+      console.log(this.context.model)
       */
     },
   },

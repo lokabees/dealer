@@ -6,6 +6,18 @@ export const state = () => ({
     signup: false,
     logout: false,
   },
+  locales: [
+    {
+      code: 'en',
+      name: 'English',
+      icon: '/img/icons/united-states.png',
+    },
+    {
+      code: 'de',
+      name: 'German',
+      icon: '/img/icons/germany.png',
+    },
+  ],
 })
 
 export const mutations = {
@@ -97,6 +109,7 @@ export const actions = {
 
 export const getters = {
   user: (state) => state.user,
+  locales: (state) => state.locales,
   isAdmin: (state) => state.user?.role === 'admin',
   pending: (state) => state.pending,
 }

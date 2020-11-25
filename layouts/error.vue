@@ -2,9 +2,9 @@
   <div class="flex flex-col text-center">
     <h1 class="leading-tight">{{ $t('error.error_occured') }}</h1>
     <p>{{ $t('error.continue_home') }}</p>
-    <button class="primary" @click="$router.push('/')">
+    <a class="button primary" :href="`${$config.appUrl}`">
       {{ $t('error.go_home') }}
-    </button>
+    </a>
   </div>
 </template>
 
