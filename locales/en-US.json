@@ -18,7 +18,7 @@
     "stay": "Stay",
     "submit": "Add product",
     "title": "Add product",
-    "unsaved_changes": "All unsaved changes will be lost if you leave now. Do you want to stay and finish adding the product?"
+    "unsaved_changes": "All unsaved changes will be lost if you leave now. Do you want to stay on this page and finish adding the product?"
   },
   "cookies_consent": {
     "accept": "Accept",
@@ -112,7 +112,7 @@
     "submit": "Save",
     "title": "Edit product",
     "unsaved_changes": "All changes will be lost if you leave without saving. Do you want to save your changes before exiting?",
-    "upload_product_image": "Click here to upload a product picture"
+    "upload_product_image": "Click here to upload a picture of this product"
   },
   "edit_shop": {
     "address": "Address",
@@ -160,7 +160,7 @@
   "footer": {
     "errors": {
       "500": "An unknown error occurred. Please try to reload the page and logging in again.",
-      "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
+      "504": "We can not reach the server. Please try again or report the issue to hello@lokabees.com.",
       "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
     },
     "links": {
@@ -220,7 +220,7 @@
     "contact": "contact",
     "errors": {
       "500": "An unknown error occurred. Please try to reload the page and logging in again.",
-      "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
+      "504": "We can not reach the server. Please try again or report the issue to hello@lokabees.com.",
       "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
     },
     "home": "Home",
@@ -270,7 +270,7 @@
     "button": "To login",
     "errors": {
       "500": "An unknown error occured. Try reloading the page and login again.",
-      "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
+      "504": "We can not reach the server. Please try again or report the issue to hello@lokabees.com",
       "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
     },
     "text": "We sent you a link to reset your password to the email address associated with your account. Check your inbox and click the link to reset your password.",
@@ -408,7 +408,7 @@
       "you": "... and you",
       "you_photo": "Picture of you, your team or the interior of your shop",
       "your_shop": "Your shop ...",
-      "yt_link": "Youtube link to a short video from your shop",
+      "yt_link": "Youtube link to a short video of your shop",
       "yt_link_placeholder": "https://youtube.com/..."
     },
     "success": {
@@ -447,7 +447,7 @@
     "register_with": "or register with",
     "signup": "Create account",
     "signup_successful": "Your registration has been successful!",
-    "text": "Register your shop easily with lokabees!",
+    "text": "Register your shop easily with Lokabees!",
     "title": "Register your shop",
     "to_login": "Go to login",
     "updates_offers_consent": "I want to be informed about new updates and offers. I can withdraw my consent at any time in the future on www.lokabees.de/abmelden or on the end of each email.",
@@ -462,7 +462,7 @@
     "delete_button": "Delete my account",
     "delete_info": "Here you can delete your entire Lokabees account. Warning: This process cannot be reversed!",
     "discard_changes": "Discard changes",
-    "email": "Change your Email",
+    "email": "Change your email",
     "email_placeholder": "max@mustermail.de",
     "errors": {
       "400": "Invalid input, check all the input fields again.",
@@ -470,7 +470,7 @@
       "403": "Access denied.",
       "500": "An unknown error occured. Try reloading the page and login again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
-      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+      "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com if the request keeps failing."
     },
     "image": "Upload a profile picture of yourself.",
     "name": "Change your name",
