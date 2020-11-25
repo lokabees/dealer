@@ -9,7 +9,7 @@
       "400": "Invalid input. Please check all the input fields again.",
       "500": "An unknown error occurred. Please try to reload the page and logging in again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
-      "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+      "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
     },
     "image": "Product image",
     "name": "What is the name of this product?",
@@ -31,7 +31,7 @@
       "errors": {
         "500": "An unknown error occurred. Please try to reload the page and logging in again.",
         "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
-        "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+        "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
       },
       "text": "Here you will learn the basics of digitizing your shop step by step - no previous knowledge required!",
       "title": "Lokabees Academy"
@@ -50,7 +50,7 @@
       "errors": {
         "500": "An unknown error occured. Try reloading the page and login again.",
         "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
-        "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+        "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
       },
       "text": "Please fill out all the details about your store. Adding more info lets your customers find your store more easily and know when you are open!",
       "title": "You haven't entered any information about your store yet!"
@@ -58,14 +58,14 @@
     "errors": {
       "500": "An unknown error occurred. Please try to reload the page and logging in again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
-      "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+      "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
     },
     "product_creation_prompt": {
       "button": "Add your first product",
       "errors": {
         "500": "An unknown error occurred. Please try to reload the page and logging in again.",
         "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
-        "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+        "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
       },
       "text": "Add your first product and make your shop even more attractive to new customers.",
       "title": "You don't have any products in your shop yet!"
@@ -74,7 +74,7 @@
       "errors": {
         "500": "An unknown error occurred. Please try to reload the page and logging in again.",
         "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
-        "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+        "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
       },
       "manage": "Manage products",
       "text": "Here you can manage the products in your store",
@@ -126,7 +126,7 @@
     "errors": {
       "500": "An unknown error occurred. Please try to reload the page and logging in again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
-      "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+      "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
     },
     "number": "Number",
     "number_placeholder": "1",
@@ -149,11 +149,11 @@
   },
   "error": {
     "continue_home": "You can continue on our homepage or try reloading the page again.",
-    "error_occured": "Ups. An error occured.",
+    "error_occured": "Oops. An error occured.",
     "errors": {
       "500": "An unknown error occurred. Please try to reload the page and logging in again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
-      "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+      "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
     },
     "go_home": "Go to Homepage"
   },
@@ -182,7 +182,7 @@
       "500": "An unknown error occurred. Please try to reload the page and logging in again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
       "network": "We can not reach the server. Please check your internet connection.",
-      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+      "unspecific": "Oops. Something went wrong. Please try again or contact our support if the request keeps failing."
     },
     "ok": "Okay"
   },
@@ -193,7 +193,7 @@
       "403": "Your email address has not been verified yet. Please check your inbox. If you did not receive a verification email contact Lokabees Support via hello@lokabees.com.",
       "500": "An unknown error occurred. Please try to reload the page and logging in again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
-      "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+      "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
     },
     "facebook": "Facebook",
     "forgot_password": "Forgot password?",
@@ -210,7 +210,7 @@
     "errors": {
       "500": "An unknown error occurred. Please try to reload the page and logging in again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
-      "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+      "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
     },
     "sub": "Remember: good pictures = happy customers",
     "successful": "You were successfully logged out!"
@@ -221,7 +221,7 @@
     "errors": {
       "500": "An unknown error occurred. Please try to reload the page and logging in again.",
       "504": "We can not reach the server. Please try again or report the issue to hello@lokabees.com.",
-      "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+      "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
     },
     "home": "Home",
     "login": "Login",
@@ -261,7 +261,7 @@
     "errors": {
       "500": "An unknown error occurred. Please try to reload the page and logging in again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
-      "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com"
+      "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com"
     },
     "ok": "Delete product",
     "title": "My products"
@@ -271,7 +271,7 @@
     "errors": {
       "500": "An unknown error occured. Try reloading the page and login again.",
       "504": "We can not reach the server. Please try again or report the issue to hello@lokabees.com",
-      "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+      "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
     },
     "text": "We sent you a link to reset your password to the email address associated with your account. Check your inbox and click the link to reset your password.",
     "title": "Check your inbox"
@@ -298,7 +298,7 @@
       "400": "Invalid input. Please check if all input fields are filled correctly.",
       "500": "An unknown error occurred. Please try to reload the page and logging in again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
-      "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+      "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
     },
     "next": "Next",
     "prevous": "Previous",
@@ -313,7 +313,7 @@
       "errors": {
         "500": "An unknown error occurred. Please try to reload the page and logging in again.",
         "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
-        "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+        "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
       },
       "name": "What's the name of the shop?",
       "name_placeholder": "Cookie Shop 24",
@@ -337,7 +337,7 @@
       "errors": {
         "500": "An unknown error occurred. Please try to reload the page and logging in again.",
         "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
-        "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+        "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
       },
       "friday": "Fr",
       "friday_long": "Friday",
@@ -381,7 +381,7 @@
       "errors": {
         "500": "An unknown error occurred. Please try to reload the page and logging in again.",
         "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
-        "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+        "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
       },
       "phone": "Phone",
       "phone_placeholder": "+49 123 456789",
@@ -396,7 +396,7 @@
       "errors": {
         "500": "An unknown error occurred. Please try to reload the page and logging in again.",
         "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
-        "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+        "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
       },
       "extra_points": "Extra points for a video",
       "shop_photo": "Picture of your storefront",
@@ -415,7 +415,7 @@
       "errors": {
         "500": "An unknown error occurred. Please try to reload the page and logging in again.",
         "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
-        "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+        "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
       },
       "text1": "Together we have taken the first big step towards digitalizing your shop. You should be proud of that!",
       "text2": "But this is only the beginning. Set up your new shop and add some products.",
