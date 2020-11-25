@@ -9,7 +9,7 @@
       "400": "Ungültige Eingabe. Bitte überprüfe die Eingabefelder erneut.",
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge Dich erneut ein.\n\n",
       "504": "Wir können den Server nicht erreichen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com.\n\n",
-      "unspecific": "Da ist wohl etwas schief gelaufen. Bitte versuche es erneut oder wende dich an unseren Support via hello@lokabees.com, falls Du weiterhin Probleme hast."
+      "unspecific": "Da ist wohl etwas schief gelaufen. Bitte versuche es erneut oder wende Dich an unseren Support via hello@lokabees.com, falls Du weiterhin Probleme hast."
     },
     "image": "Produktabbildung",
     "name": "Wie lautet der Name dieses Produkts?",
@@ -18,7 +18,7 @@
     "stay": "Bleiben Sie",
     "submit": "Produkt hinzufügen",
     "title": "Produkt hinzufügen",
-    "unsaved_changes": "Alle Änderungen gehen verloren, wenn Du die Seite jetzt verlässt. Möchtest Du stattdessen bleiben und das Produkt zu Ende hinzufügen?\n\n"
+    "unsaved_changes": "Alle Änderungen gehen verloren, wenn Du die Seite jetzt verlässt. Möchtest Du stattdessen auf dieser Seite bleiben und das Produkt zu Ende hinzufügen?\n\n"
   },
   "cookies_consent": {
     "accept": "Zustimmen",
@@ -450,7 +450,7 @@
     "text": "Deinen Laden ganz einfach bei Lokabees registrieren!",
     "title": "Deinen Laden Registrieren",
     "to_login": "Zum Login",
-    "updates_offers_consent": "Ich möchte über neue Updates und Angebote informiert werden. Meine Zustimmung kann ich jederzeit auf www.lokabees.de/abmelden oder am Ende jeder E-Mail widerrufen.",
+    "updates_offers_consent": "Ich möchte über neue Updates und Angebote informiert werden. Meine Zustimmung kann ich jederzeit auf www.lokabees.de/abmelden oder am Ende jeder Email widerrufen.",
     "verification_successful": "Deine E-Mail wurde verifiziert!",
     "verification_successful_sub": "Du  kannst dich nun einloggen. Viel Spaß!"
   },
