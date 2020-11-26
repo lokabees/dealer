@@ -13,14 +13,16 @@
       >
         <div class="p-4">
           <div class="flex items-center text-primary">
-            <div>
-              <img
-                :src="$auth.user.picture.url"
-                class="rounded-full mr-2"
-                width="35"
-                alt=""
-              />
-            </div>
+            <client-only>
+              <div>
+                <img
+                  :src="$auth.user.picture.url"
+                  class="rounded-full mr-2"
+                  width="35"
+                  alt=""
+                />
+              </div>
+            </client-only>
             <div class="w-0 flex-1 flex justify-between">
               <h1>toast</h1>
               <p>{{ $t(t.message) }} {{ t.text }}</p>
