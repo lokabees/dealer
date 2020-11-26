@@ -60,7 +60,6 @@ export default {
     '~/plugins/services/error-handler',
     { src: '~/plugins/modules/auth', mode: 'client' },
     { src: '~/plugins/modules/eva-icons', ssr: false },
-    { src: '~/plugins/modules/persisted-state', ssr: false },
   ],
   /*
    ** Auto import components
