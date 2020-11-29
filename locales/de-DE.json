@@ -24,7 +24,7 @@
     "accept": "Zustimmen",
     "more_info": "Mehr Informationen zu unseren Cookie-Richtlinien findest Du unter",
     "privacy": "Datenschutzerklärung",
-    "text": "Auf unserer Website verwenden wir Cookies. Einige von ihnen sind unerlässlich, während andere uns helfen, diese Website und Dein Nutzererlebnis zu verbessern."
+    "text": "Wir verwenden Cookies, um Dir ein besseres Erlebnis zu bieten."
   },
   "dashboard": {
     "academy": {
@@ -34,7 +34,7 @@
         "unspecific": "Etwas ist schief gelaufen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com."
       },
       "text": "Hier lernst du Schritt für Schritt die Grundlagen der Digitalisierung deines Shops - keine Vorkenntnisse erforderlich!\n\n",
-      "title": "lokabees Akademie"
+      "title": "Lokabees Akademie"
     },
     "analysis": {
       "errors": {
@@ -68,7 +68,7 @@
         "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n"
       },
       "text": "Du kannst auf unserer Homepage weitermachen oder versuchen, die Seite erneut zu laden.\n\n",
-      "title": "Du hast noch keine Produkte in deinem Shop!\n\n"
+      "title": "Du hast noch keine Produkte zu deinem Laden hinzugefügt!\n\n"
     },
     "products": {
       "errors": {
@@ -90,15 +90,15 @@
       "manage_shop": "Meinen Shop verwalten",
       "text": "Hier kannst du Infos zu Deinem Laden hinzufügen und bearbeiten.",
       "title": "Mein Laden",
-      "view_shop": "Mein Geschäft ansehen"
+      "view_shop": "Meinen Laden ansehen"
     },
     "upload_cover_image": "Hier klicken um ein Foto Deiner Ladenfront hochzuladen.",
-    "upload_profile_image": "Klicke hier, um ein Bild von dir, deinem Team oder innerhalb deines Shops hochzuladen.\n\n"
+    "upload_profile_image": "Klicke hier, um ein Bild von dir, deinem Team oder innerhalb deines Ladens hochzuladen.\n\n"
   },
   "edit_product": {
     "category": "Wähle eine Produktkategorie",
     "description": "Produktbeschreibung",
-    "description_placeholder": "handgemachte, weiße japanische Vase",
+    "description_placeholder": "Handgemachte, weiße japanische Vase",
     "discard_changes": "Änderungen verwerfen",
     "errors": {
       "500": "Ein unbekannter Fehler ist aufgetreten. Bitte lade die Seite neu und logge dich dann erneut ein.",
@@ -136,16 +136,16 @@
     "postal_code": "Postleitzahl",
     "postal_code_placeholder": "38100",
     "save_changes": "Änderungen speichern",
-    "shop_name": "Name Ihres Geschäfts",
+    "shop_name": "Name Deines ladens",
     "shop_name_placeholder": "Keksladen 24",
     "street": "Wo befindet sich Dein Laden?",
     "street_placeholder": "Sesamstraße",
     "submit": "Speichern",
-    "title": "Mein Geschäft",
+    "title": "Mein Laden",
     "unsaved_changes": "Willst Du deine Änderungen speichern bevor Du die Seite verlässt?",
     "visibility": "Sichtbarkeit",
     "visibility_hint_invisible": "Dein Laden ist aktuell NICHT für Kunden sichtbar.",
-    "visibility_hint_visible": "Ihr Shop ist derzeit für Kunden sichtbar."
+    "visibility_hint_visible": "Dein Laden ist derzeit für Kunden sichtbar."
   },
   "error": {
     "continue_home": "Du kannst auf unserer Homepage weitermachen oder versuchen, die Seite erneut zu laden.\n\n",
@@ -172,13 +172,13 @@
   },
   "general": {
     "error_messages": {
-      "network": "Server nicht erreichbar. Überprüfe deine Internetverbindung.",
-      "ok": "Oki"
+      "network": "Server nicht erreichbar. Überprüfe Deine Internetverbindung.",
+      "ok": "Okay"
     },
     "errors": {
       "400": "Etwas ging schief. Bitte kontaktiere den Support über hello@lokabees.com.\n\n",
       "401": "Unautorisiert",
-      "403": "Zugang verweigert.",
+      "403": "Zugang verweigert",
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
       "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com",
       "network": "Wir konnten den Server nicht erreichen. Bitte überprüfe Deine Internetverbindung oder versuche es später erneut.",
@@ -189,8 +189,8 @@
   "login": {
     "email": "E-Mail",
     "errors": {
-      "401": "Ungültige Anmeldedaten. Bitte gib einen korrekten Benutzernamen und ein Passwort ein.\n\n",
-      "403": "Deine E-Mail wurde noch nicht verifiziert. Bitte überprüfe Deinen Posteingang. Wenn Du unsere Verifizierungs-E-Mail nicht erhalten hast, teil uns dies bitte über hello@lokabees.com mit.",
+      "401": "Ungültige Anmeldedaten. Bitte kontrolliere Deinen Benutzernamen und Dein Passwort.\n\n",
+      "403": "Deine E-Mail Adresse wurde noch nicht verifiziert. Bitte überprüfe Deinen Posteingang. Wenn Du unsere Verifizierungs-E-Mail nicht erhalten hast, wende dich bitte via hello@lokabees.com an den Lokabees Support.",
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
       "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
       "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n\n"
@@ -198,7 +198,7 @@
     "facebook": "Facebook",
     "forgot_password": "Passwort vergessen?",
     "google": "Google",
-    "help_with_registration": "Hilfe bei der Registrierung?",
+    "help_with_registration": "Benötigst Du Hilfe bei der Registrierung?",
     "login": "Einloggen",
     "new_registration": "Registrieren",
     "ok": "Okay",
@@ -212,7 +212,7 @@
       "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
       "unspecific": "Etwas ist schief gelaufen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com."
     },
-    "sub": "Remember: good pictures = happy customers",
+    "sub": "Vergiss nicht: gute Bilder = glückliche Kunden",
     "successful": "Du wurdest abgemeldet!"
   },
   "navbar": {
@@ -224,7 +224,7 @@
       "unspecific": "Etwas ist schief gelaufen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com."
     },
     "home": "Startseite",
-    "login": "Login",
+    "login": "Anmelden",
     "logout": "Abmelden"
   },
   "new_password": {
@@ -236,7 +236,7 @@
     "new_password": "Neues Passwort",
     "password_placeholder": "********",
     "repeat_new_password": "Neues Passwort wiederholen",
-    "submit": "Speichern und zum Login gehen",
+    "submit": "Speichern und zum Anmelden gehen",
     "title": "Leg Dein neues Passwort fest"
   },
   "product_success": {
@@ -248,7 +248,7 @@
       "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n\n"
     },
     "paragraph_1": "Wir schauen nur schnell nach, ob alles in Ordnung ist!\n\n",
-    "paragraph_2": "Unter \"Meine Produkte\" kannst du bis zu 6 Produkte hinzufügen, um deinen Kunden einen Einblick in deinen Produktkatalog zu geben und ihn neugierig zu machen!\n\n",
+    "paragraph_2": "Unter \"Meine Produkte\" kannst du bis zu 6 Produkte hinzufügen, um deinen Kunden einen Einblick in deinen Produktkatalog zu geben und sie neugierig zu machen!\n\n",
     "title": "Dein erstes Produkt ist gleich Online!"
   },
   "products": {
@@ -277,8 +277,8 @@
     "title": "Überprüfe bitte Deinen Posteingang"
   },
   "reset_password": {
-    "back": "Zurück zum Login",
-    "email": "E-Mail-Adresse",
+    "back": "Zurück zum Anmelden",
+    "email": "E-Mail Adresse",
     "email_placeholder": "max@mustermann.de",
     "errors": {
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
@@ -286,14 +286,14 @@
       "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n\n"
     },
     "submit": "Passwort zurücksetzen",
-    "text": "Kein Problem, das passiert den Besten! Gib einfach Deine E-Mail-Adresse ein, und wir senden Dir einen Link zum Zurücksetzen.",
+    "text": "Kein Problem, das passiert den Besten! Gib einfach Deine E-Mail Adresse ein, und wir senden Dir einen Link zum Zurücksetzen.",
     "title": "Passwort zurücksetzen"
   },
   "shop_registration_wizard": {
     "back": "Zurück",
     "cancel": "Abbrechen",
     "discard_changes": "Änderungen verwerfen",
-    "done": "Shop erstellen",
+    "done": "Laden erstellen",
     "errors": {
       "400": "Ungültige Eingabe, bitte überprüfe, ob du alle Eingabefelder korrekt ausgefüllt hast.\n\n",
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
@@ -301,21 +301,21 @@
       "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n\n"
     },
     "next": "Weiter",
-    "prevous": "Vorheriges",
+    "prevous": "Zurück",
     "skip": "Überspringen",
-    "stay": "Bleib da",
+    "stay": "Bleiben",
     "step_1": {
       "categories": "Welche Schlüsselwörter beschreiben Dein Geschäft am besten?",
       "city": "Stadt",
       "city_placeholder": "Braunschweig",
-      "description": "Kurze Beschreibung Deines Geschäfts",
+      "description": "Kurze Beschreibung Deines Ladens",
       "description_placeholder": "Die besten Kekse der Stadt",
       "errors": {
         "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
         "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
         "unspecific": "Etwas ist schief gelaufen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com."
       },
-      "name": "Wie lautet der Name des Geschäfts?",
+      "name": "Wie lautet der Name deines Ladens?",
       "name_placeholder": "Keks Laden Umme Ecke 13",
       "number": "Nummer",
       "number_placeholder": "1",
@@ -325,9 +325,9 @@
       "postal_code_placeholder": "38100",
       "shop_owner": "Wer ist der Geschäftsinhaber?",
       "shop_owner_placeholder": "Arthur Bela",
-      "street": "Wo ist Dein Geschäft?",
+      "street": "Wo ist Dein Laden?",
       "street_placeholder": "Königsallee",
-      "text": "Mit einem ausführlichen Profil ist es einfacher Deinen Laden zu finden, so kannst Du mehr Kunden erreichen.",
+      "text": "Mit einem ausführlichen Profil ist es für Kunden einfacher Deinen Laden zu finden, so kannst Du mehr Kunden erreichen.",
       "title": "Vervollständige jetzt Dein Profil"
     },
     "step_2": {
@@ -401,14 +401,14 @@
       "extra_points": "Extra-Punkte für ein Video",
       "shop_photo": "Bild Deines Ladens von aussen",
       "text": "Hilf potentiellen Kunden, sich ein Bild von dir und deinem Laden zu machen.\n\n",
-      "text_extra_points": "Ein Video ist tausend Bilder wert. Wenn du bereits eines aus deinem Shop hast, dann füge einfach den Link hier ein.\n\n",
-      "text_shop": "Die Leute in deiner Nachbarschaft werden deinen Laden erkennen - vor allem von außen. Lade hier ein Foto von deiner Ladenfront hoch, um den Wiedererkennungswert zu erhöhen.\n\n",
+      "text_extra_points": "Ein Video ist tausend Bilder wert. Wenn du bereits eines aus deinem Laden hast, dann füge einfach den Link hier ein.\n\n",
+      "text_shop": "Die Leute in deiner Nachbarschaft werden deinen Laden wiedererkennen - vor allem von außen. Lade hier ein Foto von deiner Ladenfront hoch, um den Wiedererkennungswert zu erhöhen.\n\n",
       "text_you": "Du und dein Team seid das, was deinen Laden einzigartig macht. Zeige der Welt, wer du bist, damit deine Kunden wissen, mit wem sie es zu tun haben. Wenn du das nicht willst, kannst du hier auch das Innere deines Shops zeigen.\n\n",
       "title": "Fotos und Videos",
-      "you": "... und du\n\n",
-      "you_photo": "Bild von Dir, Deinem Team oder in Deinem Geschäft",
-      "your_shop": "Dein Geschäft ...",
-      "yt_link": "Youtube Link zu einem kurzen Imagevideo Deines Shops",
+      "you": "... und Du\n\n",
+      "you_photo": "Bild von Dir, Deinem Team oder von den Innenräumen Deines Ladens",
+      "your_shop": "Dein Laden ...",
+      "yt_link": "Youtube Link zu einem kurzen Imagevideo Deines Ladens",
       "yt_link_placeholder": "https://youtube.com/..."
     },
     "success": {
@@ -417,42 +417,42 @@
         "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
         "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n\n"
       },
-      "text1": "Gemeinsam haben wir den ersten großen Schritt zur Digitalisierung deines Ladens gemacht. Darauf solltest du stolz sein!\n",
-      "text2": "Aber dies ist nur der Anfang. Richte deinen neuen Shop ein und füge einige Produkte hinzu.\n\n",
-      "text3": "Dann nutze unsere Lokabees Academy, um Schritt für Schritt zu lernen, wie du ohne Vorkenntnisse online erfolgreich sein kannst!\n\n",
+      "text1": "Gemeinsam haben wir den ersten großen Schritt zur Digitalisierung Deines Ladens gemacht. Darauf solltest Du stolz sein!\n",
+      "text2": "Aber dies ist nur der Anfang. Richte deinen neuen Laden ein indem Du die ersten Produkte hinzufügst.\n\n",
+      "text3": "Dann nutze unsere Lokabees Academy, um Schritt für Schritt zu lernen, wie Du ohne Vorkenntnisse online erfolgreich sein kannst!\n\n",
       "text4": "Du kannst die Einstellungen, die du vorgenommen hast, jederzeit unter `Mein Profil` ändern.\n\n",
-      "title": "Herzlichen Glückwunsch, Dein Shop ist jetzt online!",
+      "title": "Herzlichen Glückwunsch, Dein Laden ist jetzt online!",
       "view_shop": "Meinen Laden ansehen"
     },
-    "unsaved_changes": "Alle Änderungen gehen verloren, wenn du gehst, ohne zu speichern. Möchtest du bleiben und weiterhin dein Shop-Profil erstellen?\n\n"
+    "unsaved_changes": "Alle Änderungen gehen verloren, wenn du gehst, ohne zu speichern. Möchtest du bleiben und weiterhin dein Laden-Profil erstellen?\n\n"
   },
   "signup": {
-    "accept_terms": "Durch Klicken auf 'Anmelden' erklärst Du dich mit unseren Datenschutzrichtlinien einverstanden und akzeptieren unsere Nutzungsbedingungen.",
-    "account_exists": "Ich habe bereits ein Konto",
-    "check_inbox": "Überprüfe deinen Email-Posteingang und bestätige deine Email zum Einloggen\n\n",
+    "accept_terms": "Indem du dich auf Lokabees anmeldest erklärst Du dich mit unseren Datenschutzrichtlinien und Nutzungsbedingungen einverstanden.",
+    "account_exists": "Ich habe schon ein Konto",
+    "check_inbox": "Überprüfe Deinen Email-Posteingang und bestätige Deine Email um Dich anzumelden.\n\n",
     "confirm_password": "Passwort bestätigen",
     "email": "Wie lautet deine Email-Adresse?",
     "errors": {
-      "409": "Die eingegebene E-Mail-Adresse ist bereits mit einem Lokabees-Account verbunden. Wenn du bereits einen Lokabees-Account hast, benutze dein Passwort, um dich einzuloggen. Wenn du dein Passwort vergessen hast, wende dich bitte an den Lokabees-Support unter hello@lokabees.com.\n\n",
+      "409": "Die eingegebene E-Mail-Adresse ist bereits mit einem Lokabees-Account verbunden. Wenn du bereits einen Lokabees Account hast, benutze dein Passwort, um dich einzuloggen. Wenn du dein Passwort vergessen hast, wende dich bitte an den Lokabees Support unter hello@lokabees.com.\n\n",
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
       "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
       "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n\n"
     },
     "facebook": "Facebook",
     "google": "Google",
-    "login": "Login",
+    "login": "Anmelden",
     "name": "Wie ist dein Name?\n\n",
-    "ok": "Ok",
+    "ok": "Okay",
     "password": "Dein Passwort",
     "register_with": "oder registriere dich mit\n\n",
     "signup": "Konto erstellen",
     "signup_successful": "Deine Registrierung war erfolgreich!",
     "text": "Deinen Laden ganz einfach bei Lokabees registrieren!",
     "title": "Deinen Laden Registrieren",
-    "to_login": "Zum Login",
-    "updates_offers_consent": "Ich möchte über neue Updates und Angebote informiert werden. Meine Zustimmung kann ich jederzeit auf www.lokabees.de/abmelden oder am Ende jeder Email widerrufen.",
+    "to_login": "Zur Anmeldung",
+    "updates_offers_consent": "Ich möchte über Angebote, Ankündigungen und Neuigkeiten über Lokabees informiert werden.",
     "verification_successful": "Deine E-Mail wurde verifiziert!",
-    "verification_successful_sub": "Du  kannst dich nun einloggen. Viel Spaß!"
+    "verification_successful_sub": "Du  kannst Dich nun Anmelden. Viel Spaß!"
   },
   "user": {
     "better_safe": "Vorsicht ist besser als Nachsicht",
@@ -477,18 +477,18 @@
     "name_placeholder": "Max Mustermann",
     "need_help": "Brauchst du Hilfe?\n\n",
     "new_password": "Passwort ändern",
-    "newsletter": "Ich möchte über neue Entwicklungen und Angebote informiert werden. Meine Einwilligung kann ich jederzeit mit Wirkung für die Zukunft unter www.lokabees.de/abmelden oder am Ende jeder E-Mail mit Wirkung für die Zukunft widerrufen.",
-    "newsletter_info": "Dies ist erst der Anfang der lokabees! Bleib auf dem Laufenden über neue Features, weitere Partner und neue Aktionen.\n\n",
+    "newsletter": "Ich möchte über Sonderangebote, Ankündigungen und Neuigkeiten über Lokabees informiert werden.",
+    "newsletter_info": "Dies ist erst der Anfang von Lokabees! Bleib auf dem Laufenden über neue Features, weitere Partner und neue Aktionen.\n\n",
     "role": "Was ist deine Rolle in dem Laden?\n\n",
     "role_placeholder": "Besitzer",
     "save_changes": "Änderungen speichern",
-    "submit": "speichern",
+    "submit": "Speichern",
     "text": "Ändere Accountinformationen.",
     "title": "Dein Profil",
     "unsaved_changes": "Alle Änderungen gehen verloren, wenn Du ohne Speichern fortfährst. Willst du Deine Änderungen speichern?"
   },
   "validation_errors": {
-    "confirm_password": "Die Passwörter stimmen nicht überein.",
+    "confirm_password": "Die Passwörter die Du eingegeben hast stimmen nicht überein.",
     "no_numbers": "Keine Zahlen",
     "password": "Das Passwort muss einen Kleinbuchstaben, einen Großbuchstaben, eine Zahl und ein Sonderzeichen enthalten"
   }

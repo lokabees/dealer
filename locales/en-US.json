@@ -24,7 +24,7 @@
     "accept": "Accept",
     "more_info": "You can find more information on how we use cookies in our ",
     "privacy": "Privacy Policy",
-    "text": "We use cookies on our website. Some of them are essential, while others help us to improve this website and your experience."
+    "text": "We use cookies to provide you a better experience."
   },
   "dashboard": {
     "academy": {
@@ -48,7 +48,7 @@
     "complete_shop_prompt": {
       "button": "Enter information",
       "errors": {
-        "500": "An unknown error occured. Try reloading the page and login again.",
+        "500": "An unknown error occured. Try reloading the page and log in again.",
         "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
         "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
       },
@@ -68,7 +68,7 @@
         "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
       },
       "text": "Add your first product and make your shop even more attractive to new customers.",
-      "title": "You don't have any products in your shop yet!"
+      "title": "You haven't added any products to your shop yet!"
     },
     "products": {
       "errors": {
@@ -101,7 +101,7 @@
     "description_placeholder": "Handmade japanese vase in white",
     "discard_changes": "Discard changes",
     "errors": {
-      "500": "An unknown error occured. Try reloading the page and login again.",
+      "500": "An unknown error occured. Try reloading the page and log in again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
       "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
     },
@@ -189,7 +189,7 @@
   "login": {
     "email": "Email",
     "errors": {
-      "401": "Invalid credentials. Please enter a correct username and password.",
+      "401": "Invalid username or password. Please check your username and password and try again.",
       "403": "Your email address has not been verified yet. Please check your inbox. If you did not receive a verification email contact Lokabees Support via hello@lokabees.com.",
       "500": "An unknown error occurred. Please try to reload the page and logging in again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
@@ -199,12 +199,12 @@
     "forgot_password": "Forgot password?",
     "google": "Google",
     "help_with_registration": "Do you need help registering?",
-    "login": "Login",
-    "new_registration": "New Registration",
+    "login": "Log in",
+    "new_registration": "Sign up",
     "ok": "Okay",
     "password": "Password",
     "sign_up_with": "or sign up with",
-    "signup": "Sign Up"
+    "signup": "Sign up"
   },
   "logout": {
     "errors": {
@@ -224,8 +224,8 @@
       "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
     },
     "home": "Home",
-    "login": "Login",
-    "logout": "Logout"
+    "login": "Log in",
+    "logout": "Log out"
   },
   "new_password": {
     "errors": {
@@ -236,7 +236,7 @@
     "new_password": "New password",
     "password_placeholder": "********",
     "repeat_new_password": "Repeat new password",
-    "submit": "Save and go to login",
+    "submit": "Save and go to log in",
     "title": "Set your new password"
   },
   "product_success": {
@@ -248,7 +248,7 @@
       "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
     },
     "paragraph_1": "We just check quickly if everything is okay!",
-    "paragraph_2": "Under “My Products” you can add up to 6 products to give your customers a first glance of what your store has to offer! Doing so will attract more customers.",
+    "paragraph_2": "Under “My Products” you can add up to 6 products to give your customers a first glance of what your store has to offer. Doing so will attract more customers!",
     "title": "Your first product will be online right away!"
   },
   "products": {
@@ -267,9 +267,9 @@
     "title": "My products"
   },
   "reset_password_success": {
-    "button": "To login",
+    "button": "To log in",
     "errors": {
-      "500": "An unknown error occured. Try reloading the page and login again.",
+      "500": "An unknown error occured. Try reloading the page and log in again.",
       "504": "We can not reach the server. Please try again or report the issue to hello@lokabees.com",
       "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
     },
@@ -277,7 +277,7 @@
     "title": "Check your inbox"
   },
   "reset_password": {
-    "back": "Back to login",
+    "back": "Back to log in",
     "email": "Email address",
     "email_placeholder": "john.dough@domain.com",
     "errors": {
@@ -286,7 +286,7 @@
       "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
     },
     "submit": "Reset password",
-    "text": "No problem, it happens to the best! Just enter your email and we'll send you a reset link.",
+    "text": "No worries, it happens to the best of us! Just enter your email and we'll send you a reset link.",
     "title": "Reset password"
   },
   "shop_registration_wizard": {
@@ -403,7 +403,7 @@
       "text": "Help customers to get a first impression of ​​you and your shop.",
       "text_extra_points": "A video is worth a thousand pictures. If you already have one from your shop, just paste the link here. If not, you can add one later.",
       "text_shop": "The people in your neighborhood will recognize your shop - especially from the outside. Upload a photo of your shop front here to increase the recognition value.",
-      "text_you": "You and your team are what makes your shop unique. Show the world who you are so your customers know who they are dealing with. Alternatively you can also upload a picture of your shop's interior.",
+      "text_you": "You and your team are what makes your shop unique. Show the community who you are so your customers know who they are dealing with. Alternatively you can also upload a picture of your shop's interior.",
       "title": "Photos and Videos",
       "you": "... and you",
       "you_photo": "Picture of you, your team or the interior of your shop",
@@ -418,7 +418,7 @@
         "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
       },
       "text1": "Together we have taken the first big step towards digitalizing your shop. You should be proud of that!",
-      "text2": "But this is only the beginning. Set up your new shop and add some products.",
+      "text2": "But this is only the beginning. Set up your new shop by adding your first products.",
       "text3": "Then use our Lokabees Academy to learn step by step how to be successful online without any previous knowledge!",
       "text4": "You can change the settings you have made at any time under `My Profile`.",
       "title": "Congratulations, your shop is now online!",
@@ -427,20 +427,20 @@
     "unsaved_changes": "All changes will be lost if you leave without saving. Do you want to stay and continue creating your shop profile?"
   },
   "signup": {
-    "accept_terms": "By clicking 'Sign Up' you agree to our privacy policy an accept our terms of use.",
+    "accept_terms": "By signing up to Lokabees you accept our privacy policy and terms of use.",
     "account_exists": "I already have an account",
-    "check_inbox": "Check your Email inbox and confirm your Email to login",
+    "check_inbox": "Check your email inbox and confirm your email to log in.",
     "confirm_password": "Confirm password",
     "email": "What is your email address?",
     "errors": {
-      "409": "The entered email address is already connected to a Lokabees account. If you already have a Lokabees account, use your password to log in. If you have forgotten your password, please contact the Lokabees Support via hello@lokabees.com.",
-      "500": "An unknown error occured. Try reloading the page and login again.",
+      "409": "The entered email address is already connected to a Lokabees account. If you already have a Lokabees account, use your password to log in. If you already have an account and forgot your password, please contact the Lokabees Support via hello@lokabees.com.",
+      "500": "An unknown error occured. Try reloading the page and log in again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
       "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
     },
     "facebook": "Facebook",
     "google": "Google",
-    "login": "Login",
+    "login": "Log in",
     "name": "What's your name?",
     "ok": "Okay",
     "password": "Your password",
@@ -449,10 +449,10 @@
     "signup_successful": "Your registration has been successful!",
     "text": "Register your shop easily with Lokabees!",
     "title": "Register your shop",
-    "to_login": "Go to login",
-    "updates_offers_consent": "I want to be informed about new updates and offers. I can withdraw my consent at any time in the future on www.lokabees.de/abmelden or on the end of each email.",
+    "to_login": "Go to log in",
+    "updates_offers_consent": "I want to be informed about special deals, announcements and news about Lokabees.",
     "verification_successful": "Your email is now verified!",
-    "verification_successful_sub": "You can now login with your account. Have fun!"
+    "verification_successful_sub": "Success! You can now log in with your account."
   },
   "user": {
     "better_safe": "Better safe than sorry",
@@ -465,10 +465,10 @@
     "email": "Change your email",
     "email_placeholder": "max@mustermail.de",
     "errors": {
-      "400": "Invalid input, check all the input fields again.",
+      "400": "Invalid input. Please check all the input fields again.",
       "401": "Not allowed.",
       "403": "Access denied.",
-      "500": "An unknown error occured. Try reloading the page and login again.",
+      "500": "An unknown error occured. Try reloading the page and log in again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
       "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com if the request keeps failing."
     },
@@ -477,9 +477,9 @@
     "name_placeholder": "Max Mustermann",
     "need_help": "Need help?",
     "new_password": "Change password",
-    "newsletter": "I would like to be informed about new developments and offers. I can revoke my consent at any time with effect for the future at www.lokabees.de/abmelden or at the end of every email.",
-    "newsletter_info": "This is just the beginning of lokabees! Stay up to date on new features, further partners and new promotions.",
-    "role": "What is your Role in the shop?",
+    "newsletter": "I want to be informed about special deals, announcements and news about Lokabees.",
+    "newsletter_info": "This is just the beginning of Lokabees! Stay up to date on new features, new stores and special deals.",
+    "role": "What is your role in the shop?",
     "role_placeholder": "Owner",
     "save_changes": "Save changes",
     "submit": "Save",
@@ -488,7 +488,7 @@
     "unsaved_changes": "All changes will be lost if you continue without saving. Do you want to save your changes?"
   },
   "validation_errors": {
-    "confirm_password": "The passwords do not match",
+    "confirm_password": "The passwords you entered do not match.",
     "no_numbers": "No numbers",
     "password": "The password must contain a lowercase letter, an uppercase letter, a number and a special character"
   }
