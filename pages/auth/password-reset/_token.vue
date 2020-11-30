@@ -37,6 +37,14 @@ export default {
       confirmPassword: null,
     }
   },
+  async middleware({ store, redirect, route, $axios }) {
+    const { token } = route.params
+    try {
+      await $axios.get(`/api/password-reset/${token}`)
+    } catch (error) {
+      return redirect('/')
+    }
+  },
   methods: {
     async setNewPassword() {
       try {
