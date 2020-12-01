@@ -4,12 +4,16 @@
       class="container grid grid-cols-3 gap-6 mt-16 mb-8 pt-12 w-full border-t border-grey-dark"
     >
       <div class="text-center grid">
-        <n-link class="text-grey-dark font-medium" to="/imprint">{{
-          $t('footer.links.imprint')
-        }}</n-link>
-        <n-link class="text-grey-dark font-medium" to="/privacy">{{
-          $t('footer.links.privacy')
-        }}</n-link>
+        <a
+          class="text-grey-dark font-medium"
+          href="https://lokabees-consumer-dev.herokuapp.com/imprint"
+          >{{ $t('footer.links.imprint') }}</a
+        >
+        <a
+          class="text-grey-dark font-medium"
+          href="https://lokabees-consumer-dev.herokuapp.com/privacy"
+          >{{ $t('footer.links.privacy') }}</a
+        >
       </div>
       <div class="col-span-1 flex justify-center">
         <div>
@@ -49,12 +53,16 @@
         </div>
       </div>
       <div class="text-center grid">
-        <n-link class="text-grey-dark font-medium" to="/contact">{{
-          $t('footer.links.contact')
-        }}</n-link>
-        <n-link class="text-grey-dark font-medium" to="/terms">{{
-          $t('footer.links.terms')
-        }}</n-link>
+        <a
+          class="text-grey-dark font-medium"
+          href="https://lokabees-consumer-dev.herokuapp.com/contact"
+          >{{ $t('footer.links.contact') }}</a
+        >
+        <a
+          class="text-grey-dark font-medium"
+          href="https://lokabees-consumer-dev.herokuapp.com/terms"
+          >{{ $t('footer.links.terms') }}</a
+        >
       </div>
     </div>
     <div class="container flex justify-center pb-5">
