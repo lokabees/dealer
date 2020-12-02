@@ -27,6 +27,9 @@ export default {
       activeShop: 'activeShop',
     }),
   },
+  mounted() {
+    this.context.model = this.activeShop.categories
+  },
   methods: {
     ...mapMutations('shops', {
       updateActiveShopAddress: 'updateActiveShopAddress',
