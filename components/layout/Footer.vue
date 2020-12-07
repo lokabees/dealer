@@ -58,12 +58,13 @@
           href="https://lokabees-consumer-dev.herokuapp.com/contact"
           >{{ $t('footer.links.contact') }}</a
         >
+        <!--
         <a
           class="text-grey-dark font-medium"
           href="https://lokabees-consumer-dev.herokuapp.com/terms"
           >{{ $t('footer.links.terms') }}</a
         >
-      </div>
+      --></div>
     </div>
     <div class="container flex justify-center pb-5">
       <button
