@@ -19,7 +19,7 @@ export default ({ app, store }) => {
   // This way we can use it in middleware and pages asyncData/fetch
   app.i18n = new VueI18n({
     locale: app.$cookies.get('locale'),
-    fallbackLocale: 'en',
+    fallbackLocale: 'de',
     missing: (locale, key, vm) => {
       if (!key) return
       console.log(key)

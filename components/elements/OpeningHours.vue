@@ -287,7 +287,11 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
+import ClickOutside from 'vue-click-outside'
 export default {
+  directives: {
+    ClickOutside,
+  },
   props: {
     context: {
       type: Object,

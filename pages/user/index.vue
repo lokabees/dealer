@@ -53,16 +53,20 @@
       />
     -->
 
-      <div>
-        <span class="text-sm font-bold"> {{ $t('user.better_safe') }}</span>
-      </div>
+      <p>{{ $t('user.newsletter_info') }}</p>
+
       <FormulateInput
-        :class="{ 'spinner-light': pending.resetPW }"
-        input-class="button text-grey-dark bg-white border-2 border-secondary w-full hide-on-spinner"
-        type="button"
-        :label="$t('user.new_password')"
-        @click="changePassword"
+        :value="user.newsletter"
+        :checked="user.newsletter"
+        name="newsletter"
+        type="checkbox"
+        input-class="toggle-checkbox"
+        element-class="toggle flex-none"
+        :label="$t('user.newsletter')"
+        @input="updateUser({ newsletter: $event })"
       />
+
+      <!--  <div class="border-grey-dark border-b my-12" /> -->
 
       <FormulateInput
         :class="{ 'spinner-dark': pending.save }"
@@ -72,19 +76,15 @@
       />
     </FormulateForm>
 
-    <div class="border-grey-dark border-b my-12" />
-
-    <p>{{ $t('user.newsletter_info') }}</p>
-
+    <div>
+      <span class="text-sm font-bold"> {{ $t('user.better_safe') }}</span>
+    </div>
     <FormulateInput
-      :value="user.newsletter"
-      :checked="user.newsletter"
-      name="newsletter"
-      type="checkbox"
-      input-class="toggle-checkbox"
-      element-class="toggle flex-none"
-      :label="$t('user.newsletter')"
-      @input="updateUser({ newsletter: $event })"
+      :class="{ 'spinner-light': pending.resetPW }"
+      input-class="button text-grey-dark bg-white border-2 border-secondary w-full hide-on-spinner"
+      type="button"
+      :label="$t('user.new_password')"
+      @click="changePassword"
     />
 
     <div class="border-grey-dark border-b my-12" />

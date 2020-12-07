@@ -4,7 +4,10 @@
     <transition name="modalAnimation">
       <div v-show="visible" class="modal-wrapper">
         <div class="modal">
-          <div class="modal-body p-6 sm:p-8 w-full max-w-xl">
+          <div
+            v-click-outside="$emit('close')"
+            class="modal-body p-6 sm:p-8 w-full max-w-xl"
+          >
             <div class="flex justify-center py-3">
               <eva-icon
                 name="alert-circle-outline"
@@ -30,7 +33,12 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
+
+import ClickOutside from 'vue-click-outside'
 export default {
+  directives: {
+    ClickOutside,
+  },
   computed: {
     ...mapGetters('modal', {
       visible: 'visible',

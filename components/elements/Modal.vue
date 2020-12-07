@@ -4,7 +4,10 @@
     <transition name="modalAnimation">
       <div v-show="visible && !errorModal" class="modal-wrapper">
         <div class="modal">
-          <div class="modal-body p-6 sm:p-8 w-full max-w-xl">
+          <div
+            v-click-outside="$emit('close')"
+            class="modal-body p-6 sm:p-8 w-full max-w-xl"
+          >
             <div class="pb-6">
               {{ message }}
             </div>
@@ -20,7 +23,12 @@
 
 <script>
 import { mapGetters } from 'vuex'
+
+import ClickOutside from 'vue-click-outside'
 export default {
+  directives: {
+    ClickOutside,
+  },
   props: {
     visible: { type: Boolean, default: false },
     message: { type: String, default: '' },
