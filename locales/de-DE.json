@@ -490,6 +490,7 @@
   },
   "validation_errors": {
     "confirm_password": "Die Passwörter die Du eingegeben hast stimmen nicht überein.",
+    "mandatory_field": "Bitte fülle dieses Feld aus.",
     "no_numbers": "Keine Zahlen",
     "password": "Das Passwort muss einen Kleinbuchstaben, einen Großbuchstaben, eine Zahl und ein Sonderzeichen enthalten"
   }
