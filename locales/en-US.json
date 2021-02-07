@@ -225,7 +225,8 @@
     },
     "home": "Home",
     "login": "Log in",
-    "logout": "Log out"
+    "logout": "Log out",
+    "register_shop": "Register or Login"
   },
   "new_password": {
     "errors": {
