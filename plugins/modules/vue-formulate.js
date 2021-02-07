@@ -39,8 +39,19 @@ export default ({ app }, inject) => {
     },
     locales: {
       en: {
-        required({ name }) {
-          return `Please fill out the ${name} field.`
+        required() {
+          return app.i18n.t('validation_errors.mandatory_field')
+        },
+        password() {
+          return app.i18n.t('validation_errors.password')
+        },
+        noNumbers() {
+          return app.i18n.t('validation_errors.no_numbers')
+        },
+      },
+      de: {
+        required() {
+          return app.i18n.t('validation_errors.mandatory_field')
         },
         password() {
           return app.i18n.t('validation_errors.password')
