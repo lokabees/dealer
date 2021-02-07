@@ -118,9 +118,7 @@
       </div>
     </div>
     <div class="max-w-xl mx-auto mb-8">
-      <div class="tooltip">
-        Tooltip
-      </div>
+      <div class="tooltip">Tooltip</div>
     </div>
     <!-- Swiches -->
     <div class="hero">
