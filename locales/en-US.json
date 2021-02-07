@@ -225,7 +225,8 @@
     },
     "home": "Home",
     "login": "Log in",
-    "logout": "Log out"
+    "logout": "Log out",
+    "register_shop": "Register or Login"
   },
   "new_password": {
     "errors": {
@@ -489,6 +490,7 @@
   },
   "validation_errors": {
     "confirm_password": "The passwords you entered do not match.",
+    "mandatory_field": "Please fill in this field",
     "no_numbers": "No numbers",
     "password": "The password must contain a lowercase letter, an uppercase letter, a number and a special character"
   }
