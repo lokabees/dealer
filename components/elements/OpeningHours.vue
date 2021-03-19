@@ -205,7 +205,7 @@
                             activeShop.openingHours[day].close
                           )
                           const breakOpenSec = getSecondsFromString(
-                            activeShop.openingHours[day].breaks[0].close
+                            activeShop.openingHours[day].breaks[0].from
                           )
                           return (
                             breakCloseSec > openSec &&

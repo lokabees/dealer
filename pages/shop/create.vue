@@ -124,6 +124,35 @@ export default {
     },
   },
   methods: {
+    removeInvalidTimes(timesArray) {
+      const results = timesArray.filter((time) => time.from && time.to)
+      return results
+    },
+    prepShopDataForPost(shopData) {
+      const result = { ...shopData }
+      result.openingHours.monday.breaks = this.removeInvalidTimes(
+        result.openingHours.monday.breaks
+      )
+      result.openingHours.tuesday.breaks = this.removeInvalidTimes(
+        result.openingHours.tuesday.breaks
+      )
+      result.openingHours.wednesday.breaks = this.removeInvalidTimes(
+        result.openingHours.wednesday.breaks
+      )
+      result.openingHours.thursday.breaks = this.removeInvalidTimes(
+        result.openingHours.thursday.breaks
+      )
+      result.openingHours.friday.breaks = this.removeInvalidTimes(
+        result.openingHours.friday.breaks
+      )
+      result.openingHours.saturday.breaks = this.removeInvalidTimes(
+        result.openingHours.saturday.breaks
+      )
+      result.openingHours.sunday.breaks = this.removeInvalidTimes(
+        result.openingHours.sunday.breaks
+      )
+      return result
+    },
     prevTab() {
       if (!this.$refs.wizard) return
       this.$refs.wizard.prevTab()
@@ -140,8 +169,9 @@ export default {
     },
     async createShop(creatives) {
       this.pending = true
+      const shopData = this.prepShopDataForPost(this.activeShop)
       try {
-        await this.$axios.$post('/api/shops', this.activeShop)
+        await this.$axios.$post('/api/shops', shopData)
         await this.$store.dispatch('shops/getActiveShop')
         this.unsavedChanges = false
         this.$router.push('success')
