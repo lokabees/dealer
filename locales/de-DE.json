@@ -184,7 +184,8 @@
       "network": "Wir konnten den Server nicht erreichen. Bitte überprüfe Deine Internetverbindung oder versuche es später erneut.",
       "unspecific": "Etwas ist schief gelaufen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com."
     },
-    "ok": "Okay"
+    "ok": "Okay",
+    "unspecific": "Hier klicken um Bild hochzuladen"
   },
   "login": {
     "email": "E-Mail",
