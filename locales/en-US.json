@@ -184,7 +184,8 @@
       "network": "We can not reach the server. Please check your internet connection.",
       "unspecific": "Oops. Something went wrong. Please try again or contact our support if the request keeps failing."
     },
-    "ok": "Okay"
+    "ok": "Okay",
+    "unspecific": "Click here to Upload Picture"
   },
   "login": {
     "email": "Email",
