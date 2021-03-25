@@ -99,6 +99,9 @@ export default {
         // Get user information
         await this.getMe()
 
+        // Get active shop of user once their id is in the store
+        await this.getActiveShop()
+
         // Unset Loading
         this.pending = null
 

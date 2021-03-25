@@ -6,12 +6,12 @@
       <div class="text-center grid">
         <a
           class="text-grey-dark font-medium"
-          href="https://lokabees-consumer-dev.herokuapp.com/imprint"
+          :href="`${$config.consumerUrl}/imprint`"
           >{{ $t('footer.links.imprint') }}</a
         >
         <a
           class="text-grey-dark font-medium"
-          href="https://lokabees-consumer-dev.herokuapp.com/privacy"
+          :href="`${$config.consumerUrl}/privacy`"
           >{{ $t('footer.links.privacy') }}</a
         >
       </div>

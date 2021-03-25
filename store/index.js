@@ -98,8 +98,12 @@ export const actions = {
   async getMe({ state, commit, dispatch }) {
     try {
       const { data } = await this.$axios.get('/api/users/me')
-      if (data) commit('setUser', data)
-      else dispatch('resetUser')
+      if (data && data._id && data.verified) {
+        commit('setUser', data)
+      } else {
+        console.error('unverified user')
+        dispatch('resetUser')
+      }
     } catch (error) {
       console.error(error)
       dispatch('resetUser')
