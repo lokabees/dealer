@@ -18,7 +18,7 @@
       <div class="col-span-1 flex justify-center">
         <div>
           <a
-            href="https://twitter.com/smallbizbuthero"
+            href="https://twitter.com/lokabees"
             target="_blank"
             class="bg-primary-lighter rounded-full w-10 h-10 flex m-2"
           >
