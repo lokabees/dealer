@@ -4,10 +4,10 @@
  ** Docs: https://tailwindcss.com/docs/configuration
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
-import typography from '@tailwindcss/typography'
-import spinner from 'tailwindcss-spinner'
-import tailwindui from '@tailwindcss/ui'
-import { fontFamily } from 'tailwindcss/defaultTheme'
+const typography = require('@tailwindcss/typography')
+const spinner = require('tailwindcss-spinner')
+const tailwindui = require('@tailwindcss/ui')
+const { fontFamily } = require('tailwindcss/defaultTheme')
 
 module.exports = {
   theme: {
