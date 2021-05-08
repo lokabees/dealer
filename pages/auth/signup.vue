@@ -39,6 +39,7 @@
         placeholder="******************"
       />
       <FormulateInput
+        name="tos_confirmation"
         type="checkbox"
         :label="$t('signup.accept_terms')"
         validation="required"
