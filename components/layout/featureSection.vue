@@ -70,9 +70,7 @@
               <img src="img/gift.webp" alt="gift" />
             </div>
             <div class="mt-5 text-center md:text-left">
-              <h4 class="text-xl font-serif mb-4">
-                UX Prototypenentwicklung
-              </h4>
+              <h4 class="text-xl font-serif mb-4">UX Prototypenentwicklung</h4>
               <p class="leading-6 text-dark">
                 Ermittlung und Evaluierung von nutzerzentrierten Anforderungen
                 mit Methodenwissen rund um das Thema User Research.
@@ -87,9 +85,7 @@
               <img src="img/computer.webp" alt="computer" />
             </div>
             <div class="mt-5 text-center md:text-left">
-              <h4 class="text-xl font-serif mb-4">
-                Digitales Marketing
-              </h4>
+              <h4 class="text-xl font-serif mb-4">Digitales Marketing</h4>
               <p class="leading-6 text-dark">
                 Starke und zielgruppenorientierte Positionierung Ihrer Kampagnen
                 auf aktuelle Social Media Platformen sowie Content Marketing.
@@ -104,9 +100,7 @@
               <img src="img/phone.webp" alt="phone" />
             </div>
             <div class="mt-5 text-center md:text-left">
-              <h4 class="text-xl font-serif mb-4">
-                Web &amp; App Entwicklung
-              </h4>
+              <h4 class="text-xl font-serif mb-4">Web &amp; App Entwicklung</h4>
               <p class="leading-6 text-dark">
                 Expertenwissen in modernen Browsertechnologien sowie die
                 Entwicklung von Progressiven Webapplikationen (PWA).

@@ -1,6 +1,6 @@
 <template>
   <div class="container prose p-2">
-    <Modal
+    <ElementModal
       :visible="unsavedChangesModal"
       :message="$t('edit_shop.unsaved_changes')"
     >
@@ -19,7 +19,7 @@
           {{ $t('edit_shop.save_changes') }}
         </button>
       </template>
-    </Modal>
+    </ElementModal>
     <h1 class="text-center pt-16 pb-8">{{ $t('edit_shop.title') }}</h1>
 
     <div class="flex">

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Modal
+    <ElementsModal
       :visible="unsavedChangesModal"
       :message="$t('shop_registration_wizard.unsaved_changes')"
     >
@@ -19,7 +19,7 @@
           {{ $t('shop_registration_wizard.stay') }}
         </button>
       </template>
-    </Modal>
+    </ElementsModal>
     <div class="container max-w-xl">
       <form-wizard
         ref="wizard"
@@ -32,7 +32,7 @@
 
         <!-- STEP 1-->
         <tab-content>
-          <WizardStep1
+          <PageElementsShopWizardStep1
             ref="wizard_step_1"
             :shop-categories="shopCategories"
             @submit="nextTab()"
@@ -41,7 +41,7 @@
 
         <!-- STEP 2-->
         <tab-content>
-          <WizardStep2
+          <PageElementsShopWizardStep2
             ref="wizard_step_2"
             @submit="nextTab()"
             @back="prevTab()"
@@ -50,7 +50,7 @@
 
         <!-- STEP 3-->
         <tab-content>
-          <WizardStep3
+          <PageElementsShopWizardStep3
             ref="wizard_step_3"
             @submit="nextTab()"
             @back="prevTab()"
@@ -59,7 +59,7 @@
 
         <!-- STEP 4-->
         <tab-content>
-          <WizardStep4
+          <PageElementsShopWizardStep4
             ref="wizard_step_4"
             @submit="nextTab()"
             @back="prevTab()"
@@ -68,7 +68,7 @@
 
         <!-- STEP 5-->
         <tab-content>
-          <WizardStep5
+          <PageElementsShopWizardStep5
             ref="wizard_step_5"
             :pending="pending"
             @submit="createShop"

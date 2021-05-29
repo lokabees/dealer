@@ -1,13 +1,16 @@
 <template>
   <div class="bg-primary-lightest h-full">
-    <Modal :visible="showModal" :message="$t('products.delete_confirmation')">
+    <ElementModal
+      :visible="showModal"
+      :message="$t('products.delete_confirmation')"
+    >
       <template v-slot:buttons>
         <button @click="showModal = false">{{ $t('products.cancel') }}</button>
         <button :class="{ 'spinner-light': pending }" @click="deleteProduct">
           {{ $t('products.ok') }}
         </button>
       </template>
-    </Modal>
+    </ElementModal>
 
     <h1 class="text-center font-serif font-black text-grey-dark pt-16 pb-8">
       {{ $t('products.title') }}
@@ -26,7 +29,10 @@
     </div>
 
     <div class="container max-w-2xl px-2">
-      <Product v-for="product in products" :key="product.id">
+      <PageElementsProductsProduct
+        v-for="product in products"
+        :key="product.id"
+      >
         <h2>{{ product.title }}</h2>
         <p>{{ product.description }}</p>
         <template v-slot:img>
@@ -60,7 +66,7 @@
             />
           </button>
         </template>
-      </Product>
+      </PageElementsProductsProduct>
     </div>
   </div>
 </template>
