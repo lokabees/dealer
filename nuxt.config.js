@@ -91,6 +91,16 @@ export default {
     '@nuxt/content',
     // Doc: https://github.com/nuxt-community/google-fonts-module
     '@nuxtjs/google-fonts',
+    // Doc: https://github.com/nuxt-community/robots-module
+    [
+      '@nuxtjs/robots',
+      {
+        robots: {
+          UserAgent: '*',
+          Disallow: '/',
+        },
+      },
+    ],
   ],
   /*
    ** Axios module configuration
