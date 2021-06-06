@@ -1,11 +1,11 @@
 <template>
   <div class="bg-white">
-    <ProductCreationPrompt
+    <PageElementsIndexProductCreationPrompt
       v-if="productCreationPrompt"
       @hide="productCreationPrompt = false"
     />
     <div class="relative pb-1/2 md:pb-1/4 bg-primary-light">
-      <ShopImage
+      <PageElementsIndexShopImage
         :value="shop.images.cover"
         upload-url="/api/media/shop"
         @uploaded="updateCoverImage($event)"
@@ -17,7 +17,7 @@
       <div
         class="hidden md:block absolute bottom-0 md:left-8 bg-white border-4 border-white -mb-5 w-2/3 md:w-1/3 pb-1/3 md:pb-1/5"
       >
-        <ShopImage
+        <PageElementsIndexShopImage
           :value="shop.images.profile"
           upload-url="/api/media/shop"
           @uploaded="updateProfileImage($event)"
@@ -50,7 +50,7 @@
       <div
         class="mx-auto relative md:hidden bg-white border-4 border-white -mb-5 w-2/3 pb-1/3 -mt-1/4"
       >
-        <ShopImage
+        <PageElementsIndexShopImage
           :value="shop.images.profile"
           upload-url="/api/media/shop"
           @uploaded="updateProfileImage($event)"
@@ -108,7 +108,7 @@
     <div class="container">
       <div class="flex flex-wrap overflow-hidden">
         <!-- manage shop -->
-        <DashboardCard>
+        <PageElementsIndexDashboardCard>
           <template v-slot:image>
             <img src="/img/index/shop.jpg" />
           </template>
@@ -121,10 +121,10 @@
               {{ $t('dashboard.shop.manage') }}
             </button>
           </template>
-        </DashboardCard>
+        </PageElementsIndexDashboardCard>
 
         <!-- manage products -->
-        <DashboardCard>
+        <PageElementsIndexDashboardCard>
           <template v-slot:image>
             <img src="/img/index/product.jpg" />
           </template>
@@ -137,10 +137,10 @@
               {{ $t('dashboard.products.manage') }}
             </button>
           </template>
-        </DashboardCard>
+        </PageElementsIndexDashboardCard>
 
         <!-- academy-->
-        <DashboardCard>
+        <PageElementsIndexDashboardCard>
           <template v-slot:image>
             <img src="/img/index/academy.jpg" />
           </template>
@@ -148,10 +148,10 @@
             <h2>{{ $t('dashboard.academy.title') }}</h2>
             <p>{{ $t('dashboard.academy.text') }}</p>
           </template>
-        </DashboardCard>
+        </PageElementsIndexDashboardCard>
 
         <!-- analysis -->
-        <DashboardCard>
+        <PageElementsIndexDashboardCard>
           <template v-slot:image>
             <img src="/img/index/dashboard.jpg" />
           </template>
@@ -159,7 +159,7 @@
             <h2>{{ $t('dashboard.analysis.title') }}</h2>
             <p>{{ $t('dashboard.analysis.text') }}</p>
           </template>
-        </DashboardCard>
+        </PageElementsIndexDashboardCard>
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="container prose max-w-xl mx-auto">
-    <Modal
+    <ElementModal
       :visible="modal"
       :message="$t('shop_registration_wizard.step_2.has_validation_errors')"
     >
@@ -8,7 +8,7 @@
         ><button @click="modal = false">
           {{ $t('shop_registration_wizard.step_2.ok') }}
         </button></template
-      ></Modal
+      ></ElementModal
     >
     <h1 class="text-center pt-16">
       {{ $t('shop_registration_wizard.step_2.title') }}
