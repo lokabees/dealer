@@ -26,6 +26,11 @@ export default {
         name: 'description',
         content: process.env.npm_package_description || '',
       },
+      {
+        hid: 'charset',
+        name: 'charset',
+        content: 'utf-8',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/icon.png' }],
   },

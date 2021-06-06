@@ -17,21 +17,50 @@
               class="flex items-center text-sm capitalize"
               @click="toggleDropdown"
             >
-              <eva-icon
-                class="mr-2 border-2 border-grey-dark"
-                height="16"
-                width="16"
-                name="person-outline"
-              />
+              <i class="mr-2 border-2 border-grey-dark">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="inherit"
+                  class="eva"
+                >
+                  <g data-name="Layer 2">
+                    <g data-name="person">
+                      <rect width="24" height="24" opacity="0"></rect>
+                      <path
+                        d="M12 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm0-6a2 2 0 1 1-2 2 2 2 0 0 1 2-2z"
+                      ></path>
+                      <path
+                        d="M12 13a7 7 0 0 0-7 7 1 1 0 0 0 2 0 5 5 0 0 1 10 0 1 1 0 0 0 2 0 7 7 0 0 0-7-7z"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+              </i>
               <div class="hidden sm:block">
                 {{ user.name }}
               </div>
-              <eva-icon
-                class="ml-2"
-                height="16"
-                width="16"
-                name="arrow-ios-downward"
-              />
+              <i class="ml-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="inherit"
+                  class="eva"
+                >
+                  <g data-name="Layer 2">
+                    <g data-name="arrow-ios-downward">
+                      <rect width="24" height="24" opacity="0"></rect>
+                      <path
+                        d="M12 16a1 1 0 0 1-.64-.23l-6-5a1 1 0 1 1 1.28-1.54L12 13.71l5.36-4.32a1 1 0 0 1 1.41.15 1 1 0 0 1-.14 1.46l-6 4.83A1 1 0 0 1 12 16z"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+              </i>
             </button>
           </div>
         </div>

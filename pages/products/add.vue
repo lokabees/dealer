@@ -1,6 +1,6 @@
 <template>
   <div class="container max-w-2xl pb-16 px-2">
-    <ElementModal
+    <Modal
       :visible="unsavedChangesModal"
       :message="$t('add_product.unsaved_changes')"
     >
@@ -19,7 +19,7 @@
           {{ $t('add_product.stay') }}
         </button>
       </template>
-    </ElementModal>
+    </Modal>
     <h1
       class="text-4xl text-center font-serif font-black text-grey-dark pt-16 pb-8"
     >
@@ -67,7 +67,9 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
+import Modal from '../../components/elements/Modal.vue'
 export default {
+  components: { Modal },
   data() {
     return {
       unsavedChanges: false,

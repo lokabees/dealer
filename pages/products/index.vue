@@ -1,16 +1,13 @@
 <template>
   <div class="bg-primary-lightest h-full">
-    <ElementModal
-      :visible="showModal"
-      :message="$t('products.delete_confirmation')"
-    >
+    <Modal :visible="showModal" :message="$t('products.delete_confirmation')">
       <template v-slot:buttons>
         <button @click="showModal = false">{{ $t('products.cancel') }}</button>
         <button :class="{ 'spinner-light': pending }" @click="deleteProduct">
           {{ $t('products.ok') }}
         </button>
       </template>
-    </ElementModal>
+    </Modal>
 
     <h1 class="text-center font-serif font-black text-grey-dark pt-16 pb-8">
       {{ $t('products.title') }}
@@ -44,26 +41,56 @@
             @click="showDeleteModal(product._id)"
           >
             {{ $t('products.delete') }}
-            <eva-icon
-              class="ml-2"
-              name="close"
-              height="20"
-              width="20"
-              fill="#2B2B2B"
-            />
+            <i class="eva-hover ml-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="#2B2B2B"
+                class="eva"
+              >
+                <g data-name="Layer 2">
+                  <g data-name="close">
+                    <rect
+                      width="24"
+                      height="24"
+                      transform="rotate(180 12 12)"
+                      opacity="0"
+                    ></rect>
+                    <path
+                      d="M13.41 12l4.3-4.29a1 1 0 1 0-1.42-1.42L12 10.59l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.29-4.3 4.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l4.29-4.3 4.29 4.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"
+                    ></path>
+                  </g>
+                </g>
+              </svg>
+            </i>
           </button>
           <button
             class="bg-white text-grey-dark border border-grey-dark my-auto flex items-center capitalize"
             @click="$router.push(`/products/${product._id}/edit`)"
           >
             {{ $t('products.edit') }}
-            <eva-icon
-              class="ml-2"
-              name="edit-2-outline"
-              height="20"
-              width="20"
-              fill="#2B2B2B"
-            />
+            <i class="eva-hover ml-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="#2B2B2B"
+                class="eva"
+              >
+                <g data-name="Layer 2">
+                  <g data-name="edit-2">
+                    <rect width="24" height="24" opacity="0"></rect>
+                    <path d="M19 20H5a1 1 0 0 0 0 2h14a1 1 0 0 0 0-2z"></path>
+                    <path
+                      d="M5 18h.09l4.17-.38a2 2 0 0 0 1.21-.57l9-9a1.92 1.92 0 0 0-.07-2.71L16.66 2.6A2 2 0 0 0 14 2.53l-9 9a2 2 0 0 0-.57 1.21L4 16.91a1 1 0 0 0 .29.8A1 1 0 0 0 5 18zM15.27 4L18 6.73l-2 1.95L13.32 6zm-8.9 8.91L12 7.32l2.7 2.7-5.6 5.6-3 .28z"
+                    ></path>
+                  </g>
+                </g>
+              </svg>
+            </i>
           </button>
         </template>
       </PageElementsProductsProduct>
@@ -73,7 +100,9 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex'
+import Modal from '../../components/elements/Modal.vue'
 export default {
+  components: { Modal },
   async fetch({ store }) {
     try {
       await store.dispatch('products/getProducts')

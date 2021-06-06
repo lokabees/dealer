@@ -28,11 +28,11 @@
               <p>{{ $t(t.message) }} {{ t.text }}</p>
             </div>
             <div class="ml-4 flex-shrink-0 flex">
-              <button>
-                <icon
-                  name="close"
-                  @click="$store.commit('toast/removeToast', index)"
-                />
+              <button
+                type="button"
+                @click="$store.commit('toast/removeToast', index)"
+              >
+                <icon name="close" />
               </button>
             </div>
           </div>

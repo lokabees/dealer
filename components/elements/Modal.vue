@@ -5,7 +5,7 @@
       <div v-show="visible && !errorModal" class="modal-wrapper">
         <div class="modal">
           <div
-            v-click-outside="$emit('close')"
+            v-click-outside="closeModal"
             class="modal-body p-6 sm:p-8 w-full max-w-xl"
           >
             <div class="pb-6">
@@ -37,6 +37,19 @@ export default {
     ...mapGetters('modal', {
       errorModal: 'visible',
     }),
+  },
+  methods: {
+    closeModal(event) {
+      const isClickLegit =
+        typeof event.target.closest === 'undefined'
+          ? event.target.classList.contains('modal-wrapper') ||
+            event.target.parentNode.classList.contains('modal-wrapper')
+          : !event.target.closest('.modal-body') &&
+            event.target.closest('.modal-wrapper')
+      if (isClickLegit) {
+        this.$emit('close')
+      }
+    },
   },
 }
 </script>
