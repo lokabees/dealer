@@ -2,7 +2,15 @@
   <div class="bg-white overflow-hidden">
     <div class="relative max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <svg
-        class="absolute top-0 mt-8 left-full transform -translate-x-1/2 -translate-y-3/4 lg:left-auto lg:right-full lg:translate-x-2/3 lg:translate-y-1/4"
+        class="
+          absolute
+          top-0
+          mt-8
+          left-full
+          transform
+          -translate-x-1/2 -translate-y-3/4
+          lg:left-auto lg:right-full lg:translate-x-2/3 lg:translate-y-1/4
+        "
         width="404"
         height="784"
         fill="none"
@@ -42,7 +50,11 @@
           </h3>
         </div>
         <div
-          class="mt-10 sm:grid sm:grid-cols-2 sm:col-gap-8 sm:row-gap-10 lg:col-span-2 lg:mt-0"
+          class="
+            mt-10
+            sm:grid sm:grid-cols-2 sm:col-gap-8 sm:row-gap-10
+            lg:col-span-2 lg:mt-0
+          "
         >
           <div>
             <div

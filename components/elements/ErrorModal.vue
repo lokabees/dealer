@@ -63,7 +63,15 @@ export default {
   methods: {
     ...mapMutations('modal', { hideModal: 'hideModal' }),
     closeModal(event) {
-      this.$emit('close')
+      const isClickLegit =
+        typeof event.target.closest === 'undefined'
+          ? event.target.classList.contains('modal-wrapper') ||
+            event.target.parentNode.classList.contains('modal-wrapper')
+          : !event.target.closest('.modal-body') &&
+            event.target.closest('.modal-wrapper')
+      if (isClickLegit) {
+        this.$emit('close')
+      }
     },
   },
 }

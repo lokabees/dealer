@@ -24,7 +24,15 @@
           type="file"
           multiple
           accept="image/*,.heic"
-          class="absolute h-full w-full focus:outline-none opacity-0 z-10 cursor-pointer"
+          class="
+            absolute
+            h-full
+            w-full
+            focus:outline-none
+            opacity-0
+            z-10
+            cursor-pointer
+          "
           @change="handleFileChange"
         />
         <div class="absolute top-0 flex h-full max-w-sm items-center z-1 p-2">

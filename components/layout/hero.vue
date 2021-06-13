@@ -3,7 +3,18 @@
     <client-only>
       <div
         v-if="!hideHero"
-        class="select-none mx-auto antialiased tracking-tight p-4 md:p-6 text-2xl md:text-4xl font-serif text-center"
+        class="
+          select-none
+          mx-auto
+          antialiased
+          tracking-tight
+          p-4
+          md:p-6
+          text-2xl
+          md:text-4xl
+          font-serif
+          text-center
+        "
       >
         <p class="font-bold">{{ heroTitle }}</p>
         <p class="my-3 text-xl">{{ heroSubTitle }}</p>

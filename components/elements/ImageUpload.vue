@@ -16,7 +16,16 @@
     </div>
     <div v-else>
       <div
-        class="relative hover:border-primary cursor-pointer h-64 w-full border-2 border-dashed justify-center flex"
+        class="
+          relative
+          hover:border-primary
+          cursor-pointer
+          h-64
+          w-full
+          border-2 border-dashed
+          justify-center
+          flex
+        "
       >
         <input
           :ref="context.uploadUrl"

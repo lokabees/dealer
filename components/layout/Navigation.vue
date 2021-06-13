@@ -69,17 +69,43 @@
     <div class="relative md:container">
       <div
         v-if="dropdown"
-        class="absolute bg-white border border-t-0 border-grey-dark right-0 top-0 z-30 text-sm"
+        class="
+          absolute
+          bg-white
+          border border-t-0 border-grey-dark
+          right-0
+          top-0
+          z-30
+          text-sm
+        "
       >
         <button
           ref="accountSettings"
-          class="text-left capitalize font-bold w-full px-2 py-2 hover:bg-grey-dark hover:text-white rounded-none"
+          class="
+            text-left
+            capitalize
+            font-bold
+            w-full
+            px-2
+            py-2
+            hover:bg-grey-dark hover:text-white
+            rounded-none
+          "
           @click="goToAccountSettings"
         >
           {{ $t('navbar.account_settings') }}
         </button>
         <button
-          class="text-left capitalize font-bold w-full px-2 py-2 hover:bg-grey-dark hover:text-white rounded-none"
+          class="
+            text-left
+            capitalize
+            font-bold
+            w-full
+            px-2
+            py-2
+            hover:bg-grey-dark hover:text-white
+            rounded-none
+          "
           @click="logoutUser"
         >
           {{ $t('navbar.logout') }}

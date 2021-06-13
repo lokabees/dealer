@@ -1,5 +1,8 @@
 import redirectSSL from 'redirect-ssl'
 
+import en from './locales/en-US.json'
+import de from './locales/de-DE.json'
+
 export default {
   /*
    ** Nuxt rendering mode
@@ -17,19 +20,23 @@ export default {
    ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'Lokabees Dealer',
     meta: [
-      { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      {
-        hid: 'description',
-        name: 'description',
-        content: process.env.npm_package_description || '',
-      },
       {
         hid: 'charset',
         name: 'charset',
         content: 'utf-8',
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: '',
+      },
+      {
+        hid: 'og:description',
+        name: 'og:description',
+        content: '',
       },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/icon.png' }],
@@ -60,7 +67,7 @@ export default {
   plugins: [
     '~/plugins/modules/axios',
     '~/plugins/modules/vue-formulate',
-    '~/plugins/modules/i18n',
+    // '~/plugins/modules/i18n',
     '~/plugins/modules/vue-form-wizard',
     '~/plugins/services/error-handler',
     { src: '~/plugins/modules/auth', mode: 'client' },
@@ -88,6 +95,46 @@ export default {
    ** Nuxt.js modules
    */
   modules: [
+    // Doc: https://i18n.nuxtjs.org/
+    [
+      'nuxt-i18n',
+      {
+        baseUrl: (context) => {
+          return context.isDev
+            ? 'http://localhost:3000'
+            : (window && window.location) ||
+                'https://lokabees-dealer-dev.herokuapp.com'
+        },
+        locales: [
+          {
+            code: 'de',
+            iso: 'de-DE',
+          },
+          {
+            code: 'en',
+            iso: 'en-US',
+          },
+        ],
+        seo: false,
+        defaultLocale: 'de',
+        vueI18n: {
+          fallbackLocale: 'de',
+          missing: (locale, key, vm) => {
+            if (!key) return
+            console.log(key)
+            const keyParts = key.split('.')
+            if (keyParts.includes('unspecific')) return
+            keyParts[keyParts.length - 1] = 'unspecific'
+            const newKey = keyParts.join('.')
+            if (vm) return vm.$t(newKey)
+          },
+          messages: {
+            en,
+            de,
+          },
+        },
+      },
+    ],
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://pwa.nuxtjs.org/

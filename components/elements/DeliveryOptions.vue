@@ -9,7 +9,18 @@
       <div class="pr-2">
         <input
           :checked="isSelected(option.value)"
-          class="form-checkbox h-6 w-6 rounded-sm text-primary transition duration-150 ease-in-out focus:shadow-none mr-2"
+          class="
+            form-checkbox
+            h-6
+            w-6
+            rounded-sm
+            text-primary
+            transition
+            duration-150
+            ease-in-out
+            focus:shadow-none
+            mr-2
+          "
           type="checkbox"
           @input="select(option.value)"
         />

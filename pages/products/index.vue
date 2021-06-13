@@ -67,7 +67,15 @@
             </i>
           </button>
           <button
-            class="bg-white text-grey-dark border border-grey-dark my-auto flex items-center capitalize"
+            class="
+              bg-white
+              text-grey-dark
+              border border-grey-dark
+              my-auto
+              flex
+              items-center
+              capitalize
+            "
             @click="$router.push(`/products/${product._id}/edit`)"
           >
             {{ $t('products.edit') }}

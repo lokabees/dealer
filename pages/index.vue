@@ -15,7 +15,20 @@
 
     <div class="relative">
       <div
-        class="hidden md:block absolute bottom-0 md:left-8 bg-white border-4 border-white -mb-5 w-2/3 md:w-1/3 pb-1/3 md:pb-1/5"
+        class="
+          hidden
+          md:block
+          absolute
+          bottom-0
+          md:left-8
+          bg-white
+          border-4 border-white
+          -mb-5
+          w-2/3
+          md:w-1/3
+          pb-1/3
+          md:pb-1/5
+        "
       >
         <PageElementsIndexShopImage
           :value="shop.images.profile"
@@ -48,7 +61,17 @@
 
     <div class="flex w-full justify-items-center">
       <div
-        class="mx-auto relative md:hidden bg-white border-4 border-white -mb-5 w-2/3 pb-1/3 -mt-1/4"
+        class="
+          mx-auto
+          relative
+          md:hidden
+          bg-white
+          border-4 border-white
+          -mb-5
+          w-2/3
+          pb-1/3
+          -mt-1/4
+        "
       >
         <PageElementsIndexShopImage
           :value="shop.images.profile"
@@ -63,7 +86,18 @@
       <div class="md:flex px-2">
         <div class="w-full">
           <h1
-            class="py-5 text-center md:text-left font-serif antialiased leading-tight select-none text-6xl font-black text-grey-dark"
+            class="
+              py-5
+              text-center
+              md:text-left
+              font-serif
+              antialiased
+              leading-tight
+              select-none
+              text-6xl
+              font-black
+              text-grey-dark
+            "
           >
             {{ shopName }}
           </h1>

@@ -21,7 +21,13 @@
       </template>
     </ElementModal>
     <h1
-      class="text-4xl text-center font-serif font-black text-grey-dark pt-16 pb-8"
+      class="
+        text-4xl text-center
+        font-serif font-black
+        text-grey-dark
+        pt-16
+        pb-8
+      "
     >
       {{ $t('edit_product.title') }}
     </h1>

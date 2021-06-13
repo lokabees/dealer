@@ -1,6 +1,17 @@
 <template>
   <div
-    class="fixed inset-0 flex items-start justify-center px-4 py-0 pointer-events-none sm:p-3 sm:items-start sm:justify-end z-50"
+    class="
+      fixed
+      inset-0
+      flex
+      items-start
+      justify-center
+      px-4
+      py-0
+      pointer-events-none
+      sm:p-3 sm:items-start sm:justify-end
+      z-50
+    "
   >
     <transition-group
       name="toast-fade"
