@@ -23,7 +23,7 @@
   "cookies_consent": {
     "accept": "Accept",
     "more_info": "You can find more information on how we use cookies in our ",
-    "privacy": "Privacy Policy",
+    "privacy": "Privacy policy",
     "text": "We use cookies to provide you a better experience."
   },
   "dashboard": {
@@ -40,7 +40,7 @@
       "errors": {
         "500": "An unknown error occurred. Please try to reload the page and logging in again.",
         "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
-        "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+        "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
       },
       "text": "Here you will soon find interesting options for analyzing your shop and optimizing your range.",
       "title": "Analysis of your shop"
@@ -84,7 +84,7 @@
       "errors": {
         "500": "An unknown error occurred. Please try to reload the page and logging in again.",
         "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
-        "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+        "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
       },
       "manage": "Manage shop",
       "manage_shop": "Manage my shop",
@@ -103,7 +103,7 @@
     "errors": {
       "500": "An unknown error occured. Try reloading the page and log in again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
-      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+      "unspecific": "Oops. Something went wrong. Please try again or contact our support if the request keeps failing."
     },
     "image": "Product image",
     "name": "What is the name of this product?",
@@ -116,7 +116,7 @@
   },
   "edit_shop": {
     "address": "Address",
-    "categories": "shop categories",
+    "categories": "Shop categories",
     "city": "City",
     "city_placeholder": "Brunswick",
     "contact_data": "Contact data",
@@ -155,7 +155,7 @@
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
       "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
     },
-    "go_home": "Go to Homepage"
+    "go_home": "Go to homepage"
   },
   "footer": {
     "errors": {
@@ -185,7 +185,7 @@
       "unspecific": "Oops. Something went wrong. Please try again or contact our support if the request keeps failing."
     },
     "ok": "Okay",
-    "unspecific": "Click here to Upload Picture"
+    "unspecific": "Click here to upload picture"
   },
   "login": {
     "email": "Email",
@@ -227,13 +227,13 @@
     "home": "Home",
     "login": "Log in",
     "logout": "Log out",
-    "register_shop": "Register or Login"
+    "register_shop": "Register or login"
   },
   "new_password": {
     "errors": {
       "500": "An unknown error occurred. Please try to reload the page and logging in again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
-      "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+      "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
     },
     "new_password": "New password",
     "password_placeholder": "********",
@@ -242,8 +242,8 @@
     "title": "Set your new password"
   },
   "product_success": {
-    "add_another_product": "+ add another product",
-    "back": "Back to Dashboard",
+    "add_another_product": "+ Add another product",
+    "back": "Back to dashboard",
     "errors": {
       "500": "An unknown error occurred. Please try to reload the page and logging in again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
@@ -346,7 +346,7 @@
       "from": "From",
       "monday": "Mo",
       "monday_long": "Monday",
-      "opening_hours": "Opening Hours",
+      "opening_hours": "Opening hours",
       "saturday": "Sat",
       "saturday_long": "Saturday",
       "sunday": "Su",
@@ -368,7 +368,7 @@
       "errors": {
         "500": "An unknown error occurred. Please try to reload the page and logging in again.",
         "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
-        "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com."
+        "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com."
       },
       "pickup": "Pick up",
       "pickup_text": "Customers can reserve products and pick them up at your shop.",
@@ -406,7 +406,7 @@
       "text_extra_points": "A video is worth a thousand pictures. If you already have one from your shop, just paste the link here. If not, you can add one later.",
       "text_shop": "The people in your neighborhood will recognize your shop - especially from the outside. Upload a photo of your shop front here to increase the recognition value.",
       "text_you": "You and your team are what makes your shop unique. Show the community who you are so your customers know who they are dealing with. Alternatively you can also upload a picture of your shop's interior.",
-      "title": "Photos and Videos",
+      "title": "Photos and videos",
       "you": "... and you",
       "you_photo": "Picture of you, your team or the interior of your shop",
       "your_shop": "Your shop ...",
@@ -438,7 +438,7 @@
       "409": "The entered email address is already connected to a Lokabees account. If you already have a Lokabees account, use your password to log in. If you already have an account and forgot your password, please contact the Lokabees Support via hello@lokabees.com.",
       "500": "An unknown error occured. Try reloading the page and log in again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com.",
-      "unspecific": "Ups. Something went wrong. Please try again or contact our support if the request keeps failing."
+      "unspecific": "Oops. Something went wrong. Please try again or contact our support if the request keeps failing."
     },
     "facebook": "Facebook",
     "google": "Google",
@@ -472,7 +472,7 @@
       "403": "Access denied.",
       "500": "An unknown error occured. Try reloading the page and log in again.",
       "504": "We can not reach the server. Please try again later or report the issue to hello@lokabees.com",
-      "unspecific": "Ups. Something went wrong. Please try again or contact our support via hello@lokabees.com if the request keeps failing."
+      "unspecific": "Oops. Something went wrong. Please try again or contact our support via hello@lokabees.com if the request keeps failing."
     },
     "image": "Upload a profile picture of yourself.",
     "name": "Change your name",
@@ -486,7 +486,7 @@
     "save_changes": "Save changes",
     "submit": "Save",
     "text": "Change account details.",
-    "title": "Your Profile",
+    "title": "Your profile",
     "unsaved_changes": "All changes will be lost if you continue without saving. Do you want to save your changes?"
   },
   "validation_errors": {

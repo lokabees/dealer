@@ -15,7 +15,7 @@
     "name": "Wie lautet der Name dieses Produkts?",
     "name_placeholder": "Japanische Vase",
     "ok": "Okay",
-    "stay": "Bleiben Sie",
+    "stay": "Bleibe ",
     "submit": "Produkt hinzufügen",
     "title": "Produkt hinzufügen",
     "unsaved_changes": "Alle Änderungen gehen verloren, wenn Du die Seite jetzt verlässt. Möchtest Du stattdessen auf dieser Seite bleiben und das Produkt zu Ende hinzufügen?\n\n"
@@ -31,16 +31,16 @@
       "errors": {
         "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
         "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
-        "unspecific": "Etwas ist schief gelaufen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com."
+        "unspecific": "Etwas ist schiefgegangen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com."
       },
-      "text": "Hier lernst du Schritt für Schritt die Grundlagen der Digitalisierung deines Shops - keine Vorkenntnisse erforderlich!\n\n",
+      "text": "Hier lernst du Schritt für Schritt die Grundlagen der Digitalisierung deines Ladens - keine Vorkenntnisse erforderlich!\n\n",
       "title": "Lokabees Akademie"
     },
     "analysis": {
       "errors": {
         "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
         "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
-        "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n\n"
+        "unspecific": "Ups. Etwas ist schiefgegangen. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt."
       },
       "text": "Hier findest Du bald interessante Möglichkeiten, Deinen Shop zu analysieren und Dein Angebot zu optimieren.",
       "title": "Analyse Deines Ladens"
@@ -58,23 +58,23 @@
     "errors": {
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
       "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
-      "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n\n"
+      "unspecific": "Ups. Etwas ist schiefgegangen. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt."
     },
     "product_creation_prompt": {
       "button": "Füge Dein erstes Produkt hinzu",
       "errors": {
         "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n",
         "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
-        "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n"
+        "unspecific": "Ups. Etwas ist schiefgegangen. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt."
       },
-      "text": "Du kannst auf unserer Homepage weitermachen oder versuchen, die Seite erneut zu laden.\n\n",
+      "text": "Versuche, diese Seite erneut zu laden oder gehe zurück zur Startseite.",
       "title": "Du hast noch keine Produkte zu deinem Laden hinzugefügt!\n\n"
     },
     "products": {
       "errors": {
         "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n",
         "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
-        "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n"
+        "unspecific": "Ups. Etwas ist schiefgegangen. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt."
       },
       "manage": "Produkte verwalten",
       "text": "Hier kannst du die Produkte in deinem Sortiment verwalten\n\n",
@@ -84,7 +84,7 @@
       "errors": {
         "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
         "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
-        "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n\n"
+        "unspecific": "Ups. Etwas ist schiefgegangen. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt."
       },
       "manage": "Shop verwalten",
       "manage_shop": "Meinen Shop verwalten",
@@ -103,7 +103,7 @@
     "errors": {
       "500": "Ein unbekannter Fehler ist aufgetreten. Bitte lade die Seite neu und logge dich dann erneut ein.",
       "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
-      "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n\n"
+      "unspecific": "Ups. Etwas ist schiefgegangen. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt."
     },
     "image": "Produktabbildung",
     "name": "Was ist der Name dieses Produkts?",
@@ -126,7 +126,7 @@
     "errors": {
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
       "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
-      "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n\n"
+      "unspecific": "Ups. Etwas ist schiefgegangen. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt."
     },
     "number": "Nummer",
     "number_placeholder": "1",
@@ -148,12 +148,12 @@
     "visibility_hint_visible": "Dein Laden ist derzeit für Kunden sichtbar."
   },
   "error": {
-    "continue_home": "Du kannst auf unserer Homepage weitermachen oder versuchen, die Seite erneut zu laden.\n\n",
+    "continue_home": "Versuche, diese Seite erneut zu laden oder gehe zurück zur Startseite.",
     "error_occured": "Ups. Ein Fehler ist aufgetreten.",
     "errors": {
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
       "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
-      "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n"
+      "unspecific": "Ups. Etwas ist schiefgegangen. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt."
     },
     "go_home": "Zur Homepage"
   },
@@ -161,7 +161,7 @@
     "errors": {
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
       "504": "Wir konnten den Server nicht erreichen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com.",
-      "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n\n"
+      "unspecific": "Ups. Etwas ist schiefgegangen. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt."
     },
     "links": {
       "contact": "Kontakt",
@@ -172,17 +172,17 @@
   },
   "general": {
     "error_messages": {
-      "network": "Server nicht erreichbar. Überprüfe Deine Internetverbindung.",
+      "network": "Der Server ist nicht erreichbar. Bitte überprüfe Deine Internetverbindung.",
       "ok": "Okay"
     },
     "errors": {
-      "400": "Etwas ging schief. Bitte kontaktiere den Support über hello@lokabees.com.\n\n",
+      "400": "Etwas ist schiefgegangen. Bitte kontaktiere unseren Support über hello@lokabees.com.\n\n",
       "401": "Unautorisiert",
       "403": "Zugang verweigert",
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
       "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com",
       "network": "Wir konnten den Server nicht erreichen. Bitte überprüfe Deine Internetverbindung oder versuche es später erneut.",
-      "unspecific": "Etwas ist schief gelaufen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com."
+      "unspecific": "Etwas ist schiefgegangen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com."
     },
     "ok": "Okay",
     "unspecific": "Hier klicken um Bild hochzuladen"
@@ -191,10 +191,10 @@
     "email": "E-Mail",
     "errors": {
       "401": "Ungültige Anmeldedaten. Bitte kontrolliere Deinen Benutzernamen und Dein Passwort.\n\n",
-      "403": "Deine E-Mail Adresse wurde noch nicht verifiziert. Bitte überprüfe Deinen Posteingang. Wenn Du unsere Verifizierungs-E-Mail nicht erhalten hast, wende dich bitte via hello@lokabees.com an den Lokabees Support.",
+      "403": "Deine E-Mail Adresse wurde noch nicht verifiziert. Bitte überprüfe Deinen Posteingang. Wenn Du unsere Verifizierungs-E-Mail nicht erhalten hast, wende dich bitte via hello@lokabees.com an den Lokabees-Support.",
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
       "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
-      "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n\n"
+      "unspecific": "Ups. Etwas ist schiefgegangen. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt."
     },
     "facebook": "Facebook",
     "forgot_password": "Passwort vergessen?",
@@ -211,9 +211,9 @@
     "errors": {
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
       "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
-      "unspecific": "Etwas ist schief gelaufen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com."
+      "unspecific": "Etwas ist schiefgegangen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com."
     },
-    "sub": "Vergiss nicht: gute Bilder = glückliche Kunden",
+    "sub": "Vergiss nicht: Gute Bilder = glückliche Kunden",
     "successful": "Du wurdest abgemeldet!"
   },
   "navbar": {
@@ -222,12 +222,12 @@
     "errors": {
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche, die Seite neu zu laden und dich erneut anzumelden.",
       "504": "Wir konnten den Server nicht erreichen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com.",
-      "unspecific": "Etwas ist schief gelaufen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com."
+      "unspecific": "Etwas ist schiefgegangen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com."
     },
     "home": "Startseite",
     "login": "Anmelden",
     "logout": "Abmelden",
-    "register_shop": "Hier Anmelden"
+    "register_shop": "Hier anmelden"
   },
   "new_password": {
     "errors": {
@@ -238,11 +238,11 @@
     "new_password": "Neues Passwort",
     "password_placeholder": "********",
     "repeat_new_password": "Neues Passwort wiederholen",
-    "submit": "Speichern und zum Anmelden gehen",
-    "title": "Leg Dein neues Passwort fest"
+    "submit": "Speichern und weiter zur Anmeldung",
+    "title": "Lege Dein neues Passwort fest"
   },
   "product_success": {
-    "add_another_product": "+ weiteres Produkt hinzufügen",
+    "add_another_product": "+ Weiteres Produkt hinzufügen",
     "back": "Zurück zur Übersicht",
     "errors": {
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge Dich erneut ein.",
@@ -263,7 +263,7 @@
     "errors": {
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
       "504": "Wir können den Server nicht erreichen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com.",
-      "unspecific": "Da ist wohl etwas schief gelaufen. Bitte versuche es erneut oder wende Dich an unseren Support, falls Du weiterhin Probleme hast."
+      "unspecific": "Da ist wohl etwas schiefgegangen. Bitte versuche es erneut oder wende Dich an unseren Support, falls Du weiterhin Probleme hast."
     },
     "ok": "Produkt löschen",
     "title": "Meine Produkte"
@@ -273,22 +273,22 @@
     "errors": {
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n",
       "504": "Wir konnten den Server nicht erreichen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com.",
-      "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n"
+      "unspecific": "Ups. Etwas ist schiefgegangen. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt."
     },
-    "text": "Wir haben dir einen Link zum zurückzusetzen deines Passworts an die Email Adresse geschickt, die mit deinem Lokabees Konto verbunden ist. Überprüfe deinen Posteingang und klicke auf den Link, um dein Passwort zurückzusetzen.\n\n",
-    "title": "Überprüfe bitte Deinen Posteingang"
+    "text": "Wir haben dir einen Link zum Zurückzusetzen Deines Passworts an die E-Mmail-Adresse geschickt, die mit deinem Lokabees-Konto verbunden ist. Überprüfe deinen Posteingang und klicke auf den Link, um dein Passwort zurückzusetzen.\n\n",
+    "title": "Bitte überprüfe Deinen Posteingang"
   },
   "reset_password": {
-    "back": "Zurück zum Anmelden",
-    "email": "E-Mail Adresse",
+    "back": "Zurück zur Anmeldung",
+    "email": "E-Mail-Adresse",
     "email_placeholder": "max@mustermann.de",
     "errors": {
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
       "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com",
-      "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n\n"
+      "unspecific": "Ups. Etwas ist schiefgegangen. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt."
     },
     "submit": "Passwort zurücksetzen",
-    "text": "Kein Problem, das passiert den Besten! Gib einfach Deine E-Mail Adresse ein, und wir senden Dir einen Link zum Zurücksetzen.",
+    "text": "Kein Problem, das passiert den Besten! Gib einfach Deine E-Mail-Adresse ein, und wir senden Dir einen Link zum Zurücksetzen Deines Passworts.",
     "title": "Passwort zurücksetzen"
   },
   "shop_registration_wizard": {
@@ -307,7 +307,7 @@
     "skip": "Überspringen",
     "stay": "Bleiben",
     "step_1": {
-      "categories": "Welche Schlüsselwörter beschreiben Dein Geschäft am besten?",
+      "categories": "Wähle 1 - 3 Schlüsselwörter, die Dein Dein Geschäft am besten beschreiben.",
       "city": "Stadt",
       "city_placeholder": "Braunschweig",
       "description": "Kurze Beschreibung Deines Ladens",
@@ -315,10 +315,10 @@
       "errors": {
         "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
         "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
-        "unspecific": "Etwas ist schief gelaufen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com."
+        "unspecific": "Etwas ist schiefgegangen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com."
       },
       "name": "Wie lautet der Name deines Ladens?",
-      "name_placeholder": "Keks Laden Umme Ecke 13",
+      "name_placeholder": "Keksladen Umme Ecke 13",
       "number": "Nummer",
       "number_placeholder": "1",
       "optional": "Zusätzliche Informationen (optional)",
@@ -329,7 +329,7 @@
       "shop_owner_placeholder": "Arthur Bela",
       "street": "Wo ist Dein Laden?",
       "street_placeholder": "Königsallee",
-      "text": "Mit einem ausführlichen Profil ist es für Kunden einfacher Deinen Laden zu finden, so kannst Du mehr Kunden erreichen.",
+      "text": "Mit einem ausführlichen Profil ist es für Kunden einfacher, Deinen Laden zu finden. So kannst Du mehr Kunden erreichen.",
       "title": "Vervollständige jetzt Dein Profil"
     },
     "step_2": {
@@ -339,7 +339,7 @@
       "errors": {
         "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
         "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
-        "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n\n"
+        "unspecific": "Ups. Etwas ist schiefgegangen. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt."
       },
       "friday": "Fr",
       "friday_long": "Freitag",
@@ -358,13 +358,13 @@
       "to": "an",
       "tuesday": "Di",
       "tuesday_long": "Dienstag ",
-      "until": "Bis",
+      "until": "bis",
       "wednesday": "Mi",
       "wednesday_long": "Mittwoch"
     },
     "step_3": {
       "delivery": "Lieferung",
-      "delivery_text": "Kunden können sich deine Produkte nach Hause liefern lassen.\n\n",
+      "delivery_text": "Kunden können sich Deine Produkte nach Hause liefern lassen.\n\n",
       "errors": {
         "500": "Ein unbekannter Fehler ist aufgetreten. Bitte lade die Seite neu und logge Dich erneut ein.",
         "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
@@ -378,12 +378,12 @@
       "title": "Abholung und Versand"
     },
     "step_4": {
-      "email": "Email",
+      "email": "E-Mail",
       "email_placeholder": "max@mustermann.de",
       "errors": {
         "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
         "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
-        "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n\n"
+        "unspecific": "Ups. Etwas ist schiefgegangen. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt."
       },
       "phone": "Telefon",
       "phone_placeholder": "+49 123 456789",
@@ -401,26 +401,26 @@
         "unspecific": "Etwas ist schief gelaufen. Bitte versuche es später erneut oder kontaktiere den Lokabees Support via hello@lokabees.com."
       },
       "extra_points": "Extra-Punkte für ein Video",
-      "shop_photo": "Bild Deines Ladens von aussen",
+      "shop_photo": "Bild Deines Ladens von Außen",
       "text": "Hilf potentiellen Kunden, sich ein Bild von dir und deinem Laden zu machen.\n\n",
       "text_extra_points": "Ein Video ist tausend Bilder wert. Wenn du bereits eines aus deinem Laden hast, dann füge einfach den Link hier ein.\n\n",
-      "text_shop": "Die Leute in deiner Nachbarschaft werden deinen Laden wiedererkennen - vor allem von außen. Lade hier ein Foto von deiner Ladenfront hoch, um den Wiedererkennungswert zu erhöhen.\n\n",
+      "text_shop": "Die Leute in deiner Nachbarschaft werden deinen Laden wiedererkennen - vor allem von Außen. Lade hier ein Foto von deiner Ladenfront hoch, um den Wiedererkennungswert zu erhöhen.\n\n",
       "text_you": "Du und dein Team seid das, was deinen Laden einzigartig macht. Zeige der Welt, wer du bist, damit deine Kunden wissen, mit wem sie es zu tun haben. Wenn du das nicht willst, kannst du hier auch das Innere deines Shops zeigen.\n\n",
       "title": "Fotos und Videos",
       "you": "... und Du\n\n",
       "you_photo": "Bild von Dir, Deinem Team oder von den Innenräumen Deines Ladens",
       "your_shop": "Dein Laden ...",
-      "yt_link": "Youtube Link zu einem kurzen Imagevideo Deines Ladens",
+      "yt_link": "Youtube-Link zu einem kurzen Video über Deinen Laden",
       "yt_link_placeholder": "https://youtube.com/..."
     },
     "success": {
       "errors": {
         "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
         "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
-        "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n\n"
+        "unspecific": "Ups. Etwas ist schiefgegangen. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt."
       },
       "text1": "Gemeinsam haben wir den ersten großen Schritt zur Digitalisierung Deines Ladens gemacht. Darauf solltest Du stolz sein!\n",
-      "text2": "Aber dies ist nur der Anfang. Richte deinen neuen Laden ein indem Du die ersten Produkte hinzufügst.\n\n",
+      "text2": "Aber dies ist nur der Anfang. Richte deinen neuen Laden ein, indem Du deine ersten Produkte hinzufügst.\n\n",
       "text3": "Dann nutze unsere Lokabees Academy, um Schritt für Schritt zu lernen, wie Du ohne Vorkenntnisse online erfolgreich sein kannst!\n\n",
       "text4": "Du kannst die Einstellungen, die du vorgenommen hast, jederzeit unter `Mein Profil` ändern.\n\n",
       "title": "Herzlichen Glückwunsch, Dein Laden ist jetzt online!",
@@ -431,14 +431,14 @@
   "signup": {
     "accept_terms": "Indem du dich auf Lokabees anmeldest erklärst Du dich mit unseren Datenschutzrichtlinien und Nutzungsbedingungen einverstanden.",
     "account_exists": "Ich habe schon ein Konto",
-    "check_inbox": "Überprüfe Deinen Email-Posteingang und bestätige Deine Email um Dich anzumelden.\n\n",
+    "check_inbox": "Überprüfe Deinen E-Mail-Posteingang und bestätige Deine Adresse um Dich anzumelden.\n\n",
     "confirm_password": "Passwort bestätigen",
-    "email": "Wie lautet deine Email-Adresse?",
+    "email": "Wie lautet deine E-Mail-Adresse?",
     "errors": {
       "409": "Die eingegebene E-Mail-Adresse ist bereits mit einem Lokabees-Account verbunden. Wenn du bereits einen Lokabees Account hast, benutze dein Passwort, um dich einzuloggen. Wenn du dein Passwort vergessen hast, wende dich bitte an den Lokabees Support unter hello@lokabees.com.\n\n",
       "500": "Ein unbekannter Fehler ist aufgetreten. Versuche die Seite neu zu laden und logge dich erneut ein.\n\n",
       "504": "Wir können den Server nicht erreichen. Bitte versuche es später noch einmal oder melde das Problem an hello@lokabees.com\n\n",
-      "unspecific": "Ups. Etwas ging schief. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt.\n\n"
+      "unspecific": "Ups. Etwas ist schiefgegangen. Bitte versuche es erneut oder kontaktiere unseren Support, falls die Anfrage weiterhin fehlschlägt."
     },
     "facebook": "Facebook",
     "google": "Google",
@@ -450,9 +450,9 @@
     "signup": "Konto erstellen",
     "signup_successful": "Deine Registrierung war erfolgreich!",
     "text": "Deinen Laden ganz einfach bei Lokabees registrieren!",
-    "title": "Deinen Laden Registrieren",
+    "title": "Deinen Laden registrieren",
     "to_login": "Zur Anmeldung",
-    "updates_offers_consent": "Ich möchte über Angebote, Ankündigungen und Neuigkeiten über Lokabees informiert werden.",
+    "updates_offers_consent": "Ich möchte über Angebote, Ankündigungen und Neuigkeiten von Lokabees informiert werden.",
     "verification_successful": "Deine E-Mail wurde verifiziert!",
     "verification_successful_sub": "Du  kannst Dich nun Anmelden. Viel Spaß!"
   },
@@ -490,7 +490,7 @@
     "unsaved_changes": "Alle Änderungen gehen verloren, wenn Du ohne Speichern fortfährst. Willst du Deine Änderungen speichern?"
   },
   "validation_errors": {
-    "confirm_password": "Die Passwörter die Du eingegeben hast stimmen nicht überein.",
+    "confirm_password": "Die Passwörter, die Du eingegeben hast, stimmen nicht überein.",
     "mandatory_field": "Bitte fülle dieses Feld aus.",
     "no_numbers": "Keine Zahlen",
     "password": "Das Passwort muss einen Kleinbuchstaben, einen Großbuchstaben, eine Zahl und ein Sonderzeichen enthalten"
