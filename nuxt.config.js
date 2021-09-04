@@ -102,7 +102,9 @@ export default {
         baseUrl: (context) => {
           return context.isDev
             ? 'http://localhost:3000'
-            : (window && window.location) ||
+            : (process.client &&
+                typeof window !== 'undefined' &&
+                window.location) ||
                 'https://lokabees-dealer-dev.herokuapp.com'
         },
         locales: [
