@@ -15,6 +15,11 @@ $ yarn start
 
 # generate static project
 $ yarn generate
+
+#PHRASE Dashboard
+Phrase Dashboard : https://app.phrase.com/accounts/get-it/projects/lokabees-dealer/dashboard 
+
 ```
+
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
